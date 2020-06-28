@@ -47,14 +47,11 @@ For macOS, I recommend:
 
 For both Linux and macOS:
 
-- [`diff-so-fancy`](https://github.com/so-fancy/diff-so-fancy):
-better git difs (you'll need to run `dot_update` to apply it);
-- [`fzf`](https://github.com/junegunn/fzf):
-fuzzy finder, used in `,t` on vim, for example;
-- [`kubectx`](https://github.com/ahmetb/kubectx) for better kubernetes context
-  and namespace switch;
-- [`grc`]() to colorize more commands;
-- [`gh`]() for github integration in the terminal;
+- [`diff-so-fancy`](https://github.com/so-fancy/diff-so-fancy) for better git difs (you'll need to run `dot_update` to apply it);
+- [`fzf`](https://github.com/junegunn/fzf) for a fuzzy finder, used in `,t` on vim, for example;
+- [`kubectx`](https://github.com/ahmetb/kubectx) for better kubernetes context and namespace switch;
+- [`grc`](https://github.com/garabik/grc) to colorize command's outputs;
+- [`gh`](https://github.com/cli/cli) for more github integration with the terminal;
 
 ### macOS defaults
 
