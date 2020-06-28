@@ -1,0 +1,16 @@
+.java-version
+.DS_Store
+.svn
+*~
+*.swp
+*.orig
+*.rbc
+.idea
+*.iml
+.classpath
+.project
+.settings
+.ruby-version
+.vscode/
+dump.rdb
+main.tfvars

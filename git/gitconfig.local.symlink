@@ -1,0 +1,51 @@
+[difftool "diffmerge"]
+	cmd = diffmerge $LOCAL $REMOTE
+[alias]
+	co = checkout
+	count = shortlog -sn
+	g = grep --break --heading --line-number
+	gi = grep --break --heading --line-number -i
+	changed = show --pretty=\"format:\" --name-only
+	fm = fetch-merge
+	pr = open-pr
+	please = push --force-with-lease
+	commend = commit --amend --no-edit
+	fpr = fetch-pr
+	lt = log --tags --decorate --simplify-by-decoration --oneline
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+	compression = -1
+	autocrlf = input
+	whitespace = trailing-space,space-before-tab
+	precomposeunicode = true
+[apply]
+	whitespace = nowarn
+[help]
+	autocorrect = 1
+[merge]
+	tool = diffmerge
+[mergetool "diffmerge"]
+	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+	trustExitCode = true
+	keepBackup = false
+[diff]
+	tool = diffmerge
+[difftool]
+	prompt = false
+[grep]
+	extendRegexp = true
+	lineNumber = true
+[push]
+	default = simple
+[submodule]
+	fetchJobs = 4
+[commit]
+	template = ~/.dotfiles/git/template.txt
+[log]
+	showSignature = false

@@ -1,0 +1,20 @@
+#!/usr/bin/env fish
+#
+# Quick shortcut to an editor.
+#
+# This means that as I travel back and forth between editors, hey, I don't have
+# to re-learn any arcane commands. Neat.
+#
+# USAGE:
+#
+#   $ e
+#   # => opens the current directory in your editor
+#
+#   $ e .
+#   $ e /usr/local
+#   # => opens the specified directory in your editor
+set f $argv[1]
+if test -z $f
+	set f .
+end
+exec $VEDITOR $f >/tmp/editor-log 2>&1 &
