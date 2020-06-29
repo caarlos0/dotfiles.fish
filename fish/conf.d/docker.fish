@@ -5,6 +5,6 @@ function docker -w docker
 	case prune
 		command docker system prune --volumes -fa
 	case '*'
-		command brew $argv
+		command docker $argv
 	end
 end
