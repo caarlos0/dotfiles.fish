@@ -1,3 +1,4 @@
 function pubkey
-	more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'
+	more ~/.ssh/id_rsa.pub | pbcopy
+		and echo (set_color brblue)'-> Public key copied to clipboard'
 end
