@@ -13,7 +13,7 @@ abbr --add gaa 'git add -A'
 abbr --add gcm 'git commit -sm'
 abbr --add gcam 'git commit -sam'
 abbr --add gs 'git status -sb'
-abbr --add glnext 'git log --oneline $(git describe --tags --abbrev=0 @^)..@'
+abbr --add glnext 'git log --oneline (git describe --tags --abbrev=0 @^)..@'
 
 if command -q svu
 	function gtn -d "create the next semantic tag and push"
