@@ -1,0 +1,2 @@
+set -x GOPATH $PROJECTS/Go
+set PATH $PATH $GOPATH/bin

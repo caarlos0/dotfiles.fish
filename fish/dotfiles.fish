@@ -6,16 +6,18 @@ set -x VEDITOR code
 
 set -x DOTFILES ~/.dotfiles
 set -x PROJECTS ~/Code
-set -x GOPATH $PROJECTS/Go
-set PATH $PATH $GOPATH/bin
-
-set -x MAVEN_OPTS -Xmx1024m
-
-set PATH $HOME/.krew/bin $PATH
 
 set PATH $PATH $DOTFILES/bin $HOME/.bin
 
 for f in $DOTFILES/fish/conf.d/*.fish
+	source $f
+end
+
+for f in $DOTFILES/*/path.fish
+	source $f
+end
+
+for f in $DOTFILES/*/aliases.fish
 	source $f
 end
 
