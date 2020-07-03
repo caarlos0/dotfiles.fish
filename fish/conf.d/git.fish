@@ -30,5 +30,5 @@ if command -q gh
 end
 
 function cdr -d "cd to the top level directory of the git repository"
-	git rev-parse --show-toplevel | cd -
+	cd (git rev-parse --show-toplevel)
 end
