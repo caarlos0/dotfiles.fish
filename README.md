@@ -2,16 +2,12 @@
 
 # carlos' dotfiles
 
-[![Build Status][tb]][tp]
-
 > Config files for Fish, Java, Ruby, Go, Editors, Terminals and more.
 
 ![screenshot 1][scrn1]
 
 ![screenshot 2][scrn2]
 
-[tb]: https://img.shields.io/travis/caarlos0/dotfiles/master.svg?style=flat-square
-[tp]: https://travis-ci.org/caarlos0/dotfiles
 [scrn1]: /docs/screenshot1.png
 [scrn2]: /docs/screenshot2.png
 
@@ -24,7 +20,7 @@ First, make sure you have all those things installed:
 - `git`: to clone the repo
 - `curl`: to download some stuff
 - `tar`: to extract downloaded stuff
-- `fish`: to actually run the dotfiles
+- `fish`: the shell
 - `sudo`: some configs may need that
 - `oh-my-fish`: is what we use to manage plugins and etc
 

@@ -147,6 +147,10 @@ if ! grep (command -v fish) /etc/shells
 	echo
 end
 
+test (which fish) = $SHELL
+	and success fish is the default shell
+	and exit 0
+
 chsh -s (which fish)
 	and success set (fish --version) as the default shell
 	or abort 'set fish as default shell'
