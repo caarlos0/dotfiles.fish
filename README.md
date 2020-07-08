@@ -1,3 +1,5 @@
+<img scr="/docs/header.svg" alt="header img" width="300px"></img>
+
 # carlos' dotfiles
 
 [![Build Status][tb]][tp]
