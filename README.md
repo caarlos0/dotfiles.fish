@@ -48,7 +48,7 @@ Then, run these steps:
 
 ```console
 $ curl -sfL https://get.oh-my.fish | fish
-$ git clone https://github.com/caarlos0/dotfiles.git ~/.dotfiles
+$ git clone https://github.com/caarlos0/dotfiles.fish.git ~/.dotfiles
 $ cd ~/.dotfiles
 $ ./script/bootstrap.fish
 ```
