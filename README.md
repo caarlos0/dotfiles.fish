@@ -1,4 +1,4 @@
-<img scr="/docs/header.svg" alt="header img" width="300px"></img>
+![header](/docs/header.svg)
 
 # carlos' dotfiles
 
@@ -69,16 +69,3 @@ And logging out and in again/restart.
 
 Theme is **[Dracula](https://draculatheme.com)**, font is **JetBrains Mono** on
 editors and **Hack** on terminals.
-
-## Further help:
-
-- [Personalize your configs](/docs/PERSONALIZATION.md)
-- [Understand how it works](/docs/PHILOSOPHY.md)
-- [License](/LICENSE.md)
-
-## Contributing
-
-Feel free to contribute. Pull requests will be automatically
-checked/linted with [Shellcheck](https://github.com/koalaman/shellcheck)
-and [shfmt](https://github.com/mvdan/sh).
-
