@@ -1,15 +1,33 @@
-![header](/docs/header.svg)
+<p align="center">
+  <img alt="header image" src="https://raw.githubusercontent.com/caarlos0/dotfiles.fish/master/docs/header.svg" height="350" />
+  <h2 align="center">dotfiles</h2>
+  <p align="center">Config files for Fish, Java, Ruby, Go, Editors, Terminals and more.</p>
+</p>
 
-# carlos' dotfiles
+---
 
-> Config files for Fish, Java, Ruby, Go, Editors, Terminals and more.
+Forked from my [ZSH dotfiles](https://github.com/caarlos0/dotfiles), those are
+my Fish Shell config files, together with editor, macOS configs and other
+goodies.
 
-![screenshot 1][scrn1]
+The main reasons for the fork are:
 
-![screenshot 2][scrn2]
+- a lot of things I have out of the box on Fish needed plugins on zsh
+- Fish autocompletion is awesome
+- Fish syntax is easier to use
+- Fish is more modern.
 
-[scrn1]: /docs/screenshot1.png
-[scrn2]: /docs/screenshot2.png
+This is an attempt to make the same things I had on my ZSH dotfiles on Fish.
+For the user, it should look pretty much the same, although under the hood
+there are a lot of changes.
+
+Config files are still topical, and even though aliases are not a thing on Fish,
+files are named like that still (and hold both functions and abbreviations).
+
+The auto-update feature was removed, as it was hacky on ZSH and I didn't want to
+do it. Instead, now the bootstrap script is better and can be run multiple times
+without any issues, so, to update, `git pull` and run the `bootstrap.fish`
+script.
 
 ## Installation
 
@@ -65,3 +83,12 @@ And logging out and in again/restart.
 
 Theme is **[Dracula](https://draculatheme.com)**, font is **JetBrains Mono** on
 editors and **Hack** on terminals.
+
+## Screenshots
+
+![screenshot 1][scrn1]
+
+![screenshot 2][scrn2]
+
+[scrn1]: /docs/screenshot1.png
+[scrn2]: /docs/screenshot2.png
