@@ -129,6 +129,10 @@ omf install
 	and success 'plugins'
 	or abort 'plugins'
 
+mkdir ~/.config/fish/completions/
+	and success 'completions'
+	or abort 'completions'
+
 # https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md#pure-----
 ln -sf $OMF_PATH/themes/pure/conf.d/pure.fish ~/.config/fish/conf.d/pure.fish
 	and success 'theme'
