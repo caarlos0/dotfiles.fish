@@ -1,6 +1,5 @@
 {
 	"editor.fontSize": 15,
-	"editor.formatOnSave": true,
 	"editor.rulers": [
 		80,
 		120
@@ -80,5 +79,7 @@
 	"files.exclude": {
 		"yarn.lock": true
 	},
-	"terminal.integrated.shell.osx": "/usr/local/bin/fish"
+	"terminal.integrated.shell.osx": "/usr/local/bin/fish",
+	"workbench.preferredDarkColorTheme": "Dracula",
+	"editor.formatOnSave": true
 }
