@@ -17,4 +17,4 @@ set f $argv[1]
 if test -z $f
 	set f .
 end
-exec $VEDITOR $f >/tmp/editor-log 2>&1 &
+exec $VISUAL $f >/tmp/editor-log 2>&1 &
