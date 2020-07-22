@@ -1,5 +1,3 @@
-abbr --add d docker
-
 function docker -w docker
 	switch $argv[1]
 	case prune

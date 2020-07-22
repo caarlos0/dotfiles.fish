@@ -9,15 +9,11 @@ set -x PROJECTS ~/Code
 
 set PATH $PATH $DOTFILES/bin $HOME/.bin
 
-for f in $DOTFILES/fish/conf.d/*.fish
-	source $f
+for f in $DOTFILES/*/functions
+	set fish_function_path $f $fish_function_path
 end
 
-for f in $DOTFILES/*/path.fish
-	source $f
-end
-
-for f in $DOTFILES/*/aliases.fish
+for f in $DOTFILES/*/conf.fish
 	source $f
 end
 

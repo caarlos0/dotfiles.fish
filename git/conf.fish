@@ -14,21 +14,3 @@ abbr --add gcm 'git commit -sm'
 abbr --add gcam 'git commit -sam'
 abbr --add gs 'git status -sb'
 abbr --add glnext 'git log --oneline (git describe --tags --abbrev=0 @^)..@'
-
-if command -q svu
-	function gtn -d "create the next semantic tag and push"
-		git tag (svu n)
-			and svu c
-	end
-end
-
-if command -q gh
-	function gpr -d "git push and fill the pull request on the browser"
-		git push origin HEAD
-			and git pr
-	end
-end
-
-function cdr -d "cd to the top level directory of the git repository"
-	cd (git rev-parse --show-toplevel)
-end
