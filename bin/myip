@@ -1,2 +1,0 @@
-#!/bin/sh
-curl -w '%{stdout}\n' ifconfig.me
