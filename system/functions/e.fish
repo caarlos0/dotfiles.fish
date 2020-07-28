@@ -3,5 +3,5 @@ function e -d "edit folders with $VISUAL"
 	if test -z $f
 		set f .
 	end
-	exec $VISUAL $f >/tmp/editor-log 2>&1 &
+	$VISUAL $f >/tmp/editor-log 2>&1 &
 end
