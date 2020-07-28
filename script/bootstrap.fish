@@ -129,7 +129,7 @@ omf install
 	and success 'plugins'
 	or abort 'plugins'
 
-mkdir ~/.config/fish/completions/
+mkdir -p ~/.config/fish/completions/
 	and success 'completions'
 	or abort 'completions'
 
@@ -152,9 +152,11 @@ if ! grep (command -v fish) /etc/shells
 end
 
 test (which fish) = $SHELL
-	and success fish is the default shell
+	and success 'dotfiles installed/updated!'
 	and exit 0
 
 chsh -s (which fish)
 	and success set (fish --version) as the default shell
 	or abort 'set fish as default shell'
+
+success 'dotfiles installed/updated!'
