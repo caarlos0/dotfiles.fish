@@ -1,4 +1,21 @@
 function docker -w docker
+	switch $argv[1]
+	case 'exit'
+		pkill Docker
+	case prune
+		_docker_start
+		command docker system prune --volumes -fa
+	case '*'
+		_docker_start
+		command docker $argv
+	end
+end
+
+function __stop_docker
+	pkill Docker
+end
+
+function _docker_start
 	if test -z (pgrep com.docker.hyperkit)
 		open -g -a Docker.app
 		while ! command docker stats --no-stream >/dev/null 2>&1
@@ -6,11 +23,5 @@ function docker -w docker
 			sleep 1
 		end
 		echo
-	end
-	switch $argv[1]
-	case prune
-		command docker system prune --volumes -fa
-	case '*'
-		command docker $argv
 	end
 end
