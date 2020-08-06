@@ -1,6 +1,3 @@
-set -g pure_symbol_prompt λ
-set -g pure_threshold_command_duration 1
-
 set -x EDITOR vim
 set -x VISUAL code
 
