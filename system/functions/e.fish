@@ -1,7 +1,7 @@
-function e -d "edit folders with $VISUAL"
+function e -d "edit folders with $WEDITOR"
 	set f $argv[1]
 	if test -z $f
 		set f .
 	end
-	$VISUAL $f >/tmp/editor-log 2>&1 &
+	$WEDITOR $f >/tmp/editor-log 2>&1 &
 end

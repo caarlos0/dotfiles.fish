@@ -1,5 +1,6 @@
 set -x EDITOR vim
-set -x VISUAL code
+set -x VISUAL $EDITOR
+set -x WEDITOR code
 
 set -x DOTFILES ~/.dotfiles
 set -x PROJECTS ~/Code
