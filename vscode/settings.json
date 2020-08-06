@@ -81,5 +81,6 @@
 	},
 	"terminal.integrated.shell.osx": "/usr/local/bin/fish",
 	"workbench.preferredDarkColorTheme": "Dracula",
-	"editor.formatOnSave": true
+	"editor.formatOnSave": true,
+	"files.insertFinalNewline": true
 }
