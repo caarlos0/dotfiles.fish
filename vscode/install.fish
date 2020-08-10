@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 #
-if ! command -q code
+if ! command -qs code
 	exit 0
 end
 
