@@ -11,10 +11,6 @@ function docker -w docker
 	end
 end
 
-function __stop_docker
-	pkill Docker
-end
-
 function _docker_start
 	if test -z (pgrep com.docker.hyperkit)
 		open -g -a Docker.app
