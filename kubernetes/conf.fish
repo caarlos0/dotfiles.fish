@@ -1,9 +1,7 @@
 set PATH $HOME/.krew/bin $PATH
 
-if command -q kubectx
-	abbr --add kx kubectx
-	abbr --add kn kubens
-end
+abbr --add kx kubectx
+abbr --add kn kubens
 
 abbr --add k kubectl
 abbr --add sk 'kubectl -n kube-system'
