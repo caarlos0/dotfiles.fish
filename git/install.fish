@@ -9,12 +9,12 @@ case '*'
 end
 
 # better diffs
-if command -q diff-so-fancy
+if command -qs diff-so-fancy
 	git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 end
 
 # use vscode as mergetool
-if command -q code
+if command -qs code
 	git config --global merge.tool vscode
 		and git config --global mergetool.vscode.cmd "code --wait $MERGED"
 end
