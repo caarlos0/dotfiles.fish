@@ -5,10 +5,10 @@ set -x WEDITOR code
 set -x DOTFILES ~/.dotfiles
 set -x PROJECTS ~/Code
 
-set PATH $PATH $DOTFILES/bin $HOME/.bin
+set -a PATH $DOTFILES/bin $HOME/.bin
 
 for f in $DOTFILES/*/functions
-	set fish_function_path $f $fish_function_path
+	set -p fish_function_path $f
 end
 
 for f in $DOTFILES/*/conf.fish

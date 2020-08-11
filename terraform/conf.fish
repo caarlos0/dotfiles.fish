@@ -1,1 +1,0 @@
-abbr --add tf terraform
