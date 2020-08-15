@@ -18,5 +18,7 @@ case Darwin
 case '*'
 	mkdir -p ~/.local/share/fonts/
 		and install ~/.local/share/fonts/
-		and fc-cache -fv
+	if command -qs fc-cache
+        fc-cache -fv
+    end
 end
