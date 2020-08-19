@@ -55,6 +55,16 @@ $ ./script/bootstrap.fish
 
 > All changed files will be backed up with a `.backup` suffix.
 
+#### Update
+
+To update, you just need to `git pull` and run the bootstrap script again:
+
+```console
+$ cd ~/.dotfiles
+$ git pull origin master
+$ ./script/bootstrap.fish
+```
+
 ### Recommended Software
 
 For macOS, I recommend:
