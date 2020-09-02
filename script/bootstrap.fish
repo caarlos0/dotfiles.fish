@@ -98,6 +98,8 @@ function install_dotfiles
 		link_file $src $HOME/.(basename $src .symlink)
 			or abort 'failed to link config file'
 	end
+
+	link_file htop/htoprc $HOME/.config/htop/htoprc
 end
 
 if test -z $OMF_CONFIG || test -z $OMF_PATH
