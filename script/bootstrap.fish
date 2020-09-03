@@ -99,7 +99,9 @@ function install_dotfiles
 			or abort 'failed to link config file'
 	end
 
-	link_file htop/htoprc $HOME/.config/htop/htoprc
+	if test -e $HOME/.config/htop
+		link_file htop/htoprc $HOME/.config/htop/htoprc
+	end
 end
 
 if test -z $OMF_CONFIG || test -z $OMF_PATH
