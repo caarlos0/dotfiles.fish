@@ -68,16 +68,16 @@ function setup_gitconfig
 end
 
 function link_file -d "links a file keeping a backup"
-	echo $argv | read -l old new
+	echo $argv | read -l old new backup
 	if test -e $new
 		set newf (readlink $new)
 		if test "$newf" = "$old"
 			success "skipped $old"
 			return
 		else
-			mv $new $new.backup
-				and success moved $new to $new.backup
-				or abort "failed to backup $new to $new.backup"
+			mv $new $new.$backup
+				and success moved $new to $new.$backup
+				or abort "failed to backup $new to $new.$backup"
 		end
 	end
 	mkdir -p (dirname $new)
@@ -88,20 +88,22 @@ end
 
 function install_dotfiles
 	for src in $DOTFILES_ROOT/fish/omf/*
-		link_file $src $OMF_CONFIG/(basename $src)
+		link_file $src $OMF_CONFIG/(basename $src) backup
 		or abort "$src"
 	end
 
-	link_file $DOTFILES_ROOT/fish/dotfiles.fish ~/.config/fish/conf.d/dotfiles.fish
+	link_file $DOTFILES_ROOT/fish/dotfiles.fish ~/.config/fish/conf.d/dotfiles.fish backup
 		or abort 'failed to link fish config file'
 
 	for src in $DOTFILES_ROOT/*/*.symlink
-		link_file $src $HOME/.(basename $src .symlink)
+		link_file $src $HOME/.(basename $src .symlink) backup
 			or abort 'failed to link config file'
 	end
 
-	link_file $DOTFILES_ROOT/htop/htoprc $HOME/.config/htop/htoprc
-	link_file $DOTFILES_ROOT/ssh/config $HOME/.ssh/config
+	link_file $DOTFILES_ROOT/htop/htoprc $HOME/.config/htop/htoprc backup
+		or abort htoprc
+	link_file $DOTFILES_ROOT/ssh/config $HOME/.ssh/config local
+		or abort ssh
 end
 
 if test -z $OMF_CONFIG || test -z $OMF_PATH
