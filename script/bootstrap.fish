@@ -80,7 +80,8 @@ function link_file -d "links a file keeping a backup"
 				or abort "failed to backup $new to $new.backup"
 		end
 	end
-	ln -sf $old $new
+	mkdir -p (dirname $new)
+		and ln -sf $old $new
 		and success "linked $old to $new"
 		or abort "could not link $old to $new"
 end
@@ -99,9 +100,8 @@ function install_dotfiles
 			or abort 'failed to link config file'
 	end
 
-	if test -e $HOME/.config/htop
-		link_file htop/htoprc $HOME/.config/htop/htoprc
-	end
+	link_file $DOTFILES_ROOT/htop/htoprc $HOME/.config/htop/htoprc
+	link_file $DOTFILES_ROOT/ssh/config $HOME/.ssh/config
 end
 
 if test -z $OMF_CONFIG || test -z $OMF_PATH
