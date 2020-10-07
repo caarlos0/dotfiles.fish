@@ -7,10 +7,8 @@
 	gi = grep --break --heading --line-number -i
 	changed = show --pretty=\"format:\" --name-only
 	fm = fetch-merge
-	pr = open-pr
 	please = push --force-with-lease
 	commend = commit --amend --no-edit
-	fpr = fetch-pr
 	lt = log --tags --decorate --simplify-by-decoration --oneline
 [color]
 	diff = auto
