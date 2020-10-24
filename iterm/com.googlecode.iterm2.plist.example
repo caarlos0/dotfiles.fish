@@ -337,13 +337,13 @@
 	<key>NSFontPanelSizeSliderParams</key>
 	<string>2 0 100</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~</string>
+	<string>~/Documents</string>
 	<key>NSNavLastUserSetHideExtensionButtonState</key>
 	<true/>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSNavPanelExpandedSizeForSaveMode</key>
-	<string>{712, 448}</string>
+	<string>{841, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -412,6 +412,8 @@
 	<string>0 139 224 275 0 0 1680 1027 </string>
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>365 262 737 77 0 0 1680 1027 </string>
+	<key>NSWindow Frame NSNavPanelAutosaveName</key>
+	<string>419 430 841 470 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
 	<string>1196 1134 616 174 0 0 3008 1669 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
@@ -423,7 +425,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 473 592 584 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 52 1680 975 0 0 1680 1027 </string>
+	<string>0 52 3008 1617 0 0 3008 1669 </string>
 	<key>NeverWarnAboutShortLivedSessions_21048CBB-8F4B-4492-A49A-8DCDADDF9248</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -432,7 +434,7 @@
 			<key>ASCII Anti Aliased</key>
 			<true/>
 			<key>ASCII Ligatures</key>
-			<false/>
+			<true/>
 			<key>Allow Title Reporting</key>
 			<true/>
 			<key>Ambiguous Double Width</key>
@@ -1027,7 +1029,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Hack-Regular 15</string>
+			<string>InconsolataForPowerline 18</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>
@@ -1294,8 +1296,10 @@
 			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
+			<key>Thin Strokes</key>
+			<integer>1</integer>
 			<key>Transparency</key>
-			<real>0.055857392131979697</real>
+			<real>0.0</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
@@ -1342,11 +1346,12 @@
 	</array>
 	<key>NoSyncBFPFavorites</key>
 	<array>
-		<string>Hack</string>
+		<string>Inconsolata</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
-		<string>Hack</string>
+		<string>Inconsolata for Powerline</string>
+		<string>Inconsolata</string>
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
@@ -1359,7 +1364,7 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {3008, 1692}}</string>
 		<key>topLeft</key>
-		<string>{587, 1083}</string>
+		<string>{518, 945}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -1372,7 +1377,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>593715301.36013901</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>62</integer>
+	<integer>75</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2137,6 +2142,8 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NoSyncSaveDocumentAsPathSet_saveDocumentAs:</key>
+	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>546126422.28583503</real>
 	<key>NoSyncTipsToNotShow</key>
@@ -2226,7 +2233,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-08-06T12:29:06Z</date>
+	<date>2020-10-23T14:40:40Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -2287,6 +2294,8 @@
 	<false/>
 	<key>UseLionStyleFullscreen</key>
 	<true/>
+	<key>UseMetal</key>
+	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>WebKitDefaultFontSize</key>
