@@ -1,17 +1,16 @@
 #!/usr/bin/env fish
 function install
-	curl -Lso /tmp/mono.zip https://github.com/JetBrains/JetBrainsMono/releases/download/v1.0.6/JetBrainsMono-1.0.6.zip
-		and unzip -o -j /tmp/mono.zip '*/ttf/*' -d $argv[1]
+	curl -Lso /tmp/inconsolata.zip https://github.com/googlefonts/Inconsolata/releases/download/v3.000/fonts_ttf.zip
+		and unzip -o -j /tmp/inconsolata.zip 'fonts/ttf/*' -d $argv[1]
 
-	curl -Lso /tmp/hack.zip https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip
-		and unzip -o -j /tmp/hack.zip -d $argv[1]
+	curl -Lso $argv[1]/"Inconsolata Bold for Powerline.ttf"	https://github.com/powerline/fonts/raw/master/Inconsolata/Inconsolata%20Bold%20for%20Powerline.ttf
 end
 
 switch (uname)
 case Darwin
 	if command -qs brew
 		brew tap -q homebrew/cask-fonts
-			and brew cask install font-jetbrains-mono font-hack
+			and brew cask install font-inconsolata font-inconsolata-for-powerline
 	else
 		install ~/Library/Fonts
 	end
