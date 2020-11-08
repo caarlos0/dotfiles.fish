@@ -76,9 +76,9 @@ For both Linux and macOS:
 - [`bat`](https://github.com/sharkdp/bat) a cat with wings;
 - [`diff-so-fancy`](https://github.com/so-fancy/diff-so-fancy) for better git diffs;
 - [`fzf`](https://github.com/junegunn/fzf) for a fuzzy finder, used in `,t` on vim, for example;
-- [`kubectx`](https://github.com/ahmetb/kubectx) for better kubernetes context and namespace switch;
-- [`grc`](https://github.com/garabik/grc) to colorize command's outputs;
 - [`gh`](https://github.com/cli/cli) for more github integration with the terminal;
+- [`grc`](https://github.com/garabik/grc) to colorize command's outputs;
+- [`kubectx`](https://github.com/ahmetb/kubectx) for better kubernetes context and namespace switch;
 
 ### macOS defaults
 
