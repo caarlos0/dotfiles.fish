@@ -73,14 +73,15 @@ For macOS, I recommend:
 
 For both Linux and macOS:
 
-- [`bat`](https://github.com/sharkdp/bat) a cat with wings;
+- [`bat`](https://github.com/sharkdp/bat) a `cat` with wings;
 - [`diff-so-fancy`](https://github.com/so-fancy/diff-so-fancy) for better git diffs;
+- [`dog`](https://dns.lookup.dog) the command-line DNS client;
 - [`exa`](https://the.exa.website) a modern replacement for `ls`;
 - [`fd`](https://github.com/sharkdp/fd) a simple, fast and user-friendly alternative to `find`;
-- [`fzf`](https://github.com/junegunn/fzf) for a fuzzy finder, used in `,t` on vim, for example;
-- [`gh`](https://github.com/cli/cli) for more github integration with the terminal;
+- [`fzf`](https://github.com/junegunn/fzf) for a fuzzy-finder, used in `,t` on vim, for example;
+- [`gh`](https://github.com/cli/cli) for more GitHub integration with the terminal;
 - [`grc`](https://github.com/garabik/grc) to colorize command's outputs;
-- [`kubectx`](https://github.com/ahmetb/kubectx) for better kubernetes context and namespace switch;
+- [`kubectx`](https://github.com/ahmetb/kubectx) for better Kubernetes context and namespace switch;
 - [`ripgrep`](https://github.com/BurntSushi/ripgrep) a faster `grep`;
 
 ### macOS defaults
