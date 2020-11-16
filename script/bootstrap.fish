@@ -117,16 +117,6 @@ install_dotfiles
 	and success 'dotfiles'
 	or abort 'dotfiles'
 
-# compatibility for linux
-switch (uname)
-case Darwin
-	# noop
-case '*'
-	fisher install pbcopy
-		and success 'pbcopy'
-		or abort 'pbcopy'
-end
-
 fisher update
 	and success 'plugins'
 	or abort 'plugins'
