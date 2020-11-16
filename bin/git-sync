@@ -1,0 +1,40 @@
+#!/usr/bin/env fish
+function log
+	echo (set_color --bold magenta) "-----> $argv" (set_color normal)
+end
+
+function prune
+	set remote $argv[1]
+	log "Pruning $remote..."
+	git remote prune "$remote"
+end
+
+function merge_locally
+	set remote $argv[1]
+	set branch $argv[2]
+	log "Merging $remote/$branch locally..."
+	git fetch $remote
+		and git merge --no-edit $remote/$branch
+end
+
+function push_to_fork
+	set remote $argv[1]
+	set branch $argv[2]
+	if ! test "$remote" = "origin"
+		log "Pushing it to origin/$branch..."
+		git push origin $branch
+	end
+end
+
+set branch (git symbolic-ref --short HEAD)
+set remote (git remote | grep upstream)
+if test -z $remote
+	set remote origin
+end
+
+prune $remote
+	and merge_locally $remote $branch
+	and push_to_fork $remote $branch
+	and git branch -u $remote/$branch
+	and git delete-local-merged
+	and log "All done!"
