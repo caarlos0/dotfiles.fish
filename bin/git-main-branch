@@ -1,7 +1,6 @@
-#!/bin/bash
-set -euo pipefail
-if test -f .git/refs/remotes/origin/main; then
+#!/usr/bin/env fish
+if test -f .git/refs/remotes/origin/main
 	echo main
-	exit 0
-fi
-echo master
+else
+	echo master
+end
