@@ -87,11 +87,6 @@ function link_file -d "links a file keeping a backup"
 end
 
 function install_dotfiles
-	for src in $DOTFILES_ROOT/fish/omf/*
-		link_file $src $OMF_CONFIG/(basename $src) backup
-		or abort "$src"
-	end
-
 	link_file $DOTFILES_ROOT/fish/dotfiles.fish ~/.config/fish/conf.d/dotfiles.fish backup
 		or abort 'failed to link fish config file'
 
@@ -99,6 +94,8 @@ function install_dotfiles
 		link_file $src $HOME/.(basename $src .symlink) backup
 			or abort 'failed to link config file'
 	end
+
+	link_file $DOTFILES_ROOT/fisher/plugins $__fish_config_dir/fish_plugins
 
 	link_file $DOTFILES_ROOT/bat/config $HOME/.config/bat/config backup
 		or abort bat
@@ -108,12 +105,9 @@ function install_dotfiles
 		or abort ssh
 end
 
-if test -z $OMF_CONFIG || test -z $OMF_PATH
-	abort "Please install oh-my-fish first:
-
-"(set_color -d)"curl -sfL https://get.oh-my.fish | fish
-"(set_color normal)
-end
+curl -sL git.io/fisher | source && fisher install jorgebucaran/fisher
+	and success 'fisher'
+	or abort 'fisher'
 
 setup_gitconfig
 	and success 'gitconfig'
@@ -123,28 +117,13 @@ install_dotfiles
 	and success 'dotfiles'
 	or abort 'dotfiles'
 
-# compatibility for linux
-switch (uname)
-case Darwin
-	# noop
-case '*'
-	omf install pbcopy
-		and success 'pbcopy'
-		or abort 'pbcopy'
-end
-
-omf install
+fisher update
 	and success 'plugins'
 	or abort 'plugins'
 
 mkdir -p ~/.config/fish/completions/
 	and success 'completions'
 	or abort 'completions'
-
-# https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md#pure-----
-ln -sf $OMF_PATH/themes/pure/conf.d/pure.fish ~/.config/fish/conf.d/pure.fish
-	and success 'theme'
-	or abort 'theme'
 
 for installer in */install.fish
 	$installer

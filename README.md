@@ -40,7 +40,6 @@ First, make sure you have all those things installed:
 - `tar`: to extract downloaded stuff
 - `fish`: the shell
 - `sudo`: some configs may need that
-- `oh-my-fish`: is what we use to manage plugins and etc
 
 ### Install
 
