@@ -7,6 +7,9 @@ set -x PROJECTS ~/Code
 
 set -a PATH $DOTFILES/bin $HOME/.bin
 
+set lucid_cwd_color blue
+set lucid_git_color brblack
+
 for f in $DOTFILES/*/functions
 	set -p fish_function_path $f
 end
