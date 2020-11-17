@@ -94,8 +94,7 @@ And logging out and in again/restart.
 
 ### Themes and fonts being used
 
-Theme is **[Dracula](https://draculatheme.com)**, font is **Inconsolata** on
-editors and **Inconsolata for Powerline** on terminals.
+Theme is **[Dracula](https://draculatheme.com)** and font is **Inconsolata**.
 
 ## Screenshots
 
