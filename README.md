@@ -72,7 +72,7 @@ For macOS, I recommend:
 For both Linux and macOS:
 
 - [`bat`](https://github.com/sharkdp/bat) a `cat` with wings;
-- [`diff-so-fancy`](https://github.com/so-fancy/diff-so-fancy) for better git diffs;
+- [`delta`](https://github.com/dandavison/delta) for better git diffs;
 - [`dog`](https://dns.lookup.dog) the command-line DNS client;
 - [`exa`](https://the.exa.website) a modern replacement for `ls`;
 - [`fd`](https://github.com/sharkdp/fd) a simple, fast and user-friendly alternative to `find`;
