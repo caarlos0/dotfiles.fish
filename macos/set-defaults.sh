@@ -24,7 +24,7 @@ unload_agent() {
 	launchctl unload -w "$1" >/dev/null 2>&1
 }
 
-test -z "$TRAVIS_JOB_ID" && sudo -v
+sudo -v
 
 echo ""
 echo "› System:"
@@ -96,11 +96,9 @@ defaults write NSGlobalDomain AppleHighlightColor -string "0.847059 0.847059 0.8
 echo "  › Show battery percent"
 defaults write com.apple.menuextra.battery ShowPercent -bool true
 
-if [ -n "$TRAVIS_JOB_ID" ]; then
-	echo "  › Speed up wake from sleep to 24 hours from an hour"
-	# http://www.cultofmac.com/221392/quick-hack-speeds-up-retina-macbooks-wake-from-sleep-os-x-tips/
-	sudo pmset -a standbydelay 86400
-fi
+echo "  › Speed up wake from sleep to 24 hours from an hour"
+# http://www.cultofmac.com/221392/quick-hack-speeds-up-retina-macbooks-wake-from-sleep-os-x-tips/
+sudo pmset -a standbydelay 86400
 
 echo "  › Removing duplicates in the 'Open With' menu"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister \
@@ -263,24 +261,24 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 ###############################################################################
 # SSD-specific tweaks                                                         #
 ###############################################################################
-if [ -n "$TRAVIS_JOB_ID" ] && diskutil info disk0 | grep SSD >/dev/null 2>&1; then
-	echo "  › Disable local backups"
-	# https://classicyuppie.com/what-crap-is-this-os-xs-mobilebackups/
-	sudo tmutil disablelocal
+echo ""
+echo "› SSD tweaks:"
+echo "  › Disable local backups"
+# https://classicyuppie.com/what-crap-is-this-os-xs-mobilebackups/
+sudo tmutil disablelocal
 
-	echo "  › Disable hibernation (speeds up entering sleep mode)"
-	sudo pmset -a hibernatemode 0
+echo "  › Disable hibernation (speeds up entering sleep mode)"
+sudo pmset -a hibernatemode 0
 
-	echo "  › Remove the sleep image file to save disk space"
-	sudo rm /private/var/vm/sleepimage
-	echo "  › Create a zero-byte file instead..."
-	sudo touch /private/var/vm/sleepimage
-	echo "  › ...and make sure it can’t be rewritten"
-	sudo chflags uchg /private/var/vm/sleepimage
+echo "  › Remove the sleep image file to save disk space"
+sudo rm /private/var/vm/sleepimage
+echo "  › Create a zero-byte file instead..."
+sudo touch /private/var/vm/sleepimage
+echo "  › ...and make sure it can’t be rewritten"
+sudo chflags uchg /private/var/vm/sleepimage
 
-	echo "  ›  Disable the sudden motion sensor as it’s not useful for SSDs"
-	sudo pmset -a sms 0
-fi
+echo "  ›  Disable the sudden motion sensor as it’s not useful for SSDs"
+sudo pmset -a sms 0
 
 #############################
 
@@ -299,7 +297,7 @@ disable_agent ~/Applications/Spotify.app/Contents/MacOS/SpotifyWebHelper
 #############################
 
 echo ""
-echo "› Kill related apps"
+echo "› Restart related apps"
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Dock" "Finder" "Mail" "Messages" "Safari" "SystemUIServer" \
 	"Terminal" "Transmission" "Photos"; do
