@@ -63,6 +63,25 @@ $ git pull origin master
 $ ./script/bootstrap.fish
 ```
 
+### Revert
+
+Reverting is not totally automated, but it pretty much consists in removing
+the fish config and dotfiles folder, as well as moving back some config files.
+
+**Remove the folders:**
+
+```console
+$ rm -rf ~/.dotfiles ~/.config/fish
+```
+
+**Some config files were changed, you can find them using `fd`:**
+
+```console
+$ fd -e backup -e local -H -E Library -d 3 .
+```
+
+And then manually inspect/revert them.
+
 ### Recommended Software
 
 For macOS, I recommend:
@@ -82,15 +101,21 @@ For both Linux and macOS:
 - [`kubectx`](https://github.com/ahmetb/kubectx) for better Kubernetes context and namespace switch;
 - [`ripgrep`](https://github.com/BurntSushi/ripgrep) a faster `grep`;
 
+To install them all with `brew`:
+
+```console
+$ brew install bat git-delta dog exa fd fzf gh grc kubectx ripgrep
+```
+
 ### macOS defaults
 
 You use it by running:
 
 ```console
-$DOTFILES/macos/set-defaults.sh
+~/.dotfiles/macos/set-defaults.sh
 ```
 
-And logging out and in again/restart.
+And logging out and in again or restart.
 
 ### Themes and fonts being used
 
