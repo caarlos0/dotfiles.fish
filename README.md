@@ -63,7 +63,7 @@ $ git pull origin master
 $ ./script/bootstrap.fish
 ```
 
-### Revert
+## Revert
 
 Reverting is not totally automated, but it pretty much consists in removing
 the fish config and dotfiles folder, as well as moving back some config files.
@@ -82,7 +82,7 @@ $ fd -e backup -e local -H -E Library -d 3 .
 
 And then manually inspect/revert them.
 
-### Recommended Software
+## Recommended Software
 
 For macOS, I recommend:
 
@@ -107,7 +107,7 @@ To install them all with `brew`:
 $ brew install bat git-delta dog exa fd fzf gh grc kubectx ripgrep
 ```
 
-### macOS defaults
+## macOS defaults
 
 You use it by running:
 
@@ -117,9 +117,9 @@ You use it by running:
 
 And logging out and in again or restart.
 
-### Themes and fonts being used
+## Themes and fonts being used
 
-Theme is **[Dracula](https://draculatheme.com)** and font is **Inconsolata**.
+Theme is **[Nord](https://nordtheme.com)** and font is **Inconsolata**.
 
 ## Screenshots
 
