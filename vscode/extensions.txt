@@ -1,16 +1,18 @@
+arcticicestudio.nord-visual-studio-code
 ban.spellright
 be5invis.toml
 dawhite.mustache
-dracula-theme.theme-dracula
 eamodio.gitlens
 EditorConfig.EditorConfig
-golang.Go
+golang.go
 hashicorp.terraform
 heptio.jsonnet
 HookyQR.beautify
 logerfo.procfile-support
 ms-azuretools.vscode-docker
 ms-python.python
+ms-toolsai.jupyter
+ms-vscode.vscode-github-issue-notebooks
 patbenatar.advanced-new-file
 pnp.polacode
 quicktype.quicktype
@@ -19,5 +21,6 @@ rust-lang.rust
 shanoor.vscode-nginx
 skyapps.fish-vscode
 timonwong.shellcheck
+tsandall.opa
 wingrunr21.vscode-ruby
 wmaurer.change-case

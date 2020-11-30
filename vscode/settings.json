@@ -1,5 +1,5 @@
 {
-	"editor.fontSize": 15,
+	"editor.fontSize": 18,
 	"editor.rulers": [
 		80,
 		120
@@ -19,7 +19,7 @@
 	"files.trimTrailingWhitespace": true,
 	"editor.minimap.enabled": false,
 	"editor.renderWhitespace": "boundary",
-	"workbench.colorTheme": "Dracula",
+	"workbench.colorTheme": "Nord",
 	"window.zoomLevel": 0,
 	"extensions.ignoreRecommendations": false,
 	"go.coverageDecorator": {
@@ -74,13 +74,13 @@
 	"go.buildFlags": [
 		"-v"
 	],
-	"editor.fontFamily": "'Inconsolata Condensed', Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontFamily": "'Inconsolata', Menlo, Monaco, 'Courier New', monospace",
 	"editor.smoothScrolling": true,
 	"files.exclude": {
 		"yarn.lock": true
 	},
 	"terminal.integrated.shell.osx": "/usr/local/bin/fish",
-	"workbench.preferredDarkColorTheme": "Dracula",
+	"workbench.preferredDarkColorTheme": "Nord",
 	"editor.formatOnSave": true,
 	"files.insertFinalNewline": true,
 	"editor.formatOnSaveMode": "modifications"
