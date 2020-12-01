@@ -1,16 +1,18 @@
 #!/usr/bin/env fish
-function install
-	curl -Lso /tmp/inconsolata.zip https://github.com/googlefonts/Inconsolata/releases/download/v3.000/fonts_ttf.zip
-		and unzip -o -j /tmp/inconsolata.zip 'fonts/ttf/*' -d $argv[1]
+if test -e ~/.local/share/fonts/Inconsolata[wdth,wght].ttf ||
+	test -e ~/Library/Fonts/Inconsolata[wdth,wght].ttf
+	return
+end
 
-	curl -Lso $argv[1]/"Inconsolata Bold for Powerline.ttf"	https://github.com/powerline/fonts/raw/master/Inconsolata/Inconsolata%20Bold%20for%20Powerline.ttf
+function install
+	curl -Lso $argv[1]/Inconsolata[wdth,wght].ttf https://github.com/google/fonts/raw/master/ofl/inconsolata/Inconsolata%5Bwdth%2Cwght%5D.ttf
 end
 
 switch (uname)
 case Darwin
 	if command -qs brew
 		brew tap -q homebrew/cask-fonts
-			and brew cask install font-inconsolata font-inconsolata-for-powerline
+			and brew cask install font-inconsolata
 	else
 		install ~/Library/Fonts
 	end
@@ -18,6 +20,6 @@ case '*'
 	mkdir -p ~/.local/share/fonts/
 		and install ~/.local/share/fonts/
 	if command -qs fc-cache
-        fc-cache -fv
-    end
+		fc-cache -fv
+	end
 end
