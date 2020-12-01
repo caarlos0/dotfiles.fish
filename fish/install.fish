@@ -1,6 +1,5 @@
 #!/usr/bin/env fish
 # set nord theme (from fish_config)
-set -L
 set -U fish_color_normal normal
 set -U fish_color_command 81a1c1
 set -U fish_color_quote a3be8c
