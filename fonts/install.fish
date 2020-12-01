@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 if test -e ~/.local/share/fonts/Inconsolata[wdth,wght].ttf ||
 	test -e ~/Library/Fonts/Inconsolata[wdth,wght].ttf
-	return
+	exit 0
 end
 
 function install
