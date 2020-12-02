@@ -3,7 +3,7 @@ set -x VISUAL $EDITOR
 set -x WEDITOR code
 
 set -x DOTFILES ~/.dotfiles
-set -x PROJECTS ~/Code
+set -x PROJECTS ~/Developer
 
 set -a PATH $DOTFILES/bin $HOME/.bin
 
