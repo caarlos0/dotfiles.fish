@@ -87,9 +87,6 @@ function link_file -d "links a file keeping a backup"
 end
 
 function install_dotfiles
-	link_file $DOTFILES_ROOT/fish/dotfiles.fish ~/.config/fish/conf.d/dotfiles.fish backup
-		or abort 'failed to link fish config file'
-
 	for src in $DOTFILES_ROOT/*/*.symlink
 		link_file $src $HOME/.(basename $src .symlink) backup
 			or abort 'failed to link config file'
