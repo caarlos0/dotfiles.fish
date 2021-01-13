@@ -1,5 +1,10 @@
 function c -d "quick cd into $PROJECTS"
-	cd $PROJECTS/$argv
+	switch $argv[1]
+	case ''
+		cd $PROJECTS
+	case '*'
+		cd $PROJECTS/$argv[1]
+	end
 end
 
 function __c_complete
