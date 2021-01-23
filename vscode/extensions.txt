@@ -1,5 +1,4 @@
 arcticicestudio.nord-visual-studio-code
-ban.spellright
 be5invis.toml
 dawhite.mustache
 eamodio.gitlens
@@ -14,13 +13,12 @@ ms-python.python
 ms-toolsai.jupyter
 ms-vscode.vscode-github-issue-notebooks
 patbenatar.advanced-new-file
-pnp.polacode
 quicktype.quicktype
 rebornix.ruby
 rust-lang.rust
 shanoor.vscode-nginx
 skyapps.fish-vscode
+statiolake.vscode-rustfmt
 timonwong.shellcheck
 tsandall.opa
 wingrunr21.vscode-ruby
-wmaurer.change-case
