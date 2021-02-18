@@ -19,7 +19,6 @@
 	"files.trimTrailingWhitespace": true,
 	"editor.minimap.enabled": false,
 	"editor.renderWhitespace": "boundary",
-	"workbench.colorTheme": "Nord",
 	"window.zoomLevel": 0,
 	"extensions.ignoreRecommendations": false,
 	"go.coverageDecorator": {
@@ -80,8 +79,9 @@
 		"yarn.lock": true
 	},
 	"terminal.integrated.shell.osx": "/usr/local/bin/fish",
-	"workbench.preferredDarkColorTheme": "Nord",
+	"workbench.preferredDarkColorTheme": "Dracula",
 	"editor.formatOnSave": true,
 	"files.insertFinalNewline": true,
-	"editor.formatOnSaveMode": "modifications"
+	"editor.formatOnSaveMode": "modifications",
+	"workbench.colorTheme": "Dracula"
 }

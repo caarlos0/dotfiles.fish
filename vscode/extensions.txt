@@ -1,6 +1,6 @@
-arcticicestudio.nord-visual-studio-code
 be5invis.toml
 dawhite.mustache
+dracula-theme.theme-dracula
 eamodio.gitlens
 EditorConfig.EditorConfig
 golang.go

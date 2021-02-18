@@ -48,7 +48,7 @@ Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'moll/vim-bbye'
 
 " Colors
-Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', {'as': 'dracula'}
 
 call plug#end()
 
@@ -225,7 +225,7 @@ endif
 if exists('+termguicolors')
   set termguicolors
 endif
-:silent! colorscheme nord
+:silent! colorscheme dracula
 "set background=dark
 " let g:hybrid_use_Xresources = 1
 " let g:rehash256 = 1
