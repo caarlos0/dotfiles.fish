@@ -119,7 +119,7 @@ And logging out and in again or restart.
 
 ## Themes and fonts being used
 
-Theme is **[Nord](https://nordtheme.com)** and font is **Inconsolata**.
+Theme is **[Dracula](https://draculatheme.com)** and font is **Inconsolata**.
 
 ## Screenshots
 
