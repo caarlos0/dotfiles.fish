@@ -13,7 +13,7 @@ end
 
 function _docker_start
 	if test -z (pgrep com.docker.hyperkit)
-		open -g -a Docker.app
+		open -g -j -a Docker.app
 		while ! command docker stats --no-stream >/dev/null 2>&1
 			echo -n .
 			sleep 1
