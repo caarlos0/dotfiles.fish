@@ -1,0 +1,23 @@
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[java]
+disabled = true
+
+[golang]
+disabled = true
+
+[rust]
+disabled = true
+
+[terraform]
+disabled = true
+
+[jobs]
+disabled = false
+
+[kubernetes]
+disabled = false
