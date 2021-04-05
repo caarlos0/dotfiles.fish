@@ -1,17 +1,17 @@
 {
-	"editor.fontSize": 17,
+	"editor.fontSize": 20,
 	"editor.rulers": [
 		80,
 		120
 	],
-	"editor.fontLigatures": true,
+	"editor.fontLigatures": false,
 	"editor.tabSize": 4,
 	"editor.trimAutoWhitespace": true,
 	"editor.tabCompletion": "on",
 	"explorer.openEditors.visible": 0,
 	"window.restoreWindows": "none",
 	"terminal.external.osxExec": "iTerm.app",
-	"terminal.integrated.fontSize": 14,
+	"terminal.integrated.fontSize": 16,
 	"files.autoSave": "onFocusChange",
 	"extensions.autoUpdate": true,
 	"editor.cursorBlinking": "phase",
@@ -19,7 +19,6 @@
 	"files.trimTrailingWhitespace": true,
 	"editor.minimap.enabled": false,
 	"editor.renderWhitespace": "boundary",
-	"window.zoomLevel": 0,
 	"extensions.ignoreRecommendations": false,
 	"go.coverageDecorator": {
 		"type": "gutter"
@@ -48,7 +47,7 @@
 	},
 	"telemetry.enableCrashReporter": false,
 	"go.useCodeSnippetsOnFunctionSuggest": true,
-	"go.formatTool": "goimports",
+	"go.formatTool": "gofumpt",
 	"search.useGlobalIgnoreFiles": true,
 	"workbench.editor.highlightModifiedTabs": true,
 	"search.showLineNumbers": true,
@@ -65,10 +64,6 @@
 	"go.alternateTools": {
 		"go-langserver": "gopls"
 	},
-	"go.languageServerExperimentalFeatures": {
-		"format": true,
-		"autoComplete": true
-	},
 	"window.newWindowDimensions": "maximized",
 	"go.buildFlags": [
 		"-v"
@@ -83,5 +78,8 @@
 	"editor.formatOnSave": true,
 	"files.insertFinalNewline": true,
 	"editor.formatOnSaveMode": "modifications",
-	"workbench.colorTheme": "Dracula"
+	"workbench.colorTheme": "Dracula",
+	"go.toolsManagement.autoUpdate": true,
+	"workbench.sideBar.location": "right",
+	"debug.console.fontSize": 16
 }
