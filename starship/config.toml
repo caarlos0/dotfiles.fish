@@ -4,6 +4,10 @@ disabled = true
 [cmake]
 disabled = true
 
+[cmd_duration]
+min_time = 500
+format = "[$duration]($style) "
+
 [conda]
 disabled = true
 
@@ -13,24 +17,9 @@ disabled = true
 [dart]
 disabled = true
 
-[cmd_duration]
-min_time = 500
-format = "[$duration]($style) "
-
-[gcloud]
-disabled = true
-
-[java]
-disabled = true
-
-[golang]
-disabled = true
-
-[terraform]
-disabled = true
-
-[jobs]
-disabled = true
+[directory]
+read_only = " "
+truncate_to_repo = false
 
 [docker_context]
 disabled = true
@@ -50,20 +39,41 @@ disabled = true
 [erlang]
 disabled = true
 
+[gcloud]
+disabled = true
+
+[git_branch]
+symbol = " "
+
+[git_status]
+format = "[$ahead_behind$untracked$modified]($style)"
+
+[golang]
+disabled = true
+
+[helm]
+disabled = true
+
+[java]
+disabled = true
+
+[jobs]
+disabled = true
+
 [julia]
 disabled = true
 
 [kotlin]
 disabled = true
 
+[kubernetes]
+disabled = false
+
 [lua]
 disabled = true
 
 [nim]
 disabled = true
-
-[kubernetes]
-disabled = false
 
 [nix_shell]
 disabled = true
@@ -75,6 +85,9 @@ disabled = true
 disabled = true
 
 [openstack]
+disabled = true
+
+[package]
 disabled = true
 
 [perl]
@@ -107,11 +120,11 @@ disabled = true
 [swift]
 disabled = true
 
+[terraform]
+disabled = true
+
 [vagrant]
 disabled = true
 
 [zig]
-disabled = true
-
-[package]
 disabled = true
