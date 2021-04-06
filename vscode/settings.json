@@ -4,7 +4,7 @@
 		80,
 		120
 	],
-	"editor.fontLigatures": false,
+	"editor.fontLigatures": true,
 	"editor.tabSize": 4,
 	"editor.trimAutoWhitespace": true,
 	"editor.tabCompletion": "on",
@@ -81,5 +81,7 @@
 	"workbench.colorTheme": "Dracula",
 	"go.toolsManagement.autoUpdate": true,
 	"workbench.sideBar.location": "right",
-	"debug.console.fontSize": 16
+	"debug.console.fontSize": 16,
+	"terminal.integrated.fontFamily": "\"Inconsolata Nerd Font\"",
+	"diffEditor.codeLens": true
 }
