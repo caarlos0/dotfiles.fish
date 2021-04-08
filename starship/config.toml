@@ -46,7 +46,7 @@ disabled = true
 symbol = " "
 
 [git_status]
-format = "[$ahead_behind$untracked$modified]($style)"
+format = "[$ahead_behind$untracked$modified]($style) "
 
 [golang]
 disabled = true
@@ -67,7 +67,7 @@ disabled = true
 disabled = true
 
 [kubernetes]
-disabled = false
+disabled = true
 
 [lua]
 disabled = true
