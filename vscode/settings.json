@@ -1,5 +1,5 @@
 {
-	"editor.fontSize": 20,
+	"editor.fontSize": 18,
 	"editor.rulers": [
 		80,
 		120
@@ -82,4 +82,6 @@
 	"go.toolsManagement.autoUpdate": true,
 	"workbench.sideBar.location": "right",
 	"debug.console.fontSize": 16
+	"terminal.integrated.fontFamily": "'Inconsolata Nerd Font Mono'",
+	"diffEditor.codeLens": true
 }
