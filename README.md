@@ -105,7 +105,7 @@ For both Linux and macOS:
 To install them all with `brew`:
 
 ```console
-$ brew install bat git-delta dog exa fd fzf gh grc kubectx ripgrep
+$ brew install bat git-delta dog exa fd fzf gh grc kubectx ripgrep starship
 ```
 
 ## macOS defaults
@@ -120,7 +120,8 @@ And logging out and in again or restart.
 
 ## Themes and fonts being used
 
-Theme is **[Dracula](https://draculatheme.com)** and font is **Inconsolata**.
+Theme is **[Dracula](https://draculatheme.com)** and font is **Inconsolata**
+Nerd Font.
 
 ## Screenshots
 
