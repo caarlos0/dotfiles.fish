@@ -1,0 +1,3 @@
+Host *
+  ServerAliveInterval 60
+  StrictHostKeyChecking no

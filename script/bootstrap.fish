@@ -98,7 +98,7 @@ function install_dotfiles
 		or abort bat
 	link_file $DOTFILES_ROOT/htop/htoprc $HOME/.config/htop/htoprc backup
 		or abort htoprc
-	link_file $DOTFILES_ROOT/ssh/config $HOME/.ssh/config local
+	link_file $DOTFILES_ROOT/ssh/config.dotfiles $HOME/.ssh/config.dotfiles backup
 		or abort ssh
 end
 

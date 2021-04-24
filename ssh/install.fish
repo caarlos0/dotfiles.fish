@@ -1,2 +1,10 @@
 #!/usr/bin/env fish
-test -f ~/.ssh/config.local || touch ~/.ssh/config.local
+test -f ~/.ssh/config || touch ~/.ssh/config
+
+grep -q "Include ~/.ssh/config.dotfiles" ~/.ssh/config ||
+	echo "Include ~/.ssh/config.dotfiles" >> ~/.ssh/config
+
+switch (uname)
+case Darwin
+	echo -e '\nHost *\n  UseKeychain yes\n' >> ~/.ssh/config
+end
