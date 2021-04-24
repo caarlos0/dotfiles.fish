@@ -105,7 +105,14 @@ For both Linux and macOS:
 To install them all with `brew`:
 
 ```console
-$ brew install bat git-delta dog exa fd fzf gh grc kubectx ripgrep starship
+$ brew install fish bat git-delta dog exa fd fzf gh grc kubectx ripgrep starship
+```
+
+On Ubuntu:
+
+```console
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+sudo apt install fish grc fzf
 ```
 
 ## macOS defaults
