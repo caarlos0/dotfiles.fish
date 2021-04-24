@@ -6,5 +6,5 @@ grep -q "Include ~/.ssh/config.dotfiles" ~/.ssh/config ||
 
 switch (uname)
 case Darwin
-	echo -e '\nHost *\n  UseKeychain yes\n' >> ~/.ssh/config
+	grep -q "UseKeychain yes" || echo -e '\nHost *\n  UseKeychain yes\n' >> ~/.ssh/config
 end
