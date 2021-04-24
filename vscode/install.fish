@@ -18,7 +18,8 @@ mkdir -p $vscode_home
 	and echo "vscode: linked config files"
 
 cat $DOTFILES/vscode/extensions.txt | while read module
-	code --install-extension "$module"
-		and echo "vscode: $module"
-		or echo "vscode: failed to install $module"
+	code --list-extensions | grep -qw "$module" ||
+		code --install-extension "$module"
+			and echo "vscode: $module"
+			or echo "vscode: failed to install $module"
 end
