@@ -1,5 +1,0 @@
-Include ~/.ssh/config.dotfiles
-
-Host *
-  UseKeychain yes
-
