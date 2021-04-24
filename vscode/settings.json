@@ -57,6 +57,7 @@
 	"ruby.useLanguageServer": true,
 	"go.autocompleteUnimportedPackages": true,
 	"terminal.integrated.cursorBlinking": true,
+	"terminal.integrated.inheritEnv": true,
 	"go.coverOnSingleTest": true,
 	"terminal.integrated.cursorStyle": "line",
 	"javascript.updateImportsOnFileMove.enabled": "always",
@@ -81,7 +82,10 @@
 	"workbench.colorTheme": "Dracula",
 	"go.toolsManagement.autoUpdate": true,
 	"workbench.sideBar.location": "right",
-	"debug.console.fontSize": 16
+	"debug.console.fontSize": 16,
 	"terminal.integrated.fontFamily": "'Inconsolata Nerd Font Mono'",
-	"diffEditor.codeLens": true
+	"diffEditor.codeLens": true,
+	"remote.SSH.remotePlatform": {
+		"carlos-vm.local": "linux"
+	}
 }
