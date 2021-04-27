@@ -78,7 +78,6 @@
 	"workbench.preferredDarkColorTheme": "Dracula",
 	"editor.formatOnSave": true,
 	"files.insertFinalNewline": true,
-	"editor.formatOnSaveMode": "modifications",
 	"workbench.colorTheme": "Dracula",
 	"go.toolsManagement.autoUpdate": true,
 	"workbench.sideBar.location": "right",
@@ -87,5 +86,6 @@
 	"diffEditor.codeLens": true,
 	"remote.SSH.remotePlatform": {
 		"carlos-vm.local": "linux"
-	}
+	},
+	"editor.formatOnType": true
 }
