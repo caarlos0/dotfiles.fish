@@ -5,10 +5,10 @@ set -g @plugin 'dracula/tmux'
 set -g @dracula-show-battery false
 set -g @dracula-show-network false
 set -g @dracula-show-weather false
-set -g @dracula-show-time false
+set -g @dracula-show-time true
 set -g @dracula-show-location false
 set -g @dracula-show-powerline true
-set -g @dracula-show-timezone false
+set -g @dracula-show-timezone true
 set -g @dracula-cpu-usage true
 set -g @dracula-ram-usage true
 set -g @dracula-gpu-usage true
