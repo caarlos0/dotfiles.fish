@@ -15,4 +15,6 @@ set -g @dracula-gpu-usage false
 set -g @dracula-day-month true
 set -g @dracula-show-left-icon session
 
+set -g mouse on
+
 run -b '~/.tmux/plugins/tpm/tpm'
