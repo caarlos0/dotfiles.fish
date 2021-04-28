@@ -11,7 +11,7 @@ set -g @dracula-show-powerline true
 set -g @dracula-show-timezone true
 set -g @dracula-cpu-usage true
 set -g @dracula-ram-usage true
-set -g @dracula-gpu-usage true
+set -g @dracula-gpu-usage false
 set -g @dracula-day-month true
 set -g @dracula-show-left-icon session
 
