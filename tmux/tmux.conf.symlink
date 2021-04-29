@@ -1,5 +1,6 @@
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-yank'
 
 set -g @plugin 'dracula/tmux'
 set -g @dracula-show-battery false
@@ -13,7 +14,7 @@ set -g @dracula-cpu-usage true
 set -g @dracula-ram-usage true
 set -g @dracula-gpu-usage false
 set -g @dracula-day-month true
-set -g @dracula-show-left-icon session
+set -g @dracula-show-left-icon window
 
 set -g mouse on
 
