@@ -85,7 +85,8 @@
 	"terminal.integrated.fontFamily": "'Inconsolata Nerd Font Mono'",
 	"diffEditor.codeLens": true,
 	"remote.SSH.remotePlatform": {
-		"carlos-vm.local": "linux"
+		"darkstar.local": "linux"
 	},
-	"editor.formatOnType": true
+	"editor.formatOnType": true,
+	"remote.SSH.remoteServerListenOnSocket": true
 }
