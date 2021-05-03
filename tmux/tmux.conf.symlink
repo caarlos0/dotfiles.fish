@@ -19,3 +19,5 @@ set -g @dracula-show-left-icon window
 set -g mouse on
 
 run -b '~/.tmux/plugins/tpm/tpm'
+
+set -s default-terminal "screen-256color"
