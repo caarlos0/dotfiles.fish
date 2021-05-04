@@ -128,3 +128,6 @@ disabled = true
 
 [zig]
 disabled = true
+
+[username]
+format = "[$user]($style)@"
