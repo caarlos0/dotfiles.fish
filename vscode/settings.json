@@ -69,7 +69,7 @@
 	"go.buildFlags": [
 		"-v"
 	],
-	"editor.fontFamily": "'Inconsolata', Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontFamily": "'Monoid Mono', 'Inconsolata', Menlo, Monaco, 'Courier New', monospace",
 	"editor.smoothScrolling": true,
 	"files.exclude": {
 		"yarn.lock": true
@@ -88,5 +88,6 @@
 		"darkstar.local": "linux"
 	},
 	"editor.formatOnType": true,
-	"remote.SSH.remoteServerListenOnSocket": true
+	"remote.SSH.remoteServerListenOnSocket": true,
+	"workbench.editor.untitled.hint": "hidden"
 }
