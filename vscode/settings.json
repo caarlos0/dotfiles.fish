@@ -89,5 +89,8 @@
 	},
 	"editor.formatOnType": true,
 	"remote.SSH.remoteServerListenOnSocket": true,
-	"workbench.editor.untitled.hint": "hidden"
+	"workbench.editor.untitled.hint": "hidden",
+	"go.testEnvVars": {
+		"IS_NO_COLOR": "true"
+	}
 }
