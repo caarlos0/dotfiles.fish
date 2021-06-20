@@ -4,7 +4,7 @@
 		80,
 		120
 	],
-	"editor.fontLigatures": false,
+	"editor.fontLigatures": true,
 	"editor.tabSize": 4,
 	"editor.trimAutoWhitespace": true,
 	"editor.tabCompletion": "on",
@@ -69,12 +69,11 @@
 	"go.buildFlags": [
 		"-v"
 	],
-	"editor.fontFamily": "'Monoid Mono', 'Inconsolata', Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontFamily": "'Inconsolata', Menlo, Monaco, 'Courier New', monospace",
 	"editor.smoothScrolling": true,
 	"files.exclude": {
 		"yarn.lock": true
 	},
-	"terminal.integrated.shell.osx": "/usr/local/bin/fish",
 	"workbench.preferredDarkColorTheme": "Dracula",
 	"editor.formatOnSave": true,
 	"files.insertFinalNewline": true,
@@ -92,5 +91,9 @@
 	"workbench.editor.untitled.hint": "hidden",
 	"go.testEnvVars": {
 		"IS_NO_COLOR": "true"
+	},
+	"github-actions.org-features": true,
+	"workbench.editorAssociations": {
+		"*.ipynb": "jupyter.notebook.ipynb"
 	}
 }
