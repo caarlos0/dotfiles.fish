@@ -1,24 +1,28 @@
 {
-	"editor.fontSize": 20,
+	"editor.fontSize": 18,
+	"editor.fontLigatures": true,
 	"editor.rulers": [
 		80,
 		120
 	],
-	"editor.fontLigatures": true,
 	"editor.tabSize": 4,
 	"editor.trimAutoWhitespace": true,
 	"editor.tabCompletion": "on",
-	"explorer.openEditors.visible": 0,
-	"window.restoreWindows": "none",
-	"terminal.external.osxExec": "iTerm.app",
-	"terminal.integrated.fontSize": 16,
-	"files.autoSave": "onFocusChange",
-	"extensions.autoUpdate": true,
+	"editor.fontFamily": "'Fira Code', 'Inconsolata', Menlo, Monaco, 'Courier New', monospace",
+	"editor.smoothScrolling": true,
+	"editor.formatOnSave": true,
+	"editor.inlineSuggest.enabled": true,
+	"editor.formatOnType": true,
 	"editor.cursorBlinking": "phase",
-	"window.title": "${activeEditorMedium}${separator}${rootName}",
-	"files.trimTrailingWhitespace": true,
+	"editor.suggestSelection": "first",
 	"editor.minimap.enabled": false,
 	"editor.renderWhitespace": "boundary",
+	"explorer.openEditors.visible": 0,
+	"window.restoreWindows": "none",
+	"files.autoSave": "onFocusChange",
+	"extensions.autoUpdate": true,
+	"window.title": "${activeEditorMedium}${separator}${rootName}",
+	"files.trimTrailingWhitespace": true,
 	"extensions.ignoreRecommendations": false,
 	"search.exclude": {
 		"**/node_modules": true,
@@ -45,9 +49,6 @@
 	"search.useGlobalIgnoreFiles": true,
 	"workbench.editor.highlightModifiedTabs": true,
 	"search.showLineNumbers": true,
-	"terminal.integrated.cursorBlinking": true,
-	"terminal.integrated.inheritEnv": true,
-	"terminal.integrated.cursorStyle": "line",
 	"javascript.updateImportsOnFileMove.enabled": "always",
 	"window.newWindowDimensions": "maximized",
 	"go.formatTool": "gofumpt",
@@ -73,8 +74,6 @@
 		"-test.failfast",
 		"-v",
 	],
-	"editor.fontFamily": "'Inconsolata', Menlo, Monaco, 'Courier New', monospace",
-	"editor.smoothScrolling": true,
 	"files.exclude": {
 		"yarn.lock": true,
 		"**/.classpath": true,
@@ -83,17 +82,14 @@
 		"**/.factorypath": true
 	},
 	"workbench.preferredDarkColorTheme": "Dracula",
-	"editor.formatOnSave": true,
 	"files.insertFinalNewline": true,
 	"workbench.colorTheme": "Dracula",
 	"workbench.sideBar.location": "right",
 	"debug.console.fontSize": 16,
-	"terminal.integrated.fontFamily": "'Inconsolata Nerd Font Mono'",
 	"diffEditor.codeLens": true,
 	"remote.SSH.remotePlatform": {
 		"darkstar.local": "linux"
 	},
-	"editor.formatOnType": true,
 	"remote.SSH.remoteServerListenOnSocket": true,
 	"workbench.editor.untitled.hint": "hidden",
 	"github-actions.org-features": true,
@@ -102,7 +98,6 @@
 	},
 	"security.workspace.trust.untrustedFiles": "open",
 	"docker.showStartPage": false,
-	"editor.inlineSuggest.enabled": true,
 	"github.copilot.enable": {
 		"*": true,
 		"yaml": false,
@@ -115,9 +110,26 @@
 	},
 	"redhat.telemetry.enabled": false,
 	"yaml.format.enable": false,
+	"terminal.integrated.fontFamily": "'Fira Code Nerd Font Mono', 'Inconsolata Nerd Font Mono'",
+	"terminal.external.osxExec": "Terminal.app",
+	"terminal.integrated.fontSize": 18,
+	"terminal.integrated.cursorBlinking": true,
+	"terminal.integrated.inheritEnv": true,
+	"terminal.integrated.cursorStyle": "line",
 	"terminal.integrated.defaultLocation": "editor",
-	"java.project.importOnFirstTimeStartup": "automatic",
 	"terminal.integrated.defaultProfile.osx": "fish",
-	"editor.suggestSelection": "first",
-	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+	"go.delveConfig": {
+		"dlvLoadConfig": {
+			"followPointers": true,
+			"maxVariableRecurse": 1,
+			"maxStringLen": 64,
+			"maxArrayValues": 64,
+			"checkGoVersion": false,
+			"maxStructFields": -1
+		},
+		"apiVersion": 2,
+		"showGlobalVariables": false,
+		"debugAdapter": "legacy",
+		"substitutePath": []
+	}
 }
