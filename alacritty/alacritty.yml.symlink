@@ -3,10 +3,10 @@ import:
 
 window:
   padding:
-    x: 20
-    y: 20
-
-  decorations: transparent
+    x: 15
+    y: 15
+  dynamic_padding: true
+  decorations: full
   startup_mode: Windowed
   dynamic_title: true
   dimensions:
