@@ -116,7 +116,6 @@
 	"terminal.integrated.cursorBlinking": true,
 	"terminal.integrated.inheritEnv": true,
 	"terminal.integrated.cursorStyle": "line",
-	"terminal.integrated.defaultLocation": "editor",
 	"terminal.integrated.defaultProfile.osx": "fish",
 	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 	"go.delveConfig": {
