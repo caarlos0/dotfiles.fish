@@ -134,5 +134,6 @@
 	},
 	"html.format.endWithNewline": true,
 	"html.format.indentHandlebars": true,
-	"html.format.templating": true
+	"html.format.templating": true,
+	"explorer.confirmDelete": false
 }
