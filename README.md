@@ -101,18 +101,19 @@ For both Linux and macOS:
 - [`starship.rs`](https://starship.rs) the shell we are using;
 - [`kubectx`](https://github.com/ahmetb/kubectx) for better Kubernetes context and namespace switch;
 - [`ripgrep`](https://github.com/BurntSushi/ripgrep) a faster `grep`;
+- [`zoxide`](https://github.com/ajeetdsouza/zoxide) a smarter `cd` command;
 
 To install them all with `brew`:
 
 ```console
-$ brew install fish bat git-delta dog exa fd fzf gh grc kubectx ripgrep starship
+$ brew install fish bat git-delta dog exa fd fzf gh grc kubectx ripgrep starship zoxide
 ```
 
 On Ubuntu:
 
 ```console
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-sudo apt install fish grc fzf
+sudo apt install fish grc fzf zoxide
 ```
 
 ## macOS defaults
