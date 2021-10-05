@@ -41,3 +41,7 @@
     ff = only
 [init]
     defaultBranch = main
+
+[url "git@github.com:"]
+	insteadOf = http://github.com/
+	insteadOf = https://github.com/
