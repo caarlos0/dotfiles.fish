@@ -585,6 +585,8 @@
 			<false/>
 			<key>Background Image Location</key>
 			<string></string>
+			<key>Background Image Mode</key>
+			<integer>0</integer>
 			<key>Badge Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -693,6 +695,8 @@
 			<integer>0</integer>
 			<key>Initial Text</key>
 			<string></string>
+			<key>Initial Use Transparency</key>
+			<false/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -1028,7 +1032,7 @@
 			<key>Rows</key>
 			<integer>25</integer>
 			<key>Screen</key>
-			<integer>-1</integer>
+			<integer>-2</integer>
 			<key>Scrollback Lines</key>
 			<integer>0</integer>
 			<key>Scrollback With Status Bar</key>
@@ -1165,6 +1169,8 @@
 					<string>\btelnet:([a-z0-9A-Z_]+@)?([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\b</string>
 				</dict>
 			</array>
+			<key>Space</key>
+			<integer>0</integer>
 			<key>Status Bar Layout</key>
 			<dict>
 				<key>advanced configuration</key>
@@ -1310,7 +1316,7 @@
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>15</integer>
+			<integer>0</integer>
 			<key>Working Directory</key>
 			<string>/Users/carlosabecker</string>
 		</dict>
@@ -1390,6 +1396,8 @@
 	<false/>
 	<key>SeparateStatusBarsPerPane</key>
 	<false/>
+	<key>SeparateWindowTitlePerTab</key>
+	<false/>
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
@@ -1399,7 +1407,7 @@
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SmartPlacement</key>
-	<true/>
+	<false/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
@@ -1439,7 +1447,7 @@
 	<key>UseCompactLabel</key>
 	<false/>
 	<key>UseLionStyleFullscreen</key>
-	<true/>
+	<false/>
 	<key>UseMetal</key>
 	<true/>
 	<key>VisualIndicatorForEsc</key>
