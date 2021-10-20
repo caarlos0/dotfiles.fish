@@ -8,7 +8,7 @@
 	"editor.tabSize": 4,
 	"editor.trimAutoWhitespace": true,
 	"editor.tabCompletion": "on",
-	"editor.fontFamily": "'Fira Code', 'FiraCode', 'Fira Mono', 'Inconsolata', Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontFamily": "'Inconsolata', Menlo, Monaco, 'Courier New', monospace",
 	"editor.smoothScrolling": true,
 	"editor.formatOnSave": true,
 	"editor.inlineSuggest.enabled": true,
@@ -38,14 +38,13 @@
 		"*.tmpl": "gotemplate"
 	},
 	"breadcrumbs.enabled": true,
-	"telemetry.enableTelemetry": false,
+	"telemetry.telemetryLevel": "off",
 	"terraform.languageServer": {
 		"external": true,
 		"args": [
 			"serve"
 		]
 	},
-	"telemetry.enableCrashReporter": false,
 	"search.useGlobalIgnoreFiles": true,
 	"workbench.editor.highlightModifiedTabs": true,
 	"search.showLineNumbers": true,
@@ -110,14 +109,13 @@
 	},
 	"redhat.telemetry.enabled": false,
 	"yaml.format.enable": false,
-	"terminal.integrated.fontFamily": "'Fira Code Nerd Font Mono', 'FiraCode Nerd Font', 'Inconsolata Nerd Font Mono'",
+	"terminal.integrated.fontFamily": "'Inconsolata Nerd Font Mono'",
 	"terminal.external.osxExec": "iTerm.app",
 	"terminal.integrated.fontSize": 18,
 	"terminal.integrated.cursorBlinking": true,
 	"terminal.integrated.inheritEnv": true,
 	"terminal.integrated.cursorStyle": "line",
 	"terminal.integrated.defaultProfile.osx": "fish",
-	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 	"go.delveConfig": {
 		"dlvLoadConfig": {
 			"followPointers": true,
@@ -135,5 +133,11 @@
 	"html.format.endWithNewline": true,
 	"html.format.indentHandlebars": true,
 	"html.format.templating": true,
-	"explorer.confirmDelete": false
+	"explorer.confirmDelete": false,
+	"[dockerfile]": {
+		"editor.defaultFormatter": "ms-azuretools.vscode-docker"
+	},
+	"security.workspace.trust.banner": "never",
+	"security.workspace.trust.startupPrompt": "never",
+	"security.workspace.trust.enabled": false
 }
