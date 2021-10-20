@@ -8,6 +8,7 @@
 	please = push --force-with-lease
 	commend = commit --amend --no-edit
 	lt = log --tags --decorate --simplify-by-decoration --oneline
+	commit = commit -S -s
 [color]
 	diff = auto
 	status = auto
@@ -41,7 +42,6 @@
     ff = only
 [init]
     defaultBranch = main
-
 [url "git@github.com:"]
 	insteadOf = http://github.com/
 	insteadOf = https://github.com/
