@@ -104,8 +104,7 @@
 		"markdown": false
 	},
 	"yaml.schemas": {
-		"/home/carlos/Developer/nfpm/www/docs/static/schema.json": "nfpm.yaml",
-		"/home/carlos/Developer/goreleaser/scripts/jsonschema/goreleaser.json": ".goreleaser.yml"
+		"https://goreleaser.com/static/schema-pro.json": ".goreleaser.yml",
 	},
 	"redhat.telemetry.enabled": false,
 	"yaml.format.enable": false,
