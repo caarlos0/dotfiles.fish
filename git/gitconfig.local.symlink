@@ -6,9 +6,9 @@
 	changed = show --pretty=\"format:\" --name-only
 	fm = fetch-merge
 	please = push --force-with-lease
-	commend = commit --amend --no-edit
+	commit = commit -s
+	commend = commit -s --amend --no-edit
 	lt = log --tags --decorate --simplify-by-decoration --oneline
-	commit = commit -S -s
 [color]
 	diff = auto
 	status = auto
