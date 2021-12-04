@@ -12,7 +12,7 @@ switch (uname)
 case Darwin
 	if command -qs brew
 		brew tap -q homebrew/cask-fonts
-			and brew install --cask font-inconsolata
+			and brew install --cask font-inconsolata font-inconsolata-nerd-font
 	else
 		install ~/Library/Fonts
 	end
