@@ -16,20 +16,20 @@ Plug 'Raimondi/delimitMate'
 Plug '/usr/local/opt/fzf'
 
 " langs et al
-Plug 'fatih/vim-go', {'tag': '*', 'do': ':GoInstallBinaries' }
-Plug 'cespare/vim-toml'
-Plug 'fatih/vim-nginx'
-Plug 'fatih/vim-hclfmt'
+" Plug 'fatih/vim-go', {'tag': '*', 'do': ':GoInstallBinaries' }
+" Plug 'cespare/vim-toml'
+" Plug 'fatih/vim-nginx'
+" Plug 'fatih/vim-hclfmt'
 Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-endwise'
-Plug 'elzr/vim-json'
+" Plug 'elzr/vim-json'
 Plug 'junegunn/vim-easy-align'
-Plug 'ekalinin/Dockerfile.vim'
+" Plug 'ekalinin/Dockerfile.vim'
 Plug 'luochen1990/rainbow'
-Plug 'hashivim/vim-terraform'
+" Plug 'hashivim/vim-terraform'
 Plug 'dag/vim-fish'
 
 " git integration
