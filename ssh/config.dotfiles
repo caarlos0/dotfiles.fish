@@ -1,3 +1,6 @@
 Host *
   ServerAliveInterval 60
   StrictHostKeyChecking no
+
+Host localhost
+  UserKnownHostsFile /dev/null
