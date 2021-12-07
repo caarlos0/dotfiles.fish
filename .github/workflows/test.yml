@@ -26,7 +26,7 @@ jobs:
           sudo chsh -s $(which bash)
       - name: Installing brew
         run: |
-          ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew --version
       - name: Install prerequisites
         run: |
