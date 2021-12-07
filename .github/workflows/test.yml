@@ -1,0 +1,34 @@
+name: test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: ['opened', 'synchronize']
+
+jobs:
+  install:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Installing brew
+        run: |
+          ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+          brew --version
+      - name: Install prerequisites
+        run: |
+          brew install git fish
+          git config --global user.email "test@example.com"
+      - name: Install dotfiles
+        run: |
+          ./script/bootstrap.fish
+      - name: Install recommended software
+        run: |
+          brew install git-delta fzf gh grc kubectx starship zoxide
+      - name: Set macOS defaults
+        run: |
+          ~/.dotfiles/macos/set-defaults.sh
