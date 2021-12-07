@@ -22,12 +22,13 @@ jobs:
           echo "HOME $HOME"
           pwd
           ls -lash
-          mv dotfiles ~/dotfiles
-          cd ~/dotfiles
+          mv dotfiles ~/.dotfiles
+          cd ~/.dotfiles
           pwd
           ls -lash
       - name: Installing brew
         run: |
+          pwd
           ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
           brew --version
       - name: Install prerequisites
