@@ -23,12 +23,8 @@ jobs:
           pwd
           ls -lash
           mv dotfiles ~/.dotfiles
-          cd ~/.dotfiles
-          pwd
-          ls -lash
       - name: Installing brew
         run: |
-          pwd
           ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
           brew --version
       - name: Install prerequisites
@@ -37,6 +33,7 @@ jobs:
           git config --global user.email "test@example.com"
       - name: Install dotfiles
         run: |
+          cd ~/.dotfiles
           ./script/bootstrap.fish
       - name: Install recommended software
         run: |
