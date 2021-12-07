@@ -20,6 +20,15 @@ jobs:
         run: |
           # we expect the file directory to be in $HOME
           mv dotfiles ~/.dotfiles
+          # we allow the current user to change the shell without password prompt
+          ## create if not exists
+          [ ! -f "/etc/pam.d/chsh" ] && (echo "creating /etc/pam.d/chsh"; sudo touch /etc/pam.d/chsh)
+          ## add to the top (see https://serverfault.com/questions/202468/changing-the-shell-using-chsh-via-the-command-line-in-a-script)
+          echo -e "auth       sufficient   pam_wheel.so trust group=chsh\n$(cat /etc/pam.d/chsh)" | sudo tee /etc/pam.d/chsh
+          cat /etc/pam.d/chsh
+          sudo groupadd chsh
+          sudo usermod -a -G chsh $USER
+          chsh -s (which bash)
       - name: Installing brew
         run: |
           ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
