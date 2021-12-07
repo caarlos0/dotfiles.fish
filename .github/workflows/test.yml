@@ -15,6 +15,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          path: dotfiles
+      - name: Check dirs
+        run: |
+          echo "GITHUB_WORKSPACE $GITHUB_WORKSPACE"
+          echo "HOME $HOME"
+          pwd
+          ls -lash
       - name: Installing brew
         run: |
           ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
