@@ -16,13 +16,15 @@ jobs:
         with:
           fetch-depth: 0
           path: dotfiles
-      - name: Check dirs
+      - name: Setup structure
         run: |
-          echo "GITHUB_WORKSPACE $GITHUB_WORKSPACE"
-          echo "HOME $HOME"
-          pwd
-          ls -lash
+          # we expect the file directory to be in $HOME
           mv dotfiles ~/.dotfiles
+          # for pulling from  git with brew we need a dummy key in the agent
+          ssh-keygen -b 4096 -t rsa -f ~/.ssh/dummy-key -q -N ""
+          chmod 0600 ~/.ssh/dummy-key
+          ssh-add ~/.ssh/dummy-key
+          ssh-add -l
       - name: Installing brew
         run: |
           ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
