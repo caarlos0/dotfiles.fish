@@ -141,7 +141,8 @@ test (which fish) = $SHELL
 	and success 'dotfiles installed/updated!'
 	and exit 0
 
-chsh -s (which fish)
+# TODO add CI ENV
+sudo chsh -s (which fish) (whoami)
 	and success set (fish --version) as the default shell
 	or abort 'set fish as default shell'
 
