@@ -21,14 +21,14 @@ jobs:
           brew --version
       - name: Install prerequisites
         run: |
-          brew install git fish
+          brew install git fish grc
           git config --global user.email "test@example.com"
       - name: Install dotfiles
         run: |
           ./script/bootstrap.fish
       - name: Install recommended software
         run: |
-          brew install git-delta fzf gh grc kubectx starship zoxide
+          brew install git-delta fzf gh kubectx starship zoxide
       - name: Set macOS defaults
         run: |
           ~/.dotfiles/macos/set-defaults.sh
