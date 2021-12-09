@@ -42,9 +42,8 @@
     ff = only
 [init]
     defaultBranch = main
-# TODO later with gnu-sed
-#[url "git@github.com:"]
-#	insteadOf = http://github.com/
-#	insteadOf = https://github.com/
+[url "git@github.com:"]
+	insteadOf = http://github.com/
+	insteadOf = https://github.com/
 [format]
 	signOff = true
