@@ -25,7 +25,7 @@ jobs:
           # we need gnu sed to use the -i option properly without file extension
           brew install gnu-sed
           # and add it to the path
-          export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+          export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
           sed --version
           # we expect the file directory to be in $HOME
           mv dotfiles ~/.dotfiles
