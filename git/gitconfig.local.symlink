@@ -36,6 +36,9 @@
 	fetchJobs = 4
 [commit]
 	template = ~/.dotfiles/git/template.txt
+	gpgsign = true
+[tag]
+	gpgsign = true
 [log]
 	showSignature = false
 [pull]
