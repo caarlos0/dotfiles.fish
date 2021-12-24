@@ -1,0 +1,55 @@
+name: test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: ['opened', 'synchronize']
+
+jobs:
+  install:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          path: dotfiles
+      - name: Installing brew
+        run: |
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew --version
+      - name: Setup structure
+        run: |
+          # we need gnu sed to use the -i option properly without file extension
+          brew install gnu-sed
+          # and add it to the path
+          export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+          sed --version
+          # we expect the file directory to be in $HOME
+          mv dotfiles ~/.dotfiles
+          # we allow the current user to change the shell without password prompt
+          echo -e "$(whoami)\t\tALL = (ALL) NOPASSWD:$(which chsh)" | sudo tee -a /etc/sudoers
+          # and test if it works without a password prompt
+          sudo chsh -s $(which bash)
+          # then replace the chsh for fish for the pipeline
+          sed -i 's#chsh -s (which fish)#sudo chsh -s (which fish) (whoami)#' ~/.dotfiles/script/bootstrap.fish
+          # ths will comment line 45-47 to brew cask with https as we do not have a ssh key for the pipeline
+          sed -i '45s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink 
+          sed -i '46s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink 
+          sed -i '47s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink 
+      - name: Install prerequisites from the README
+        run: |
+          brew install git fish grc
+          git config --global user.email "test@example.com"
+      - name: Install dotfiles
+        run: |
+          cd ~/.dotfiles
+          ./script/bootstrap.fish
+      - name: Install recommended software from the README
+        run: |
+          brew install git-delta fzf gh kubectx starship zoxide
+      - name: Set macOS defaults
+        run: |
+          ~/.dotfiles/macos/set-defaults.sh
