@@ -1,35 +1,23 @@
 <p align="center">
-  <img alt="header image" src="https://raw.githubusercontent.com/caarlos0/dotfiles.fish/master/docs/header.svg" height="350" />
-  <h2 align="center">carlos' dotfiles</h2>
+  <img alt="header image" src="https://raw.githubusercontent.com/mavogel/dotfiles.fish/master/docs/header.svg" height="350" />
+  <h2 align="center">manuel's dotfiles</h2>
   <p align="center">Config files for Fish, Java, Ruby, Go, Editors, Terminals and more.</p>
 </p>
 
 ---
 
-Forked from my [ZSH dotfiles](https://github.com/caarlos0/dotfiles), those are
-my Fish Shell config files, together with editor, macOS configs and other
-goodies.
+[![Go Status](https://github.com/mavogel/dotfiles.fish/workflows/test/badge.svg)](https://github.com/mavogel/dotfiles.fish/actions)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mavogel/dotfiles.fish/blob/main/LICENSE)  
 
-The main reasons for the fork are:
+The main reasons for the swtiching from zsh to fish are:
 
 - a lot of things I have out of the box on Fish needed plugins on zsh
 - Fish autocompletion is awesome
 - Fish syntax is easier to use
 - Fish is more modern.
 
-This is an attempt to make the same things I had on my ZSH dotfiles on Fish.
-For the user, it should look pretty much the same, although under the hood
-there are a lot of changes.
-
-Config files are still topical, and even though aliases are not a thing on Fish,
-files are named like that still (and hold both functions and abbreviations).
-
-The auto-update feature was removed, as it was hacky on ZSH and I didn't want to
-do it. Instead, now the bootstrap script is better and can be run multiple times
-without any issues, so, to update, `git pull` and run the `bootstrap.fish`
-script.
-
 ## Installation
+I wanted to ensure I can run the install script always on a fresh Mac. Therefore I added a CI pipeline for GitHub actions.
 
 ### Prerequisites
 - add your `ssh` to the agent: `eval $(ssh-agent)` + `ssh-add ~/.ssh/id_rsa`
@@ -48,17 +36,17 @@ Simply, run these steps:
 - [`grc`](https://github.com/garabik/grc) to colorize command's outputs
 
 ```console
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install fish grc
-git clone --branch feat-auto-install https://github.com/mavogel/dotfiles.fish.git ~/.dotfiles
-cd ~/.dotfiles
-./script/bootstrap.fish
+$ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+$ brew install fish grc
+$ git clone https://github.com/mavogel/dotfiles.fish.git ~/.dotfiles
+$ cd ~/.dotfiles
+$ ./script/bootstrap.fish
 ```
 
 > All changed files will be backed up with a `.backup` suffix.
 
 #### After install
-- add you gpg keys to the keychain
+- add you keys to the [GPGTools](https://gpgtools.org/)
 
 #### Update
 
@@ -111,6 +99,8 @@ To install them all with `brew`:
 $ brew install fish git-delta fzf gh grc kubectx starship zoxide
 ```
 
+or you can also take a look at the [brewfile](brewfile) for all software I have installed.
+
 ## macOS defaults
 
 You use it by running:
@@ -126,6 +116,10 @@ And logging out and in again or restart.
 Theme is **[Dracula](https://draculatheme.com)** and font is **Inconsolata**
 Nerd Font.
 
+If you use [vscode](https://code.visualstudio.com/) then you need to fix the font for terminal:
+`Terminal > Integrated: Font Family`: `Inconsolata Nerd Font Mono`
+![vscode-terminal-font][vsctfont]
+
 ## Screenshots
 
 ![screenshot 1][scrn1]
@@ -134,3 +128,4 @@ Nerd Font.
 
 [scrn1]: /docs/screenshot1.png
 [scrn2]: /docs/screenshot2.png
+[vsctfont]: /docs/vscode-terminal-font.png
