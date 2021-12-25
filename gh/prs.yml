@@ -2,36 +2,24 @@
   filters: author:@me
   repos:
     - goreleaser/goreleaser
-    - goreleaser/nfpm
-    - goreleaser/community
-    - goreleaser/.github
-    - caarlos0/dotfiles.fish
-    - caarlos0/env
-    - caarlos0/svu
-    - charmbracelet/bubbletea
-    - charmbracelet/bubbles
+    - mavogel/dotfiles.fish
+    - kreuzwerker/terraform-provider-docker
+    - kreuzwerker/m1-terraform-provider-helper
+    - kreuzwerker/awsu
 
 - title: Needs My Review
   filters: assignee:@me
   repos:
     - goreleaser/goreleaser
-    - goreleaser/nfpm
-    - goreleaser/community
-    - goreleaser/.github
-    - caarlos0/dotfiles.fish
-    - caarlos0/env
-    - caarlos0/svu
-    - charmbracelet/bubbletea
-    - charmbracelet/bubbles
+    - mavogel/dotfiles.fish
+    - kreuzwerker/terraform-provider-docker
+    - kreuzwerker/m1-terraform-provider-helper
+    - kreuzwerker/awsu
 - title: Subscribed
   filters: -author:@me
   repos:
     - goreleaser/goreleaser
-    - goreleaser/nfpm
-    - goreleaser/community
-    - goreleaser/.github
-    - caarlos0/dotfiles.fish
-    - caarlos0/env
-    - caarlos0/svu
-    - charmbracelet/bubbletea
-    - charmbracelet/bubbles
+    - mavogel/dotfiles.fish
+    - kreuzwerker/terraform-provider-docker
+    - kreuzwerker/m1-terraform-provider-helper
+    - kreuzwerker/awsu
