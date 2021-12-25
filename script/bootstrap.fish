@@ -104,6 +104,33 @@ function install_dotfiles
 		or abort kitty
 end
 
+function setup_software
+	brew bundle --file "$DOTFILES_ROOT/brewfile"
+end
+
+function setup_path_extensions
+	switch (uname -p)
+	case arm
+		set -Up fish_user_paths /opt/homebrew/opt/gnu-getopt/bin
+		set -Up fish_user_paths /opt/homebrew/opt/gnu-sed/libexec/gnubin
+		set -Up fish_user_paths /opt/homebrew/opt/gnu-indent/libexec/gnubin
+	case '*'
+		set -Up fish_user_paths /usr/local/opt/gnu-getopt/bin
+		set -Up fish_user_paths /usr/local/opt/gnu-sed/libexec/gnubin
+		set -Up fish_user_paths /usr/local/opt/coreutils/libexec/gnubin
+	end
+end
+
+function setup_vscode_extensions
+	cat "$DOTFILES_ROOT/vscode/extensions.list" | grep -v '^#' | xargs -L1 code --install-extension
+end
+
+function setup_fish_as_default_shell
+	chsh -s (which fish)
+		and success set (fish --version) as the default shell
+		or abort 'set fish as default shell'
+end
+
 curl -sL git.io/fisher | source && fisher install jorgebucaran/fisher
 	and success 'fisher'
 	or abort 'fisher'
@@ -138,11 +165,26 @@ if ! grep (command -v fish) /etc/shells
 end
 
 test (which fish) = $SHELL
-	and success 'dotfiles installed/updated!'
-	and exit 0
+	and success 'fish is already the default shell'
+	or setup_fish_as_default_shell
 
-chsh -s (which fish)
-	and success set (fish --version) as the default shell
-	or abort 'set fish as default shell'
+
+setup_software
+	and success 'software'
+	or abort 'software'
+
+success 'software packages installed/updated!'
+
+setup_path_extensions
+	and success 'path_extensions'
+	or abort 'path_extensions'
+
+success 'path_extensions installed/updated!'
+
+setup_vscode_extensions
+	and success 'vscode extensions'
+	or abort 'vscode extensions'
+
+success 'vscode extensions installed/updated!'
 
 success 'dotfiles installed/updated!'

@@ -31,27 +31,34 @@ script.
 
 ## Installation
 
-### Dependencies
-
-First, make sure you have all those things installed:
-
-- `git`: to clone the repo
-- `curl`: to download some stuff
-- `tar`: to extract downloaded stuff
-- `fish`: the shell
-- `sudo`: some configs may need that
-- [`grc`](https://github.com/garabik/grc) to colorize command's outputs
+### Prerequisites
+- add your `ssh` to the agent: `eval $(ssh-agent)` + `ssh-add ~/.ssh/id_rsa`
+- install the xcode tools `xcode-select --install`
+- set your git user
+```console
+$ git config --global user.name "test"
+$ git config --global user.email "test@example.com"
+```
+- install [Theine](https://apps.apple.com/de/app/theine/id955848755?mt=12) to avoid sleep mode during the install, while still locking the screen.
 ### Install
 
-Then, run these steps:
+Simply, run these steps:
+- which first will install [brew](https://brew.sh), the package manager and the dependencies
+- `fish`: the shell
+- [`grc`](https://github.com/garabik/grc) to colorize command's outputs
 
 ```console
-$ git clone https://github.com/caarlos0/dotfiles.fish.git ~/.dotfiles
-$ cd ~/.dotfiles
-$ ./script/bootstrap.fish
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install fish grc
+git clone --branch feat-auto-install https://github.com/mavogel/dotfiles.fish.git ~/.dotfiles
+cd ~/.dotfiles
+./script/bootstrap.fish
 ```
 
 > All changed files will be backed up with a `.backup` suffix.
+
+#### After install
+- add you gpg keys to the keychain
 
 #### Update
 
@@ -102,13 +109,6 @@ To install them all with `brew`:
 
 ```console
 $ brew install fish git-delta fzf gh grc kubectx starship zoxide
-```
-
-On Ubuntu:
-
-```console
-sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-sudo apt install fish grc fzf zoxide
 ```
 
 ## macOS defaults

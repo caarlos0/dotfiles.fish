@@ -78,6 +78,17 @@ echo "  › Set up trackpad & mouse speed to a reasonable number"
 defaults write -g com.apple.trackpad.scaling 2
 defaults write -g com.apple.mouse.scaling 2.5
 
+echo "  › Set trackpad scroll direction to non natural"
+defaults write -g com.apple.swipescrolldirection -int 0
+defaults write com.apple.AppleMultitouchTrackpad TrackpadScroll -int 0
+
+echo "  › Set Keyboard F1, F2 function as standard function keys"
+defaults write -g com.apple.keyboard.fnState -int 1
+
+echo "  › Activate Tap to click on the Trackpad"
+defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
+
 echo "  › Avoid the creation of .DS_Store files on network volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 

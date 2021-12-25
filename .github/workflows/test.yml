@@ -16,14 +16,13 @@ jobs:
         with:
           fetch-depth: 0
           path: dotfiles
-      - name: Installing brew
+      - name: Setup CI structure
         run: |
+          # we need brew already upfront
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew --version
-      - name: Setup structure
-        run: |
           # we need gnu sed to use the -i option properly without file extension
-          brew install gnu-sed
+          brew install gnu-sed git
           # and add it to the path
           export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
           sed --version
@@ -35,21 +34,27 @@ jobs:
           sudo chsh -s $(which bash)
           # then replace the chsh for fish for the pipeline
           sed -i 's#chsh -s (which fish)#sudo chsh -s (which fish) (whoami)#' ~/.dotfiles/script/bootstrap.fish
-          # ths will comment line 45-47 to brew cask with https as we do not have a ssh key for the pipeline
-          sed -i '45s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink 
-          sed -i '46s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink 
-          sed -i '47s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink 
-      - name: Install prerequisites from the README
-        run: |
-          brew install git fish grc
+          # this will comment line 45-47 to brew cask with https as we do not have a ssh key for the pipeline
+          sed -i '45s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink
+          sed -i '46s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink
+          sed -i '47s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink
+          # this will deactivate the mas installs as we need to login via the GUI
+          sed -i 's/^mas/#mas/g' ~/.dotfiles/brewfile
+          # we fake a git user.email to avoid a prompt
+          git config --global user.name "test"
           git config --global user.email "test@example.com"
-      - name: Install dotfiles
+          # we move the existing aws-cli Installation to not fail when installing via brew
+          mv /usr/local/bin/aws /usr/local/bin/aws.bak
+          mv /usr/local/bin/aws_completer /usr/local/bin/aws_completer.bak
+          # same for go
+          mv /usr/local/bin/go /usr/local/bin/go.bak 
+          mv /usr/local/bin/gofmt /usr/local/bin/gofmt.bak 
+      - name: Install dotfiles from the README
         run: |
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew install fish grc mas
           cd ~/.dotfiles
           ./script/bootstrap.fish
-      - name: Install recommended software from the README
-        run: |
-          brew install git-delta fzf gh kubectx starship zoxide
       - name: Set macOS defaults
         run: |
           ~/.dotfiles/macos/set-defaults.sh
