@@ -46,7 +46,18 @@ $ ./script/bootstrap.fish
 > All changed files will be backed up with a `.backup` suffix.
 
 #### After install
-- add you keys to the [GPGTools](https://gpgtools.org/)
+- add you keys to the [GPGTools](https://gpgtools.org/) and add the key as global [git signing key](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
+```sh
+# list them fist
+gpg --list-secret-keys --keyid-format=long
+/Users/hubot/.gnupg/secring.gpg
+------------------------------------
+sec   4096R/3AA5C34371567BD2 2016-03-10 [expires: 2017-03-10]
+uid                          Hubot 
+ssb   4096R/42B317FD4BA89E7A 2016-03-10
+# add it
+git config --global user.signingkey 3AA5C34371567BD2
+```
 
 #### Update
 
