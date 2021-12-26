@@ -1,44 +1,20 @@
 
-<a name="v4.2.0-26-g93dc757"></a>
-## [v4.2.0-26-g93dc757](https://github.com/mavogel/dotfiles.fish/compare/v4.3.0...v4.2.0-26-g93dc757) (2021-12-25)
+<a name="v4.4.0"></a>
+## [v4.4.0](https://github.com/mavogel/dotfiles.fish/compare/v4.3.0...v4.4.0) (2021-12-26)
 
-### Chore
+### Bug Fixes
 
-* replace caarlos0 with mavogel
-* **ci:** add install action ([#1](https://github.com/mavogel/dotfiles.fish/issues/1))
+* cleanup and personify ([#5](https://github.com/mavogel/dotfiles.fish/issues/5))
 
-### Docs
+### New Features
 
-* **readme:** add git signing key
-* **readme:** add personal notes
-
-### Feat
-
-* always sign commits and tags
-* **brewfile:** add m1-terraform-provider-helper
-* **brewfile:** add fd
 * **ci:** auto install ([#3](https://github.com/mavogel/dotfiles.fish/issues/3))
-
-### Fix
-
-* **ci:** move git config ssh url to the top
 
 
 <a name="v4.3.0"></a>
 ## [v4.3.0](https://github.com/mavogel/dotfiles.fish/compare/v4.2.0...v4.3.0) (2021-12-23)
 
-### Chore
-
-* schema
-
-### Feat
-
-* always sign commits and tags
-* vscode settings are now synced so why
-* clean up things ([#11](https://github.com/mavogel/dotfiles.fish/issues/11))
-* gh prs plugin
-
-### Fix
+### Bug Fixes
 
 * ez do not open . when nothing found
 * do not add local servers to known hosts
@@ -54,21 +30,18 @@
 * update iterm settings
 * **git:** always use ssh on github
 
+### New Features
+
+* always sign commits and tags
+* vscode settings are now synced so why
+* clean up things ([#11](https://github.com/mavogel/dotfiles.fish/issues/11))
+* gh prs plugin
+
 
 <a name="v4.2.0"></a>
 ## [v4.2.0](https://github.com/mavogel/dotfiles.fish/compare/v4.1.0...v4.2.0) (2021-10-04)
 
-### Chore
-
-* **ci:** use github changelog
-
-### Feat
-
-* ez
-* gcloud path
-* zoxide
-
-### Fix
+### Bug Fixes
 
 * java and k9s install scriptts
 * docker start
@@ -78,44 +51,17 @@
 * make sure dir exists
 * improve kitty config
 
+### New Features
+
+* ez
+* gcloud path
+* zoxide
+
 
 <a name="v4.1.0"></a>
 ## [v4.1.0](https://github.com/mavogel/dotfiles.fish/compare/v4.0.0...v4.1.0) (2021-09-02)
 
-### Chore
-
-* vscode seetings
-* fisher
-* rectangle
-* update rectangle settings
-
-### Docs
-
-* ubuntu setup
-
-### Feat
-
-* no fish greeting
-* kitty config
-* egms
-* dc alias
-* wip kitty
-* add terminal.app
-* alacritty
-* alacritty
-* bump vscode settings
-* install gh plugins
-* improve ssh config
-* k9s
-* vscode settings
-* gh completions
-* tmux settings
-* **fish:** install replay
-* **tmux:** show time/tz
-* **vscode:** update extensions
-* **vscode:** update plugins
-
-### Fix
+### Bug Fixes
 
 * remove file
 * update alacritty config
@@ -161,54 +107,67 @@
 * **vscode:** format
 * **vscode:** IS_NO_COLOR
 
-### Wip
+### Documentation
 
-* neovim
+* ubuntu setup
+
+### New Features
+
+* no fish greeting
+* kitty config
+* egms
+* dc alias
+* wip kitty
+* add terminal.app
+* alacritty
+* alacritty
+* bump vscode settings
+* install gh plugins
+* improve ssh config
+* k9s
+* vscode settings
+* gh completions
+* tmux settings
+* **fish:** install replay
+* **tmux:** show time/tz
+* **vscode:** update extensions
+* **vscode:** update plugins
 
 
 <a name="v4.0.0"></a>
 ## [v4.0.0](https://github.com/mavogel/dotfiles.fish/compare/v3.0.0...v4.0.0) (2021-04-12)
 
-### Chore
-
-* rectangle
-* rectangle config
-
-### Feat
-
-* starship prompt ([#7](https://github.com/mavogel/dotfiles.fish/issues/7))
-* update vscode settings
-
-### Fix
+### Bug Fixes
 
 * pure
 * pure on fish 3.2.0
 * **docker:** start in background
 
+### New Features
+
+* starship prompt ([#7](https://github.com/mavogel/dotfiles.fish/issues/7))
+* update vscode settings
+
 
 <a name="v3.0.0"></a>
 ## [v3.0.0](https://github.com/mavogel/dotfiles.fish/compare/v2.3.0...v3.0.0) (2021-02-20)
 
-### Chore
-
-* remove unused makefile
-
-### Docs
-
-* dracula
-* update screenshots
-
-### Feat
-
-* back to dracula
-* gwf (git switch fzf)
-* grv and gpv
-
-### Fix
+### Bug Fixes
 
 * gtn force patch incr
 * use and
 * vscode remove unused exts
+
+### Documentation
+
+* dracula
+* update screenshots
+
+### New Features
+
+* back to dracula
+* gwf (git switch fzf)
+* grv and gpv
 
 ### BREAKING CHANGE
 
@@ -219,36 +178,36 @@ replace nord with dracula
 <a name="v2.3.0"></a>
 ## [v2.3.0](https://github.com/mavogel/dotfiles.fish/compare/v2.2.0...v2.3.0) (2021-01-20)
 
-### Feat
-
-* **bat:** no line numbers and no pager by default
-* **rust:** add .cargo/bin to path
-
-### Fix
+### Bug Fixes
 
 * macos perf issue
 * remove unused plugin
 * user paths
 * c.fish when empty
 
+### New Features
+
+* **bat:** no line numbers and no pager by default
+* **rust:** add .cargo/bin to path
+
 
 <a name="v2.2.0"></a>
 ## [v2.2.0](https://github.com/mavogel/dotfiles.fish/compare/v2.1.1...v2.2.0) (2021-01-06)
 
-### Feat
+### Bug Fixes
+
+* use 'brew install --cask font-inconsolata' ([#5](https://github.com/mavogel/dotfiles.fish/issues/5))
+
+### New Features
 
 * added system/functions/ports.fish
 * add autopair plugin
-
-### Fix
-
-* use 'brew install --cask font-inconsolata' ([#5](https://github.com/mavogel/dotfiles.fish/issues/5))
 
 
 <a name="v2.1.1"></a>
 ## [v2.1.1](https://github.com/mavogel/dotfiles.fish/compare/v2.1.0...v2.1.1) (2020-12-22)
 
-### Fix
+### Bug Fixes
 
 * fish_user_paths
 
@@ -256,14 +215,7 @@ replace nord with dracula
 <a name="v2.1.0"></a>
 ## [v2.1.0](https://github.com/mavogel/dotfiles.fish/compare/v2.0.0...v2.1.0) (2020-12-21)
 
-### Feat
-
-* back to pure
-* remove dotfiles.fish
-* rectangle update
-* add /usr/local/bin to fish_user_paths
-
-### Fix
+### Bug Fixes
 
 * htop tree view
 * vscode font size
@@ -274,17 +226,31 @@ replace nord with dracula
 * no sudo
 * remove unused plugin
 
+### New Features
+
+* back to pure
+* remove dotfiles.fish
+* rectangle update
+* add /usr/local/bin to fish_user_paths
+
 
 <a name="v2.0.0"></a>
 ## [v2.0.0](https://github.com/mavogel/dotfiles.fish/compare/v1.8.0...v2.0.0) (2020-12-01)
 
-### Docs
+### Bug Fixes
+
+* return
+* font install
+* do not print env
+* osx defaults
+
+### Documentation
 
 * improve screenshots
 * readme/screenshots update
 * reverting, install tools
 
-### Feat
+### New Features
 
 * nord on fzf
 * delta-diff colors
@@ -298,29 +264,26 @@ replace nord with dracula
 * postgres.app: path
 * using lucid instead of pure
 
-### Fix
-
-* return
-* font install
-* do not print env
-* osx defaults
-
 
 <a name="v1.8.0"></a>
 ## [v1.8.0](https://github.com/mavogel/dotfiles.fish/compare/v1.7.0...v1.8.0) (2020-11-17)
 
-### Chore
+### Bug Fixes
 
-* editorconfig
+* fish_plugins
+* exa abbrs
+* ported to fish
+* htoprc
+* **vim:** remove puppet plugin
 
-### Docs
+### Documentation
 
 * font
 * omf
 * readme
 * sort
 
-### Feat
+### New Features
 
 * dog
 * replace diff-so-fancy with delta
@@ -332,41 +295,28 @@ replace nord with dracula
 * fd
 * bat
 
-### Fix
-
-* fish_plugins
-* exa abbrs
-* ported to fish
-* htoprc
-* **vim:** remove puppet plugin
-
 
 <a name="v1.7.0"></a>
 ## [v1.7.0](https://github.com/mavogel/dotfiles.fish/compare/v1.6.0...v1.7.0) (2020-11-07)
 
-### Feat
-
-* move to inconsolata
-* update reactangle config
-* **vscode:** autoformat only changed lines
-
-### Fix
+### Bug Fixes
 
 * work on main branch as well
 * update vscode settings
 * update iterm settings
 * remove unused aliases
 
+### New Features
+
+* move to inconsolata
+* update reactangle config
+* **vscode:** autoformat only changed lines
+
 
 <a name="v1.6.0"></a>
 ## [v1.6.0](https://github.com/mavogel/dotfiles.fish/compare/v1.5.1...v1.6.0) (2020-10-06)
 
-### Chore
-
-* added funding.yml
-* **ci:** goreleaser
-
-### Feat
+### New Features
 
 * docker-cp: copy images between registries
 * new git aliases
@@ -375,7 +325,7 @@ replace nord with dracula
 <a name="v1.5.1"></a>
 ## [v1.5.1](https://github.com/mavogel/dotfiles.fish/compare/v1.5.0...v1.5.1) (2020-09-03)
 
-### Fix
+### Bug Fixes
 
 * vscode snippets link
 * improve ssh config
@@ -387,33 +337,22 @@ replace nord with dracula
 <a name="v1.5.0"></a>
 ## [v1.5.0](https://github.com/mavogel/dotfiles.fish/compare/v1.4.0...v1.5.0) (2020-09-02)
 
-### Feat
-
-* add htop config
-* fzf theme
-
-### Fix
+### Bug Fixes
 
 * update rectangle config
 * update retangle configs
 * perms
 
+### New Features
+
+* add htop config
+* fzf theme
+
 
 <a name="v1.4.0"></a>
 ## [v1.4.0](https://github.com/mavogel/dotfiles.fish/compare/v1.3.0...v1.4.0) (2020-08-19)
 
-### Docs
-
-* update
-
-### Feat
-
-* more kubectl abbrs
-* more kubectl abbrs
-* gsw and gswm abbrs
-* git-stats
-
-### Fix
+### Bug Fixes
 
 * remove symlink
 * do not fail if no fc-cache
@@ -425,19 +364,22 @@ replace nord with dracula
 * always override fonts
 * unused func
 
+### Documentation
+
+* update
+
+### New Features
+
+* more kubectl abbrs
+* more kubectl abbrs
+* gsw and gswm abbrs
+* git-stats
+
 
 <a name="v1.3.0"></a>
 ## [v1.3.0](https://github.com/mavogel/dotfiles.fish/compare/v1.2.0...v1.3.0) (2020-08-10)
 
-### Feat
-
-* vscode new line on eof
-* docker exit
-* simple function to set JAVA_HOME
-* auto-start docker
-* move more stuff to autoload functions
-
-### Fix
+### Bug Fixes
 
 * remove nvim configs
 * simplify k8s conf
@@ -451,19 +393,19 @@ replace nord with dracula
 * e
 * **iterm:** send option as +ESC
 
+### New Features
+
+* vscode new line on eof
+* docker exit
+* simple function to set JAVA_HOME
+* auto-start docker
+* move more stuff to autoload functions
+
 
 <a name="v1.2.0"></a>
 ## [v1.2.0](https://github.com/mavogel/dotfiles.fish/compare/v1.1.0...v1.2.0) (2020-07-22)
 
-### Docs
-
-* code of conduct
-
-### Feat
-
-* autoload functions, improve term speed
-
-### Fix
+### Bug Fixes
 
 * docker prune
 * update vscode settings
@@ -471,41 +413,49 @@ replace nord with dracula
 * use VISUAL instead of VEDITOR
 * git clone instructions
 
+### Documentation
+
+* code of conduct
+
+### New Features
+
+* autoload functions, improve term speed
+
 
 <a name="v1.1.0"></a>
 ## [v1.1.0](https://github.com/mavogel/dotfiles.fish/compare/v1.0.0...v1.1.0) (2020-07-08)
 
-### Docs
-
-* fix header
-* readme
-* readme
-
-### Feat
-
-* topical
-
-### Fix
+### Bug Fixes
 
 * improve bootstrap
 * cdr
 * export envs
 
+### Documentation
+
+* fix header
+* readme
+* readme
+
+### New Features
+
+* topical
+
 
 <a name="v1.0.0"></a>
 ## v1.0.0 (2020-07-01)
 
-### Docs
-
-* readme
-
-### Feat
-
-* fist
-
-### Fix
+### Bug Fixes
 
 * glnext
 * improve functions
 * docker fn
+
+### Documentation
+
+* readme
+
+### New Features
+
+* fist
 
