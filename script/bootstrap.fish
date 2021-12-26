@@ -23,7 +23,7 @@ end
 
 function on_exit -p %self
 	if not contains $argv[3] 0
-		echo [(set_color --bold red) FAIL (set_color normal)] "Couldn't setup dotfiles, please open an issue at https://github.com/caarlos0/dotfiles"
+		echo [(set_color --bold red) FAIL (set_color normal)] "Couldn't setup dotfiles, please open an issue at https://github.com/mavogel/dotfiles"
 	end
 end
 

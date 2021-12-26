@@ -34,10 +34,10 @@ jobs:
           sudo chsh -s $(which bash)
           # then replace the chsh for fish for the pipeline
           sed -i 's#chsh -s (which fish)#sudo chsh -s (which fish) (whoami)#' ~/.dotfiles/script/bootstrap.fish
-          # this will comment line 45-47 to brew cask with https as we do not have a ssh key for the pipeline
-          sed -i '45s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink
-          sed -i '46s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink
-          sed -i '47s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink
+          # this will comment line 1-3 to brew cask with https as we do not have a ssh key for the pipeline
+          sed -i '1s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink
+          sed -i '2s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink
+          sed -i '3s/^/#/' ~/.dotfiles/git/gitconfig.local.symlink
           # this will deactivate the mas installs as we need to login via the GUI
           sed -i 's/^mas/#mas/g' ~/.dotfiles/brewfile
           # we fake a git user.email to avoid a prompt

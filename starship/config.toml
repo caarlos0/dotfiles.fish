@@ -1,5 +1,6 @@
 [aws]
-disabled = true
+format = 'on [$symbol($profile )(\($region\) )(\[$duration\])]($style)'
+style = "bold blue"
 
 [cmake]
 disabled = true
@@ -67,7 +68,10 @@ disabled = true
 disabled = true
 
 [kubernetes]
-disabled = true
+format = 'on [⛵ $context \($namespace\)](dimmed green) '
+disabled = false
+[kubernetes.context_aliases]
+"k3d" = "kd3-local"
 
 [lua]
 disabled = true

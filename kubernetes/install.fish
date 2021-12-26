@@ -21,3 +21,5 @@ abbr -a kimg "kubectl get deployment --output=jsonpath='{.spec.template.spec.con
 abbr -a kvs "kubectl view-secret"
 abbr -a kgno 'kubectl get no --sort-by=.metadata.creationTimestamp'
 abbr -a kdrain 'kubectl drain --ignore-daemonsets --delete-local-data'
+abbr -a kclear 'kubectl config unset current-context'
+# TODO more from zsh
