@@ -1,6 +1,8 @@
 Host *
   ServerAliveInterval 60
   StrictHostKeyChecking no
+  IdentityFile ~/.ssh/id_ed25519
+  IdentityFile ~/.ssh/id_rsa
 
 Host localhost
   UserKnownHostsFile /dev/null
