@@ -8,3 +8,8 @@ grep -q "pinentry-program" ~/.gnupg/gpg-agent.conf || echo "pinentry-program "(w
 # ask password every 24hours only
 grep -q "default-cache-ttl" ~/.gnupg/gpg-agent.conf || echo "default-cache-ttl 86400" >> ~/.gnupg/gpg-agent.conf
 grep -q "max-cache-ttl" ~/.gnupg/gpg-agent.conf || echo "max-cache-ttl 86400" >> ~/.gnupg/gpg-agent.conf
+
+# reload agent
+if command -qs zoxide
+	gpg-connect-agent reloadagent /bye
+end
