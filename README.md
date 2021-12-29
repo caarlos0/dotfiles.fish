@@ -1,7 +1,7 @@
 <p align="center">
   <img alt="header image" src="https://raw.githubusercontent.com/caarlos0/dotfiles.fish/master/docs/header.svg" height="350" />
   <h2 align="center">carlos' dotfiles</h2>
-  <p align="center">Config files for Fish, Java, Ruby, Go, Editors, Terminals and more.</p>
+  <p align="center">Config files for Fish, Go, Editors, Terminals and more.</p>
 </p>
 
 ---
