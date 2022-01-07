@@ -80,7 +80,6 @@ defaults write -g com.apple.mouse.scaling 2.5
 
 echo "  › Set trackpad scroll direction to non natural"
 defaults write -g com.apple.swipescrolldirection -int 0
-defaults write com.apple.AppleMultitouchTrackpad TrackpadScroll -int 0
 
 echo "  › Set Keyboard F1, F2 function as standard function keys"
 defaults write -g com.apple.keyboard.fnState -int 1
