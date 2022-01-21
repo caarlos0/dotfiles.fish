@@ -104,6 +104,8 @@ function install_dotfiles
 		or abort kitty
 	link_file $DOTFILES_ROOT/nvim/init.vim $HOME/.config/nvim/init.vim backup
 		or abort nvim
+	link_file $DOTFILES_ROOT/yamllint/config $HOME/.config/yamllint/config backup
+		or abort yamllint
 end
 
 curl -sL git.io/fisher | source && fisher install jorgebucaran/fisher
