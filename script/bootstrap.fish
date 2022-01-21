@@ -102,6 +102,8 @@ function install_dotfiles
 		or abort ssh
 	link_file $DOTFILES_ROOT/kitty/kitty.conf $HOME/.config/kitty/kitty.conf backup
 		or abort kitty
+	link_file $DOTFILES_ROOT/nvim/init.vim $HOME/.config/nvim/init.vim backup
+		or abort nvim
 end
 
 curl -sL git.io/fisher | source && fisher install jorgebucaran/fisher
