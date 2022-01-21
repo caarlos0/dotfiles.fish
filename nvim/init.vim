@@ -25,6 +25,9 @@ Plug 'hrsh7th/vim-vsnip'
 " Plug 'sindrets/diffview.nvim'
 Plug 'folke/todo-comments.nvim'
 
+
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'folke/trouble.nvim'
 call plug#end()
 
 " basic options
@@ -60,6 +63,7 @@ inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
 
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
@@ -87,6 +91,9 @@ EOF
 set completeopt=menu,menuone,noselect
 
 lua <<EOF
+
+require("trouble").setup {}
+
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 
