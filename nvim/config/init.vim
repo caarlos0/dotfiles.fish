@@ -1,12 +1,16 @@
 " Plugins
 " https://github.com/stars/caarlos0/lists/vim-plugins
+" TODO: check if plugins are loaded before using them on plugins/after/*
 call plug#begin('~/.config/nvim/autoload/')
 Plug 'ayu-theme/ayu-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
+
+" telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 " all things lsp
 Plug 'neovim/nvim-lspconfig'
@@ -20,19 +24,13 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'glepnir/lspsaga.nvim'
 
 Plug 'kyazdani42/nvim-tree.lua'
-
-
-" Plug 'sindrets/diffview.nvim'
-Plug 'folke/todo-comments.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 Plug 'Yggdroot/indentLine'
 Plug 'dense-analysis/ale'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
 Plug 'nvim-lualine/lualine.nvim'
 call plug#end()
 
@@ -57,17 +55,10 @@ nnoremap <leader>w :write<cr>
 nnoremap <leader>q :quit<cr>
 nnoremap <leader>wq :wq<cr>
 nnoremap Y y$
-"
 "nnoremap <c-p> ctrl-p
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-" setup telescope
-nnoremap <leader>ff :Telescope find_files<cr>
-nnoremap <leader>fg :Telescope live_grep<cr>
-nnoremap <leader>fb :Telescope buffers<cr>
-nnoremap <leader>fh :Telescope help_tags<cr>
-" check out https://github.com/nvim-telescope/telescope-fzy-native.nvim
 
 " in insert mode, adds new undo points after , . ! and ?.
 inoremap , ,<c-g>u
@@ -87,189 +78,10 @@ nnoremap <leader>k :m .-2<cr>==
 "au BufWritePost *.go !gofmt -w %
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-" colors
+" UI
 set termguicolors     " enable true colors support
 set background=dark
 let ayucolor="mirage" " for mirage version of theme
 colorscheme ayu
 
-
 let g:indentLine_char = '⦙'
-
-
-" LSP, completions, etc
-set completeopt=menu,menuone,noselect
-
-lua <<EOF
-require('lualine').setup {
-  options = {
-    theme = 'ayu_mirage',
-  }
-}
-require("trouble").setup {}
-
--- Setup nvim-cmp.
-local cmp = require'cmp'
-
-cmp.setup({
-	snippet = {
-		-- REQUIRED - you must specify a snippet engine
-		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-		end,
-	},
-	mapping = {
-		['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-		['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-		['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-		['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-		['<C-e>'] = cmp.mapping({
-			i = cmp.mapping.abort(),
-			c = cmp.mapping.close(),
-		}),
-		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-	},
-	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },
-		{ name = 'vsnip' }, -- For vsnip users.
-	}, {
-		{ name = 'buffer' },
-	})
-})
-
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline('/', {
-	sources = {
-		{ name = 'buffer' }
-	}
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-	sources = cmp.config.sources({
-		{ name = 'path' }
-	}, {
-		{ name = 'cmdline' }
-	})
-})
-
--- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-
-local nvim_lsp = require('lspconfig')
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-
-  if client.resolved_capabilities.document_formatting then 
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-    vim.api.nvim_command [[augroup END]]
-  end 
-end
-
-
-nvim_lsp['gopls'].setup {
-	capabilities = capabilities,
-	on_attach = on_attach,
-	flags = {
-		debounce_text_changes = 150,
-	}
-}
-
-local schemas = {}
-schemas['https://goreleaser.com/static/schema-pro.json'] = ".goreleaser.yaml"
-
--- npm i --global yaml-language-server
-nvim_lsp['yamlls'].setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    yaml = {
-      schemaStore = {
-        url = "https://www.schemastore.org/api/json/catalog.json",
-        enable = true,
-      },
-      schemas = schemas,
-    }
-  }
-}
-
-nvim_lsp['bashls'].setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
--- nvim-treesitte
-require 'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    disable = {},
-  },
-  indent = {
-    enable = false,
-    disable ={},
-  },
-  ensure_installed = {
-    "bash", 
-    "css",
-    "fish",
-    "go",
-    "html",
-    "json",
-    "lua",
-    -- "terraform",
-    "toml",
-    "vim",
-    "yaml", 
-  }
-}
-
-require'nvim-tree'.setup {
-  view = {
-    side = 'right'
-  }
-}
-
-local saga = require 'lspsaga'
-saga.init_lsp_saga {}
-EOF
-
-nnoremap <silent> <C-j> :Lspsaga diagnostic_jump_next<CR> 
-nnoremap <silent> K :Lspsaga hover_doc<cr>
-inoremap <silent> <C-k> :Lspsaga signature_help<cr>
-nnoremap <silent> gh :Lspsaga lsp_finder<cr>
-
-let g:nvim_tree_quit_on_open = 1
-nnoremap <leader>tt :NvimTreeToggle<CR>
-nnoremap <leader>tf :NvimTreeFindFile<CR>
