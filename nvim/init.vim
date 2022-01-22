@@ -195,6 +195,22 @@ nvim_lsp['gopls'].setup {
 	}
 }
 
+-- npm i --global yaml-language-server
+nvim_lsp['yamlls'].setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    yaml = {
+      schemaStore = {
+        url = "https://www.schemastore.org/api/json/catalog.json",
+        enable = true,
+      }
+--      schemas = {
+--        "https://goreleaser.com/static/schema-pro.json" = ".goreleaser.ya?ml",
+--      }
+    }
+  }
+}
+
 EOF
 
-" TODO: bla bla bla
