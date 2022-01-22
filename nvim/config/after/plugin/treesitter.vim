@@ -1,2 +1,2 @@
-if !exists('g:loaded_nvim_treesitter') | finish | endif 
-lua require("treesitter") 
+if !exists('g:loaded_nvim_treesitter') | finish | endif
+lua require("treesitter")

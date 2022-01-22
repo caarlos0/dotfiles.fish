@@ -1,7 +1,7 @@
 " https://github.com/stars/caarlos0/lists/vim-plugins
 " TODO: check if plugins are loaded before using them on plugins/after/*
 call plug#begin('~/.config/nvim/autoload/')
-" theme, ui 
+" theme, ui
 Plug 'ayu-theme/ayu-vim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'

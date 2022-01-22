@@ -1,4 +1,4 @@
-if !exists('g:loaded_lspsaga') | finish | endif 
+if !exists('g:loaded_lspsaga') | finish | endif
 
 lua require('lspsaga').init_lsp_saga {}
 
