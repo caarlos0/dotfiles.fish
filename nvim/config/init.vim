@@ -1,8 +1,8 @@
 " vim:set ft=vim et sw=2:
 
 try
-  source plugs.vim
-  source maps.vim
+  source ~/.config/nvim/plugs.vim
+  source ~/.config/nvim/maps.vim
 catch
   " shrug
 endtry

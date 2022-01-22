@@ -1,5 +1,4 @@
 " https://github.com/stars/caarlos0/lists/vim-plugins
-" TODO: check if plugins are loaded before using them on plugins/after/*
 call plug#begin('~/.config/nvim/autoload/')
 " theme, ui
 Plug 'ayu-theme/ayu-vim'
@@ -14,7 +13,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 " telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " all things lsp, syntax highlight, etc
 Plug 'neovim/nvim-lspconfig'
