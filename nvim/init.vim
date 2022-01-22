@@ -7,7 +7,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-" completions
+" all things lsp
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -16,6 +16,7 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'glepnir/lspsaga.nvim'
 
 " Plug 'sindrets/diffview.nvim'
 Plug 'folke/todo-comments.nvim'
@@ -91,11 +92,6 @@ colorscheme ayu
 
 let g:indentLine_char = '⦙'
 
-" protips
-" ctrl+n -> select word; keep pressing to select all words, press c to replace
-" then.
-"
-"
 
 " LSP, completions, etc
 set completeopt=menu,menuone,noselect
@@ -207,6 +203,9 @@ nvim_lsp['gopls'].setup {
 	}
 }
 
+local schemas = {}
+schemas['https://goreleaser.com/static/schema-pro.json'] = ".goreleaser.yaml"
+
 -- npm i --global yaml-language-server
 nvim_lsp['yamlls'].setup {
   capabilities = capabilities,
@@ -216,12 +215,15 @@ nvim_lsp['yamlls'].setup {
       schemaStore = {
         url = "https://www.schemastore.org/api/json/catalog.json",
         enable = true,
-      }
---      schemas = {
---        "https://goreleaser.com/static/schema-pro.json" = ".goreleaser.ya?ml",
---      }
+      },
+      schemas = schemas,
     }
   }
+}
+
+nvim_lsp['bashls'].setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
 }
 
 -- nvim-treesitte
@@ -250,5 +252,11 @@ require 'nvim-treesitter.configs'.setup {
 }
 
 
+local saga = require 'lspsaga'
+saga.init_lsp_saga {}
 EOF
 
+nnoremap <silent> <C-j> :Lspsaga diagnostic_jump_next<CR> 
+nnoremap <silent> K :Lspsaga hover_doc<cr>
+inoremap <silent> <C-k> :Lspsaga signature_help<cr>
+nnoremap <silent> gh :Lspsaga lsp_finder<cr>
