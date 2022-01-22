@@ -9,6 +9,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'editorconfig/editorconfig-vim'
 
 " telescope
 Plug 'nvim-lua/plenary.nvim'
