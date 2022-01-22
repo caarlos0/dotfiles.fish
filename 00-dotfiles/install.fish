@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
-set -Ux EDITOR nvim
+set -Ux EDITOR vim
 set -Ux VISUAL $EDITOR
 set -Ux WEDITOR code
 

@@ -16,7 +16,7 @@
 	ui = true
 [core]
 	excludesfile = ~/.gitignore
-	editor = nvim
+	editor = vim
 	compression = -1
 	autocrlf = input
 	whitespace = trailing-space,space-before-tab

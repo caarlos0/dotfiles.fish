@@ -19,6 +19,9 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'glepnir/lspsaga.nvim'
 
+Plug 'kyazdani42/nvim-tree.lua'
+
+
 " Plug 'sindrets/diffview.nvim'
 Plug 'folke/todo-comments.nvim'
 Plug 'tpope/vim-fugitive'
@@ -252,6 +255,11 @@ require 'nvim-treesitter.configs'.setup {
   }
 }
 
+require'nvim-tree'.setup {
+  view = {
+    side = 'right'
+  }
+}
 
 local saga = require 'lspsaga'
 saga.init_lsp_saga {}
@@ -261,3 +269,7 @@ nnoremap <silent> <C-j> :Lspsaga diagnostic_jump_next<CR>
 nnoremap <silent> K :Lspsaga hover_doc<cr>
 inoremap <silent> <C-k> :Lspsaga signature_help<cr>
 nnoremap <silent> gh :Lspsaga lsp_finder<cr>
+
+let g:nvim_tree_quit_on_open = 1
+nnoremap <leader>tt :NvimTreeToggle<CR>
+nnoremap <leader>tf :NvimTreeFindFile<CR>
