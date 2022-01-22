@@ -19,12 +19,16 @@ Plug 'hrsh7th/vim-vsnip'
 
 " Plug 'sindrets/diffview.nvim'
 Plug 'folke/todo-comments.nvim'
-
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 Plug 'Yggdroot/indentLine'
 Plug 'dense-analysis/ale'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'nvim-lualine/lualine.nvim'
 call plug#end()
 
 " basic options
@@ -75,7 +79,7 @@ inoremap <c-k> <esc>:m .-2<cr>==
 nnoremap <leader>j :m .+1<cr>==
 nnoremap <leader>k :m .-2<cr>==
 
-au BufWritePost *.go !gofmt -w %
+"au BufWritePost *.go !gofmt -w %
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " colors
@@ -94,13 +98,14 @@ let g:indentLine_char = '⦙'
 "
 
 " LSP, completions, etc
-lua << EOF
-EOF
-
 set completeopt=menu,menuone,noselect
 
 lua <<EOF
-
+require('lualine').setup {
+  options = {
+    theme = 'ayu_mirage',
+  }
+}
 require("trouble").setup {}
 
 -- Setup nvim-cmp.
@@ -184,6 +189,13 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+  if client.resolved_capabilities.document_formatting then 
+    vim.api.nvim_command [[augroup Format]]
+    vim.api.nvim_command [[autocmd! * <buffer>]]
+    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+    vim.api.nvim_command [[augroup END]]
+  end 
 end
 
 
@@ -211,6 +223,32 @@ nvim_lsp['yamlls'].setup {
     }
   }
 }
+
+-- nvim-treesitte
+require 'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    disable = {},
+  },
+  indent = {
+    enable = false,
+    disable ={},
+  },
+  ensure_installed = {
+    "bash", 
+    "css",
+    "fish",
+    "go",
+    "html",
+    "json",
+    "lua",
+    -- "terraform",
+    "toml",
+    "vim",
+    "yaml", 
+  }
+}
+
 
 EOF
 
