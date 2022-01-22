@@ -33,6 +33,7 @@ set number
 set relativenumber
 set mouse=a
 set inccommand=split
+set conceallevel=0
 
 augroup Mkdir
   autocmd!
