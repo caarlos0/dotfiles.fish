@@ -1,25 +1,2 @@
-lua <<EOF
-require 'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    disable = {},
-  },
-  indent = {
-    enable = false,
-    disable ={},
-  },
-  ensure_installed = {
-    "bash",
-    "css",
-    "fish",
-    "go",
-    "html",
-    "json",
-    "lua",
-    -- "terraform",
-    "toml",
-    "vim",
-    "yaml",
-  }
-}
-EOF
+if !exists('g:loaded_nvim_treesitter') | finish | endif 
+lua require("treesitter") 

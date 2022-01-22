@@ -1,6 +1,6 @@
-lua <<EOF
-require('lspsaga').init_lsp_saga {}
-EOF
+if !exists('g:loaded_lspsaga') | finish | endif 
+
+lua require('lspsaga').init_lsp_saga {}
 
 nnoremap <silent> <C-j> :Lspsaga diagnostic_jump_next<CR>
 nnoremap <silent> K :Lspsaga hover_doc<cr>

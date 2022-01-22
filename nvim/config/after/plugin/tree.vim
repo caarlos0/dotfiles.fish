@@ -1,10 +1,4 @@
-lua <<EOF
-require'nvim-tree'.setup {
-  view = {
-    side = 'right'
-  }
-}
-EOF
+lua require("mytree")
 
 let g:nvim_tree_quit_on_open = 1
 nnoremap <leader>tt :NvimTreeToggle<CR>
