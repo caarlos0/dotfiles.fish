@@ -28,3 +28,5 @@ nnoremap <leader>k :m .-2<cr>==
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
+" terminal
+nnoremap <leader>tt :terminal<cr>i
