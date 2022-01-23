@@ -11,6 +11,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary'
+Plug 'ThePrimeagen/harpoon'
 
 " telescope
 Plug 'nvim-lua/plenary.nvim'
