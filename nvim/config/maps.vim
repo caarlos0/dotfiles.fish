@@ -1,8 +1,8 @@
 let mapleader=" "
 nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
-nnoremap <leader>w :write<cr>
-nnoremap <leader>q :quit<cr>
+nnoremap <leader>ww :write<cr>
+nnoremap <leader>qq :quit<cr>
 nnoremap <leader>wq :wq<cr>
 
 " keep more or less in the same place when going next
