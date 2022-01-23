@@ -1,6 +1,14 @@
 local cmp = require'cmp'
+local lspkind = require'lspkind'
 
 cmp.setup({
+	formatting = {
+		format = lspkind.cmp_format({
+			before = function (entry, vim_item)
+				return vim_item
+			end
+		})
+	},
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)

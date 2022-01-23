@@ -1,1 +1,1 @@
-lua require("mylualine")
+lua require("rc.lualine")

@@ -5,9 +5,6 @@ nnoremap <leader>w :write<cr>
 nnoremap <leader>q :quit<cr>
 nnoremap <leader>wq :wq<cr>
 
-" Y behave like other capital letters
-nnoremap Y y$
-
 " keep more or less in the same place when going next
 nnoremap n nzzzv
 nnoremap N Nzzzv
