@@ -43,8 +43,22 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
     vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua organizeImports(1000)]]
+    -- vim.api.nvim_command [[autocmd BufWritePre <buffer> lua organizeImports(1000)]]
     vim.api.nvim_command [[augroup END]]
+  end
+
+  -- Set autocommands conditional on server_capabilities
+  if client.resolved_capabilities.document_highlight then
+	vim.api.nvim_exec([[
+		hi LspReferenceText ctermfg=0 ctermbg=11 guifg=#212733 guibg=#D4BFFF
+		hi LspReferenceRead ctermfg=0 ctermbg=11 guifg=#212733 guibg=#D4BFFF
+		hi LspReferenceWrite ctermfg=0 ctermbg=11 guifg=#212733 guibg=#D4BFFF
+		augroup lsp_document_highlight
+			autocmd! * <buffer>
+			autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+			autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+		augroup END
+	]], false)
   end
 end
 
