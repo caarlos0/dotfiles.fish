@@ -1,4 +1,5 @@
 # taps
+tap "caarlos0/tap"
 tap "git-chglog/git-chglog"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -81,6 +82,7 @@ cask "slack"
 cask "spotify"
 brew "ssh-copy-id"
 brew "starship"
+brew "svu"
 cask "tableplus"
 brew "terraform-docs"
 brew "tflint"
