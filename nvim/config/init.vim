@@ -1,4 +1,5 @@
 " vim:set ft=vim et sw=2:
+set nocompatible
 
 try
   source ~/.config/nvim/plugs.vim
@@ -19,6 +20,9 @@ set noswapfile
 set nobackup
 set undodir=~/.config/nvim/undodir
 set undofile
+
+
+set nowrap
 
 set mouse=a
 set inccommand=split
