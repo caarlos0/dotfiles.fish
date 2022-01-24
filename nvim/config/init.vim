@@ -65,6 +65,11 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " colorscheme
 set termguicolors
 set background=dark
-let ayucolor="mirage"
-colorscheme ayu
 
+try
+  packadd! dracula_pro
+  let g:dracula_colorterm = 0
+  colorscheme dracula_pro
+catch
+  colorscheme dracula
+endtry

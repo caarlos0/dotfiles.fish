@@ -1,7 +1,7 @@
 " https://github.com/stars/caarlos0/lists/vim-plugins
 call plug#begin('~/.config/nvim/autoload/')
 " theme, ui
-Plug 'ayu-theme/ayu-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'startup-nvim/startup.nvim'
