@@ -4,6 +4,7 @@ call plug#begin('~/.config/nvim/autoload/')
 Plug 'ayu-theme/ayu-vim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'startup-nvim/startup.nvim'
 
 " basic functionality
 Plug 'terryma/vim-multiple-cursors'
