@@ -30,7 +30,6 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'folke/trouble.nvim'
 Plug 'sheerun/vim-polyglot'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'dense-analysis/ale'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'onsails/lspkind-nvim'
 
