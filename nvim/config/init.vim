@@ -21,9 +21,6 @@ set nobackup
 set undodir=~/.config/nvim/undodir
 set undofile
 
-
-set nowrap
-
 set mouse=a
 set inccommand=split
 
@@ -43,6 +40,8 @@ set shiftwidth=4
 set expandtab
 set smartindent
 " set autoindent
+set nowrap
+set textwidth=0
 
 " search
 set nohlsearch
@@ -64,7 +63,7 @@ augroup DOTFILES
   autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
 augroup END
 
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+" autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " colorscheme
 set termguicolors
