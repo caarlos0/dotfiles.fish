@@ -8,7 +8,7 @@ Plug 'startup-nvim/startup.nvim'
 
 " basic functionality
 Plug 'terryma/vim-multiple-cursors'
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary'

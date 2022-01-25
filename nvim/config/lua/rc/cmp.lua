@@ -1,5 +1,6 @@
-local cmp = require'cmp'
-local lspkind = require'lspkind'
+local cmp = require('cmp')
+local lspkind = require('lspkind')
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 cmp.setup({
 	formatting = {
@@ -49,3 +50,5 @@ cmp.setup.cmdline(':', {
 		{ name = 'cmdline' }
 	})
 })
+
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
