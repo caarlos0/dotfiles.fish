@@ -51,6 +51,8 @@ set signcolumn=yes
 set scrolloff=8
 set colorcolumn=80
 
+set foldmethod=indent
+
 fun! TrimWhitespace()
   let l:save = winsaveview()
   keeppatterns %s/\s\+$//e
