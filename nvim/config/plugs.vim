@@ -36,5 +36,6 @@ Plug 'onsails/lspkind-nvim'
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'ThePrimeagen/git-worktree.nvim'
 call plug#end()
 
