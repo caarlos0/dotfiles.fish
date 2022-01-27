@@ -52,6 +52,9 @@ set scrolloff=8
 set colorcolumn=80
 
 set foldmethod=indent
+set foldnestmax=3
+set foldminlines=40
+set foldlevelstart=99
 
 fun! TrimWhitespace()
   let l:save = winsaveview()
