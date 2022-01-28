@@ -98,6 +98,7 @@ nvim_lsp['bashls'].setup {
 
 
 -- organize imports
+-- https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-902680058
 function organizeImports(timeoutms)
   local params = vim.lsp.util.make_range_params()
   params.context = {only = {"source.organizeImports"}}
