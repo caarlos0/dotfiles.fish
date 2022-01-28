@@ -96,6 +96,10 @@ nvim_lsp['bashls'].setup {
   on_attach = on_attach,
 }
 
+nvim_lsp['sumneko_lua'].setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- organize imports
 -- https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-902680058
