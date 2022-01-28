@@ -10,6 +10,6 @@ grep -q "default-cache-ttl" ~/.gnupg/gpg-agent.conf || echo "default-cache-ttl 8
 grep -q "max-cache-ttl" ~/.gnupg/gpg-agent.conf || echo "max-cache-ttl 86400" >> ~/.gnupg/gpg-agent.conf
 
 # reload agent
-if command -qs zoxide
+if command -qs gpp-connect-agent
 	gpg-connect-agent reloadagent /bye
 end
