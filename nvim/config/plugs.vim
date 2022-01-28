@@ -34,7 +34,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'onsails/lspkind-nvim'
 
 " git
-Plug 'tpope/vim-fugitive'
+Plug 'TimUntersberger/neogit'
 Plug 'airblade/vim-gitgutter'
 Plug 'ThePrimeagen/git-worktree.nvim'
 
