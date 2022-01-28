@@ -1,5 +1,5 @@
-nnoremap <silent> <leader>tn :TestNearest<CR>
-" nnoremap <silent> <leader>tf :TestFile<CR>
-" nnoremap <silent> <leader>ts :TestSuite<CR>
-nnoremap <silent> <leader>tl :TestLast<CR>
-nnoremap <silent> <leader>tv :TestVisit<CR>
+nnoremap <silent> <leader>ttn :TestNearest<CR>
+nnoremap <silent> <leader>ttf :TestFile<CR>
+nnoremap <silent> <leader>tts :TestSuite<CR>
+nnoremap <silent> <leader>ttl :TestLast<CR>
+nnoremap <silent> <leader>ttv :TestVisit<CR>
