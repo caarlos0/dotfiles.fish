@@ -56,7 +56,12 @@ return packer.startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'kyazdani42/nvim-tree.lua'
   use 'editorconfig/editorconfig-vim'
-  use 'tpope/vim-commentary'
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
   use 'ThePrimeagen/harpoon'
 
   -- telescope
