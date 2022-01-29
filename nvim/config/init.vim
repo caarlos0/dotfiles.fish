@@ -1,8 +1,9 @@
 " vim:set ft=vim et sw=2:
 set nocompatible
 
+lua require "rc.plugins"
 try
-  source ~/.config/nvim/plugs.vim
+  " source ~/.config/nvim/plugs.vim
   source ~/.config/nvim/maps.vim
 catch
   " shrug
