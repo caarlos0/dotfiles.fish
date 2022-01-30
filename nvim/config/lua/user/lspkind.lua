@@ -1,5 +1,9 @@
+local ok, lspkind = pcall(require, "lspkind")
+if not ok then
+	return
+end
 
-require'lspkind'.init {
+lspkind.init {
 	with_text = true,
 	symbol_map = {
 		Class = "ﴯ",

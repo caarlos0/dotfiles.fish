@@ -55,6 +55,7 @@ return packer.startup(function(use)
   use "terryma/vim-multiple-cursors"
   use "windwp/nvim-autopairs"
   use "kyazdani42/nvim-tree.lua"
+  use "akinsho/bufferline.nvim"
   use "editorconfig/editorconfig-vim"
   use {
     "numToStr/Comment.nvim",

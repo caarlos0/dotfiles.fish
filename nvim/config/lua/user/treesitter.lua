@@ -7,13 +7,18 @@ treesitter.setup {
   highlight = {
     enable = true,
     disable = {},
+	additional_vim_regex_highlighting = true,
   },
   indent = {
-    enable = true,
-    disable ={ "yaml" },
+    enable = false,
+    disable = { "yaml" },
   },
   ensure_installed = "maintained",
   autopairs = {
     enable = true,
+  },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
   },
 }

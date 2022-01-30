@@ -6,7 +6,7 @@ end
 tree.setup {
   view = {
     side = 'right'
-  }
+  },
 }
 
 local keymap = vim.api.nvim_set_keymap
