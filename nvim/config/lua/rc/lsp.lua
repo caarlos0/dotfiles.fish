@@ -118,5 +118,3 @@ function organizeImports(timeoutms)
   end
 end
 
-
--- vim:set ft=lua et sw=2 tabstop=2:
