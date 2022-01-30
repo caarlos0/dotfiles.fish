@@ -63,6 +63,12 @@ return packer.startup(function(use)
     end
   }
   use "akinsho/toggleterm.nvim"
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {}
+    end
+  }
 
   -- telescope
   use 'nvim-lua/plenary.nvim'
@@ -92,7 +98,7 @@ return packer.startup(function(use)
 
   -- git
   use 'TimUntersberger/neogit'
-  use 'airblade/vim-gitgutter'
+  use "lewis6991/gitsigns.nvim"
   use 'ThePrimeagen/git-worktree.nvim'
 
   -- testing et al

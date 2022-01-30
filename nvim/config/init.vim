@@ -10,6 +10,8 @@ catch
 endtry
 
 lua require "rc.toggleterm"
+lua require "rc.autopairs"
+lua require "rc.gitsigns"
 
 " hidde buffer without saving
 set hidden
