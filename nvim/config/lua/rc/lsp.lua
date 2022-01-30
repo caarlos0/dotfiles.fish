@@ -1,6 +1,15 @@
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local nvim_lsp = require('lspconfig')
+local cmplsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmplsp_ok then
+  return
+end
+
+local lspconf_ok, nvim_lsp = pcall(require, "lspconfig")
+if not lspconf_ok then
+  return
+end
+
+local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer

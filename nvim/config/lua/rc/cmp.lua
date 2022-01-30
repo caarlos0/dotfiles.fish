@@ -1,6 +1,18 @@
-local cmp = require('cmp')
-local lspkind = require('lspkind')
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local status_ok, cmp = pcall(require, "cmp")
+if not status_ok then
+  return
+end
+
+local status_ok, lspkind = pcall(require, "lspkind")
+if not status_ok then
+  return
+end
+
+local status_ok, cmd_autopairs = pcall(require, "nvim-autopairs.completionn.cmp")
+if not status_ok then
+  return
+end
+
 
 cmp.setup({
 	formatting = {
@@ -51,4 +63,11 @@ cmp.setup.cmdline(':', {
 	})
 })
 
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+-- autopairs cmp
+local status_ok, autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+if not status_ok then
+  return
+end
+
+cmp.event:on("confirm_done", autopairs.on_confirm_done { map_char = { tex = "" } })
+
