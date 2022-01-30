@@ -78,7 +78,7 @@ return packer.startup(function(use)
 	  run = "make",
   }
 
-  -- all things lsp, syntax highlight, etc
+  -- all things lsp, syntax highlight, snippets, etc
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
   use "hrsh7th/cmp-nvim-lsp"
@@ -86,8 +86,8 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-path"
   use "hrsh7th/cmp-cmdline"
   use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-vsnip"
-  use "hrsh7th/vim-vsnip"
+  use "L3MON4D3/LuaSnip"
+  use "saadparwaiz1/cmp_luasnip"
   use "rafamadriz/friendly-snippets"
   use "folke/trouble.nvim"
   use "lukas-reineke/indent-blankline.nvim"

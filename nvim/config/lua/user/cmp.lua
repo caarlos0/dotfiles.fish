@@ -8,9 +8,9 @@ if not lspkind_ok then
   return
 end
 
-local autopairs_ok, cmd_autopairs = pcall(require, "nvim-autopairs.completionn.cmp")
-if not autopairs_ok then
-  return
+local snip_ok, luasnip = pcall(require, "luasnip")
+if not snip_ok then
+	return
 end
 
 
@@ -24,7 +24,7 @@ cmp.setup({
 	},
 	snippet = {
 		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
+			luasnip.lsp_expand(args.body)
 		end,
 	},
 	mapping = {
@@ -40,7 +40,7 @@ cmp.setup({
 	},
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
-		{ name = 'vsnip' }, -- For vsnip users.
+		{ name = 'luasnip' },
 	}, {
 		{ name = 'buffer' },
 	})

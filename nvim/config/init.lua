@@ -17,7 +17,7 @@ require "user.test"
 require "user.tree"
 require "user.treesitter"
 require "user.trouble"
-require "user.vsnip"
+require "user.snip"
 
 
 -- generate the later part of the list
