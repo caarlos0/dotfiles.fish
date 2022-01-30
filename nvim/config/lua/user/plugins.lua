@@ -48,16 +48,16 @@ return packer.startup(function(use)
       'dracula/vim',
       as = 'dracula',
   }
-  use 'nvim-lualine/lualine.nvim'
-  use 'kyazdani42/nvim-web-devicons'
+  use "nvim-lualine/lualine.nvim"
+  use "kyazdani42/nvim-web-devicons"
 
   -- basic functionality
-  use 'terryma/vim-multiple-cursors'
-  use 'windwp/nvim-autopairs'
-  use 'kyazdani42/nvim-tree.lua'
-  use 'editorconfig/editorconfig-vim'
+  use "terryma/vim-multiple-cursors"
+  use "windwp/nvim-autopairs"
+  use "kyazdani42/nvim-tree.lua"
+  use "editorconfig/editorconfig-vim"
   use {
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
     config = function()
         require('Comment').setup()
     end
@@ -71,39 +71,39 @@ return packer.startup(function(use)
   }
 
   -- telescope
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
+  use "nvim-lua/plenary.nvim"
+  use "nvim-telescope/telescope.nvim"
   use {
-	  'nvim-telescope/telescope-fzf-native.nvim',
-	  run = 'make',
+	  "nvim-telescope/telescope-fzf-native.nvim",
+	  run = "make",
   }
 
   -- all things lsp, syntax highlight, etc
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
-  use 'rafamadriz/friendly-snippets'
-  use 'folke/trouble.nvim'
-  use 'lukas-reineke/indent-blankline.nvim'
+  use "neovim/nvim-lspconfig"
+  use "williamboman/nvim-lsp-installer"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-cmdline"
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-vsnip"
+  use "hrsh7th/vim-vsnip"
+  use "rafamadriz/friendly-snippets"
+  use "folke/trouble.nvim"
+  use "lukas-reineke/indent-blankline.nvim"
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
-  use 'onsails/lspkind-nvim'
+  use "onsails/lspkind-nvim"
 
   -- git
-  use 'TimUntersberger/neogit'
+  use "TimUntersberger/neogit"
   use "lewis6991/gitsigns.nvim"
-  use 'ThePrimeagen/git-worktree.nvim'
+  use "ThePrimeagen/git-worktree.nvim"
 
   -- testing et al
-  use 'vim-test/vim-test'
+  use "vim-test/vim-test"
 
 
   -- Automatically set up your configuration after cloning packer.nvim

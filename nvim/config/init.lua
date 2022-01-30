@@ -5,6 +5,7 @@ require "user.plugins"
 require "user.colorscheme"
 
 require "user.toggleterm"
+require "user.neogit"
 require "user.autopairs"
 require "user.gitsigns"
 require "user.cmp"
