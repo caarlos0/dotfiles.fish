@@ -1,5 +1,3 @@
--- ls lua/rc/*.lua | sed -e 's;^lua/rc/;require "rc.;g' -e 's/\.lua$/"/g'
-
 require "rc.options"
 require "rc.keymaps"
 require "rc.autocommands"
@@ -20,3 +18,7 @@ require "rc.treesitter"
 require "rc.trouble"
 require "rc.vsnip"
 
+
+-- generate the later part of the list
+-- ls lua/rc/*.lua | grep -Ev 'options|keymap|autocommands|plugin|colorscheme' | sed -e 's;^lua/rc/;require "rc.;g' -e 's/\.lua$/"/g'
+--
