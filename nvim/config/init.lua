@@ -20,6 +20,7 @@ require("user.tree")
 require("user.treesitter")
 require("user.trouble")
 require("user.snip")
+require("user.symbols-outline")
 
 -- generate the later part of the list
 -- ls lua/user/*.lua | grep -Ev 'options|keymap|autocommands|plugin|colorscheme' | sed -e 's;^lua/user/;require "user.;g' -e 's/\.lua$/"/g'

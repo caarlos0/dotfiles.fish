@@ -98,6 +98,7 @@ return packer.startup(function(use)
 	})
 	use("onsails/lspkind-nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
+	use("simrat39/symbols-outline.nvim")
 
 	-- git
 	use("TimUntersberger/neogit")
