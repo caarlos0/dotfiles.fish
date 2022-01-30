@@ -3,22 +3,22 @@ if not ok then
 	return
 end
 
-treesitter.setup {
-  highlight = {
-    enable = true,
-    disable = {},
-	additional_vim_regex_highlighting = true,
-  },
-  indent = {
-    enable = false,
-    disable = { "yaml" },
-  },
-  ensure_installed = "maintained",
-  autopairs = {
-    enable = true,
-  },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
-}
+treesitter.setup({
+	highlight = {
+		enable = true,
+		disable = {},
+		additional_vim_regex_highlighting = true,
+	},
+	indent = {
+		enable = false,
+		disable = { "yaml" },
+	},
+	ensure_installed = "maintained",
+	autopairs = {
+		enable = true,
+	},
+	context_commentstring = {
+		enable = true,
+		enable_autocmd = false,
+	},
+})

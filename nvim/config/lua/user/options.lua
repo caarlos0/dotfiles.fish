@@ -3,12 +3,12 @@ local options = {
 	-- clipboard = "unnamedplus",
 	cmdheight = 2,
 	hidden = true,
-	updatetime = 300,  -- faster update times
+	updatetime = 300, -- faster update times
 	mouse = "a",
 	inccommand = "split",
 	wrap = false,
 	textwidth = 0,
-	expandtab= true,
+	expandtab = true,
 	smartindent = true,
 	shiftwidth = 2,
 	softtabstop = 2,
@@ -29,7 +29,7 @@ local options = {
 	wildmenu = true,
 	autoread = true,
 	-- syntax = true,
-	completeopt = {  "menu", "menuone", "noselect", "noinsert" },
+	completeopt = { "menu", "menuone", "noselect", "noinsert" },
 	colorcolumn = "80",
 	foldmethod = "indent",
 	foldnestmax = 3,
@@ -38,12 +38,12 @@ local options = {
 	backspace = { "indent", "eol", "start" },
 }
 
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append("c")
 
 for k, v in pairs(options) do
-  vim.opt[k] = v
+	vim.opt[k] = v
 end
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])
+vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work

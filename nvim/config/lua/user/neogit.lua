@@ -4,8 +4,8 @@ if not ok then
 end
 
 neogit.setup({
-  disable_commit_confirmation = true,
-  disable_context_highlighting = true,
+	disable_commit_confirmation = true,
+	disable_context_highlighting = true,
 })
 
-vim.api.nvim_set_keymap('n', '<leader>gs', ':Neogit<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>gs", ":Neogit<CR>", { noremap = true, silent = true })

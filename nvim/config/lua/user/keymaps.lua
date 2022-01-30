@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
+-- local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -9,7 +9,6 @@ local keymap = vim.api.nvim_set_keymap
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 
 -- Normal --
 -- Better window navigation
@@ -28,20 +27,20 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- save and quit
-keymap('n', '<leader>ww', ':write<CR>', opts)
-keymap('n', '<leader>qq', ':quit<CR>', opts)
-keymap('n', '<leader>wq', ':wq<CR>', opts) -- keeps the original paste
+keymap("n", "<leader>ww", ":write<CR>", opts)
+keymap("n", "<leader>qq", ":quit<CR>", opts)
+keymap("n", "<leader>wq", ":wq<CR>", opts) -- keeps the original paste
 
 -- keep more or less in the same place when going next
-keymap('n', 'n', 'nzzzv', opts)
-keymap('n', 'N', 'Nzzzv', opts)
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
 
 -- Insert --
 -- in insert mode, adds new undo points after , . ! and ?.
-keymap('i', ',', ',<c-g>u', opts)
-keymap('i', '.', '.<c-g>u', opts)
-keymap('i', '!', '!<c-g>u', opts)
-keymap('i', '?', '?<c-g>u', opts)
+keymap("i", ",", ",<c-g>u", opts)
+keymap("i", ".", ".<c-g>u", opts)
+keymap("i", "!", "!<c-g>u", opts)
+keymap("i", "?", "?<c-g>u", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -52,7 +51,6 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
-
 
 -- Visual Block --
 -- Move text up and down

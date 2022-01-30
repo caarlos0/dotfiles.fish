@@ -3,7 +3,6 @@ if not status_ok then
 	return
 end
 
-toggleterm.setup {}
+toggleterm.setup({})
 
-vim.api.nvim_set_keymap("n", "<leader>trm", "<cmd>:ToggleTerm<CR>", {noremap = true, silent = true})
-
+vim.api.nvim_set_keymap("n", "<leader>trm", "<cmd>:ToggleTerm<CR>", { noremap = true, silent = true })

@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
 set background=dark
 set termguicolors
 try
@@ -12,4 +12,4 @@ catch
     colorscheme default
   endtry
 endtry
-]]
+]])

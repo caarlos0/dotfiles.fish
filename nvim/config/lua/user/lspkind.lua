@@ -3,7 +3,7 @@ if not ok then
 	return
 end
 
-lspkind.init {
+lspkind.init({
 	with_text = true,
 	symbol_map = {
 		Class = "ﴯ",
@@ -32,5 +32,4 @@ lspkind.init {
 		Value = "",
 		Variable = "",
 	},
-}
-
+})
