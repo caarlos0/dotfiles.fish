@@ -4,6 +4,7 @@ require("user.autocommands")
 require("user.plugins")
 require("user.colorscheme")
 
+require("user.impatient")
 require("user.comment")
 require("user.toggleterm")
 require("user.bufferline")
@@ -23,6 +24,8 @@ require("user.trouble")
 require("user.snip")
 require("user.symbols-outline")
 require("user.which-key")
+require("user.neoscroll")
+require("user.presence")
 
 -- generate the later part of the list
 -- ls lua/user/*.lua | grep -Ev 'options|keymap|autocommands|plugin|colorscheme' | sed -e 's;^lua/user/;require "user.;g' -e 's/\.lua$/"/g'

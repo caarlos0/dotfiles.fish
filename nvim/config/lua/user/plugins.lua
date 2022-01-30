@@ -42,6 +42,7 @@ packer.init({
 return packer.startup(function(use)
 	-- My plugins here
 	use("wbthomason/packer.nvim") -- Have packer manage itself
+	use("lewis6991/impatient.nvim")
 
 	-- ui
 	use({
@@ -53,6 +54,8 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-tree.lua")
 	use("akinsho/bufferline.nvim")
 	use("akinsho/toggleterm.nvim")
+	use("karb94/neoscroll.nvim")
+	use("andweeb/presence.nvim")
 
 	-- basic functionality
 	use("terryma/vim-multiple-cursors")
