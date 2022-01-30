@@ -63,6 +63,7 @@ return packer.startup(function(use)
 	use("editorconfig/editorconfig-vim")
 	use("numToStr/Comment.nvim")
 	use("folke/which-key.nvim")
+	use("famiu/bufdelete.nvim")
 
 	-- telescope
 	use("nvim-lua/plenary.nvim")

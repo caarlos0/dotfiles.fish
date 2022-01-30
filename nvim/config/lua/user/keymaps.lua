@@ -28,7 +28,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- save and quit
 keymap("n", "<leader>ww", ":write<CR>", opts)
-keymap("n", "<leader>qq", ":quit<CR>", opts)
+keymap("n", "<leader>QQ", ":quit<CR>", opts)
 keymap("n", "<leader>wq", ":wq<CR>", opts) -- keeps the original paste
 
 -- keep more or less in the same place when going next
