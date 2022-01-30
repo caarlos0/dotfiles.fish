@@ -4,8 +4,9 @@ if not ok then
 end
 
 telescope.load_extension("fzf")
+telescope.load_extension("git_worktree")
 
-local r = require("user.remap")
+local r = require("user.remap").nnoremap
 r("<leader>ff", ":Telescope find_files<CR>")
 r("<leader>fg", ":Telescope git_files<CR>")
 r("<leader>of", ":Telescope oldfiles<CR>")

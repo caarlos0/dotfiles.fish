@@ -1,4 +1,4 @@
-local r = require("user.remap")
+local r = require("user.remap").nnoremap
 
 r("<leader>ttn", ":TestNearest<CR>")
 r("<leader>ttf", ":TestFile<CR>")

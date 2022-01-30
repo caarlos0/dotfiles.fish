@@ -50,26 +50,16 @@ return packer.startup(function(use)
 	})
 	use("nvim-lualine/lualine.nvim")
 	use("kyazdani42/nvim-web-devicons")
+	use("kyazdani42/nvim-tree.lua")
+	use("akinsho/bufferline.nvim")
+	use("akinsho/toggleterm.nvim")
 
 	-- basic functionality
 	use("terryma/vim-multiple-cursors")
 	use("windwp/nvim-autopairs")
-	use("kyazdani42/nvim-tree.lua")
-	use("akinsho/bufferline.nvim")
 	use("editorconfig/editorconfig-vim")
-	use({
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
-	})
-	use("akinsho/toggleterm.nvim")
-	use({
-		"folke/which-key.nvim",
-		config = function()
-			require("which-key").setup({})
-		end,
-	})
+	use("numToStr/Comment.nvim")
+	use("folke/which-key.nvim")
 
 	-- telescope
 	use("nvim-lua/plenary.nvim")
