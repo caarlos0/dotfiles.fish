@@ -9,6 +9,7 @@ catch
   " shrug
 endtry
 
+lua require "rc.colorscheme"
 lua require "rc.toggleterm"
 lua require "rc.autopairs"
 lua require "rc.gitsigns"
@@ -79,10 +80,3 @@ augroup END
 set termguicolors
 set background=dark
 
-try
-  packadd! dracula_pro
-  let g:dracula_colorterm = 0
-  colorscheme dracula_pro
-catch
-  colorscheme dracula
-endtry
