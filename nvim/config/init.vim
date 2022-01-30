@@ -9,6 +9,8 @@ catch
   " shrug
 endtry
 
+lua require "rc.toggleterm"
+
 " hidde buffer without saving
 set hidden
 

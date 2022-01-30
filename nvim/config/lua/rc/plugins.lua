@@ -62,7 +62,7 @@ return packer.startup(function(use)
         require('Comment').setup()
     end
   }
-  use 'ThePrimeagen/harpoon'
+  use "akinsho/toggleterm.nvim"
 
   -- telescope
   use 'nvim-lua/plenary.nvim'
