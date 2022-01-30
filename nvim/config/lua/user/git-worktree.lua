@@ -1,4 +1,4 @@
-local ok, worktree = pcall(require, "git_worktree")
+local ok, worktree = pcall(require, "git-worktree")
 if not ok then
 	return
 end
