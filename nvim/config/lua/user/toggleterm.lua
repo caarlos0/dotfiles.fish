@@ -5,4 +5,4 @@ end
 
 toggleterm.setup({})
 
-vim.api.nvim_set_keymap("n", "<leader>trm", "<cmd>:ToggleTerm<CR>", { noremap = true, silent = true })
+require("user.remap").nnoremap("<leader>trm", "<cmd>:ToggleTerm<CR>")

@@ -8,4 +8,4 @@ neogit.setup({
 	disable_context_highlighting = true,
 })
 
-vim.api.nvim_set_keymap("n", "<leader>gs", ":Neogit<CR>", { noremap = true, silent = true })
+require("user.remap").nnoremap("<leader>gs", "<cmd>Neogit<CR>")

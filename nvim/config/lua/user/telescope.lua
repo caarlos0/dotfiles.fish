@@ -5,14 +5,12 @@ end
 
 telescope.load_extension("fzf")
 
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>fg", ":Telescope git_files<CR>", opts)
-keymap("n", "<leader>of", ":Telescope oldfiles<CR>", opts)
-keymap("n", "<leader>lg", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
-keymap("n", "<leader>ft", ":Telescope treesitter<CR>", opts)
-keymap("n", "<leader>fc", ":Telescope commands<CR>", opts)
+local r = require("user.remap")
+r("<leader>ff", ":Telescope find_files<CR>")
+r("<leader>fg", ":Telescope git_files<CR>")
+r("<leader>of", ":Telescope oldfiles<CR>")
+r("<leader>lg", ":Telescope live_grep<CR>")
+r("<leader>fb", ":Telescope buffers<CR>")
+r("<leader>fh", ":Telescope help_tags<CR>")
+r("<leader>ft", ":Telescope treesitter<CR>")
+r("<leader>fc", ":Telescope commands<CR>")

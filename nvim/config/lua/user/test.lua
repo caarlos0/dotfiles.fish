@@ -1,8 +1,7 @@
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
+local r = require("user.remap")
 
-keymap("n", "<leader>ttn", ":TestNearest<CR>", opts)
-keymap("n", "<leader>ttf", ":TestFile<CR>", opts)
-keymap("n", "<leader>tts", ":TestSuite<CR>", opts)
-keymap("n", "<leader>ttl", ":TestLast<CR>", opts)
-keymap("n", "<leader>ttv", ":TestVisit<CR>", opts)
+r("<leader>ttn", ":TestNearest<CR>")
+r("<leader>ttf", ":TestFile<CR>")
+r("<leader>tts", ":TestSuite<CR>")
+r("<leader>ttl", ":TestLast<CR>")
+r("<leader>ttv", ":TestVisit<CR>")

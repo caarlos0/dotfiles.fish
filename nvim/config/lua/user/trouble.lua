@@ -4,4 +4,5 @@ if not ok then
 end
 
 trouble.setup({})
-vim.api.nvim_set_keymap("n", "<leader>xx", ":TroubleToggle<CR>", { noremap = true, silent = true })
+
+require("user.remap").nnoremap("<leader>xx", ":TroubleToggle<CR>")

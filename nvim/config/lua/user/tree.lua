@@ -9,7 +9,4 @@ tree.setup({
 	},
 })
 
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-keymap("n", "<leader>ttt", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<leader>tff", ":NvimTreeFindFile<CR>", opts)
+require("user.remap").nnoremap("<leader>tv", "<cmd>NvimTreeToggle<CR>")
