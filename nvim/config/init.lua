@@ -1,24 +1,24 @@
-require "rc.options"
-require "rc.keymaps"
-require "rc.autocommands"
-require "rc.plugins"
-require "rc.colorscheme"
+require "user.options"
+require "user.keymaps"
+require "user.autocommands"
+require "user.plugins"
+require "user.colorscheme"
 
-require "rc.toggleterm"
-require "rc.autopairs"
-require "rc.gitsigns"
-require "rc.cmp"
-require "rc.git-worktree"
-require "rc.lsp"
-require "rc.lualine"
-require "rc.telescope"
-require "rc.test"
-require "rc.tree"
-require "rc.treesitter"
-require "rc.trouble"
-require "rc.vsnip"
+require "user.toggleterm"
+require "user.autopairs"
+require "user.gitsigns"
+require "user.cmp"
+require "user.git-worktree"
+require "user.lsp"
+require "user.lualine"
+require "user.telescope"
+require "user.test"
+require "user.tree"
+require "user.treesitter"
+require "user.trouble"
+require "user.vsnip"
 
 
 -- generate the later part of the list
--- ls lua/rc/*.lua | grep -Ev 'options|keymap|autocommands|plugin|colorscheme' | sed -e 's;^lua/rc/;require "rc.;g' -e 's/\.lua$/"/g'
+-- ls lua/user/*.lua | grep -Ev 'options|keymap|autocommands|plugin|colorscheme' | sed -e 's;^lua/user/;require "user.;g' -e 's/\.lua$/"/g'
 --

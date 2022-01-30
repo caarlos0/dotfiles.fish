@@ -1,15 +1,15 @@
-local status_ok, cmp = pcall(require, "cmp")
-if not status_ok then
+local cmp_ok, cmp = pcall(require, "cmp")
+if not cmp_ok then
   return
 end
 
-local status_ok, lspkind = pcall(require, "lspkind")
-if not status_ok then
+local lspkind_ok, lspkind = pcall(require, "lspkind")
+if not lspkind_ok then
   return
 end
 
-local status_ok, cmd_autopairs = pcall(require, "nvim-autopairs.completionn.cmp")
-if not status_ok then
+local autopairs_ok, cmd_autopairs = pcall(require, "nvim-autopairs.completionn.cmp")
+if not autopairs_ok then
   return
 end
 
@@ -23,9 +23,8 @@ cmp.setup({
 		})
 	},
 	snippet = {
-		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+			vim.fn["vsnip#anonymous"](args.body)
 		end,
 	},
 	mapping = {
