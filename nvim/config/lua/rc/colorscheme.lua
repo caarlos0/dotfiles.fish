@@ -1,4 +1,6 @@
 vim.cmd [[
+set background=dark
+set termguicolors
 try
   packadd! dracula_pro
   let g:dracula_colorterm = 0
@@ -8,7 +10,6 @@ catch
     colorscheme dracula
   catch
     colorscheme default
-    set background=dark
   endtry
 endtry
 ]]
