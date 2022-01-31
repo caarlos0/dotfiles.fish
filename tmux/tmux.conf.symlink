@@ -1,0 +1,28 @@
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+set -g @plugin 'dracula/tmux'
+set -g @dracula-show-battery false
+set -g @dracula-show-network false
+set -g @dracula-show-weather false
+set -g @dracula-show-time false
+set -g @dracula-show-location false
+set -g @dracula-show-powerline true
+set -g @dracula-show-timezone false
+set -g @dracula-cpu-usage true
+set -g @dracula-ram-usage true
+set -g @dracula-gpu-usage false
+set -g @dracula-day-month false
+set -g @dracula-show-left-icon window
+set -g @dracula-show-powerline false
+set -g @dracula-show-fahrenheit false
+
+
+# open windows et al in the same folder
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
+
+set -s default-terminal "xterm-256color"
+
+run -b '~/.tmux/plugins/tpm/tpm'
