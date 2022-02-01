@@ -24,5 +24,6 @@ bind % split-window -h -c "#{pane_current_path}"
 bind c new-window -c "#{pane_current_path}"
 
 set -s default-terminal "xterm-256color"
+setw -g mouse on
 
 run -b '~/.tmux/plugins/tpm/tpm'
