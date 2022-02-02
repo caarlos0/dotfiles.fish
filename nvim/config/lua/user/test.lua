@@ -1,7 +1,8 @@
-local r = require("user.remap").nnoremap
+vim.api.nvim_set_var("test#strategy", "neovim")
 
-r("<leader>ttn", ":TestNearest<CR>")
-r("<leader>ttf", ":TestFile<CR>")
-r("<leader>tts", ":TestSuite<CR>")
-r("<leader>ttl", ":TestLast<CR>")
-r("<leader>ttv", ":TestVisit<CR>")
+local r = require("user.remap").nnoremap
+r("<leader>ttn", ":TestNearest -v<CR>g")
+r("<leader>ttf", ":TestFile -v<CR>g")
+r("<leader>tts", ":TestSuite -v<CR>g")
+r("<leader>ttl", ":TestLast -v<CR>g")
+r("<leader>ttv", ":TestVisit -v<CR>g")
