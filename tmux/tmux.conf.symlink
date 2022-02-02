@@ -1,10 +1,8 @@
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'dracula/tmux'
-
 set -g @dracula-plugins "time"
 set -g @dracula-day-month true
-
 
 # open windows et al in the same folder
 bind '"' split-window -c "#{pane_current_path}"
@@ -13,5 +11,11 @@ bind c new-window -c "#{pane_current_path}"
 
 set -s default-terminal "xterm-256color"
 setw -g mouse on
+
+# fix SSH agent after reconnecting
+# see also ssh/rc
+# https://blog.testdouble.com/posts/2016-11-18-reconciling-tmux-and-ssh-agent-forwarding/
+set -g update-environment "DISPLAY SSH_ASKPASS SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY"
+setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
 
 run -b '~/.tmux/plugins/tpm/tpm'
