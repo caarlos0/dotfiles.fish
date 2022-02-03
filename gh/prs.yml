@@ -1,37 +1,10 @@
-- title: My Pull Requests
-  filters: author:@me
-  repos:
-    - goreleaser/goreleaser
-    - goreleaser/nfpm
-    - goreleaser/community
-    - goreleaser/.github
-    - caarlos0/dotfiles.fish
-    - caarlos0/env
-    - caarlos0/svu
-    - charmbracelet/bubbletea
-    - charmbracelet/bubbles
-
-- title: Needs My Review
-  filters: assignee:@me
-  repos:
-    - goreleaser/goreleaser
-    - goreleaser/nfpm
-    - goreleaser/community
-    - goreleaser/.github
-    - caarlos0/dotfiles.fish
-    - caarlos0/env
-    - caarlos0/svu
-    - charmbracelet/bubbletea
-    - charmbracelet/bubbles
-- title: Subscribed
-  filters: -author:@me
-  repos:
-    - goreleaser/goreleaser
-    - goreleaser/nfpm
-    - goreleaser/community
-    - goreleaser/.github
-    - caarlos0/dotfiles.fish
-    - caarlos0/env
-    - caarlos0/svu
-    - charmbracelet/bubbletea
-    - charmbracelet/bubbles
+prSections:
+  - title: My Pull Requests
+    filters: is:open author:@me
+  - title: Needs My Review
+    filters: is:open review-requested:@me
+defaults:
+  prsLimit: 20 # global limit
+  preview:
+    open: true
+    width: 60
