@@ -3,6 +3,7 @@ if not ok then
 	return
 end
 
+telescope.setup()
 telescope.load_extension("fzf")
 telescope.load_extension("git_worktree")
 
@@ -15,3 +16,4 @@ r("<leader>fb", ":Telescope buffers<CR>")
 r("<leader>fh", ":Telescope help_tags<CR>")
 r("<leader>ft", ":Telescope treesitter<CR>")
 r("<leader>fc", ":Telescope commands<CR>")
+r("<leader>fr", ":Telescope resume<CR>")
