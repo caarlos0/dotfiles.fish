@@ -11,6 +11,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Normal --
+-- disable Ex mode, I always enter in it by mistake
+keymap("n", "Q", "<Nop>", opts)
 -- Better window navigation
 -- keymap("n", "<C-h>", "<C-w>h", opts)
 -- keymap("n", "<C-j>", "<C-w>j", opts)
