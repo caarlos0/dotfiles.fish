@@ -22,4 +22,12 @@ augroup _markdown
   autocmd FileType markdown setlocal wrap
   autocmd FileType markdown setlocal spell
 augroup END
+
+augroup tmux
+  autocmd!
+  if exists('$TMUX')
+    autocmd BufReadPost,FileReadPost,BufNewFile,FocusGained * call system("tmux rename-window " . fnamemodify(getcwd(), ':t'))
+    autocmd VimLeave,FocusLost * call system("tmux set-window-option automatic-rename")
+  endif
+augroup END
 ]])
