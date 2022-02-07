@@ -77,9 +77,9 @@ local on_attach = function(client, bufnr)
 	if client.resolved_capabilities.document_formatting then
 		vim.cmd([[
 			augroup formatting
-			  autocmd! * <buffer>
-			  autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
-			  autocmd BufWritePre <buffer> lua organizeImports(1000)
+				autocmd! * <buffer>
+				autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
+				autocmd BufWritePre <buffer> lua organizeImports(1000)
 			augroup END
 		]])
 	end
@@ -88,9 +88,9 @@ local on_attach = function(client, bufnr)
 	if client.resolved_capabilities.document_highlight then
 		vim.cmd([[
 			augroup lsp_document_highlight
-			  autocmd! * <buffer>
-			  autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-			  autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+				autocmd! * <buffer>
+				autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+				autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
 			augroup END
 		]])
 	end
