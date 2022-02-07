@@ -4,7 +4,7 @@ if not ok then
 end
 
 lspkind.init({
-	with_text = true,
+	mode = "symbol_text",
 	symbol_map = {
 		Class = "ﴯ",
 		Color = "",
