@@ -13,6 +13,7 @@ vim.g.maplocalleader = " "
 -- Normal --
 -- disable Ex mode, I always enter in it by mistake
 keymap("n", "Q", "<Nop>", opts)
+
 -- Better window navigation
 -- keymap("n", "<C-h>", "<C-w>h", opts)
 -- keymap("n", "<C-j>", "<C-w>j", opts)
@@ -29,9 +30,10 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- save and quit
-keymap("n", "<leader>ww", ":write<CR>", opts)
-keymap("n", "<leader>QQ", ":quit<CR>", opts)
-keymap("n", "<leader>wq", ":wq<CR>", opts) -- keeps the original paste
+keymap("n", "<leader>w", ":write<CR>", opts)
+keymap("n", "<leader>q", ":quit<R>", opts)
+keymap("n", "<leader>Q", ":quit!<CR>", opts)
+
 
 -- keep more or less in the same place when going next
 keymap("n", "n", "nzzzv", opts)
@@ -54,6 +56,7 @@ keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
+-- system clipboard integration
 keymap("v", "<leader>y", '"+y', opts)
 keymap("v", "<leader>Y", '"+Y', opts)
 
