@@ -64,6 +64,7 @@ return packer.startup(function(use)
 	use("numToStr/Comment.nvim")
 	use("folke/which-key.nvim")
 	use("famiu/bufdelete.nvim")
+	use("ThePrimeagen/harpoon")
 
 	-- telescope
 	use("nvim-lua/plenary.nvim")
