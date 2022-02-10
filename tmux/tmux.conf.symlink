@@ -4,11 +4,7 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'dracula/tmux'
 set -g @dracula-plugins "time"
 set -g @dracula-day-month true
-
-# open windows et al in the same folder
-bind '"' split-window -c "#{pane_current_path}"
-bind % split-window -h -c "#{pane_current_path}"
-bind c new-window -c "#{pane_current_path}"
+run -b '~/.tmux/plugins/tpm/tpm'
 
 set -s default-terminal "xterm-256color"
 setw -g mouse on
@@ -19,4 +15,30 @@ setw -g mouse on
 set -g update-environment "DISPLAY SSH_ASKPASS SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY"
 setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
 
-run -b '~/.tmux/plugins/tpm/tpm'
+set -g base-index 1
+
+# set terminal title
+set-option -g set-titles on
+set-option -g set-titles-string "#S / #W"
+
+# auto rename tmux window to current cwd
+set-option -g status-interval 1
+set-option -g automatic-rename on
+set-option -g automatic-rename-format '#{b:pane_current_path}'
+
+# vim-mode copy/paste
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi y send-keys -X copy-selection
+bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
+
+# open windows et al in the same folder
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
+
+# vim-like pane switching
+bind -r ^ last-window
+bind -r k select-pane -U
+bind -r j select-pane -D
+bind -r h select-pane -L
+bind -r l select-pane -R
