@@ -15,7 +15,12 @@ setw -g mouse on
 set -g update-environment "DISPLAY SSH_ASKPASS SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY"
 setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
 
+# Start windows and panes index at 1, not 0.
 set -g base-index 1
+setw -g pane-base-index 1
+
+# Ensure window index numbers get reordered on delete.
+set-option -g renumber-windows on
 
 # set terminal title
 set-option -g set-titles on
