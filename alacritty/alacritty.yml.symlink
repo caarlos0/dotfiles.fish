@@ -1,3 +1,5 @@
+# vi: ft=yaml
+
 import:
   - ~/.dotfiles/alacritty/dracula.yml
 window:

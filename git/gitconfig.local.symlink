@@ -1,3 +1,5 @@
+# vi: ft=gitconfig
+
 [alias]
 	co = checkout
 	count = shortlog -sn
@@ -21,6 +23,10 @@
 	autocrlf = input
 	whitespace = trailing-space,space-before-tab
 	precomposeunicode = true
+[advice]
+	addEmptyPathspec = false
+[gpg]
+	program = gpg
 [apply]
 	whitespace = nowarn
 [help]
@@ -47,3 +53,12 @@
     defaultBranch = main
 [format]
 	signOff = true
+[diff]
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = nvim -d "$LOCAL" "$REMOTE"
+[merge]
+    tool = nvimmerge
+[mergetool "nvimmerge"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+

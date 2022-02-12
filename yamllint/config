@@ -1,3 +1,5 @@
+# vi: ft=yaml
+
 extends: relaxed
 
 rules:
