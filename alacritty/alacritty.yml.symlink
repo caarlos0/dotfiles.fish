@@ -23,13 +23,13 @@ tabspaces: 4
 
 font:
   normal:
-    family: Inconsolata Nerd Font Mono
+    family: FiraCode Nerd Font Mono
   bold:
-    family: Inconsolata Nerd Font Mono
+    family: FiraCode Nerd Font Mono
   italic:
-    family: Inconsolata Nerd Font Mono
+    family: FiraCode Nerd Font Mono
   bold_italic:
-    family: Inconsolata Nerd Font Mono
+    family: FiraCode Nerd Font Mono
   size: 18.0
   use_thin_strokes: true
 
@@ -41,15 +41,6 @@ cursor:
 live_config_reload: true
 
 key_bindings:
-  - {
-      key: Comma,
-      mods: Command,
-      command:
-        {
-          program: "/usr/local/bin/code",
-          args: ["~/.alacritty.yml"],
-        },
-    }
   - { key: N, mods: Command, action: SpawnNewInstance }
 
 mouse_bindings:
