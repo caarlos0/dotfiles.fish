@@ -23,14 +23,14 @@ tabspaces: 4
 
 font:
   normal:
-    family: FiraCode Nerd Font Mono
+    family: MonoLisa Nerd Font
   bold:
-    family: FiraCode Nerd Font Mono
+    family: MonoLisa Nerd Font
   italic:
-    family: FiraCode Nerd Font Mono
+    family: MonoLisa Nerd Font
   bold_italic:
-    family: FiraCode Nerd Font Mono
-  size: 18.0
+    family: MonoLisa Nerd Font
+  size: 16.0
   use_thin_strokes: true
 
 cursor:
