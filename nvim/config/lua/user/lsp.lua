@@ -105,6 +105,8 @@ nvim_lsp["gopls"].setup({
 	},
 })
 
+nvim_lsp["golangci_lint_ls"].setup({})
+
 local schemas = {}
 schemas["https://goreleaser.com/static/schema-pro.json"] = ".goreleaser.yaml"
 
