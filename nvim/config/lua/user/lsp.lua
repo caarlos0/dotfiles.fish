@@ -142,6 +142,11 @@ nvim_lsp["sumneko_lua"].setup({
 	},
 })
 
+nvim_lsp["rust_analyzer"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 -- organize imports
 -- https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-902680058
 function organizeImports(timeoutms)
