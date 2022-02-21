@@ -65,6 +65,7 @@ return packer.startup(function(use)
 	use("folke/which-key.nvim")
 	use("famiu/bufdelete.nvim")
 	use("ThePrimeagen/harpoon")
+	use("folke/todo-comments.nvim")
 
 	-- telescope
 	use("nvim-lua/plenary.nvim")
@@ -95,6 +96,7 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("simrat39/symbols-outline.nvim")
 	use("ray-x/lsp_signature.nvim")
+	use("RRethy/vim-illuminate")
 
 	-- git
 	use("TimUntersberger/neogit")

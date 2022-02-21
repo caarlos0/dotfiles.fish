@@ -14,6 +14,11 @@ if not nulls_ok then
 	return
 end
 
+local illu_ok, illuminate = pcall(require, "illuminate")
+if not illu_ok then
+	return
+end
+
 nulls.setup({
 	sources = {
 		nulls.builtins.formatting.stylua,
@@ -43,6 +48,8 @@ local on_attach = function(client, bufnr)
 	local function buf_set_option(...)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
+
+	illuminate.on_attach(client, bufnr)
 
 	-- Enable completion triggered by <c-x><c-o>
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")

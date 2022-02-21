@@ -5,6 +5,7 @@ require("user.plugins")
 require("user.colorscheme")
 
 require("user.impatient")
+require("user.todo")
 require("user.comment")
 require("user.toggleterm")
 require("user.bufferline")
