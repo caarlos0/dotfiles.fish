@@ -6,7 +6,9 @@ set -g @dracula-plugins "time"
 set -g @dracula-day-month true
 run -b '~/.tmux/plugins/tpm/tpm'
 
-set -s default-terminal "xterm-256color"
+set -g default-terminal "xterm-256color"
+set -ga terminal-overrides ",*256col*:Tc"
+set -s escape-time 0
 setw -g mouse on
 
 # fix SSH agent after reconnecting
@@ -47,3 +49,4 @@ bind -r k select-pane -U
 bind -r j select-pane -D
 bind -r h select-pane -L
 bind -r l select-pane -R
+bind r source-file ~/.tmux.conf
