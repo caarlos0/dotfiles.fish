@@ -8,6 +8,8 @@ run -b '~/.tmux/plugins/tpm/tpm'
 
 set -g default-terminal "xterm-256color"
 set -ga terminal-overrides ",*256col*:Tc"
+setenv -g COLORTERM truecolor
+
 set -s escape-time 0
 setw -g mouse on
 
