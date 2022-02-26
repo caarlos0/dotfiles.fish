@@ -3,4 +3,8 @@ if not ok then
 	return
 end
 
-bufline.setup({})
+bufline.setup({
+	options = {
+		diagnostics = "nvim_lsp",
+	},
+})

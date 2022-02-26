@@ -5,4 +5,4 @@ end
 
 trouble.setup({})
 
-require("user.remap").nnoremap("<leader>xx", ":TroubleToggle<CR>")
+require("user.remap").nnoremap("<leader>tx", "<cmd>TroubleToggle<CR>")
