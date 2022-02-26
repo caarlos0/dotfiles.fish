@@ -5,6 +5,7 @@ env:
 
 import:
   - ~/.dotfiles/alacritty/dracula.yml
+
 window:
   padding:
     x: 15
@@ -23,6 +24,10 @@ scrolling:
   auto_scroll: false
 
 tabspaces: 4
+
+bell:
+  duration: 100
+  color: '#22212C'
 
 font:
   normal:
