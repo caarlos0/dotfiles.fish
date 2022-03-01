@@ -8,11 +8,11 @@ import:
 
 window:
   padding:
-    x: 15
-    y: 15
+    x: 5
+    y: 5
   dynamic_padding: true
-  decorations: full
-  startup_mode: Windowed
+  decorations: buttonless
+  # startup_mode: SimpleFullscreen
   dynamic_title: true
   dimensions:
    columns: 120
