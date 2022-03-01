@@ -8,9 +8,10 @@ import:
 
 window:
   padding:
-    x: 5
-    y: 5
+    x: 10
+    y: 10
   dynamic_padding: true
+  opacity: 0.92
   decorations: buttonless
   # startup_mode: SimpleFullscreen
   dynamic_title: true
