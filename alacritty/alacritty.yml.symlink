@@ -28,6 +28,9 @@ tabspaces: 4
 bell:
   duration: 100
   color: '#22212C'
+  command:
+    program: afplay
+    args: ["/System/Library/Sounds/Tink.aiff"]
 
 font:
   normal:
@@ -49,7 +52,7 @@ cursor:
 live_config_reload: true
 
 key_bindings:
-  - { key: N, mods: Command, action: SpawnNewInstance }
+  - { key: N, mods: Command, action: CreateNewWindow }
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
