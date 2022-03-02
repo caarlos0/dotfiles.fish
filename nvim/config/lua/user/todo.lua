@@ -5,6 +5,6 @@ end
 
 todo.setup({
 	highlight = {
-		keyword = "",
+		keyword = "bg",
 	},
 })
