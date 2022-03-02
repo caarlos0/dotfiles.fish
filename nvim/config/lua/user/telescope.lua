@@ -13,6 +13,7 @@ telescope.load_extension('harpoon')
 local r = require("user.remap").nnoremap
 r("<leader>ff", ":Telescope find_files<CR>")
 r("<leader>fg", ":Telescope git_files<CR>")
+r("<C-p>", ":Telescope git_files<CR>")
 r("<leader>of", ":Telescope oldfiles<CR>")
 r("<leader>lg", ":Telescope live_grep<CR>")
 r("<leader>fb", ":Telescope buffers<CR>")
