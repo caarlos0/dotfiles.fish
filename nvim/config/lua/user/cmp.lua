@@ -62,20 +62,20 @@ cmp.setup({
 		}),
 	},
 	formatting = {
-		fields = { 'kind', 'abbr', 'menu', },
+		fields = { "kind", "abbr", "menu" },
 		format = lspkind.cmp_format({
 			with_text = false,
-		})
-    },
+		}),
+	},
 	sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-    }, {
-      { name = 'path' },
-    }, {
-      { name = 'vsnip' },
-    }, {
-      { name = 'buffer' },
-    }),
+		{ name = "nvim_lsp" },
+	}, {
+		{ name = "path" },
+	}, {
+		{ name = "luasnip" },
+	}, {
+		{ name = "buffer" },
+	}),
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
