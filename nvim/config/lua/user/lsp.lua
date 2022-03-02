@@ -110,7 +110,7 @@ local on_attach = function(client, bufnr)
 			augroup formatting
 				autocmd! * <buffer>
 				autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
-				autocmd BufWritePre <buffer> lua organizeImports(1000)
+				autocmd BufWritePre <buffer> lua OrganizeImports(1000)
 			augroup END
 		]])
 	end
