@@ -21,6 +21,17 @@ endtry
 try
   " highlights current line number
   highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+  highlight link CmpItemKind DraculaPurple
+  highlight link CmpItemKindMethod DraculaOrange
+  highlight link CmpItemKindFunction DraculaOrange
+  highlight link CmpItemKindVariable DraculaGreen
+  highlight link CmpItemKindField DraculaGreen
+  highlight link CmpItemKindProperty DraculaGreen
+  " highlight link CmpItemAbbr DraculaComment
+  highlight link CmpItemAbbrMatch DraculaCyan
+  highlight link CmpItemAbbrMatchFuzzy DraculaCyan
+  highlight link CmpItemAbbrDeprecated DraculaWarnLine
+  highlight link CmpItemMenu DraculaComment
   set cursorline
 endtry
 ]])

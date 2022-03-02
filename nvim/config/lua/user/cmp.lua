@@ -62,27 +62,20 @@ cmp.setup({
 		}),
 	},
 	formatting = {
-		fields = { "kind", "abbr", "menu" },
+		fields = { 'kind', 'abbr', 'menu', },
 		format = lspkind.cmp_format({
-			with_text = false, -- do not show text alongside icons
-			maxwidth = 50,
-			before = function(entry, vim_item)
-				vim_item.menu = ({
-					nvim_lsp = "[LSP]",
-					luasnip = "[Snippet]",
-					buffer = "[Buffer]",
-					path = "[Path]",
-				})[entry.source.name]
-				return vim_item
-			end,
-		}),
-	},
-	sources = {
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
-		{ name = "buffer" },
-		{ name = "path" },
-	},
+			with_text = false,
+		})
+    },
+	sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+    }, {
+      { name = 'path' },
+    }, {
+      { name = 'vsnip' },
+    }, {
+      { name = 'buffer' },
+    }),
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
@@ -91,8 +84,8 @@ cmp.setup({
 		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 	},
 	experimental = {
-		ghost_text = false,
 		native_menu = false,
+		ghost_text = true,
 	},
 })
 
