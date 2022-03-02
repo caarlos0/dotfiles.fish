@@ -4,6 +4,7 @@ if not cmplsp_ok then
 	return
 end
 
+-- TODO: not sure if I still need this
 local lspconf_ok, nvim_lsp = pcall(require, "lspconfig")
 if not lspconf_ok then
 	return
@@ -19,12 +20,29 @@ if not illu_ok then
 	return
 end
 
+local status_ok, lspstatus = pcall(require, "lsp-status")
+if not status_ok then
+	return
+end
+
+local inst_ok, installer = pcall(require, "nvim-lsp-installer")
+if not inst_ok then
+	return
+end
+
+lspstatus.config({
+	status_symbol = "  ",
+	diagnostics = false,
+})
+lspstatus.register_progress()
+
 nulls.setup({
 	sources = {
 		nulls.builtins.formatting.stylua,
 		nulls.builtins.completion.spell,
 	},
-	on_attach = function(client)
+	on_attach = function(client, bufnr)
+		lspstatus.on_attach(client, bufnr)
 		if client.resolved_capabilities.document_formatting then
 			vim.cmd([[
             augroup LspFormatting
@@ -36,8 +54,11 @@ nulls.setup({
 	end,
 })
 
-local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
+local capabilities = vim.tbl_extend(
+	"keep",
+	cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()) or {},
+	lspstatus.capabilities
+)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -50,8 +71,10 @@ local on_attach = function(client, bufnr)
 	end
 
 	illuminate.on_attach(client, bufnr)
+	lspstatus.on_attach(client, bufnr)
 
 	-- Enable completion triggered by <c-x><c-o>
+	-- TODO: do I need this?
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- Mappings.
@@ -104,21 +127,21 @@ local on_attach = function(client, bufnr)
 	end
 end
 
-nvim_lsp["gopls"].setup({
+local lsp_opts = {}
+
+lsp_opts["gopls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	flags = {
 		debounce_text_changes = 150,
 	},
-})
-
-nvim_lsp["golangci_lint_ls"].setup({})
+}
 
 local schemas = {}
 schemas["https://goreleaser.com/static/schema-pro.json"] = ".goreleaser.yaml"
 
 -- npm i --global yaml-language-server
-nvim_lsp["yamlls"].setup({
+lsp_opts["yamlls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
@@ -130,14 +153,14 @@ nvim_lsp["yamlls"].setup({
 			schemas = schemas,
 		},
 	},
-})
+}
 
-nvim_lsp["bashls"].setup({
+lsp_opts["bashls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
-nvim_lsp["sumneko_lua"].setup({
+lsp_opts["sumneko_lua"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
@@ -147,23 +170,27 @@ nvim_lsp["sumneko_lua"].setup({
 			},
 		},
 	},
-})
+}
 
-nvim_lsp["rust_analyzer"].setup({
+lsp_opts["rust_analyzer"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
+
+installer.on_server_ready(function(server)
+	server:setup(lsp_opts[server.name] or {})
+end)
 
 -- organize imports
 -- https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-902680058
-function organizeImports(timeoutms)
+function OrganizeImports(timeoutms)
 	local params = vim.lsp.util.make_range_params()
 	params.context = { only = { "source.organizeImports" } }
 	local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeoutms)
 	for _, res in pairs(result or {}) do
 		for _, r in pairs(res.result or {}) do
 			if r.edit then
-				vim.lsp.util.apply_workspace_edit(r.edit, 'UTF-8')
+				vim.lsp.util.apply_workspace_edit(r.edit, "UTF-8")
 			else
 				vim.lsp.buf.execute_command(r.command)
 			end
