@@ -4,12 +4,6 @@ if not cmplsp_ok then
 	return
 end
 
--- TODO: not sure if I still need this
-local lspconf_ok, nvim_lsp = pcall(require, "lspconfig")
-if not lspconf_ok then
-	return
-end
-
 local nulls_ok, nulls = pcall(require, "null-ls")
 if not nulls_ok then
 	return
@@ -29,6 +23,16 @@ local inst_ok, installer = pcall(require, "nvim-lsp-installer")
 if not inst_ok then
 	return
 end
+
+local ok, signature = pcall(require, "lsp_signature")
+if not ok then
+	return
+end
+
+signature.setup({
+	floating_window = false,
+	sig = "",
+})
 
 lspstatus.config({
 	status_symbol = "  ",
@@ -66,16 +70,9 @@ local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
-	local function buf_set_option(...)
-		vim.api.nvim_buf_set_option(bufnr, ...)
-	end
 
 	illuminate.on_attach(client, bufnr)
 	lspstatus.on_attach(client, bufnr)
-
-	-- Enable completion triggered by <c-x><c-o>
-	-- TODO: do I need this?
-	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- Mappings.
 	local opts = { noremap = true, silent = true }

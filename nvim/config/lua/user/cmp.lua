@@ -21,7 +21,7 @@ end
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			luasnip.lsp_expand(args.body) -- For `luasnip` users.
+			luasnip.lsp_expand(args.body)
 		end,
 	},
 	mapping = {
@@ -64,15 +64,15 @@ cmp.setup({
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = lspkind.cmp_format({
-			with_text = false,
+			with_text = true,
+			-- mode = "symbol",
 		}),
 	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
 	}, {
 		{ name = "path" },
-	}, {
-		{ name = "luasnip" },
 	}, {
 		{ name = "buffer" },
 	}),

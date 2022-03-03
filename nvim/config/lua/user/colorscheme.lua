@@ -27,6 +27,8 @@ try
   highlight link CmpItemKindVariable DraculaGreen
   highlight link CmpItemKindField DraculaGreen
   highlight link CmpItemKindProperty DraculaGreen
+  highlight link CmpItemKindText DraculaComment
+  highlight link CmpItemKindSnippet DraculaRed
   " highlight link CmpItemAbbr DraculaComment
   highlight link CmpItemAbbrMatch DraculaCyan
   highlight link CmpItemAbbrMatchFuzzy DraculaCyan
