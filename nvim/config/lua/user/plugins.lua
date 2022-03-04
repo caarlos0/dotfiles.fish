@@ -38,9 +38,7 @@ packer.init({
 	},
 })
 
--- Install your plugins here
 return packer.startup(function(use)
-	-- My plugins here
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("lewis6991/impatient.nvim")
 
@@ -49,6 +47,7 @@ return packer.startup(function(use)
 		"dracula/vim",
 		as = "dracula",
 	})
+	use("stevearc/dressing.nvim")
 	use("nvim-lualine/lualine.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
