@@ -29,22 +29,36 @@ if not ok then
 	return
 end
 
+local lspkind_ok, lspkind = pcall(require, "lspkind")
+if not lspkind_ok then
+	return
+end
+
 signature.setup({
 	floating_window = false,
 	sig = "",
 })
 
 lspstatus.config({
-	status_symbol = "  ",
+	status_symbol = "𝓵", --b"⬤ ",
+	current_function = true,
 	diagnostics = false,
+	kind_labels = lspkind.presets["default"],
 })
 lspstatus.register_progress()
+
+local capabilities = vim.tbl_extend(
+	"keep",
+	cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()) or {},
+	lspstatus.capabilities
+)
 
 nulls.setup({
 	sources = {
 		nulls.builtins.formatting.stylua,
 		nulls.builtins.completion.spell,
 	},
+	capabilities = capabilities,
 	on_attach = function(client, bufnr)
 		lspstatus.on_attach(client, bufnr)
 		if client.resolved_capabilities.document_formatting then
@@ -57,12 +71,6 @@ nulls.setup({
 		end
 	end,
 })
-
-local capabilities = vim.tbl_extend(
-	"keep",
-	cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()) or {},
-	lspstatus.capabilities
-)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
