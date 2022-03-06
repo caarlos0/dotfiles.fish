@@ -48,6 +48,7 @@ return packer.startup(function(use)
 		as = "dracula",
 	})
 	use("stevearc/dressing.nvim")
+	use("j-hui/fidget.nvim")
 	use("nvim-lualine/lualine.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
