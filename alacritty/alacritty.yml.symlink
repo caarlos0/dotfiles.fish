@@ -11,9 +11,8 @@ window:
     x: 10
     y: 10
   dynamic_padding: true
-  opacity: 0.92
+  opacity: 1
   decorations: buttonless
-  # startup_mode: SimpleFullscreen
   dynamic_title: true
   dimensions:
    columns: 120
