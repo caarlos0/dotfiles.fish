@@ -6,6 +6,8 @@ local options = {
 	updatetime = 300, -- faster update times
 	mouse = "a",
 	inccommand = "split",
+	splitbelow = true,
+	splitright = true,
 	wrap = false,
 	textwidth = 0,
 	expandtab = true,
@@ -33,7 +35,7 @@ local options = {
 	colorcolumn = "80",
 	foldmethod = "indent",
 	foldnestmax = 3,
-	foldminlines = 40,
+	foldminlines = 10,
 	foldlevelstart = 999,
 	backspace = { "indent", "eol", "start" },
 }
