@@ -4,7 +4,7 @@ if not cmplsp_ok then
 	return
 end
 
-local nulls_ok, nulls = pcall(require, "null-ls")
+local nulls_ok, null_ls = pcall(require, "null-ls")
 if not nulls_ok then
 	return
 end
@@ -54,10 +54,12 @@ local capabilities = vim.tbl_extend(
 	lspstatus.capabilities
 )
 
-nulls.setup({
+null_ls.setup({
 	sources = {
-		nulls.builtins.formatting.stylua,
-		nulls.builtins.completion.spell,
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.completion.spell,
+		-- this breaks organize imports, for some reason
+		-- null_ls.builtins.code_actions.gitsigns,
 	},
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
