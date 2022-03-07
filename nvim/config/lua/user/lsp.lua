@@ -140,6 +140,11 @@ local lsp_opts = {}
 lsp_opts["gopls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
+	settings = {
+		gopls = {
+			gofumpt = true,
+		},
+	},
 	flags = {
 		debounce_text_changes = 150,
 	},
