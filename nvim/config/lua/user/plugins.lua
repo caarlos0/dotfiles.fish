@@ -65,6 +65,7 @@ return packer.startup(function(use)
 	use("folke/which-key.nvim")
 	use("famiu/bufdelete.nvim")
 	use("folke/todo-comments.nvim")
+	use("Pocco81/AutoSave.nvim")
 
 	-- telescope
 	use("nvim-lua/plenary.nvim")

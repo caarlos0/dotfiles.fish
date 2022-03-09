@@ -6,6 +6,7 @@ require("user.colorscheme")
 
 require("user.impatient")
 require("user.dressing")
+require("user.autosave")
 require("user.todo")
 require("user.comment")
 require("user.toggleterm")
