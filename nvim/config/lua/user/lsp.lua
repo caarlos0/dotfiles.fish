@@ -36,7 +36,11 @@ end
 
 signature.setup({
 	floating_window = false,
-	sig = "",
+	hint_prefix = "",
+	bind = true,
+	handler_opts = {
+		border = "rounded",
+	},
 })
 
 lspstatus.config({
