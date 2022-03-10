@@ -1,13 +1,18 @@
+# vi: ft=yaml
+
+env:
+  TERM: xterm-256color
+
 import:
   - ~/.dotfiles/alacritty/dracula.yml
 
 window:
   padding:
-    x: 15
-    y: 15
+    x: 10
+    y: 10
   dynamic_padding: true
-  decorations: full
-  startup_mode: Windowed
+  opacity: 1
+  decorations: buttonless
   dynamic_title: true
   dimensions:
    columns: 120
@@ -20,16 +25,23 @@ scrolling:
 
 tabspaces: 4
 
+bell:
+  duration: 100
+  color: '#22212C'
+  command:
+    program: afplay
+    args: ["/System/Library/Sounds/Tink.aiff"]
+
 font:
   normal:
-    family: Inconsolata Nerd Font Mono
+    family: MonoLisa Nerd Font
   bold:
-    family: Inconsolata Nerd Font Mono
+    family: MonoLisa Nerd Font
   italic:
-    family: Inconsolata Nerd Font Mono
+    family: MonoLisa Nerd Font
   bold_italic:
-    family: Inconsolata Nerd Font Mono
-  size: 14.0
+    family: MonoLisa Nerd Font
+  size: 16.0
   use_thin_strokes: true
 
 cursor:
@@ -40,16 +52,7 @@ cursor:
 live_config_reload: true
 
 key_bindings:
-  - {
-      key: Comma,
-      mods: Command,
-      command:
-        {
-          program: "/usr/local/bin/code",
-          args: ["$HOME/.alacritty.yml"],
-        },
-    }
-  - { key: 'T', mods: Command, action: SpawnNewInstance }
+  - { key: N, mods: Command, action: CreateNewWindow }
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
