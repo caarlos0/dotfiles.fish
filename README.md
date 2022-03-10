@@ -34,10 +34,11 @@ Simply, run these steps:
 - which first will install [brew](https://brew.sh), the package manager and the dependencies
 - `fish`: the shell
 - [`grc`](https://github.com/garabik/grc) to colorize command's outputs
+- [`rust`](https://www.rust-lang.org/) to install formatting for [lua](https://www.lua.org/)
 
 ```console
 $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ brew install fish grc
+$ brew install fish grc rust
 $ git clone https://github.com/mavogel/dotfiles.fish.git ~/.dotfiles
 $ cd ~/.dotfiles
 $ ./script/bootstrap.fish

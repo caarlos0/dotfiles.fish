@@ -22,7 +22,7 @@ jobs:
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew --version
           # we need gnu sed to use the -i option properly without file extension
-          brew install gnu-sed git
+          brew install gnu-sed git rust
           # and add it to the path
           export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
           sed --version
