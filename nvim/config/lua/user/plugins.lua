@@ -44,8 +44,8 @@ return packer.startup(function(use)
 
 	-- ui
 	use({
-		"dracula/vim",
-		as = "dracula",
+		"catppuccin/nvim",
+		as = "catppuccin",
 	})
 	use("stevearc/dressing.nvim")
 	use("j-hui/fidget.nvim")
