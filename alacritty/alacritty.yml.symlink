@@ -1,10 +1,10 @@
 # vi: ft=yaml
-
+#
 env:
   TERM: xterm-256color
 
 import:
-  - ~/.dotfiles/alacritty/dracula.yml
+  - ~/.dotfiles/alacritty/catppuccin.yml
 
 window:
   padding:
