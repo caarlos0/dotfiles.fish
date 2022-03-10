@@ -1,25 +1,10 @@
-- title: My Pull Requests
-  filters: author:@me
-  repos:
-    - goreleaser/goreleaser
-    - mavogel/dotfiles.fish
-    - kreuzwerker/terraform-provider-docker
-    - kreuzwerker/m1-terraform-provider-helper
-    - kreuzwerker/awsu
-
-- title: Needs My Review
-  filters: assignee:@me
-  repos:
-    - goreleaser/goreleaser
-    - mavogel/dotfiles.fish
-    - kreuzwerker/terraform-provider-docker
-    - kreuzwerker/m1-terraform-provider-helper
-    - kreuzwerker/awsu
-- title: Subscribed
-  filters: -author:@me
-  repos:
-    - goreleaser/goreleaser
-    - mavogel/dotfiles.fish
-    - kreuzwerker/terraform-provider-docker
-    - kreuzwerker/m1-terraform-provider-helper
-    - kreuzwerker/awsu
+prSections:
+  - title: My Pull Requests
+    filters: is:open author:@me
+  - title: Needs My Review
+    filters: is:open review-requested:@me
+defaults:
+  prsLimit: 20 # global limit
+  preview:
+    open: true
+    width: 60

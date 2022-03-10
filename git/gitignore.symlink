@@ -13,3 +13,4 @@
 .vscode/
 dump.rdb
 main.tfvars
+coverage.out

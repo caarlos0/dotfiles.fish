@@ -1,7 +1,7 @@
 <p align="center">
   <img alt="header image" src="https://raw.githubusercontent.com/mavogel/dotfiles.fish/master/docs/header.svg" height="350" />
   <h2 align="center">manuel's dotfiles</h2>
-  <p align="center">Config files for Fish, Java, Ruby, Go, Editors, Terminals and more.</p>
+  <p align="center">Config files for Fish, Go, Editors, Terminals and more.</p>
 </p>
 
 ---
@@ -102,7 +102,6 @@ For both Linux and macOS:
 - [`gh`](https://github.com/cli/cli) for more GitHub integration with the terminal;
 - [`starship.rs`](https://starship.rs) the shell we are using;
 - [`kubectx`](https://github.com/ahmetb/kubectx) for better Kubernetes context and namespace switch;
-- [`zoxide`](https://github.com/ajeetdsouza/zoxide) a smarter `cd` command;
 
 To install them all with `brew`:
 
