@@ -1,4 +1,162 @@
 
+<a name="v4.5.0"></a>
+## [v4.5.0](https://github.com/mavogel/dotfiles.fish/compare/v4.4.0...v4.5.0) (2022-03-10)
+
+### Bug Fixes
+
+* improve lsp signature conf
+* use leader
+* options
+* null ls config
+* improve alacritty config
+* statusline
+* lsp
+* show file with path
+* remove unused file
+* highlights
+* lsp stuff
+* tmux config
+* imp nvim conf
+* cfg
+* fmt
+* snips
+* cmp
+* organize imports fn
+* improve todo config
+* improve todo config
+* improve alacritty config
+* improve alacritty config
+* go install
+* alacritty conf
+* nvim configs
+* lsp on neovim 0.7
+* cmp conf
+* tmux truecolor
+* tmux options
+* pomodoro fn
+* alacritty config
+* tmux reorder windows on close
+* alacritty config
+* nvim packer sync
+* configs
+* dont check ssh keys on localhost
+* tmux configs
+* keymaps
+* vim colorscheme
+* remove signed-off-by from gpr
+* lspkind
+* hi current line nr
+* gpr cmd line
+* tmux yank
+* nvim/install
+* set tmux window name to path
+* gh config
+* homebrew no hints
+* disable vim ex mode
+* LC_ALL and LC_CTYPE
+* homebrew update on install
+* vim-test config impr
+* tmux config
+* lualine config
+* setup nvim blankline
+* nvim undodir
+* gitignore coverage.out files
+* some neovim settings
+* ssh config
+* bufdelete
+* nvim install
+* git worktree
+* git main-branch: improve detection
+* remove terms I dont use
+* git config
+* several improvements
+* gpg reload check
+* reload agent after changes
+* add /usr/local/go/bin to user_paths
+* improve neogit config
+* reference
+* typo in telescope -> lsp integration
+* errors when lsp restarts
+* improve fold settings
+* telescope oldfiles typo
+* command qa
+* remove startup screen plg
+* better autopairs plugin
+* organize imports
+* dont need polyglot and treesitter
+* drop max_line_lenght from editorconfig
+* tw/wrap
+* improve cmp
+* indent colors
+* improving nvim config
+* remove ale
+* lspconfig handle the organize imports thing already
+* editor config for lua
+* use native neovim indent line plugin
+* typo
+* ssh config prefer ed25519
+* **neogit:** disable context highlight as it looks awful
+* **osx:** remove disablement of trackpadscroll
+* **vim:** improve shortcuts
+
+### Documentation
+
+* readme update
+
+### New Features
+
+* add rust as prerequisite
+* add vim autoload
+* nvim autosave on focus lost
+* gopls
+* highlight on yank
+* lsp fidget
+* several nvim config fixes
+* pubkey should copy agent keys
+* improve lsp config
+* c-p to open files
+* highlights on cmp
+* improve alacritty config
+* change some keymaps
+* vim todos, illuminate, telescopr conf
+* pomodoro
+* lsps
+* setup golangci_lint_ls
+* use monolist font
+* lsp_signature
+* alacritty
+* harpoon
+* auto-set tmux window name
+* telescope resume
+* nvim lsp references highlight
+* gnupg configs
+* tmux allwo mouse
+* tmux configs
+* neoscroll, presence, impatient
+* neovim config in lua ([#15](https://github.com/mavogel/dotfiles.fish/issues/15))
+* yubikey-agent as ssh agent
+* migrate to neogit
+* lua lsp
+* vim test
+* git worktrees
+* back to plain old fish-only z
+* system clipboard integration
+* foldmethod
+* vsnips
+* neovim ([#14](https://github.com/mavogel/dotfiles.fish/issues/14))
+* keep ssh-agent between tmux reconnects
+* back to dracula
+* always sign commits and tags
+* **brewfile:** add node
+* **brewfile:** add keybase
+* **brewfile:** add duf
+* **brewfile:** add svu
+
+### Reverts
+
+* fix: lspconfig handle the organize imports thing already
+
+
 <a name="v4.4.0"></a>
 ## [v4.4.0](https://github.com/mavogel/dotfiles.fish/compare/v4.3.0...v4.4.0) (2021-12-26)
 
