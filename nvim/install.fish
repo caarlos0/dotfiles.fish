@@ -7,4 +7,6 @@ abbr -a v 'nvim'
 nvim --headless "+PackerSync" "+quit!"
 
 # null-ls formatting for lua
-cargo install stylua
+if command -qs cargo
+	cargo install stylua
+end
