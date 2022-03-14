@@ -1,11 +1,6 @@
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'
-set -g @plugin 'dracula/tmux'
-set -g @dracula-plugins "time"
-set -g @dracula-day-month true
-set -g @dracula-show-left-icon session
-set -g @dracula-border-contrast true
 run -b '~/.tmux/plugins/tpm/tpm'
 
 set -g default-terminal "xterm-256color"
@@ -54,3 +49,6 @@ bind -r j select-pane -D
 bind -r h select-pane -L
 bind -r l select-pane -R
 bind r source-file ~/.tmux.conf
+
+source-file ~/.dotfiles/tmux/catppuccin.conf
+set -g status-position bottom
