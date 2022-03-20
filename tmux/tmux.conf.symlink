@@ -1,6 +1,8 @@
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
 run -b '~/.tmux/plugins/tpm/tpm'
 
 set -g default-terminal "xterm-256color"
@@ -19,6 +21,9 @@ setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
 # Start windows and panes index at 1, not 0.
 set -g base-index 1
 setw -g pane-base-index 1
+
+# Auto restore tmux
+set -g @continuum-restore 'on'
 
 # Ensure window index numbers get reordered on delete.
 set-option -g renumber-windows on
