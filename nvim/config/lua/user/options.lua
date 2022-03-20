@@ -40,6 +40,7 @@ local options = {
 	backspace = { "indent", "eol", "start" },
 	spell = true,
 	spelllang = { "en_us" },
+	laststatus = 3,
 }
 
 vim.opt.shortmess:append("c")
