@@ -118,6 +118,8 @@ return packer.startup(function(use)
 	-- testing et al
 	use("vim-test/vim-test")
 
+	use("ellisonleao/glow.nvim")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
