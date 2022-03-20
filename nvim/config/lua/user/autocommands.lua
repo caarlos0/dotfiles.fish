@@ -10,6 +10,7 @@ augroup _general_settings
   autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}
   autocmd BufWritePre * :call TrimWhitespace()
   autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
+  autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif
 augroup END
 
 augroup _git
