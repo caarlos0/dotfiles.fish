@@ -177,6 +177,21 @@ lsp_opts["bashls"] = {
 	on_attach = on_attach,
 }
 
+lsp_opts["terraformls"] = {
+	capabilities = capabilities,
+	on_attach = on_attach,
+}
+
+lsp_opts["tflint"] = {
+	capabilities = capabilities,
+	on_attach = on_attach,
+}
+
+lsp_opts["dockerls"] = {
+	capabilities = capabilities,
+	on_attach = on_attach,
+}
+
 lsp_opts["sumneko_lua"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
