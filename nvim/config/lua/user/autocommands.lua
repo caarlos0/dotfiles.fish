@@ -7,6 +7,7 @@ endfun
 
 augroup _general_settings
   autocmd!
+  autocmd BufNewFile,BufRead *.dockerfile set ft=dockerfile
   autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}
   autocmd BufWritePre * :call TrimWhitespace()
   autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
