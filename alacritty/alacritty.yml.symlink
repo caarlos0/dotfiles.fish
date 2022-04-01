@@ -15,8 +15,9 @@ window:
   decorations: buttonless
   dynamic_title: true
   dimensions:
-   columns: 120
-   lines: 40
+   columns: 240
+   lines: 80
+  startup_mode: Maximized
 
 scrolling:
   history: 10000
@@ -41,7 +42,7 @@ font:
     family: MonoLisa Nerd Font
   bold_italic:
     family: MonoLisa Nerd Font
-  size: 16.0
+  size: 13.0
   use_thin_strokes: true
 
 cursor:
