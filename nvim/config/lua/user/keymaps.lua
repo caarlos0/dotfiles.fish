@@ -38,6 +38,9 @@ keymap("n", "<leader>Q", ":quitall!<CR>", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 
+keymap("n", "Q", "q", opts)
+keymap("n", "q", "<Nop>", opts)
+
 -- Insert --
 -- in insert mode, adds new undo points after , . ! and ?.
 keymap("i", ",", ",<c-g>u", opts)
