@@ -44,7 +44,7 @@ function setup_gitconfig
 		git config --global user.name $user_name
 			and git config --global user.email $user_email
 			or abort 'failed to setup git user name and email'
-	else if test '$managed' = "true"
+	else if test "$managed" != "true"
 		# if user.email exists, let's check for dotfiles.managed config. If it is
 		# not true, we'll backup the gitconfig file and set previous user.email and
 		# user.name in the new one
