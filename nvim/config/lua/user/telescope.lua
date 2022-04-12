@@ -3,9 +3,7 @@ if not ok then
 	return
 end
 
-telescope.setup({
-	defaults = require("telescope.themes").get_dropdown({}),
-})
+telescope.setup({})
 telescope.load_extension("fzf")
 telescope.load_extension("git_worktree")
 
