@@ -4,11 +4,6 @@ if not cmplsp_ok then
 	return
 end
 
-local nulls_ok, null_ls = pcall(require, "null-ls")
-if not nulls_ok then
-	return
-end
-
 local illu_ok, illuminate = pcall(require, "illuminate")
 if not illu_ok then
 	return
@@ -57,27 +52,6 @@ local capabilities = vim.tbl_extend(
 	cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()) or {},
 	lspstatus.capabilities
 )
-
-null_ls.setup({
-	sources = {
-		null_ls.builtins.formatting.stylua,
-		-- null_ls.builtins.completion.spell,
-		-- this breaks organize imports, for some reason
-		-- null_ls.builtins.code_actions.gitsigns,
-	},
-	capabilities = capabilities,
-	on_attach = function(client, bufnr)
-		lspstatus.on_attach(client, bufnr)
-		if client.resolved_capabilities.document_formatting then
-			vim.cmd([[
-				augroup LspFormatting
-				autocmd! * <buffer>
-				autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-				augroup END
-			]])
-		end
-	end,
-})
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -160,7 +134,6 @@ lsp_opts["gopls"] = {
 local schemas = {}
 schemas["https://goreleaser.com/static/schema-pro.json"] = ".goreleaser.yaml"
 
--- npm i --global yaml-language-server
 lsp_opts["yamlls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,

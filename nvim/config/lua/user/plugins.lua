@@ -98,7 +98,6 @@ return packer.startup(function(use)
 		run = ":TSUpdate",
 	})
 	use("onsails/lspkind-nvim")
-	use("jose-elias-alvarez/null-ls.nvim")
 	use("simrat39/symbols-outline.nvim")
 	use("ray-x/lsp_signature.nvim")
 	use("RRethy/vim-illuminate")
