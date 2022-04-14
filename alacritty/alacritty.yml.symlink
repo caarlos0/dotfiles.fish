@@ -8,11 +8,11 @@ import:
 
 window:
   padding:
-    x: 10
-    y: 10
+    x: 5
+    y: 5
   dynamic_padding: true
   opacity: 1
-  decorations: buttonless
+  # decorations: buttonless
   dynamic_title: true
   dimensions:
    columns: 240
@@ -42,7 +42,7 @@ font:
     family: MonoLisa Nerd Font
   bold_italic:
     family: MonoLisa Nerd Font
-  size: 13.0
+  size: 14.0
   use_thin_strokes: true
 
 cursor:
