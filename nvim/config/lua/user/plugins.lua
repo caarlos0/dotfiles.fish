@@ -67,6 +67,10 @@ return packer.startup(function(use)
 	use("folke/todo-comments.nvim")
 	use("Pocco81/AutoSave.nvim")
 	use("ojroques/vim-oscyank")
+	use("ellisonleao/glow.nvim")
+	use("tpope/vim-abolish")
+	use("triglav/vim-visual-increment")
+	use("tpope/vim-speeddating")
 
 	-- telescope
 	use("nvim-lua/plenary.nvim")
@@ -116,8 +120,6 @@ return packer.startup(function(use)
 
 	-- testing et al
 	use("vim-test/vim-test")
-
-	use("ellisonleao/glow.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
