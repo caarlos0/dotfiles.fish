@@ -114,9 +114,9 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- git
-	use("TimUntersberger/neogit")
-	use("lewis6991/gitsigns.nvim")
-	use("ThePrimeagen/git-worktree.nvim")
+	-- use("TimUntersberger/neogit")
+	-- use("lewis6991/gitsigns.nvim")
+	use("mhinz/vim-signify")
 
 	-- testing et al
 	use("vim-test/vim-test")
