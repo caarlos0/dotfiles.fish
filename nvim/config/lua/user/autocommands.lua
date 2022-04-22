@@ -16,6 +16,12 @@ augroup END
 
 augroup _git
   autocmd!
+  autocmd FileType gitcommit setlocal wrap
+  autocmd FileType gitcommit setlocal spell
+augroup END
+
+augroup _neogit
+  autocmd!
   autocmd FileType NeogitCommitMessage setlocal wrap
   autocmd FileType NeogitCommitMessage setlocal spell
 augroup END
