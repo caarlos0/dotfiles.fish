@@ -1,3 +1,5 @@
+# vi: ft=sshconfig
+
 Host *
 	ServerAliveInterval 60
 
