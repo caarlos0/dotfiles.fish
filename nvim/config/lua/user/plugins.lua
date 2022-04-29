@@ -1,5 +1,7 @@
 local fn = vim.fn
 
+
+
 -- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -75,6 +77,7 @@ return packer.startup(function(use)
 	-- telescope
 	use("nvim-lua/plenary.nvim")
 	use("nvim-telescope/telescope.nvim")
+	use("nvim-telescope/telescope-github.nvim")
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",
 		run = "make",
@@ -114,8 +117,6 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- git
-	-- use("TimUntersberger/neogit")
-	-- use("lewis6991/gitsigns.nvim")
 	use("mhinz/vim-signify")
 
 	-- testing et al
