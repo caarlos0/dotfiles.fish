@@ -1,4 +1,3 @@
-.java-version
 .DS_Store
 .svn
 *~
@@ -14,3 +13,4 @@
 .vscode/
 dump.rdb
 main.tfvars
+coverage.out

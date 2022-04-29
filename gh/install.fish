@@ -1,8 +1,21 @@
 #!/usr/bin/env fish
-if command -qs gh
-	gh config set git_protocol ssh
+if not command -qs gh
+	exit
+end
 
-	for ext in mislav/gh-branch vilmibm/gh-user-status
-		gh extension install $ext || true
-	end
+gh config set git_protocol ssh
+
+for ext in mislav/gh-branch vilmibm/gh-user-status dlvhdr/gh-prs
+	gh extension list | grep -wq $ext || gh extension install $ext
+end
+
+gh extension upgrade --all
+
+switch (uname)
+case Darwin
+	mkdir -p "$HOME/Library/Application Support/prs"
+	ln -sf "$DOTFILES/gh/prs.yml" "$HOME/Library/Application Support/prs/config.yml"
+case Linux
+	mkdir -p "$HOME/.config/prs"
+	ln -sf "$DOTFILES/gh/prs.yml" "$HOME/.config/prs/config.yml"
 end

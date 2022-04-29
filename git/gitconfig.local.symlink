@@ -1,3 +1,5 @@
+# vi: ft=gitconfig
+
 [alias]
 	co = checkout
 	count = shortlog -sn
@@ -6,7 +8,8 @@
 	changed = show --pretty=\"format:\" --name-only
 	fm = fetch-merge
 	please = push --force-with-lease
-	commend = commit --amend --no-edit
+	commit = commit -s
+	commend = commit -s --amend --no-edit
 	lt = log --tags --decorate --simplify-by-decoration --oneline
 [color]
 	diff = auto
@@ -20,6 +23,10 @@
 	autocrlf = input
 	whitespace = trailing-space,space-before-tab
 	precomposeunicode = true
+[advice]
+	addEmptyPathspec = false
+[gpg]
+	program = gpg
 [apply]
 	whitespace = nowarn
 [help]
@@ -35,9 +42,23 @@
 	fetchJobs = 4
 [commit]
 	template = ~/.dotfiles/git/template.txt
+	gpgsign = true
+[tag]
+	gpgsign = true
 [log]
 	showSignature = false
 [pull]
     ff = only
 [init]
     defaultBranch = main
+[format]
+	signOff = true
+[diff]
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = nvim -d "$LOCAL" "$REMOTE"
+[merge]
+    tool = nvimmerge
+[mergetool "nvimmerge"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
