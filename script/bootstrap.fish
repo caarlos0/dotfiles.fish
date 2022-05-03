@@ -136,7 +136,7 @@ for installer in */install.fish
 		or abort $installer
 end
 
-if ! grep (command -v fish) /etc/shells
+if ! grep (command -v fish) /etc/shells >/dev/null
 	command -v fish | sudo tee -a /etc/shells
 		and success 'added fish to /etc/shells'
 		or abort 'setup /etc/shells'

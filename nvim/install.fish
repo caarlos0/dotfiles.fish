@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
-ln -sf (which nvim) (which vim)
+ln -sf (which nvim) (which vim) 2>/dev/null
 	or sudo ln -sf (which nvim) (which vim)
 
 abbr -a v 'nvim'
