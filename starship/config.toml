@@ -18,7 +18,7 @@ disabled = true
 disabled = true
 
 [directory]
-read_only = " "
+read_only = " ⛔"
 truncate_to_repo = false
 
 [docker_context]
