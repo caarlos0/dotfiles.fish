@@ -1,0 +1,12 @@
+git
+fish
+tmux
+vim
+neovim
+tree
+nmap
+tig
+ripgrep
+grc
+fzf
+build-essential
