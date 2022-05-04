@@ -3,5 +3,6 @@ if ! test -e ~/.psqlrc.local
 	touch ~/.psqlrc.local
 end
 if test -e "/Applications/Postgres.app"
-	set -Ua PATH /Applications/Postgres.app/Contents/Versions/latest/bin/
+	fish_add_path -a /Applications/Postgres.app/Contents/Versions/latest/bin/
+  	    or echo "already appended to fish_user_paths"
 end
