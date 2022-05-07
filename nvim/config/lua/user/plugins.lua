@@ -1,7 +1,5 @@
 local fn = vim.fn
 
-
-
 -- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -73,6 +71,10 @@ return packer.startup(function(use)
 	use("tpope/vim-abolish")
 	use("triglav/vim-visual-increment")
 	use("tpope/vim-speeddating")
+	use({
+		"rrethy/vim-hexokinase",
+		run = "make hexokinase",
+	})
 
 	-- telescope
 	use("nvim-lua/plenary.nvim")

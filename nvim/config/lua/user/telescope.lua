@@ -3,7 +3,29 @@ if not ok then
 	return
 end
 
-telescope.setup({})
+local actions = require("telescope.actions")
+
+telescope.setup({
+	defaults = {
+		mappings = {
+			i = {
+				["<esc>"] = actions.close
+			},
+		},
+		vimgrep_arguments = {
+			"rg",
+			"--color=never",
+			"--no-heading",
+			"--with-filename",
+			"--line-number",
+			"--column",
+			"--smart-case",
+			"--hidden",
+			"--glob=!.git",
+		},
+	},
+})
+
 telescope.load_extension("fzf")
 telescope.load_extension("gh")
 
