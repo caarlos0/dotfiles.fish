@@ -6,7 +6,7 @@ set -Ux WEDITOR code
 set -Ux DOTFILES ~/.dotfiles
 set -Ux PROJECTS ~/Developer
 
-set -Ua fish_user_paths $DOTFILES/bin $HOME/.bin
+fish_add_path -a $DOTFILES/bin $HOME/.bin
 
 for f in $DOTFILES/*/functions
 	set -Up fish_function_path $f
