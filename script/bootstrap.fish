@@ -128,7 +128,7 @@ function setup_path_extensions
 end
 
 function setup_vscode_extensions
-	cat "$DOTFILES_ROOT/vscode/extensions.list" | grep -v '^#' | xargs -L1 code --install-extension
+	cat "$DOTFILES_ROOT/vscode/extensions.list" | grep -v '^#' | xargs -I{} -L1 code --install-extension {} --force
 end
 
 function setup_fish_as_default_shell
