@@ -21,8 +21,10 @@ jobs:
           # we need brew already upfront
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew --version
+          # As 'brew link' can fail, as git might be installed. We force the link
+          brew install git || brew link --overwrite git
           # we need gnu sed to use the -i option properly without file extension
-          brew install gnu-sed git rust
+          brew install gnu-sed rust
           # and add it to the path
           export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
           sed --version
