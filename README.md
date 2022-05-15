@@ -38,7 +38,10 @@ Simply, run these steps:
 
 ```console
 $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ brew install fish grc rust
+# As 'brew link' can fail, as git might be installed. We force the link
+$ brew install git || brew link --overwrite git
+# we need gnu sed to use the -i option properly without file extension
+$ brew install gnu-sed rust
 $ git clone https://github.com/mavogel/dotfiles.fish.git ~/.dotfiles
 $ cd ~/.dotfiles
 $ ./script/bootstrap.fish
