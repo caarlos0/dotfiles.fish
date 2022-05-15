@@ -4,11 +4,6 @@ if not cmplsp_ok then
 	return
 end
 
-local nulls_ok, null_ls = pcall(require, "null-ls")
-if not nulls_ok then
-	return
-end
-
 local illu_ok, illuminate = pcall(require, "illuminate")
 if not illu_ok then
 	return
@@ -58,27 +53,6 @@ local capabilities = vim.tbl_extend(
 	lspstatus.capabilities
 )
 
-null_ls.setup({
-	sources = {
-		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.completion.spell,
-		-- this breaks organize imports, for some reason
-		-- null_ls.builtins.code_actions.gitsigns,
-	},
-	capabilities = capabilities,
-	on_attach = function(client, bufnr)
-		lspstatus.on_attach(client, bufnr)
-		if client.resolved_capabilities.document_formatting then
-			vim.cmd([[
-				augroup LspFormatting
-				autocmd! * <buffer>
-				autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-				augroup END
-			]])
-		end
-	end,
-})
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -94,15 +68,18 @@ local on_attach = function(client, bufnr)
 
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	-- leaving only what I actually use...
-	buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	buf_set_keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	buf_set_keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+	buf_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+
+	buf_set_keymap("n", "<C-j>", "<cmd>Telescope lsp_document_symbols<CR>", opts)
 	buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+
+	buf_set_keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+	buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	buf_set_keymap("n", "<leader>D", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "<leader>ca", "<cmd>Telescope lsp_code_actions<CR>", opts)
-	buf_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 	-- buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 	-- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 	-- buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
@@ -157,7 +134,6 @@ lsp_opts["gopls"] = {
 local schemas = {}
 schemas["https://goreleaser.com/static/schema-pro.json"] = ".goreleaser.yaml"
 
--- npm i --global yaml-language-server
 lsp_opts["yamlls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -173,6 +149,21 @@ lsp_opts["yamlls"] = {
 }
 
 lsp_opts["bashls"] = {
+	capabilities = capabilities,
+	on_attach = on_attach,
+}
+
+lsp_opts["terraformls"] = {
+	capabilities = capabilities,
+	on_attach = on_attach,
+}
+
+lsp_opts["tflint"] = {
+	capabilities = capabilities,
+	on_attach = on_attach,
+}
+
+lsp_opts["dockerls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 }

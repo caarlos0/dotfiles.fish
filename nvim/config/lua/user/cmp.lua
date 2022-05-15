@@ -7,6 +7,8 @@ local lspkind_ok, lspkind = pcall(require, "lspkind")
 if not lspkind_ok then
 	return
 end
+lspkind.init()
+lspkind.symbol_map["spell"] = ""
 
 local snip_ok, luasnip = pcall(require, "luasnip")
 if not snip_ok then
@@ -64,24 +66,30 @@ cmp.setup({
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = lspkind.cmp_format({
-			with_text = true,
-			-- mode = "symbol",
+			mode = "symbol",
+			before = function(entry, item)
+				if entry.source.name == "spell" then
+					item.kind = entry.source.name
+					item.priority = 50
+				end
+				return item
+			end,
 		}),
 	},
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
+		{ name = "nvim_lsp" },
 	}, {
 		{ name = "path" },
-	}, {
 		{ name = "buffer" },
+	}, {
+		{ name = "spell" },
+		{ name = "calc" },
+		{ name = "emoji" },
 	}),
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
-	},
-	documentation = {
-		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 	},
 	experimental = {
 		native_menu = false,

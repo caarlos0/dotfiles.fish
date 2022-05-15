@@ -44,8 +44,8 @@ return packer.startup(function(use)
 
 	-- ui
 	use({
-		"dracula/vim",
-		as = "dracula",
+		"catppuccin/nvim",
+		as = "catppuccin",
 	})
 	use("stevearc/dressing.nvim")
 	use("j-hui/fidget.nvim")
@@ -66,10 +66,21 @@ return packer.startup(function(use)
 	use("famiu/bufdelete.nvim")
 	use("folke/todo-comments.nvim")
 	use("Pocco81/AutoSave.nvim")
+	use("ojroques/vim-oscyank")
+	use("ellisonleao/glow.nvim")
+	use("tpope/vim-abolish")
+	use("triglav/vim-visual-increment")
+	use("tpope/vim-speeddating")
+	use("tpope/vim-eunuch")
+	use({
+		"rrethy/vim-hexokinase",
+		run = "make hexokinase",
+	})
 
 	-- telescope
 	use("nvim-lua/plenary.nvim")
 	use("nvim-telescope/telescope.nvim")
+	use("nvim-telescope/telescope-github.nvim")
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",
 		run = "make",
@@ -84,6 +95,9 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
+	use("hrsh7th/cmp-emoji")
+	use("f3fora/cmp-spell")
+	use("hrsh7th/cmp-calc")
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 	use("rafamadriz/friendly-snippets")
@@ -94,15 +108,19 @@ return packer.startup(function(use)
 		run = ":TSUpdate",
 	})
 	use("onsails/lspkind-nvim")
-	use("jose-elias-alvarez/null-ls.nvim")
 	use("simrat39/symbols-outline.nvim")
 	use("ray-x/lsp_signature.nvim")
 	use("RRethy/vim-illuminate")
 
+	-- debugging
+	use("mfussenegger/nvim-dap")
+	use("leoluz/nvim-dap-go")
+	use("rcarriga/nvim-dap-ui")
+	use("theHamsta/nvim-dap-virtual-text")
+	use("nvim-telescope/telescope-dap.nvim")
+
 	-- git
-	use("TimUntersberger/neogit")
-	use("lewis6991/gitsigns.nvim")
-	use("ThePrimeagen/git-worktree.nvim")
+	use("mhinz/vim-signify")
 
 	-- testing et al
 	use("vim-test/vim-test")

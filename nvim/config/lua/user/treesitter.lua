@@ -13,7 +13,7 @@ treesitter.setup({
 		enable = false,
 		disable = { "yaml" },
 	},
-	ensure_installed = "maintained",
+	ensure_installed = "all",
 	autopairs = {
 		enable = true,
 	},

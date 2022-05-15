@@ -1,11 +1,8 @@
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'
-set -g @plugin 'dracula/tmux'
-set -g @dracula-plugins "time"
-set -g @dracula-day-month true
-set -g @dracula-show-left-icon session
-set -g @dracula-border-contrast true
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
 run -b '~/.tmux/plugins/tpm/tpm'
 
 set -g default-terminal "xterm-256color"
@@ -25,6 +22,9 @@ setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
 set -g base-index 1
 setw -g pane-base-index 1
 
+# Auto restore tmux
+set -g @continuum-restore 'on'
+
 # Ensure window index numbers get reordered on delete.
 set-option -g renumber-windows on
 
@@ -43,14 +43,17 @@ bind-key -T copy-mode-vi y send-keys -X copy-selection
 bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
 
 # open windows et al in the same folder
-bind '"' split-window -c "#{pane_current_path}"
-bind % split-window -h -c "#{pane_current_path}"
+bind u split-window -c "#{pane_current_path}"
+bind i split-window -h -c "#{pane_current_path}"
 bind c new-window -c "#{pane_current_path}"
 
 # vim-like pane switching
-bind -r ^ last-window
+bind -r o last-window
 bind -r k select-pane -U
 bind -r j select-pane -D
 bind -r h select-pane -L
 bind -r l select-pane -R
 bind r source-file ~/.tmux.conf
+
+source-file ~/.dotfiles/tmux/catppuccin.conf
+set -g status-position bottom
