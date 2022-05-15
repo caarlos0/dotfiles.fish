@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
-toggleterm.setup({})
+toggleterm.setup({
+	direction = "float",
+})
 
 require("user.remap").nnoremap("<leader>trm", "<cmd>:ToggleTerm<CR>")

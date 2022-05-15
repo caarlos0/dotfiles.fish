@@ -38,6 +38,11 @@ local options = {
 	foldminlines = 10,
 	foldlevelstart = 999,
 	backspace = { "indent", "eol", "start" },
+	spell = true,
+	spelllang = { "en_us" },
+	laststatus = 3,
+	list = true,
+	listchars = "eol:↲,tab:» ,trail:·,extends:<,precedes:>,conceal:┊,nbsp:␣",
 }
 
 vim.opt.shortmess:append("c")

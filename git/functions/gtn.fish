@@ -1,4 +1,5 @@
 function gtn -d "create the next semantic tag and push"
-	git tag (svu n --force-patch-increment)
+	set next (svu n --force-patch-increment)
+	git tag -m "$next" "$next"
 		and svu c
 end

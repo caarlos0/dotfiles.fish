@@ -1,22 +1,23 @@
 # vi: ft=yaml
-
+#
 env:
   TERM: xterm-256color
 
 import:
-  - ~/.dotfiles/alacritty/dracula.yml
+  - ~/.dotfiles/alacritty/catppuccin.yml
 
 window:
   padding:
-    x: 10
-    y: 10
+    x: 5
+    y: 5
   dynamic_padding: true
   opacity: 1
-  decorations: buttonless
+  # decorations: buttonless
   dynamic_title: true
   dimensions:
-   columns: 120
-   lines: 40
+   columns: 240
+   lines: 80
+  startup_mode: Maximized
 
 scrolling:
   history: 10000
@@ -41,7 +42,7 @@ font:
     family: MonoLisa Nerd Font
   bold_italic:
     family: MonoLisa Nerd Font
-  size: 16.0
+  size: 14.0
   use_thin_strokes: true
 
 cursor:
