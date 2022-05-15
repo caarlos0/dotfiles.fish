@@ -37,7 +37,6 @@ redhat.vscode-yaml
 ritwickdey.LiveServer
 rogalmic.bash-debug
 skyapps.fish-vscode
-stayfool.vscode-asciidoc
 streetsidesoftware.avro
 TabNine.tabnine-vscode
 thekalinga.bootstrap4-vscode
@@ -49,7 +48,6 @@ vscjava.vscode-java-dependency
 vscjava.vscode-java-pack
 vscjava.vscode-java-test
 vscjava.vscode-maven
-wholroyd.HCL
 yzhang.markdown-all-in-one
 Zaczero.bootstrap-v4-snippets
 zxh404.vscode-proto3
