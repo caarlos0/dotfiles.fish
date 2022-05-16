@@ -72,6 +72,7 @@ return packer.startup(function(use)
 	use("triglav/vim-visual-increment")
 	use("tpope/vim-speeddating")
 	use("tpope/vim-eunuch")
+	use("tpope/vim-surround")
 	use({
 		"rrethy/vim-hexokinase",
 		run = "make hexokinase",
