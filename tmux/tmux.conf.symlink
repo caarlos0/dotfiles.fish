@@ -55,5 +55,7 @@ bind -r h select-pane -L
 bind -r l select-pane -R
 bind r source-file ~/.tmux.conf
 
+bind-key -r f run-shell "tmux neww tmux-sessionizer"
+
 source-file ~/.dotfiles/tmux/catppuccin.conf
 set -g status-position bottom
