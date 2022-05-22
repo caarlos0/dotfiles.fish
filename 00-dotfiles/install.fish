@@ -1,7 +1,6 @@
 #!/usr/bin/env fish
-set -Ux EDITOR vim
+set -Ux EDITOR nvim
 set -Ux VISUAL $EDITOR
-set -Ux WEDITOR code
 
 set -Ux DOTFILES ~/.dotfiles
 set -Ux PROJECTS ~/Developer
