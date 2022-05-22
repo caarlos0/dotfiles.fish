@@ -55,10 +55,8 @@ return packer.startup(function(use)
 	use("akinsho/bufferline.nvim")
 	use("akinsho/toggleterm.nvim")
 	use("karb94/neoscroll.nvim")
-	use("andweeb/presence.nvim")
 
 	-- basic functionality
-	use("terryma/vim-multiple-cursors")
 	use("windwp/nvim-autopairs")
 	use("editorconfig/editorconfig-vim")
 	use("numToStr/Comment.nvim")
@@ -73,6 +71,7 @@ return packer.startup(function(use)
 	use("tpope/vim-speeddating")
 	use("tpope/vim-eunuch")
 	use("tpope/vim-surround")
+	use("tpope/vim-unimpaired")
 	use({
 		"rrethy/vim-hexokinase",
 		run = "make hexokinase",
