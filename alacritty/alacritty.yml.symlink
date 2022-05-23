@@ -4,7 +4,7 @@ env:
   TERM: xterm-256color
 
 import:
-  - ~/.dotfiles/alacritty/catppuccin.yml
+  - ~/.dotfiles/alacritty/gruvbox.yml
 
 window:
   padding:
@@ -57,3 +57,8 @@ key_bindings:
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
+
+
+colors:
+  cursor:
+    cursor: '#ffffff'
