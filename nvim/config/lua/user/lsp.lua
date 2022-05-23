@@ -53,6 +53,25 @@ local capabilities = vim.tbl_extend(
 	lspstatus.capabilities
 )
 
+capabilities.textDocument.completion.completionItem = {
+	documentationFormat = { "markdown", "plaintext" },
+	snippetSupport = true,
+	preselectSupport = true,
+	insertReplaceSupport = true,
+	labelDetailsSupport = true,
+	deprecatedSupport = true,
+	commitCharactersSupport = true,
+	tagSupport = { valueSet = { 1 } },
+	resolveSupport = {
+		properties = {
+			"documentation",
+			"detail",
+			"additionalTextEdits",
+		},
+	},
+}
+
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -201,6 +220,26 @@ lsp_opts["rust_analyzer"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 }
+
+-- installer.setup({
+-- 	automatic_installation = true,
+-- 	ui = {
+-- 		icons = {
+-- 			server_installed = "",
+-- 			server_pending = "",
+-- 			server_uninstalled = "ﮊ",
+-- 		},
+-- 		keymaps = {
+-- 			toggle_server_expand = "<CR>",
+-- 			install_server = "i",
+-- 			update_server = "u",
+-- 			check_server_version = "c",
+-- 			update_all_servers = "U",
+-- 			check_outdated_servers = "C",
+-- 			uninstall_server = "X",
+-- 		},
+-- 	},
+-- })
 
 installer.on_server_ready(function(server)
 	server:setup(lsp_opts[server.name] or {})

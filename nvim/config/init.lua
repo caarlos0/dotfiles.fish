@@ -3,6 +3,7 @@ require("user.keymaps")
 require("user.autocommands")
 require("user.plugins")
 require("user.colorscheme")
+require("user.icons")
 
 require("user.impatient")
 require("user.dressing")

@@ -92,9 +92,6 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/cmp-emoji")
-	use("f3fora/cmp-spell")
-	use("hrsh7th/cmp-calc")
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 	use("rafamadriz/friendly-snippets")
@@ -117,7 +114,12 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- git
-	use("mhinz/vim-signify")
+	use({
+		'lewis6991/gitsigns.nvim',
+		config = function()
+			require('gitsigns').setup()
+		end
+	})
 
 	-- testing et al
 	use("vim-test/vim-test")
