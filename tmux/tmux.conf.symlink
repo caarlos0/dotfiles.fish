@@ -57,5 +57,31 @@ bind r source-file ~/.tmux.conf
 
 bind-key -r f run-shell "tmux neww tmux-sessionizer"
 
-source-file ~/.dotfiles/tmux/catppuccin.conf
-set -g status-position bottom
+thm_bg="#282828"
+thm_fg="#ebdbb2"
+thm_gray="#3c3833"
+thm_magenta="#b16286"
+thm_pink="#d3869b"
+thm_green="#b8bb26"
+thm_blue="#83a598"
+thm_black4="#1d2021"
+
+set -g status "on"
+set -g status-bg "${thm_bg}"
+set -g status-justify "left"
+set -g status-left-length "100"
+set -g status-right-length "100"
+set -g message-style fg="${thm_fg}",bg="${thm_gray}",align="centre"
+set -g message-command-style fg="${thm_blue}",bg="${thm_gray}",align="centre"
+set -g pane-border-style fg="${thm_gray}"
+set -g pane-active-border-style fg="${thm_blue}"
+setw -g window-status-activity-style fg="${thm_fg}",bg="${thm_bg}",none
+setw -g window-status-separator ""
+setw -g window-status-style fg="${thm_fg}",bg="${thm_bg}",none
+set -g status-left ""
+set -g status-right "#[fg=$thm_black4,bg=$thm_blue] %d/%m │ %H:%M "
+setw -g window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
+setw -g window-status-current-format "#[fg=$thm_bg,bg=$thm_green] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
+setw -g clock-mode-colour "${thm_blue}"
+setw -g mode-style "fg=${thm_pink} bg=${thm_black4} bold"
+
