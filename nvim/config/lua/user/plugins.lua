@@ -43,7 +43,7 @@ return packer.startup(function(use)
 	use("lewis6991/impatient.nvim")
 
 	-- ui
-	use("morhetz/gruvbox")
+	use("gruvbox-community/gruvbox")
 	use("stevearc/dressing.nvim")
 	use("j-hui/fidget.nvim")
 	use("nvim-lualine/lualine.nvim")
