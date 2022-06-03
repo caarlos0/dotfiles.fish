@@ -4,6 +4,8 @@ vim.g.tokyonight_italic_functions = 1
 vim.cmd([[
 set background=dark
 set termguicolors
-colorscheme tokyonight
+try
+    colorscheme tokyonight
+catch
+endtry
 ]])
-
