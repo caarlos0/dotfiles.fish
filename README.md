@@ -84,15 +84,10 @@ And then manually inspect/revert them.
 
 ## Recommended Software
 
-For macOS, I recommend:
-
-- iTerm: a better terminal emulator;
-
-For both Linux and macOS:
-
+- [`alacritty`](https://github.com/alacritty/alacritty) a cross-platform, OpenGL terminal emulator;
 - [`delta`](https://github.com/dandavison/delta) for better git diffs;
 - [`fd`](https://github.com/sharkdp/fd) a simple, fast and user-friendly alternative to `find`;
-- [`fzf`](https://github.com/junegunn/fzf) for a fuzzy-finder, used in `,t` on vim, for example;
+- [`fzf`](https://github.com/junegunn/fzf) for a fuzzy-finder;
 - [`gh`](https://github.com/cli/cli) for more GitHub integration with the terminal;
 - [`grc`](https://github.com/garabik/grc) to colorize command's outputs;
 - [`starship.rs`](https://starship.rs) the shell we are using;
@@ -101,14 +96,14 @@ For both Linux and macOS:
 To install them all with `brew`:
 
 ```console
-$ brew install fish git-delta fzf gh grc kubectx starship zoxide
+$ brew install fish git-delta fzf gh grc kubectx starship zoxide fd exa alacritty
 ```
 
 On Ubuntu:
 
 ```console
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-sudo apt install fish grc fzf zoxide
+sudo apt install fish grc fzf zoxide fd-find exa alacritty
 ```
 
 ## macOS defaults
