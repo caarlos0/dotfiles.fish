@@ -5,7 +5,7 @@ end
 
 lualine.setup({
 	options = {
-		theme = "gruvbox",
+		theme = "tokyonight",
 		component_separators = "",
 		section_separators = "",
 	},

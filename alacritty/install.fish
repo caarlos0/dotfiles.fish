@@ -1,3 +1,2 @@
 #!/usr/bin/env fish
-curl -sL https://raw.githubusercontent.com/catppuccin/alacritty/main/catppuccin.yml -o $DOTFILES/alacritty/catppuccin.yml
-curl -sL https://raw.githubusercontent.com/eendroroy/alacritty-theme/master/themes/gruvbox_dark.yaml -o $DOTFILES/alacritty/gruvbox.yml
+curl -sL https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/alacritty_tokyonight_night.yml -o $DOTFILES/alacritty/tokyonight.yml
