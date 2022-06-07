@@ -4,7 +4,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-	selected=$(zoxide query -l -s | grep Developer | fzf --no-sort | awk '{print $2}')
+	selected=$(find $PROJECTS/* -type d -maxdepth 0 | while read -r p; do zoxide query -l -s "$p/"; done | sort -rnk1 | fzf --no-sort | awk '{print $2}')
 fi
 
 if [[ -z $selected ]]; then
