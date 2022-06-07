@@ -4,8 +4,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    # selected=$(find ~/Developer/* -mindepth 1 -maxdepth 1 -type d | fzf)
-	selected=$(zoxide query -l -s | fzf --no-sort | awk '{print $2}')
+	selected=$(zoxide query -l -s | grep Developer | grep -vw "$PWD\$" | fzf --no-sort | awk '{print $2}')
 fi
 
 if [[ -z $selected ]]; then
