@@ -57,7 +57,7 @@ bind -r h select-pane -L
 bind -r l select-pane -R
 bind r source-file ~/.tmux.conf
 
-bind-key -r f run-shell "tmux neww -c #{pane_current_path} tmux-sessionizer"
+bind-key -r f run-shell "tmux neww tmux-sessionizer"
 bind-key -r g run-shell "tmux neww tmux-sessionizer default"
 
 source-file $DOTFILES/tmux/tokyonight.tmux

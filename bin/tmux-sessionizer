@@ -4,7 +4,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-	selected=$(zoxide query -l -s | grep Developer | grep -vw "$PWD\$" | fzf --no-sort | awk '{print $2}')
+	selected=$(zoxide query -l -s | grep Developer | fzf --no-sort | awk '{print $2}')
 fi
 
 if [[ -z $selected ]]; then
