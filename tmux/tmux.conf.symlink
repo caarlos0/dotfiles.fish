@@ -51,11 +51,13 @@ bind c new-window -c "#{pane_current_path}"
 
 # vim-like pane switching
 bind o if-shell 'test $(tmux list-panes | wc -l) -gt 1' 'last-pane' 'last-window'
+bind s switch-client -p
+bind S switch-client -n
 bind -r k select-pane -U
 bind -r j select-pane -D
 bind -r h select-pane -L
 bind -r l select-pane -R
-set-option -g repeat-time 200
+set-option -g repeat-time 0
 bind r source-file ~/.tmux.conf
 
 bind-key -r f run-shell "tmux neww tmux-sessionizer"
