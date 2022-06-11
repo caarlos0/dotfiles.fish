@@ -1,11 +1,11 @@
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = 1
+vim.g.gruvbox_contrast_dark = "hard"
+vim.g.gruvbox_sign_column = "dark0_hard"
 
 vim.cmd([[
 set background=dark
 set termguicolors
 try
-    colorscheme tokyonight
+    colorscheme gruvbox
 catch
 endtry
 ]])
