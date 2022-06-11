@@ -4,7 +4,13 @@ env:
   TERM: xterm-256color
 
 import:
-  - ~/.dotfiles/alacritty/tokyonight.yml
+  - ~/.dotfiles/alacritty/gruvbox.yml
+
+colors:
+  cursor:
+    cursor: '#ffffff'
+  primary:
+    background: '0x1d2021'
 
 window:
   padding:
@@ -73,7 +79,3 @@ key_bindings:
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
 
-
-colors:
-  cursor:
-    cursor: '#ffffff'
