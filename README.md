@@ -118,14 +118,11 @@ And logging out and in again or restart.
 
 ## Themes and fonts being used
 
-Theme is **[Dracula](https://draculatheme.com)** and font is **Inconsolata**
-Nerd Font.
+Gruvbox (dark - high contrast) and MonoLisa Nerd Font.
 
 ## Screenshots
 
-![screenshot 1][scrn1]
+<img width="3008" alt="image" src="https://user-images.githubusercontent.com/245435/173171807-89d86eee-6e2b-4fad-9197-0ce6aeb77f78.png">
 
-![screenshot 2][scrn2]
+<img width="3008" alt="image" src="https://user-images.githubusercontent.com/245435/173171829-8749e953-72fb-497c-b09f-e9b89ef4feca.png">
 
-[scrn1]: /docs/screenshot1.png
-[scrn2]: /docs/screenshot2.png
