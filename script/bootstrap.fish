@@ -126,6 +126,10 @@ fisher update
 	and success 'plugins'
 	or abort 'plugins'
 
+theme_gruvbox dark hard
+	and success 'colorscheme'
+	or abort 'colorscheme'
+
 mkdir -p ~/.config/fish/completions/
 	and success 'completions'
 	or abort 'completions'
