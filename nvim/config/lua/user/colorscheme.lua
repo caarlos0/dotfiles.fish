@@ -6,6 +6,7 @@ set background=dark
 set termguicolors
 try
     colorscheme gruvbox
+	hi Normal guibg=NONE ctermbg=NONE
 catch
 endtry
 ]])

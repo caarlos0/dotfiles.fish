@@ -17,7 +17,7 @@ window:
     x: 5
     y: 5
   dynamic_padding: true
-  opacity: 1
+  opacity: 0.95
   decorations: none
   dynamic_title: true
   dimensions:
