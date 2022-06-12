@@ -28,6 +28,7 @@ if command -qs gh
 	abbr -a 'gpv' 'gh pr view -w'
 end
 
+abbr -a g 'git'
 abbr -a gl 'git pull --prune'
 abbr -a glg "git log --graph --decorate --oneline --abbrev-commit"
 abbr -a glga "glg --all"
