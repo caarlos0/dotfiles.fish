@@ -14,6 +14,10 @@ treesitter.setup({
 		disable = { "yaml" },
 	},
 	ensure_installed = "all",
+	ignore_install = {
+		"php",
+		"phpdoc",
+	},
 	autopairs = {
 		enable = true,
 	},
