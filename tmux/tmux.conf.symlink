@@ -45,8 +45,8 @@ bind-key -T copy-mode-vi y send-keys -X copy-selection
 bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
 
 # open windows et al in the same folder
-bind u split-window -c "#{pane_current_path}"
-bind i split-window -h -c "#{pane_current_path}"
+bind u split-window -p 20 -c "#{pane_current_path}"
+bind i split-window -p 20 -h -c "#{pane_current_path}"
 bind c new-window -c "#{pane_current_path}"
 
 # vim-like pane switching
