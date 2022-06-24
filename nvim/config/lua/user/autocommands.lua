@@ -8,7 +8,6 @@ endfun
 augroup _general_settings
   autocmd!
   autocmd BufNewFile,BufRead *.dockerfile set ft=dockerfile
-  autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}
   autocmd BufWritePre * :call TrimWhitespace()
   autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
   autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif
@@ -26,3 +25,17 @@ augroup _markdown
   autocmd FileType markdown setlocal spell
 augroup END
 ]])
+
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd(
+	'TextYankPost',
+	{
+		callback = function()
+			vim.highlight.on_yank()
+		end,
+		group = highlight_group,
+		pattern = '*',
+	})
