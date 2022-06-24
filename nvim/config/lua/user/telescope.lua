@@ -42,3 +42,5 @@ r("<leader>fr", ":Telescope resume<CR>")
 r("<leader>fq", ":Telescope quickfix<CR>")
 r("<leader>fgi", ":Telescope gh issues<CR>")
 r("<leader>fgp", ":Telescope gh pull_requests<CR>")
+r("<leader>/", ":Telescope current_buffer_fuzzy_find<CR>")
+
