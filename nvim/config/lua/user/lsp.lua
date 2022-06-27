@@ -29,6 +29,11 @@ if not lspkind_ok then
 	return
 end
 
+local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_ok then
+	return
+end
+
 signature.setup({
 	floating_window = false,
 	hint_prefix = "",
@@ -39,7 +44,6 @@ signature.setup({
 })
 
 lspstatus.config({
-	-- status_symbol = "𝓵",
 	status_symbol = "⬤ ",
 	current_function = true,
 	diagnostics = false,
@@ -71,7 +75,6 @@ capabilities.textDocument.completion.completionItem = {
 	},
 }
 
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -84,19 +87,16 @@ local on_attach = function(client, bufnr)
 
 	-- Mappings.
 	local opts = { noremap = true, silent = true }
-
 	buf_set_keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
 	buf_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-
 	buf_set_keymap("n", "<C-j>", "<cmd>Telescope lsp_document_symbols<CR>", opts)
 	buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-
 	buf_set_keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
 	buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	buf_set_keymap("n", "<leader>D", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-	buf_set_keymap("n", "<leader>ca", "<cmd>Telescope lsp_code_actions<CR>", opts)
+	buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 
 	if client.resolved_capabilities.document_formatting then
 		vim.cmd([[
@@ -108,7 +108,6 @@ local on_attach = function(client, bufnr)
 		]])
 	end
 
-	-- Set autocommands conditional on server_capabilities
 	if client.resolved_capabilities.document_highlight then
 		vim.cmd([[
 			augroup lsp_document_highlight
@@ -120,9 +119,7 @@ local on_attach = function(client, bufnr)
 	end
 end
 
-local lsp_opts = {}
-
-lsp_opts["gopls"] = {
+lspconfig.gopls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
@@ -133,12 +130,12 @@ lsp_opts["gopls"] = {
 	flags = {
 		debounce_text_changes = 150,
 	},
-}
+})
 
 local schemas = {}
 schemas["https://goreleaser.com/static/schema-pro.json"] = ".goreleaser.yaml"
 
-lsp_opts["yamlls"] = {
+lspconfig.yamlls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
@@ -150,31 +147,29 @@ lsp_opts["yamlls"] = {
 			schemas = schemas,
 		},
 	},
-}
+})
 
-lsp_opts["bashls"] = {
+lspconfig.bashls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-}
+})
 
-lsp_opts["terraformls"] = {
+lspconfig.terraformls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-}
+})
 
-lsp_opts["tflint"] = {
+lspconfig.tflint.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-}
+})
 
-lsp_opts["dockerls"] = {
+lspconfig.dockerls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-}
+})
 
-lsp_opts["sumneko_lua"] = {
-	capabilities = capabilities,
-	on_attach = on_attach,
+lspconfig.sumneko_lua.setup({
 	-- fixes for lsp-status so it shows the function in its status bar
 	select_symbol = function(cursor_pos, symbol)
 		if symbol.valueRange then
@@ -199,36 +194,28 @@ lsp_opts["sumneko_lua"] = {
 			},
 		},
 	},
-}
+})
 
-lsp_opts["rust_analyzer"] = {
+lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-}
+})
 
--- installer.setup({
--- 	automatic_installation = true,
--- 	ui = {
--- 		icons = {
--- 			server_installed = "",
--- 			server_pending = "",
--- 			server_uninstalled = "ﮊ",
--- 		},
--- 		keymaps = {
--- 			toggle_server_expand = "<CR>",
--- 			install_server = "i",
--- 			update_server = "u",
--- 			check_server_version = "c",
--- 			update_all_servers = "U",
--- 			check_outdated_servers = "C",
--- 			uninstall_server = "X",
--- 		},
--- 	},
--- })
+lspconfig.prosemd_lsp.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 
-installer.on_server_ready(function(server)
-	server:setup(lsp_opts[server.name] or {})
-end)
+installer.setup({
+	automatic_installation = true,
+	ui = {
+		icons = {
+			server_installed = "",
+			server_pending = "",
+			server_uninstalled = "ﮊ",
+		},
+	},
+})
 
 -- organize imports
 -- https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-902680058
@@ -246,3 +233,26 @@ function OrganizeImports(timeoutms)
 		end
 	end
 end
+
+local nulls_ok, null_ls = pcall(require, "null-ls")
+if not nulls_ok then
+	return
+end
+
+null_ls.setup({
+	sources = {
+		null_ls.builtins.formatting.stylua,
+	},
+	capabilities = capabilities,
+	on_attach = function(client, bufnr)
+		lspstatus.on_attach(client, bufnr)
+		if client.resolved_capabilities.document_formatting then
+			vim.cmd([[
+				augroup NullLSFormat
+					autocmd! * <buffer>
+					autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+				augroup END
+			]])
+		end
+	end,
+})
