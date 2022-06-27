@@ -1,11 +1,10 @@
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	is_bootstrap = true
-	vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-	vim.cmd [[packadd packer.nvim]]
+	vim.fn.execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
+	vim.cmd([[packadd packer.nvim]])
 end
-
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -57,6 +56,7 @@ packer.startup(function(use)
 		"rrethy/vim-hexokinase",
 		run = "make hexokinase",
 	})
+	use("ggandor/lightspeed.nvim")
 
 	-- telescope
 	use("nvim-lua/plenary.nvim")
@@ -69,6 +69,7 @@ packer.startup(function(use)
 
 	-- all things lsp, syntax highlight, snippets, etc
 	use("neovim/nvim-lspconfig")
+	use("jose-elias-alvarez/null-ls.nvim")
 	use("nvim-lua/lsp-status.nvim")
 	use("williamboman/nvim-lsp-installer")
 	use("hrsh7th/nvim-cmp")
@@ -102,10 +103,10 @@ packer.startup(function(use)
 
 	-- git
 	use({
-		'lewis6991/gitsigns.nvim',
+		"lewis6991/gitsigns.nvim",
 		config = function()
-			require('gitsigns').setup()
-		end
+			require("gitsigns").setup()
+		end,
 	})
 
 	-- testing et al
@@ -119,18 +120,19 @@ packer.startup(function(use)
 end)
 
 if is_bootstrap then
-	print '=================================='
-	print '    Plugins are being installed'
-	print '    Wait until Packer completes,'
-	print '       then restart nvim'
-	print '=================================='
+	print("==================================")
+	print("    Plugins are being installed")
+	print("    Wait until Packer completes,")
+	print("       then restart nvim")
+	print("==================================")
 	return
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', {
-	command = 'source <afile> | PackerCompile',
+local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true })
+local plugins_file = vim.fn.expand("%:p")
+vim.api.nvim_create_autocmd("BufWritePost", {
+	command = "source <afile> | PackerSync",
 	group = packer_group,
-	pattern = vim.fn.expand '$MYVIMRC',
+	pattern = "plugins.lua",
 })
