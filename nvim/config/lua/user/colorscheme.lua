@@ -1,5 +1,6 @@
 vim.g.gruvbox_contrast_dark = "hard"
-vim.g.gruvbox_sign_column = "dark0_hard"
+-- or dark0_hard:
+vim.g.gruvbox_sign_column = "NONE"
 
 vim.cmd([[
 set background=dark
