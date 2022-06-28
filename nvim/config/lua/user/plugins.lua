@@ -56,7 +56,6 @@ packer.startup(function(use)
 		"rrethy/vim-hexokinase",
 		run = "make hexokinase",
 	})
-	use("ggandor/lightspeed.nvim")
 
 	-- telescope
 	use("nvim-lua/plenary.nvim")
