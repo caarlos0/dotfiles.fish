@@ -27,6 +27,7 @@ packer.startup(function(use)
 
 	-- ui
 	use("gruvbox-community/gruvbox")
+	use("rcarriga/nvim-notify")
 	use("stevearc/dressing.nvim")
 	use("j-hui/fidget.nvim")
 	use("nvim-lualine/lualine.nvim")
