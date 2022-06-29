@@ -98,12 +98,18 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 
+	if client.name == "sumneko_lua" then
+		client.server_capabilities.document_formatting = false -- 0.7 and earlier
+		client.resolved_capabilities.document_formatting = false -- 0.7 and earlier
+		-- client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
+	end
+
 	if client.resolved_capabilities.document_formatting then
 		vim.cmd([[
 			augroup formatting
 				autocmd! * <buffer>
 				autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
-				autocmd BufWritePre <buffer> lua OrganizeImports(1000)
+				autocmd BufWritePre <buffer> lua OrganizeImports(150)
 			augroup END
 		]])
 	end
@@ -118,6 +124,17 @@ local on_attach = function(client, bufnr)
 		]])
 	end
 end
+
+installer.setup({
+	automatic_installation = true,
+	ui = {
+		icons = {
+			server_installed = "",
+			server_pending = "",
+			server_uninstalled = "ﮊ",
+		},
+	},
+})
 
 lspconfig.gopls.setup({
 	capabilities = capabilities,
@@ -170,8 +187,10 @@ lspconfig.dockerls.setup({
 })
 
 lspconfig.sumneko_lua.setup({
-	-- fixes for lsp-status so it shows the function in its status bar
+	capabilities = capabilities,
+	on_attach = on_attach,
 	select_symbol = function(cursor_pos, symbol)
+		-- fixes for lsp-status so it shows the function in its status bar
 		if symbol.valueRange then
 			local value_range = {
 				["start"] = {
@@ -206,17 +225,6 @@ lspconfig.prosemd_lsp.setup({
 	on_attach = on_attach,
 })
 
-installer.setup({
-	automatic_installation = true,
-	ui = {
-		icons = {
-			server_installed = "",
-			server_pending = "",
-			server_uninstalled = "ﮊ",
-		},
-	},
-})
-
 -- organize imports
 -- https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-902680058
 function OrganizeImports(timeoutms)
@@ -244,15 +252,5 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 	},
 	capabilities = capabilities,
-	on_attach = function(client, bufnr)
-		lspstatus.on_attach(client, bufnr)
-		if client.resolved_capabilities.document_formatting then
-			vim.cmd([[
-				augroup NullLSFormat
-					autocmd! * <buffer>
-					autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-				augroup END
-			]])
-		end
-	end,
+	on_attach = on_attach,
 })
