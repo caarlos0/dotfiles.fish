@@ -101,12 +101,7 @@ packer.startup(function(use)
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- git
-	use({
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup()
-		end,
-	})
+	use("lewis6991/gitsigns.nvim")
 
 	-- testing et al
 	use("vim-test/vim-test")
