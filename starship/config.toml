@@ -130,4 +130,8 @@ disabled = true
 disabled = true
 
 [username]
-format = "[$user]($style)@"
+format = "[$user]($style)"
+
+[hostname]
+ssh_symbol = "@"
+format = "$ssh_symbol[$hostname](bright-blue) "
