@@ -14,6 +14,10 @@ vim.g.maplocalleader = " "
 -- disable Ex mode, I always enter in it by mistake
 keymap("n", "Q", "<Nop>", opts)
 
+-- quicklists
+keymap("n", "<leader>co", ":copen<CR>", opts)
+keymap("n", "<leader>cc", ":cclose<CR>", opts)
+
 -- Better window navigation
 -- keymap("n", "<C-h>", "<C-w>h", opts)
 -- keymap("n", "<C-j>", "<C-w>j", opts)
