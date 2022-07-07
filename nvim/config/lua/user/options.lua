@@ -1,7 +1,6 @@
 local options = {
 	compatible = false,
-	-- clipboard = "unnamedplus",
-	-- cmdheight = 2,
+	clipboard = "unnamedplus",
 	hidden = true,
 	updatetime = 300, -- faster update times
 	mouse = "a",
@@ -51,9 +50,3 @@ vim.opt.shortmess:append("c")
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
-
-vim.cmd([[
-	set whichwrap+=<,>,[,],h,l
-	set iskeyword+=-
-	set formatoptions-=cro
-]])
