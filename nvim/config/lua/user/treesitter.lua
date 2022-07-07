@@ -13,10 +13,18 @@ treesitter.setup({
 		enable = false,
 		disable = { "yaml" },
 	},
-	ensure_installed = "all",
-	ignore_install = {
-		"php",
-		"phpdoc",
+	ensure_installed = {
+		"markdown",
+		"go",
+		"rust",
+		"lua",
+		"fish",
+		"bash",
+		"html",
+		"css",
+		"javascript",
+		"yaml",
+		"toml",
 	},
 	autopairs = {
 		enable = true,
