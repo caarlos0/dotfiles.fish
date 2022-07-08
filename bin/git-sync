@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 function log
-	echo (set_color --bold magenta) "-----> $argv" (set_color normal)
+	echo (set_color --bold magenta) "---> $argv" (set_color normal)
 end
 
 function prune
