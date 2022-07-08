@@ -7,25 +7,33 @@ treesitter.setup({
 	highlight = {
 		enable = true,
 		disable = {},
-		additional_vim_regex_highlighting = true,
 	},
 	indent = {
 		enable = false,
 		disable = { "yaml" },
 	},
 	ensure_installed = {
-		"markdown",
-		"go",
-		"rust",
-		"lua",
-		"fish",
 		"bash",
-		"html",
 		"css",
+		"dockerfile",
+		"fish",
+		"go",
+		"gomod",
+		"gowork",
+		"hcl",
+		"html",
 		"javascript",
-		"yaml",
+		"lua",
+		"make",
+		"markdown",
+		"markdown_inline",
+		"rust",
+		"scss",
 		"toml",
+		"vim",
+		"yaml",
 	},
+	auto_install = true,
 	autopairs = {
 		enable = true,
 	},
@@ -90,3 +98,9 @@ treesitter.setup({
 		},
 	},
 })
+
+local sok, spellsitter = pcall(require, "spellsitter")
+if not sok then
+	return
+end
+spellsitter.setup()
