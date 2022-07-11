@@ -5,6 +5,7 @@ require("user.plugins")
 require("user.colorscheme")
 require("user.icons")
 require("user.notify")
+require("user.autosession")
 
 require("user.impatient")
 require("user.dressing")

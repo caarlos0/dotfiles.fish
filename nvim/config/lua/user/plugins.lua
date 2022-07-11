@@ -24,6 +24,7 @@ packer.init({
 packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("lewis6991/impatient.nvim")
+	use("rmagatti/auto-session")
 
 	-- ui
 	use("gruvbox-community/gruvbox")
