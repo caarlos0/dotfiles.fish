@@ -218,6 +218,9 @@ packer.startup(function(use)
 			"rafamadriz/friendly-snippets",
 			"onsails/lspkind-nvim",
 		},
+		config = function()
+			require("user.cmp")
+		end,
 	})
 
 	use({
