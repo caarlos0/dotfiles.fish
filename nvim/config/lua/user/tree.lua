@@ -1,9 +1,4 @@
-local ok, tree = pcall(require, "nvim-tree")
-if not ok then
-	return
-end
-
-tree.setup({
+require("nvim-tree").setup({
 	view = {
 		side = "right",
 	},

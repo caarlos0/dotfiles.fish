@@ -1,9 +1,4 @@
-local ok, treesitter = pcall(require, "nvim-treesitter.configs")
-if not ok then
-	return
-end
-
-treesitter.setup({
+require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
 		disable = {},
@@ -99,8 +94,4 @@ treesitter.setup({
 	},
 })
 
-local sok, spellsitter = pcall(require, "spellsitter")
-if not sok then
-	return
-end
-spellsitter.setup()
+require("spellsitter").setup()

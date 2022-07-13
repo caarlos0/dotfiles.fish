@@ -1,40 +1,4 @@
--- Setup lspconfig.
-local cmplsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not cmplsp_ok then
-	return
-end
-
-local illu_ok, illuminate = pcall(require, "illuminate")
-if not illu_ok then
-	return
-end
-
-local status_ok, lspstatus = pcall(require, "lsp-status")
-if not status_ok then
-	return
-end
-
-local inst_ok, installer = pcall(require, "nvim-lsp-installer")
-if not inst_ok then
-	return
-end
-
-local ok, signature = pcall(require, "lsp_signature")
-if not ok then
-	return
-end
-
-local lspkind_ok, lspkind = pcall(require, "lspkind")
-if not lspkind_ok then
-	return
-end
-
-local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_ok then
-	return
-end
-
-signature.setup({
+require("lsp_signature").setup({
 	floating_window = false,
 	hint_prefix = "",
 	bind = true,
@@ -43,11 +7,13 @@ signature.setup({
 	},
 })
 
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local lspstatus = require("lsp-status")
 lspstatus.config({
 	status_symbol = "⬤ ",
 	current_function = true,
 	diagnostics = false,
-	kind_labels = lspkind.presets["default"],
+	kind_labels = require("lspkind").presets["default"],
 })
 lspstatus.register_progress()
 
@@ -56,7 +22,6 @@ local capabilities = vim.tbl_extend(
 	cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()) or {},
 	lspstatus.capabilities
 )
-
 capabilities.textDocument.completion.completionItem = {
 	documentationFormat = { "markdown", "plaintext" },
 	snippetSupport = true,
@@ -82,7 +47,6 @@ local on_attach = function(client, bufnr)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
 
-	illuminate.on_attach(client, bufnr)
 	lspstatus.on_attach(client, bufnr)
 
 	-- Mappings.
@@ -126,7 +90,7 @@ local on_attach = function(client, bufnr)
 	end
 end
 
-installer.setup({
+require("nvim-lsp-installer").setup({
 	automatic_installation = true,
 	ui = {
 		icons = {
@@ -137,6 +101,7 @@ installer.setup({
 	},
 })
 
+local lspconfig = require("lspconfig")
 lspconfig.gopls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,

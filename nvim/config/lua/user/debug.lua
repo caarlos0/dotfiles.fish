@@ -1,22 +1,7 @@
-local ok, dap = pcall(require, "dap")
-if not ok then
-	return
-end
-
-local uiok, dapui = pcall(require, "dapui")
-if not uiok then
-	return
-end
-
-local gok, gdap = pcall(require, "dap-go")
-if not gok then
-	return
-end
-
-local vtok, vtdap = pcall(require, "nvim-dap-virtual-text")
-if not vtok then
-	return
-end
+local dap = require("dap")
+local dapui = require("dapui")
+local gdap = require("dap-go")
+local vtdap = require("nvim-dap-virtual-text")
 
 gdap.setup({})
 dapui.setup({})
