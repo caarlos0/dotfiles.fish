@@ -1,9 +1,4 @@
-local ok, trouble = pcall(require, "trouble")
-if not ok then
-	return
-end
-
-trouble.setup({})
+require("trouble").setup({})
 
 local r = require("user.remap").nnoremap
 r("<leader>xx", "<cmd>TroubleToggle<CR>")

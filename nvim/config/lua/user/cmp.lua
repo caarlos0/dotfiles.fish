@@ -1,18 +1,5 @@
-local cmp_ok, cmp = pcall(require, "cmp")
-if not cmp_ok then
-	return
-end
-
-local lspkind_ok, lspkind = pcall(require, "lspkind")
-if not lspkind_ok then
-	return
-end
-lspkind.init()
-
-local snip_ok, luasnip = pcall(require, "luasnip")
-if not snip_ok then
-	return
-end
+local cmp = require("cmp")
+local luasnip = require("luasnip")
 
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -64,7 +51,7 @@ cmp.setup({
 	}),
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
-		format = lspkind.cmp_format({
+		format = require("lspkind").cmp_format({
 			mode = "symbol",
 		}),
 	},
@@ -85,10 +72,4 @@ cmp.setup({
 	},
 })
 
--- autopairs cmp
-local status_ok, autopairs = pcall(require, "nvim-autopairs.completion.cmp")
-if not status_ok then
-	return
-end
-
-cmp.event:on("confirm_done", autopairs.on_confirm_done({ map_char = { tex = "" } }))
+cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done({ map_char = { tex = "" } }))
