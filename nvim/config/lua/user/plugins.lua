@@ -276,14 +276,31 @@ packer.startup(function(use)
 		end,
 	})
 
-	use("famiu/bufdelete.nvim")
-	use("ojroques/vim-oscyank")
+	use({
+		"famiu/bufdelete.nvim",
+		config = function()
+			require("user.remap").nnoremap("<leader>q", ":lua require('bufdelete').bufdelete(0, false)<CR>")
+		end,
+	})
+
+	use({
+		"ojroques/vim-oscyank",
+		config = function()
+			-- [[ Highlight on yank ]]
+			-- See `:help vim.highlight.on_yank()`
+			vim.api.nvim_create_autocmd("TextYankPost", {
+				callback = function()
+					vim.highlight.on_yank()
+					vim.cmd([[ if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif ]])
+				end,
+				pattern = "*",
+			})
+		end,
+	})
+
 	use("tpope/vim-abolish")
-	use("triglav/vim-visual-increment")
-	use("tpope/vim-speeddating")
 	use("tpope/vim-eunuch")
 	use("tpope/vim-surround")
-	use("tpope/vim-unimpaired")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
