@@ -284,11 +284,8 @@ packer.startup(function(use)
 	use({
 		"ojroques/vim-oscyank",
 		config = function()
-			-- [[ Highlight on yank ]]
-			-- See `:help vim.highlight.on_yank()`
 			vim.api.nvim_create_autocmd("TextYankPost", {
 				callback = function()
-					vim.highlight.on_yank()
 					vim.cmd([[ if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif ]])
 				end,
 				pattern = "*",
