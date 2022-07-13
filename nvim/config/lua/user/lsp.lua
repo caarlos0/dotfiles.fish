@@ -208,11 +208,7 @@ function OrganizeImports(timeoutms)
 	end
 end
 
-local nulls_ok, null_ls = pcall(require, "null-ls")
-if not nulls_ok then
-	return
-end
-
+local null_ls = require("null-ls")
 null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,

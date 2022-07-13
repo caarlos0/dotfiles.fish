@@ -91,6 +91,9 @@ packer.startup(function(use)
 
 	use({
 		"nvim-lualine/lualine.nvim",
+		requires = {
+			"nvim-lua/lsp-status.nvim",
+		},
 		config = function()
 			require("user.lualine")
 		end,
