@@ -37,6 +37,7 @@
 	extendRegexp = true
 	lineNumber = true
 [push]
+	autoSetupRemote = true
 	default = simple
 [submodule]
 	fetchJobs = 4
