@@ -12,13 +12,8 @@ if not status_ok then
 	return
 end
 
--- Have packer use a popup window
 packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
-	},
+	autoremove = true,
 })
 
 packer.startup(function(use)
@@ -36,7 +31,7 @@ packer.startup(function(use)
 		config = function()
 			require("auto-session").setup({
 				auto_save_enabled = true,
-				auto_restore_enables = true,
+				auto_restore_enabled = true,
 			})
 		end,
 	})
