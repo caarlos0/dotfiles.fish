@@ -23,5 +23,5 @@ if command -qa bat
 end
 
 if command -qs zoxide
-	zoxide init fish >~/.config/fish/conf.d/zoxide.fish
+	zoxide init fish >$__fish_config_dir/conf.d/zoxide.fish
 end

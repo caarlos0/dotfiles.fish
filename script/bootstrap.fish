@@ -134,7 +134,7 @@ yes | fish_config theme save gruvbox
 	and success 'colorscheme'
 	or abort 'colorscheme'
 
-mkdir -p ~/.config/fish/completions/
+mkdir -p $__fish_config_dir/completions/
 	and success 'completions'
 	or abort 'completions'
 
