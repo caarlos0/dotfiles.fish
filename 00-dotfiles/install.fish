@@ -8,7 +8,9 @@ set -Ux PROJECTS ~/Developer
 fish_add_path -a $DOTFILES/bin $HOME/.bin
 
 for f in $DOTFILES/*/functions
-	set -Up fish_function_path $f
+	if not contains $f $fish_function_path
+		set -Up fish_function_path $f
+	end
 end
 
 for f in $DOTFILES/*/conf.d/*.fish
