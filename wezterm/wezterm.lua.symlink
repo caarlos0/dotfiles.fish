@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
-	color_scheme = "Gruvbox Dark",
+	color_scheme = "Gruvbox dark",
 	font = wezterm.font("MonoLisa Nerd Font"),
 	font_size = 14,
 	harfbuzz_features = {
@@ -11,6 +11,7 @@ return {
 		"ss02=1",
 		"zero=1",
 	},
+	automatically_reload_config = true,
 	window_close_confirmation = "NeverPrompt",
 	visual_bell = {
 		fade_in_function = "EaseIn",
