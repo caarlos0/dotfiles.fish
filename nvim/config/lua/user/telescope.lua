@@ -22,11 +22,8 @@ telescope.setup({
 	},
 })
 
-telescope.load_extension("fzf")
-
 local r = require("user.remap").nnoremap
-r("<C-p>", ":Telescope find_files<CR>")
--- r("<C-p>", ":Telescope git_files<CR>")
+r("<C-p>", ":Telescope find_files find_command=rg,--hidden,--files,--smart-case,--glob=!.git<CR>")
 r("<leader>of", ":Telescope oldfiles<CR>")
 r("<leader>lg", ":Telescope live_grep<CR>")
 r("<leader>fb", ":Telescope buffers<CR>")

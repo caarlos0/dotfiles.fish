@@ -163,10 +163,6 @@ packer.startup(function(use)
 		end,
 		requires = {
 			"nvim-lua/plenary.nvim",
-			{
-				"nvim-telescope/telescope-fzf-native.nvim",
-				run = "make",
-			},
 		},
 	})
 
