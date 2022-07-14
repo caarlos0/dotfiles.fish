@@ -94,6 +94,8 @@ function install_dotfiles
 
 	link_file $DOTFILES_ROOT/fisher/plugins $__fish_config_dir/fish_plugins backup
 		or abort plugins
+	link_file $DOTFILES_ROOT/fish/gruvbox.theme $__fish_config_dir/themes/gruvbox.theme backup
+		or abort gruvbox.theme
 	link_file $DOTFILES_ROOT/bat/config $HOME/.config/bat/config backup
 		or abort bat
 	link_file $DOTFILES_ROOT/htop/htoprc $HOME/.config/htop/htoprc backup
@@ -128,7 +130,7 @@ fisher update
 	and success 'plugins'
 	or abort 'plugins'
 
-theme_gruvbox dark hard
+fish_config theme save gruvbox
 	and success 'colorscheme'
 	or abort 'colorscheme'
 
