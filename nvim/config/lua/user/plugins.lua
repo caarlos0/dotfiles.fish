@@ -293,9 +293,16 @@ packer.startup(function(use)
 		end,
 	})
 
+	use({
+		"kylechui/nvim-surround",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	})
+
 	use("tpope/vim-abolish")
 	use("tpope/vim-eunuch")
-	use("tpope/vim-surround")
+	use("jinh0/eyeliner.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
