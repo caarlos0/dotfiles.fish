@@ -1,4 +1,6 @@
+-- vi: ft=lua
 local wezterm = require("wezterm")
+local act = wezterm.action
 
 return {
 	color_scheme = "Gruvbox Dark",
@@ -27,6 +29,46 @@ return {
 			name = "darkstar",
 			remote_address = "darkstar.local",
 			username = "carlos",
+		},
+	},
+	leader = {
+		key = "b",
+		mods = "CTRL",
+		timeout_milliseconds = 1000,
+	},
+	keys = {
+		{
+			key = "g",
+			mods = "LEADER",
+			action = act.SwitchToWorkspace({
+				name = "default",
+			}),
+		},
+		{
+			key = "f",
+			mods = "LEADER",
+			action = act.SwitchToWorkspace({
+				name = "work",
+			}),
+		},
+		{
+			key = "u",
+			mods = "LEADER",
+			action = act.SplitHorizontal({
+				domain = "CurrentPaneDomain",
+			}),
+		},
+		{
+			key = "i",
+			mods = "LEADER",
+			action = act.SplitVertical({
+				domain = "CurrentPaneDomain",
+			}),
+		},
+		{
+			key = "j",
+			mods = "LEADER",
+			action = act.PaneSelect({ alphabet = "1234567890" }),
 		},
 	},
 }
