@@ -1,5 +1,6 @@
 #!/usr/bin/env fish
 abbr -a less 'less -r'
+
 if command -qs exa
 	abbr -a l 'exa -lh --icons'
 	abbr -a ll 'exa -l --icons'
@@ -7,4 +8,16 @@ if command -qs exa
 else
 	abbr -a l 'ls -lAh'
 	abbr -a ll 'ls -l'
+end
+
+if command -qs fdfind
+	ln -sf (which fdfind) ~/.bin/fd
+end
+
+if command -qs batcat
+	ln -sf (which batcat) ~/.bin/bat
+end
+if command -qa bat
+	alias --save cat=bat
+	set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
 end
