@@ -1,0 +1,31 @@
+local wezterm = require("wezterm")
+
+return {
+	color_scheme = "Gruvbox Dark",
+	font = wezterm.font("MonoLisa Nerd Font"),
+	font_size = 14,
+	harfbuzz_features = {
+		"calt=1",
+		"clig=1",
+		"liga=1",
+		"ss02=1",
+		"zero=1",
+	},
+	window_close_confirmation = "NeverPrompt",
+	visual_bell = {
+		fade_in_function = "EaseIn",
+		fade_in_duration_ms = 100,
+		fade_out_function = "EaseOut",
+		fade_out_duration_ms = 100,
+	},
+	colors = {
+		visual_bell = "#1d2021",
+	},
+	ssh_domains = {
+		{
+			name = "darkstar",
+			remote_address = "darkstar.local",
+			username = "carlos",
+		},
+	},
+}
