@@ -21,3 +21,7 @@ if command -qa bat
 	alias --save cat=bat
 	set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
 end
+
+if command -qs zoxide
+	zoxide init fish >~/.config/fish/conf.d/zoxide.fish
+end
