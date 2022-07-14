@@ -6,10 +6,10 @@ end
 gh config set git_protocol ssh
 
 for ext in mislav/gh-branch vilmibm/gh-user-status dlvhdr/gh-prs
-	gh extension list | grep -wq $ext || gh extension install $ext
+	gh extension list | grep -wq $ext || gh extension install $ext &>/dev/null
 end
 
-gh extension upgrade --all
+gh extension upgrade --all &>/dev/null
 
 switch (uname)
 case Darwin
