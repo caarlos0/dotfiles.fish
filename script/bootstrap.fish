@@ -130,7 +130,7 @@ fisher update
 	and success 'plugins'
 	or abort 'plugins'
 
-fish_config theme save gruvbox
+yes | fish_config theme save gruvbox
 	and success 'colorscheme'
 	or abort 'colorscheme'
 
