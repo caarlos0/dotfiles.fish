@@ -2,6 +2,8 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+-- TODO: https://wezfurlong.org/wezterm/config/lua/gui-events/gui-startup.html
+--
 return {
 	color_scheme = "Gruvbox Dark",
 	font = wezterm.font("MonoLisa Nerd Font"),
@@ -14,6 +16,8 @@ return {
 		"zero=1",
 	},
 	automatically_reload_config = true,
+	hide_tab_bar_if_only_one_tab = true,
+	window_decorations = "RESIZE",
 	window_close_confirmation = "NeverPrompt",
 	visual_bell = {
 		fade_in_function = "EaseIn",
@@ -26,9 +30,8 @@ return {
 	},
 	ssh_domains = {
 		{
-			name = "darkstar",
+			name = "dev",
 			remote_address = "darkstar.local",
-			username = "carlos",
 		},
 	},
 	leader = {
@@ -36,39 +39,73 @@ return {
 		mods = "CTRL",
 		timeout_milliseconds = 1000,
 	},
+	-- launch_menu = {
+	-- 	{
+	-- 		label = "GoReleaser",
+	-- 		cwd = wezterm.home_dir .. "/Developer/goreleaser",
+	-- 	},
+	-- 	{
+	-- 		label = "Work",
+	-- 		cwd = wezterm.home_dir .. "/Developer/charm",
+	-- 	},
+	-- },
 	keys = {
-		{
-			key = "g",
-			mods = "LEADER",
-			action = act.SwitchToWorkspace({
-				name = "default",
-			}),
-		},
 		{
 			key = "f",
 			mods = "LEADER",
-			action = act.SwitchToWorkspace({
-				name = "work",
+			action = act.ShowLauncherArgs({
+				flags = "FUZZY|WORKSPACES|TABS|LAUNCH_MENU_ITEMS",
 			}),
 		},
 		{
 			key = "u",
 			mods = "LEADER",
-			action = act.SplitHorizontal({
-				domain = "CurrentPaneDomain",
+			action = act.SplitPane({
+				direction = "Down",
+				size = { Percent = 30 },
 			}),
 		},
 		{
 			key = "i",
 			mods = "LEADER",
-			action = act.SplitVertical({
-				domain = "CurrentPaneDomain",
+			action = act.SplitPane({
+				direction = "Right",
+				size = { Percent = 30 },
 			}),
 		},
 		{
 			key = "j",
 			mods = "LEADER",
-			action = act.PaneSelect({ alphabet = "1234567890" }),
+			action = act.PaneSelect({
+				alphabet = "hjklyuio",
+			}),
 		},
+		{
+			key = "l",
+			mods = "CTRL|SHIFT",
+			action = act.ActivatePaneDirection("Left"),
+		},
+		{
+			key = "h",
+			mods = "CTRL|SHIFT",
+			action = act.ActivatePaneDirection("Right"),
+		},
+		{
+			key = "k",
+			mods = "CTRL|SHIFT",
+			action = act.ActivatePaneDirection("Up"),
+		},
+		{
+			key = "j",
+			mods = "CTRL|SHIFT",
+			action = act.ActivatePaneDirection("Down"),
+		},
+	},
+	window_frame = {
+		font = wezterm.font({
+			family = "MonoLisa Nerd Font",
+			italic = true,
+			weight = "Bold",
+		}),
 	},
 }
