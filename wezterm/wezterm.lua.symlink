@@ -81,12 +81,12 @@ return {
 			}),
 		},
 		{
-			key = "l",
+			key = "h",
 			mods = "CTRL|SHIFT",
 			action = act.ActivatePaneDirection("Left"),
 		},
 		{
-			key = "h",
+			key = "l",
 			mods = "CTRL|SHIFT",
 			action = act.ActivatePaneDirection("Right"),
 		},
