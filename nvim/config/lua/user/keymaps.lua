@@ -44,8 +44,8 @@ keymap("n", "N", "Nzzzv", opts)
 keymap("n", "q", "<Nop>", opts)
 
 -- Insert empty blank line above/bellow
-keymap("n", "[<Space>", "m`o<Esc>``", opts)
-keymap("n", "]<Space>", "m`O<Esc>``", opts)
+-- keymap("n", "[<Space>", "m`o<Esc>``", opts)
+-- keymap("n", "]<Space>", "m`O<Esc>``", opts)
 
 -- Insert --
 -- in insert mode, adds new undo points after , . ! and ?.
