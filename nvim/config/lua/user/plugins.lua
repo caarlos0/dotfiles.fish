@@ -166,50 +166,40 @@ packer.startup(function(use)
 		},
 	})
 
-	use({
-		"onsails/lspkind-nvim",
-		config = function()
-			require("lspkind").init()
-		end,
-	})
-
+	-- the whole lsp, luasnip and cmp gang
 	use({
 		"williamboman/nvim-lsp-installer",
 		requires = {
+			-- lsp
+			"onsails/lspkind-nvim",
 			"neovim/nvim-lspconfig",
 			"jose-elias-alvarez/null-ls.nvim",
 			"nvim-lua/lsp-status.nvim",
 			"onsails/lspkind-nvim",
 			"simrat39/symbols-outline.nvim",
-			"ray-x/lsp_signature.nvim",
-			"hrsh7th/cmp-nvim-lsp",
-		},
-		config = function()
-			require("user.lsp")
-			require("user.symbols-outline")
-		end,
-	})
 
-	use({
-		"L3MON4D3/LuaSnip",
-		config = function()
-			require("luasnip.loaders.from_vscode").load()
-		end,
-	})
-
-	use({
-		"hrsh7th/nvim-cmp",
-		requires = {
-			"hrsh7th/cmp-nvim-lsp",
+			-- cmp
+			"hrsh7th/nvim-cmp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
-			"L3MON4D3/LuaSnip",
+			"hrsh7th/cmp-emoji",
+			"hrsh7th/cmp-calc",
+
+			-- cmp x lsp
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+
+			-- snip x cmp
 			"saadparwaiz1/cmp_luasnip",
+			"L3MON4D3/LuaSnip",
 			"rafamadriz/friendly-snippets",
-			"onsails/lspkind-nvim",
 		},
 		config = function()
+			require("lspkind").init()
+			require("luasnip.loaders.from_vscode").load()
+			require("user.lsp")
+			require("user.symbols-outline")
 			require("user.cmp")
 		end,
 	})
@@ -296,6 +286,7 @@ packer.startup(function(use)
 	use("tpope/vim-abolish")
 	use("tpope/vim-eunuch")
 	use("jinh0/eyeliner.nvim")
+	-- use("dstein64/vim-startuptime")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

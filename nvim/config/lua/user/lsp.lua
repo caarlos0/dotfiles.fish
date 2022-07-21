@@ -1,12 +1,3 @@
-require("lsp_signature").setup({
-	floating_window = false,
-	hint_prefix = "",
-	bind = true,
-	handler_opts = {
-		border = "rounded",
-	},
-})
-
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local lspstatus = require("lsp-status")
 lspstatus.config({
@@ -62,6 +53,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>D", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+	buf_set_keymap("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 
 	if client.name == "sumneko_lua" then
 		client.server_capabilities.document_formatting = false -- 0.7 and earlier
@@ -224,13 +216,13 @@ null_ls.setup({
 
 -- setup diagnostics
 vim.diagnostic.config({ virtual_text = false })
-vim.api.nvim_create_autocmd({ "CursorHold" }, {
-	callback = function()
-		if vim.lsp.buf.server_ready() then
-			vim.diagnostic.open_float()
-		end
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "CursorHold" }, {
+-- 	callback = function()
+-- 		if vim.lsp.buf.server_ready() then
+-- 			vim.diagnostic.open_float()
+-- 		end
+-- 	end,
+-- })
 
 -- set up LSP signs
 for type, icon in pairs({

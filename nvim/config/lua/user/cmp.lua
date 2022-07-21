@@ -2,6 +2,7 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 
 local has_words_before = function()
+	---@diagnostic disable-next-line: deprecated
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
@@ -56,11 +57,14 @@ cmp.setup({
 		}),
 	},
 	sources = cmp.config.sources({
+		{ name = "nvim_lsp_signature_help" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "nvim_lua" },
 		{ name = "path" },
+		{ name = "emoji" },
+		{ name = "calc" },
 	}),
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
@@ -69,6 +73,19 @@ cmp.setup({
 	experimental = {
 		native_menu = false,
 		ghost_text = false,
+	},
+})
+
+cmp.setup.cmdline(":", {
+	sources = {
+		{ name = "cmdline" },
+	},
+})
+
+cmp.setup.cmdline("/", {
+	sources = {
+		{ name = "buffer" },
+		{ name = "path" },
 	},
 })
 
