@@ -1,11 +1,13 @@
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 	pattern = "*.dockerfile",
 	command = "set ft=dockerfile",
+	group = vim.api.nvim_create_augroup("Dockerfile", { clear = true }),
 })
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "*.txt", "*.md", "*.tex", "gitcommit", "gitrebase" },
 	command = "setlocal spell",
+	group = vim.api.nvim_create_augroup("Spell", { clear = true }),
 })
 
 -- ensure the parent folder exists, so it gets properly added to the lsp context and everything just works.
@@ -18,6 +20,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 			vim.cmd([[ :e % ]])
 		end
 	end,
+	group = vim.api.nvim_create_augroup("Mkdir", { clear = true }),
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -29,6 +32,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		]])
 	end,
 	pattern = "*",
+	group = vim.api.nvim_create_augroup("TrimWhitespace", { clear = true }),
 })
 
 -- [[ Highlight on yank ]]
@@ -38,4 +42,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 	pattern = "*",
+	group = vim.api.nvim_create_augroup("Highlight", { clear = true }),
 })

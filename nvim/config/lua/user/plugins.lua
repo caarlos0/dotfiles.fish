@@ -285,6 +285,7 @@ packer.startup(function(use)
 					vim.cmd([[ if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif ]])
 				end,
 				pattern = "*",
+				group = vim.api.nvim_create_augroup("OSCYank", { clear = true }),
 			})
 		end,
 	})
@@ -318,9 +319,8 @@ if is_bootstrap then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePost", {
 	command = "source <afile> | PackerSync",
-	group = packer_group,
+	group = vim.api.nvim_create_augroup("Packer", { clear = true }),
 	pattern = "plugins.lua",
 })
