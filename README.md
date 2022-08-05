@@ -35,13 +35,14 @@ Simply, run these steps:
 - `fish`: the shell
 - [`grc`](https://github.com/garabik/grc) to colorize command's outputs
 - [`rust`](https://www.rust-lang.org/) to install formatting for [lua](https://www.lua.org/)
+- [`mas`](https://github.com/mas-cli/mas) to have a Mac App Store command line interface
 
 ```console
 $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # As 'brew link' can fail, as git might be installed. We force the link
 $ brew install git || brew link --overwrite git
 # we need gnu sed to use the -i option properly without file extension
-$ brew install gnu-sed rust
+$ brew install rust fish grc mas
 $ git clone https://github.com/mavogel/dotfiles.fish.git ~/.dotfiles
 $ cd ~/.dotfiles
 $ ./script/bootstrap.fish
