@@ -127,15 +127,6 @@ If you use [vscode](https://code.visualstudio.com/) then you need to fix the fon
 `Terminal > Integrated: Font Family`: `Inconsolata Nerd Font Mono`
 ![vscode-terminal-font][vsctfont]
 
-## Screenshots
-
-<img width="3008" alt="image" src="https://user-images.githubusercontent.com/245435/173171807-89d86eee-6e2b-4fad-9197-0ce6aeb77f78.png">
-
-<img width="3008" alt="image" src="https://user-images.githubusercontent.com/245435/173171829-8749e953-72fb-497c-b09f-e9b89ef4feca.png">
-
-[scrn1]: /docs/screenshot1.png
-[scrn2]: /docs/screenshot2.png
-[vsctfont]: /docs/vscode-terminal-font.png
 
 ## Release Process
 
