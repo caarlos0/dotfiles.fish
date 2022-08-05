@@ -13,7 +13,6 @@ inercia.vscode-k3d
 joaompinto.asciidoctor-vscode
 k--kato.intellij-idea-keybindings
 kddejong.vscode-cfn-lint
-Kelvin.vscode-sshfs
 mindginative.terraform-snippets
 mrmlnc.vscode-json5
 mrmlnc.vscode-puglint
@@ -30,7 +29,6 @@ ms-vscode-remote.remote-containers
 ms-vscode.makefile-tools
 ms-vsliveshare.vsliveshare
 pjmiravalle.terraform-advanced-syntax-highlighting
-RandomFractalsInc.vscode-data-preview
 redhat.java
 redhat.vscode-commons
 redhat.vscode-yaml
@@ -39,7 +37,6 @@ rogalmic.bash-debug
 skyapps.fish-vscode
 streetsidesoftware.avro
 TabNine.tabnine-vscode
-thekalinga.bootstrap4-vscode
 tht13.python
 timonwong.shellcheck
 VisualStudioExptTeam.vscodeintellicode
@@ -49,5 +46,4 @@ vscjava.vscode-java-pack
 vscjava.vscode-java-test
 vscjava.vscode-maven
 yzhang.markdown-all-in-one
-Zaczero.bootstrap-v4-snippets
 zxh404.vscode-proto3
