@@ -78,39 +78,32 @@ $ ./script/bootstrap.fish
 Reverting is not totally automated, but it pretty much consists in removing
 the fish config and dotfiles folder, as well as moving back some config files.
 
-**Remove the folders:**
-
 ```console
-$ rm -rf ~/.dotfiles ~/.config/fish
+$ rm -rf ~/.dotfiles $__fish_config_dir
 ```
 
-**Some config files were changed, you can find them using `fd`:**
-
-```console
-$ fd -e backup -e local -H -E Library -d 3 .
-```
-
-And then manually inspect/revert them.
+The bootstrap script would have created a bunch of symlinks that will now be broken.
+You will have to investigate those manually.
+In cases a file already existed, the boostrap script should have created a `.backup` file with the same name.
 
 ## Recommended Software
 
-For macOS, I recommend:
-
-- iTerm: a better terminal emulator;
-
-For both Linux and macOS:
-
+- [`alacritty`](https://github.com/alacritty/alacritty) a cross-platform, OpenGL terminal emulator;
+- [`bat`](https://github.com/sharkdp/bat) a cat(1) clone with wings;
 - [`delta`](https://github.com/dandavison/delta) for better git diffs;
 - [`fd`](https://github.com/sharkdp/fd) a simple, fast and user-friendly alternative to `find`;
-- [`fzf`](https://github.com/junegunn/fzf) for a fuzzy-finder, used in `,t` on vim, for example;
+- [`fzf`](https://github.com/junegunn/fzf) for a fuzzy-finder;
 - [`gh`](https://github.com/cli/cli) for more GitHub integration with the terminal;
-- [`starship.rs`](https://starship.rs) the shell we are using;
+- [`grc`](https://github.com/garabik/grc) to colorize command's outputs;
+- [`kitty`](https://github.com/kovidgoyal/kitty) a cross-platform, fast, feature-rich, GPU based terminal;
 - [`kubectx`](https://github.com/ahmetb/kubectx) for better Kubernetes context and namespace switch;
+- [`neovim`](https://neovim.io) hyperextensible Vim-based text editor;
+- [`starship.rs`](https://starship.rs) the shell we are using;
 
 To install them all with `brew`:
 
 ```console
-$ brew install fish git-delta fzf gh grc kubectx starship zoxide
+$ brew install fish git-delta fzf gh grc kubectx starship zoxide fd exa bat alacritty kitty neovim
 ```
 
 or you can also take a look at the [brewfile](brewfile) for all software I have installed.
@@ -127,8 +120,7 @@ And logging out and in again or restart.
 
 ## Themes and fonts being used
 
-Theme is **[Dracula](https://draculatheme.com)** and font is **Inconsolata**
-Nerd Font.
+Gruvbox dark (high contrast) and MonoLisa Font.
 
 If you use [vscode](https://code.visualstudio.com/) then you need to fix the font for terminal:
 `Terminal > Integrated: Font Family`: `Inconsolata Nerd Font Mono`
@@ -136,9 +128,9 @@ If you use [vscode](https://code.visualstudio.com/) then you need to fix the fon
 
 ## Screenshots
 
-![screenshot 1][scrn1]
+<img width="3008" alt="image" src="https://user-images.githubusercontent.com/245435/173171807-89d86eee-6e2b-4fad-9197-0ce6aeb77f78.png">
 
-![screenshot 2][scrn2]
+<img width="3008" alt="image" src="https://user-images.githubusercontent.com/245435/173171829-8749e953-72fb-497c-b09f-e9b89ef4feca.png">
 
 [scrn1]: /docs/screenshot1.png
 [scrn2]: /docs/screenshot2.png

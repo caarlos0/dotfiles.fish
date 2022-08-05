@@ -1,7 +1,6 @@
 local options = {
 	compatible = false,
-	-- clipboard = "unnamedplus",
-	-- cmdheight = 2,
+	clipboard = "unnamedplus",
 	hidden = true,
 	updatetime = 300, -- faster update times
 	mouse = "a",
@@ -30,19 +29,16 @@ local options = {
 	ruler = true,
 	wildmenu = true,
 	autoread = true,
-	-- syntax = true,
 	completeopt = { "menu", "menuone", "noselect", "noinsert" },
 	colorcolumn = "80",
-	foldmethod = "indent",
-	foldnestmax = 3,
-	foldminlines = 10,
-	foldlevelstart = 999,
 	backspace = { "indent", "eol", "start" },
 	spell = true,
 	spelllang = { "en_us" },
 	laststatus = 3,
+	cursorline = true,
 	list = true,
 	listchars = "eol:↲,tab:» ,trail:·,extends:<,precedes:>,conceal:┊,nbsp:␣",
+	grepprg = "rg --vimgrep --smart-case --follow",
 }
 
 vim.opt.shortmess:append("c")
@@ -50,9 +46,3 @@ vim.opt.shortmess:append("c")
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
-
-vim.cmd([[
-	set whichwrap+=<,>,[,],h,l
-	set iskeyword+=-
-	set formatoptions-=cro
-]])
