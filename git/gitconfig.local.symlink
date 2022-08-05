@@ -19,7 +19,7 @@
 	ui = true
 [core]
 	excludesfile = ~/.gitignore
-	editor = vim
+	editor = nvim
 	compression = -1
 	autocrlf = input
 	whitespace = trailing-space,space-before-tab
@@ -38,6 +38,7 @@
 	extendRegexp = true
 	lineNumber = true
 [push]
+	autoSetupRemote = true
 	default = simple
 [submodule]
 	fetchJobs = 4
