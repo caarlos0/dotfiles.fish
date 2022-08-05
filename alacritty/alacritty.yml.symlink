@@ -41,13 +41,13 @@ bell:
 
 font:
   normal:
-    family: MonoLisa Nerd Font
+    family: Inconsolata Nerd Font
   bold:
-    family: MonoLisa Nerd Font
+    family: Inconsolata Nerd Font
   italic:
-    family: MonoLisa Nerd Font
+    family: Inconsolata Nerd Font
   bold_italic:
-    family: MonoLisa Nerd Font
+    family: Inconsolata Nerd Font
   size: 14.0
   use_thin_strokes: true
 

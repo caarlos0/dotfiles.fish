@@ -121,7 +121,7 @@ And logging out and in again or restart.
 
 ## Themes and fonts being used
 
-Gruvbox dark (high contrast) and MonoLisa Font.
+Gruvbox dark (high contrast) and Inconsolata Font.
 
 If you use [vscode](https://code.visualstudio.com/) then you need to fix the font for terminal:
 `Terminal > Integrated: Font Family`: `Inconsolata Nerd Font Mono`
