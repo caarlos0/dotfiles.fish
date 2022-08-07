@@ -75,10 +75,10 @@ packer.startup(function(use)
 	})
 
 	use({
-		"Pocco81/AutoSave.nvim",
+		"Pocco81/auto-save.nvim",
 		config = function()
-			require("autosave").setup({
-				events = { "FocusLost" },
+			require("auto-save").setup({
+				trigger_events = { "FocusLost" },
 				write_all_buffers = true,
 			})
 		end,
