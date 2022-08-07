@@ -168,9 +168,10 @@ packer.startup(function(use)
 
 	-- the whole lsp, luasnip and cmp gang
 	use({
-		"williamboman/nvim-lsp-installer",
+		"williamboman/mason.nvim",
 		requires = {
 			-- lsp
+			"williamboman/mason-lspconfig.nvim",
 			"onsails/lspkind-nvim",
 			"neovim/nvim-lspconfig",
 			"jose-elias-alvarez/null-ls.nvim",

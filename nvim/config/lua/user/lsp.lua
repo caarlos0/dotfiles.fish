@@ -82,7 +82,8 @@ local on_attach = function(client, bufnr)
 	end
 end
 
-require("nvim-lsp-installer").setup({
+require("mason").setup()
+require("mason-lspconfig").setup({
 	automatic_installation = true,
 	ui = {
 		icons = {
