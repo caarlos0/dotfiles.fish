@@ -6,6 +6,8 @@ telescope.setup({
 		mappings = {
 			i = {
 				["<esc>"] = actions.close,
+				["<Tab>"] = actions.move_selection_previous,
+				["<S-Tab>"] = actions.move_selection_next,
 			},
 		},
 		vimgrep_arguments = {
@@ -19,6 +21,8 @@ telescope.setup({
 			"--hidden",
 			"--glob=!.git",
 		},
+		prompt_prefix = "   ",
+		color_devicons = true,
 	},
 })
 
