@@ -85,13 +85,6 @@ end
 require("mason").setup()
 require("mason-lspconfig").setup({
 	automatic_installation = true,
-	ui = {
-		icons = {
-			server_installed = "",
-			server_pending = "",
-			server_uninstalled = "ﮊ",
-		},
-	},
 })
 
 local lspconfig = require("lspconfig")
@@ -173,7 +166,7 @@ lspconfig.sumneko_lua.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
-				globals = { "vim" },
+				globals = { "vim", "require" },
 			},
 		},
 	},
