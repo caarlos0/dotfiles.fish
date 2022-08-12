@@ -8,7 +8,7 @@ changelog:
       regexp: "^.*\\(nvim\\):+.*$"
       order: 200
     - title: 'system'
-      regexp: "^.*\\((system|fish|fzf|macos)\\):+.*$"
+      regexp: "^.*\\((system|fish|fzf|macos|ssh)\\):+.*$"
       order: 100
     - title: 'git'
       regexp: "^.*\\((git|gh)\\):+.*$"
