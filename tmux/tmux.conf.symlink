@@ -60,7 +60,7 @@ bind -r l select-pane -R
 set-option -g repeat-time 0
 bind r source-file ~/.tmux.conf
 
-bind-key -r f run-shell "tmux neww tmux-sessionizer"
+bind-key -r f display-popup -E "tmux-sessionizer"
 bind-key -r g run-shell "tmux neww tmux-sessionizer default"
 
 thm_bg="#282828"

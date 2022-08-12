@@ -4,7 +4,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-	selected=$(find $PROJECTS/ -maxdepth 2 -type d | while read -r p; do zoxide query -l -s "$p"; done | sort -rnk1 | uniq | fzf --no-sort | awk '{print $2}')
+	selected=$(find $PROJECTS/ -maxdepth 2 -type d | while read -r p; do zoxide query -l -s "$p"; done | sed "s;$PROJECTS/;;" | sort -rnk1 | uniq | fzf --no-sort --layout reverse --prompt "﬿ " | awk '{print $2}')
 fi
 
 if [[ -z $selected ]]; then
@@ -15,12 +15,12 @@ selected_name="$(basename "$selected" | tr . _)"
 tmux_running="$(pgrep tmux)"
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
+    tmux new-session -s $selected_name -c $PROJECTS/$selected
     exit 0
 fi
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
+    tmux new-session -ds $selected_name -c $PROJECTS/$selected
 fi
 
 tmux switch-client -t $selected_name
