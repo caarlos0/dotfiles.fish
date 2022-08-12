@@ -2,6 +2,9 @@
 
 Host *
 	ServerAliveInterval 60
+	CanonicalizeHostName yes
+	CanonicalizeFallbackLocal yes
+	CanonicalDomains local
 
 Host localhost
 	UserKnownHostsFile /dev/null
