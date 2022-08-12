@@ -46,7 +46,7 @@ packer.startup(function(use)
 	})
 
 	use({
-		"gruvbox-community/gruvbox",
+		"sainnhe/gruvbox-material",
 		config = function()
 			require("user.colorscheme")
 		end,
