@@ -64,6 +64,7 @@ In cases a file already existed, the boostrap script should have created a `.bac
 - [`delta`](https://github.com/dandavison/delta) for better git diffs;
 - [`fd`](https://github.com/sharkdp/fd) a simple, fast and user-friendly alternative to `find`;
 - [`fzf`](https://github.com/junegunn/fzf) for a fuzzy-finder;
+- [`gum`](https://github.com/charmbracelet/gum) A tool for glamorous shell scripts;
 - [`gh`](https://github.com/cli/cli) for more GitHub integration with the terminal;
 - [`grc`](https://github.com/garabik/grc) to colorize command's outputs;
 - [`kitty`](https://github.com/kovidgoyal/kitty) a cross-platform, fast, feature-rich, GPU based terminal;
