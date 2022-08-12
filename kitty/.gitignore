@@ -1,2 +1,2 @@
-*.yml
-gruvbox*.conf
+*.conf
+!kitty.conf
