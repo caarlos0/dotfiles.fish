@@ -102,7 +102,7 @@ Gruvbox dark (high contrast) and MonoLisa Font.
 
 ## Screenshots
 
-<img width="3008" alt="image" src="https://user-images.githubusercontent.com/245435/173171807-89d86eee-6e2b-4fad-9197-0ce6aeb77f78.png">
+![CleanShot 2022-08-12 at 23 12 19@2x](https://user-images.githubusercontent.com/245435/184464710-656d6d38-5f72-45a8-a854-6de9c815f24b.png)
 
-<img width="3008" alt="image" src="https://user-images.githubusercontent.com/245435/173171829-8749e953-72fb-497c-b09f-e9b89ef4feca.png">
+![CleanShot 2022-08-12 at 23 12 31@2x](https://user-images.githubusercontent.com/245435/184464716-7caae587-e499-4528-8cfe-3b9384805efc.png)
 
