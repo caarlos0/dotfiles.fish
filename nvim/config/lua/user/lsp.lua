@@ -55,17 +55,22 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	buf_set_keymap("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 
-	if client.name == "sumneko_lua" then
-		client.server_capabilities.document_formatting = false -- 0.7 and earlier
-		client.resolved_capabilities.document_formatting = false -- 0.7 and earlier
-		-- client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
-	end
-
-	if client.resolved_capabilities.document_formatting then
+	if client.resolved_capabilities.document_formatting and client.name ~= "sumneko_lua" then
 		vim.cmd([[
-			augroup formatting
+			augroup lsp_formatting
 				autocmd! * <buffer>
 				autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
+			augroup END
+		]])
+	end
+
+	-- If the organizeImports codeAction runs for lua files, depending on
+	-- where the cursor is, it'll reorder the args and break stuff.
+	-- This took me way too long to figure out.
+	if client.name ~= "null-ls" and client.name ~= "sumneko_lua" then
+		vim.cmd([[
+			augroup lsp_organize_imports
+				autocmd! * <buffer>
 				autocmd BufWritePre <buffer> lua OrganizeImports(150)
 			augroup END
 		]])
@@ -166,7 +171,7 @@ lspconfig.sumneko_lua.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
-				globals = { "vim", "require", "pcall" },
+				globals = { "vim", "require", "pcall", "pairs" },
 			},
 		},
 	},
@@ -185,15 +190,20 @@ lspconfig.prosemd_lsp.setup({
 -- organize imports
 -- https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-902680058
 function OrganizeImports(timeoutms)
-	local params = vim.lsp.util.make_range_params()
-	params.context = { only = { "source.organizeImports" } }
-	local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeoutms)
-	for _, res in pairs(result or {}) do
-		for _, r in pairs(res.result or {}) do
-			if r.edit then
-				vim.lsp.util.apply_workspace_edit(r.edit, "UTF-8")
-			else
-				vim.lsp.buf.execute_command(r.command)
+	vim.notify("will organize imports")
+	local clients = vim.lsp.buf_get_clients()
+	for _, client in pairs(clients) do
+		local params = vim.lsp.util.make_range_params(nil, client.offset_encoding)
+		params.context = { only = { "source.organizeImports" } }
+
+		local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeoutms)
+		for _, res in pairs(result or {}) do
+			for _, r in pairs(res.result or {}) do
+				if r.edit then
+					vim.lsp.util.apply_workspace_edit(r.edit, client.offset_encoding)
+				else
+					vim.lsp.buf.execute_command(r.command)
+				end
 			end
 		end
 	end
