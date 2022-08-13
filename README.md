@@ -98,7 +98,7 @@ And logging out and in again or restart.
 
 ## Themes and fonts being used
 
-Gruvbox dark (high contrast) and MonoLisa Font.
+Gruvbox-material dark and MonoLisa Font.
 
 ## Screenshots
 
