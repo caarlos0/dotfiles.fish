@@ -110,7 +110,3 @@ Gruvbox-material dark and MonoLisa Font.
 
 ###### tmux-sessionizer and tmux tabs with icons
 ![CleanShot 2022-08-12 at 23 18 13@2x](https://user-images.githubusercontent.com/245435/184464869-835bdad2-5ca6-4998-b550-3622bb05c82c.png)
-
-
-
-![CleanShot 2022-08-12 at 23 12 31@2x](https://user-images.githubusercontent.com/245435/184464716-7caae587-e499-4528-8cfe-3b9384805efc.png)
