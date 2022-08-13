@@ -102,7 +102,15 @@ Gruvbox-material dark and MonoLisa Font.
 
 ## Screenshots
 
-![CleanShot 2022-08-12 at 23 12 19@2x](https://user-images.githubusercontent.com/245435/184464710-656d6d38-5f72-45a8-a854-6de9c815f24b.png)
+###### neovim with LSP, git signs, etc
+![CleanShot 2022-08-12 at 23 17 57@2x](https://user-images.githubusercontent.com/245435/184464863-b5c6468f-e064-4f53-bbd8-2961f4163bd0.png)
+
+###### neovim telescope
+![CleanShot 2022-08-12 at 23 18 07@2x](https://user-images.githubusercontent.com/245435/184464868-f9f22aea-3333-42a3-b110-0c8a90d90c1b.png)
+
+###### tmux-sessionizer and tmux tabs with icons
+![CleanShot 2022-08-12 at 23 18 13@2x](https://user-images.githubusercontent.com/245435/184464869-835bdad2-5ca6-4998-b550-3622bb05c82c.png)
+
+
 
 ![CleanShot 2022-08-12 at 23 12 31@2x](https://user-images.githubusercontent.com/245435/184464716-7caae587-e499-4528-8cfe-3b9384805efc.png)
-
