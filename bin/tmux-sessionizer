@@ -4,7 +4,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-	selected=$(find $PROJECTS/ -maxdepth 2 -type d | while read -r p; do zoxide query -l -s "$p"; done | sed "s;$PROJECTS/;;" | sort -rnk1 | uniq | fzf --no-sort --layout reverse --prompt "﬿ " | awk '{print $2}')
+	selected=$(find $PROJECTS/ -maxdepth 2 -type d | while read -r p; do zoxide query -l -s "$p"; done | sed "s;$PROJECTS/;;" | sort -rnk1 | uniq | awk '{print $2}' | fzf --no-sort --prompt "﬿ ")
 fi
 
 if [[ -z $selected ]]; then
