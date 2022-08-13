@@ -7,6 +7,9 @@ changelog:
     - title: 'editor'
       regexp: "^.*\\(nvim\\):+.*$"
       order: 200
+    - title: 'tmux'
+      regexp: "^.*\\(tmux\\):+.*$"
+      order: 250
     - title: 'system'
       regexp: "^.*\\((system|fish|fzf|macos|ssh)\\):+.*$"
       order: 100
