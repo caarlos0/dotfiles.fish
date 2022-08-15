@@ -1,18 +1,23 @@
 #!/usr/bin/env bash
-# steal https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/bin/tmux-sessionizer
+# I organize my projects in ~/Developer/org/name, and I'd like to create sessions for each of them.
+# This script uses a combination of find, zoxide (so they are sort by frecency) and fzf to list and filter project folders.
+# Then, it either switch to an existing tmux session for that project, or create a new one and switch to it.
+#
+# Stole and modified from: https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/bin/tmux-sessionizer
 
 search() {
 	find "$PROJECTS" -maxdepth 2 -type d |
 		while read -r p; do
 			zoxide query -l -s "$p"
 		done |
-		sed "s;$PROJECTS/;;" |
+		sed "s;$PROJECTS/;;" |	# removes the ~/Developer/ prefix
+		grep -v "$PROJECTS" |	# removes the ~/Developer folder itself
+		grep "/" |				# removes entries without subfolders
 		sort -rnk1 |
 		uniq |
-		awk '{print $2}' |
+		awk '{print $2}' |		# do not actually print the score
 		fzf --no-sort --prompt "﬿ "
 }
-
 
 if [[ $# -eq 1 ]]; then
     selected=$1
