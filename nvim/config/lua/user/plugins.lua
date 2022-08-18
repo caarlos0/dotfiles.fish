@@ -79,7 +79,9 @@ packer.startup(function(use)
 		"Pocco81/auto-save.nvim",
 		config = function()
 			require("auto-save").setup({
-				trigger_events = { "FocusLost" },
+				trigger_events = {
+					"FocusLost",
+				},
 				write_all_buffers = true,
 			})
 		end,
@@ -121,20 +123,11 @@ packer.startup(function(use)
 	})
 
 	use({
-		"karb94/neoscroll.nvim",
-		config = function()
-			require("neoscroll").setup()
-		end,
-	})
-
-	use({
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup({})
 		end,
 	})
-
-	use("editorconfig/editorconfig-vim")
 
 	use({
 		"numToStr/Comment.nvim",
@@ -284,7 +277,9 @@ packer.startup(function(use)
 		config = function()
 			vim.api.nvim_create_autocmd("TextYankPost", {
 				callback = function()
-					vim.cmd([[ if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif ]])
+					vim.cmd([[
+						if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif
+					]])
 				end,
 				pattern = "*",
 				group = vim.api.nvim_create_augroup("OSCYank", { clear = true }),
@@ -292,16 +287,11 @@ packer.startup(function(use)
 		end,
 	})
 
-	use({
-		"kylechui/nvim-surround",
-		config = function()
-			require("nvim-surround").setup({})
-		end,
-	})
-
+	use("editorconfig/editorconfig-vim")
+	use("tpope/vim-repeat")
+	use("tpope/vim-surround")
 	use("tpope/vim-abolish")
 	use("tpope/vim-eunuch")
-	-- use("jinh0/eyeliner.nvim")
 	-- use("dstein64/vim-startuptime")
 
 	-- Automatically set up your configuration after cloning packer.nvim
