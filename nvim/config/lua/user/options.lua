@@ -36,7 +36,7 @@ local options = {
 	spelllang = { "en_us" },
 	laststatus = 3,
 	cursorline = true,
-	list = true,
+	list = false,
 	listchars = "eol:↲,tab:» ,trail:·,extends:<,precedes:>,conceal:┊,nbsp:␣",
 	grepprg = "rg --vimgrep --smart-case --follow",
 }
