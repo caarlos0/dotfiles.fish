@@ -190,7 +190,6 @@ lspconfig.prosemd_lsp.setup({
 -- organize imports
 -- https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-902680058
 function OrganizeImports(timeoutms)
-	vim.notify("will organize imports")
 	local clients = vim.lsp.buf_get_clients()
 	for _, client in pairs(clients) do
 		local params = vim.lsp.util.make_range_params(nil, client.offset_encoding)
