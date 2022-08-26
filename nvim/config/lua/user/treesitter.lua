@@ -24,6 +24,7 @@ require("nvim-treesitter.configs").setup({
 		"markdown_inline",
 		"rust",
 		"scss",
+		"sql",
 		"toml",
 		"vim",
 		"yaml",
