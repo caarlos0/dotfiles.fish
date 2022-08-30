@@ -6,7 +6,7 @@ follow-space-thrown-windows: true
 
 window-margins: true
 smart-window-margins: true
-window-margin-size: 5
+window-margin-size: 10
 
 enables-layout-hud: true
 enables-layout-hud-on-space-change: false
@@ -38,6 +38,7 @@ mod1:
   - option
   - shift
   - command
+
 mod2:
   - option
   - shift
@@ -46,7 +47,7 @@ mod2:
 
 cycle-layout:
   mod: mod2
-  key: h
+  key: y
 
 shrink-main:
   mod: mod2
