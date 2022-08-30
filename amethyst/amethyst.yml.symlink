@@ -1,0 +1,93 @@
+# vi: ft=yaml
+
+ignore-menu-bar: false
+new-windows-to-main: true
+follow-space-thrown-windows: true
+
+window-margins: true
+smart-window-margins: true
+window-margin-size: 5
+
+enables-layout-hud: true
+enables-layout-hud-on-space-change: false
+
+use-canary-build: true
+
+layouts:
+  - tall
+  - fullscreen
+
+mouse-follows-focus: false
+focus-follows-mouse: false
+mouse-swaps-windows: false
+mouse-resizes-windows: false
+
+float-small-windows: true
+floating:
+  - com.apple.systempreferences
+  - com.zsa.wally
+  - org.m0k.transmission
+  - com.albertogh.Subtitles
+  - com.yubico.ykman
+  - com.mr-brightside.Parcel
+  - pl.maketheweb.cleanshotx
+  - com.collider.iina
+  - br.com.itau.aplicativoitau
+
+mod1:
+  - option
+  - shift
+  - command
+mod2:
+  - option
+  - shift
+  - control
+  - command
+
+cycle-layout:
+  mod: mod2
+  key: h
+
+shrink-main:
+  mod: mod2
+  key: m
+
+expand-main:
+  mod: mod2
+  key: n
+
+focus-ccw:
+  mod: mod2
+  key: j
+
+focus-cw:
+  mod: mod2
+  key: k
+
+swap-ccw:
+  mod: mod2
+  key: h
+
+swap-cw:
+  mod: mod2
+  key: l
+
+toggle-float:
+  mod: mod2
+  key: u
+
+throw-space-left:
+  mod: mod2
+  key: i
+
+throw-space-right:
+  mod: mod2
+  key: o
+
+reevaluate-windows:
+  mod: mod2
+  key: \
+
+relaunch-amethyst:
+  mod: mod2
+  key: 0
