@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/env fish
 # Translates program names to icons, so we an use them in our tmux config.
 # Based on https://github.com/caarlos0/icons
 switch $argv[1]
