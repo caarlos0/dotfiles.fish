@@ -6,7 +6,7 @@ follow-space-thrown-windows: true
 
 window-margins: true
 smart-window-margins: true
-window-margin-size: 10
+window-margin-size: 5
 
 enables-layout-hud: true
 enables-layout-hud-on-space-change: false
@@ -31,9 +31,10 @@ floating:
   - com.yubico.ykman
   - com.mr-brightside.Parcel
   - pl.maketheweb.cleanshotx
-  - com.collider.iina
+  - com.colliderli.iina
   - br.com.itau.aplicativoitau
   - com.apple.iCal
+  - com.apple.mail
 
 mod1:
   - option
