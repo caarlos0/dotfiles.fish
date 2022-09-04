@@ -1,7 +1,6 @@
 vim.opt_local.formatoptions:append("jno")
 
 local function restart()
-	local lsp = require("lspconfig")
 	local configs = require("lspconfig.configs")
 	for _, client in ipairs(vim.lsp.get_active_clients()) do
 		if client.name == "gopls" then
@@ -34,7 +33,11 @@ local function tidy()
 	local handle
 	handle, _ = uv.spawn(
 		"go",
-		{ args = { "mod", "tidy" }, stdio = { nil, stdout, stderr }, cwd = vim.fn.expand("%:h") },
+		{
+			args = { "mod", "tidy" },
+			stdio = { nil, stdout, stderr },
+			cwd = vim.fn.expand("%:h"),
+		},
 		vim.schedule_wrap(function()
 			stdout:read_stop()
 			stderr:read_stop()
