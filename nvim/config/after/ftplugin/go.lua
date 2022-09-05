@@ -59,18 +59,3 @@ vim.api.nvim_create_user_command("GoModTidy", tidy, vim.tbl_extend("force", { de
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 keymap("n", "<leader>gmt", ":GoModTidy<CR>", opts)
-
-local ok, ls = pcall(require, "luasnip")
-if not ok then
-	return
-end
-
-ls.add_snippets("go", {
-	ls.snippet("ifer", {
-		ls.text_node({ "if err != nil {", "\t" }),
-		ls.text_node("return err"),
-		ls.insert_node(1),
-		ls.text_node({ "", "" }),
-		ls.text_node("}"),
-	}),
-})
