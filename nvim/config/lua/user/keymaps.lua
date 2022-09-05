@@ -33,7 +33,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- save and quit
 keymap("n", "<leader>w", ":write<CR>", opts)
-keymap("n", "<leader>Q", ":quitall!<CR>", opts)
+keymap("n", "<leader>q", ":bdelete<CR>", opts)
 
 -- keep more or less in the same place when going next
 keymap("n", "n", "nzzzv", opts)

@@ -271,13 +271,6 @@ packer.startup(function(use)
 	})
 
 	use({
-		"famiu/bufdelete.nvim",
-		config = function()
-			require("user.remap").nnoremap("<leader>q", ":lua require('bufdelete').bufdelete(0, false)<CR>")
-		end,
-	})
-
-	use({
 		"ojroques/vim-oscyank",
 		config = function()
 			vim.api.nvim_create_autocmd("TextYankPost", {
