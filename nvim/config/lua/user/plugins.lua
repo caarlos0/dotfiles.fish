@@ -123,13 +123,6 @@ packer.startup(function(use)
 	})
 
 	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	})
-
-	use({
 		"numToStr/Comment.nvim",
 		config = function()
 			require("Comment").setup()
@@ -189,6 +182,9 @@ packer.startup(function(use)
 			"saadparwaiz1/cmp_luasnip",
 			"L3MON4D3/LuaSnip",
 			"rafamadriz/friendly-snippets",
+
+			-- autopairs (x cmp)
+			"windwp/nvim-autopairs",
 		},
 		config = function()
 			require("lspkind").init()
@@ -197,6 +193,7 @@ packer.startup(function(use)
 				region_check_events = "CursorHold,InsertLeave,InsertEnter",
 				delete_check_events = "TextChanged,InsertEnter",
 			})
+			require("nvim-autopairs").setup()
 			require("luasnip.loaders.from_vscode").load()
 			require("user.lsp")
 			require("user.symbols-outline")
