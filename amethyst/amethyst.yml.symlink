@@ -24,17 +24,18 @@ mouse-resizes-windows: false
 
 float-small-windows: true
 floating:
-  - com.apple.systempreferences
-  - com.zsa.wally
-  - org.m0k.transmission
-  - com.albertogh.Subtitles
-  - com.yubico.ykman
-  - com.mr-brightside.Parcel
-  - pl.maketheweb.cleanshotx
-  - com.colliderli.iina
   - br.com.itau.aplicativoitau
+  - com.albertogh.Subtitles
   - com.apple.iCal
   - com.apple.mail
+  - com.apple.systempreferences
+  - com.colliderli.iina
+  - com.mr-brightside.Parcel
+  - com.yubico.ykman
+  - com.zsa.wally
+  - io.balena.etcher
+  - org.m0k.transmission
+  - pl.maketheweb.cleanshotx
 
 mod1:
   - option
