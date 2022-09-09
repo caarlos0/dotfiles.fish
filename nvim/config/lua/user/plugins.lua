@@ -106,10 +106,16 @@ packer.startup(function(use)
 
 	use({
 		"akinsho/bufferline.nvim",
+		requires = {
+			"famiu/bufdelete.nvim",
+			"kyazdani42/nvim-web-devicons",
+		},
 		config = function()
 			require("bufferline").setup({
 				options = {
 					diagnostics = "nvim_lsp",
+					close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+					right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
 				},
 			})
 		end,
