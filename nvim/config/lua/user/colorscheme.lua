@@ -1,8 +1,9 @@
-vim.g.gruvbox_material_background = "hard"
-vim.g.gruvbox_material_better_performance = 1
+vim.g.catppuccin_flavour = "mocha"
+
+require("catppuccin").setup()
 
 vim.cmd([[
 set background=dark
 set termguicolors
-colorscheme gruvbox-material
+colorscheme catppuccin
 ]])
