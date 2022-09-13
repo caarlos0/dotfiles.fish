@@ -94,8 +94,6 @@ function install_dotfiles
 
 	link_file $DOTFILES_ROOT/fish/plugins $__fish_config_dir/fish_plugins backup
 		or abort plugins
-	link_file $DOTFILES_ROOT/fish/catppuccin.theme $__fish_config_dir/themes/catppuccin.theme backup
-		or abort catppuccin.theme
 	link_file $DOTFILES_ROOT/system/bat.config $HOME/.config/bat/config backup
 		or abort bat
 	link_file $DOTFILES_ROOT/htop/htoprc $HOME/.config/htop/htoprc backup
@@ -130,7 +128,7 @@ fisher update
 	and success 'plugins'
 	or abort 'plugins'
 
-yes | fish_config theme save catppuccin
+yes | fish_config theme save "Catppuccin Mocha"
 	and success 'colorscheme'
 	or abort 'colorscheme'
 
