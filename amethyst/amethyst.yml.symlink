@@ -26,6 +26,7 @@ float-small-windows: true
 floating:
   - br.com.itau.aplicativoitau
   - com.albertogh.Subtitles
+  - com.apple.PhotoBooth
   - com.apple.iCal
   - com.apple.mail
   - com.apple.systempreferences
