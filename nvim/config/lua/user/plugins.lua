@@ -44,7 +44,8 @@ packer.startup(function(use)
 	})
 
 	use({
-		"sainnhe/gruvbox-material",
+		"catppuccin/nvim",
+		as = "catppuccin",
 		config = function()
 			require("user.colorscheme")
 		end,
@@ -113,6 +114,7 @@ packer.startup(function(use)
 					diagnostics = "nvim_lsp",
 					close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
 					right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+					highlights = require("catppuccin.groups.integrations.bufferline").get(),
 				},
 			})
 		end,
