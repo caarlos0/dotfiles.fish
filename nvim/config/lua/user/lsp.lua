@@ -54,6 +54,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	buf_set_keymap("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+	buf_set_keymap("n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
 
 	if client.resolved_capabilities.document_formatting and client.name ~= "sumneko_lua" then
 		vim.cmd([[
