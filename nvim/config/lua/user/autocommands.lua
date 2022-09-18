@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "gitcommit", "NeogitCommitMessage" },
-	command = 'execute "normal! O" | startinsert',
+	command = "startinsert",
 	group = vim.api.nvim_create_augroup("AutoInsert", { clear = true }),
 })
 
