@@ -112,8 +112,8 @@ packer.startup(function(use)
 			require("bufferline").setup({
 				options = {
 					diagnostics = "nvim_lsp",
-					close_command = "Sayonara", -- can be a string | function, see "Mouse actions"
-					right_mouse_command = "Sayonara", -- can be a string | function, see "Mouse actions"
+					close_command = "Sayonara!", -- can be a string | function, see "Mouse actions"
+					right_mouse_command = "Sayonara!", -- can be a string | function, see "Mouse actions"
 					highlights = require("catppuccin.groups.integrations.bufferline").get(),
 				},
 			})
