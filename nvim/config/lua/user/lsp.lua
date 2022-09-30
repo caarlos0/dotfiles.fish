@@ -57,34 +57,48 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
 
 	if client.resolved_capabilities.document_formatting and client.name ~= "sumneko_lua" then
-		vim.cmd([[
-			augroup lsp_formatting
-				autocmd! * <buffer>
-				autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
-			augroup END
-		]])
+		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+			callback = function()
+				if vim.lsp.buf.server_ready() then
+					vim.lsp.buf.formatting_seq_sync()
+				end
+			end,
+			group = vim.api.nvim_create_augroup("LSPFormat", { clear = true }),
+		})
 	end
 
 	-- If the organizeImports codeAction runs for lua files, depending on
 	-- where the cursor is, it'll reorder the args and break stuff.
 	-- This took me way too long to figure out.
 	if client.name ~= "null-ls" and client.name ~= "sumneko_lua" then
-		vim.cmd([[
-			augroup lsp_organize_imports
-				autocmd! * <buffer>
-				autocmd BufWritePre <buffer> lua OrganizeImports(150)
-			augroup END
-		]])
+		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+			callback = function()
+				if vim.lsp.buf.server_ready() then
+					OrganizeImports(150)
+				end
+			end,
+			group = vim.api.nvim_create_augroup("LSPOrganizeImports", { clear = true }),
+		})
 	end
 
 	if client.resolved_capabilities.document_highlight then
-		vim.cmd([[
-			augroup lsp_document_highlight
-				autocmd! * <buffer>
-				autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-				autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-			augroup END
-		]])
+		local group = vim.api.nvim_create_augroup("LSPHighlight", { clear = true })
+		vim.api.nvim_create_autocmd({ "CursorHold" }, {
+			callback = function()
+				if vim.lsp.buf.server_ready() then
+					vim.lsp.buf.document_highlight()
+				end
+			end,
+			group = group,
+		})
+		vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+			callback = function()
+				if vim.lsp.buf.server_ready() then
+					vim.lsp.buf.clear_references()
+				end
+			end,
+			group = group,
+		})
 	end
 end
 
