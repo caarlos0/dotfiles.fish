@@ -18,7 +18,6 @@ packer.init({
 
 packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
-	use("antoinemadec/FixCursorHold.nvim")
 
 	use({
 		"lewis6991/impatient.nvim",
@@ -229,7 +228,6 @@ packer.startup(function(use)
 		requires = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"nvim-treesitter/nvim-treesitter-context",
-			"lewis6991/spellsitter.nvim",
 		},
 	})
 

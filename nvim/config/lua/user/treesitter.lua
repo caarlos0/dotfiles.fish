@@ -94,5 +94,3 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 })
-
-require("spellsitter").setup()

@@ -56,11 +56,11 @@ local on_attach = function(client, bufnr)
 	-- buf_set_keymap("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	buf_set_keymap("n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
 
-	if client.resolved_capabilities.document_formatting and client.name ~= "sumneko_lua" then
+	if client.server_capabilities.documentFormattingProvider and client.name ~= "sumneko_lua" then
 		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 			callback = function()
 				if vim.lsp.buf.server_ready() then
-					vim.lsp.buf.formatting_seq_sync()
+					vim.lsp.buf.format()
 				end
 			end,
 			group = vim.api.nvim_create_augroup("LSPFormat", { clear = true }),
@@ -82,7 +82,7 @@ local on_attach = function(client, bufnr)
 		})
 	end
 
-	if client.resolved_capabilities.document_highlight then
+	if client.server_capabilities.documentHighlightProvider then
 		local group = vim.api.nvim_create_augroup("LSPHighlight", { clear = true })
 		vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 			pattern = "<buffer>",
