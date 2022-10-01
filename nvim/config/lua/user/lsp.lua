@@ -84,7 +84,7 @@ local on_attach = function(client, bufnr)
 
 	if client.resolved_capabilities.document_highlight then
 		local group = vim.api.nvim_create_augroup("LSPHighlight", { clear = true })
-		vim.api.nvim_create_autocmd({ "CursorHold" }, {
+		vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 			pattern = "<buffer>",
 			callback = function()
 				if vim.lsp.buf.server_ready() then
