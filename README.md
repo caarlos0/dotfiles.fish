@@ -106,15 +106,15 @@ And logging out and in again or restart.
 
 ## Themes and fonts being used
 
-Gruvbox-material dark and MonoLisa Font.
+*Catppuccin Mocha* and *MonoLisa* Font.
 
 ## Screenshots
 
 ###### neovim with LSP, git signs, etc
-![CleanShot 2022-08-12 at 23 17 57@2x](https://user-images.githubusercontent.com/245435/184464863-b5c6468f-e064-4f53-bbd8-2961f4163bd0.png)
+![CleanShot 2022-10-01 at 20 12 19@2x](https://user-images.githubusercontent.com/245435/193431550-5f279c3d-a0f6-4e67-81bc-1c1538fc71be.png)
 
 ###### neovim telescope
-![CleanShot 2022-08-12 at 23 18 07@2x](https://user-images.githubusercontent.com/245435/184464868-f9f22aea-3333-42a3-b110-0c8a90d90c1b.png)
+![CleanShot 2022-10-01 at 20 12 34@2x](https://user-images.githubusercontent.com/245435/193431554-9ab32711-3eab-4d0e-8cec-f7b09713abf5.png)
 
 ###### tmux-sessionizer and tmux tabs with icons
-![CleanShot 2022-08-12 at 23 18 13@2x](https://user-images.githubusercontent.com/245435/184464869-835bdad2-5ca6-4998-b550-3622bb05c82c.png)
+![CleanShot 2022-10-01 at 20 13 06@2x](https://user-images.githubusercontent.com/245435/193431556-8ee21015-8cde-44d0-93c2-ac3040a44057.png)
