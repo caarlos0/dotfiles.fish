@@ -72,6 +72,7 @@ local on_attach = function(client, bufnr)
 	-- This took me way too long to figure out.
 	if client.name ~= "null-ls" and client.name ~= "sumneko_lua" then
 		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+			pattern = "<buffer>",
 			callback = function()
 				if vim.lsp.buf.server_ready() then
 					OrganizeImports(150)
@@ -84,6 +85,7 @@ local on_attach = function(client, bufnr)
 	if client.resolved_capabilities.document_highlight then
 		local group = vim.api.nvim_create_augroup("LSPHighlight", { clear = true })
 		vim.api.nvim_create_autocmd({ "CursorHold" }, {
+			pattern = "<buffer>",
 			callback = function()
 				if vim.lsp.buf.server_ready() then
 					vim.lsp.buf.document_highlight()
@@ -92,6 +94,7 @@ local on_attach = function(client, bufnr)
 			group = group,
 		})
 		vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+			pattern = "<buffer>",
 			callback = function()
 				if vim.lsp.buf.server_ready() then
 					vim.lsp.buf.clear_references()
