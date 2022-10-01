@@ -39,6 +39,7 @@ local options = {
 	list = false,
 	listchars = "eol:↲,tab:» ,trail:·,extends:<,precedes:>,conceal:┊,nbsp:␣",
 	grepprg = "rg --vimgrep --smart-case --follow",
+	cmdheight = 0,
 }
 
 vim.opt.shortmess:append("c")

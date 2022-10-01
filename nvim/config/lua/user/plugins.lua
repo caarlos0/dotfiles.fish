@@ -18,7 +18,6 @@ packer.init({
 
 packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
-	use("antoinemadec/FixCursorHold.nvim")
 
 	use({
 		"lewis6991/impatient.nvim",
