@@ -228,7 +228,6 @@ packer.startup(function(use)
 		requires = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"nvim-treesitter/nvim-treesitter-context",
-			"lewis6991/spellsitter.nvim",
 		},
 	})
 

@@ -20,7 +20,7 @@ First, make sure you have all those things installed:
 - `curl`: to download some stuff
 - `tar`: to extract downloaded stuff
 - `fish`: the shell
-- `sudo`: some configs may need that
+- `sudo`: some configurations may need that
 
 ### Install
 
@@ -46,31 +46,39 @@ $ ./script/bootstrap.fish
 
 ## Revert
 
-Reverting is not totally automated, but it pretty much consists in removing
-the fish config and dotfiles folder, as well as moving back some config files.
+Reverting is not totally automated, but it pretty much consists in removing the
+fish configuration and the `.dotfiles` folder, as well as moving back some other
+configuration files:
 
 ```console
 $ rm -rf ~/.dotfiles $__fish_config_dir
 ```
 
-The bootstrap script would have created a bunch of symlinks that will now be broken.
-You will have to investigate those manually.
-In cases a file already existed, the boostrap script should have created a `.backup` file with the same name.
+The bootstrap script would have created a bunch of symbolic links that will now
+be broken. You will have to investigate those manually. In cases a file already
+existed, the `script/bootstrap.fish` script should have created a `.backup` file
+with the same name.
 
 ## Recommended Software
 
-- [`alacritty`](https://github.com/alacritty/alacritty) a cross-platform, OpenGL terminal emulator;
+- [`alacritty`](https://github.com/alacritty/alacritty) a cross-platform, OpenGL
+  terminal emulator;
 - [`bat`](https://github.com/sharkdp/bat) a cat(1) clone with wings;
 - [`delta`](https://github.com/dandavison/delta) for better git diffs;
-- [`fd`](https://github.com/sharkdp/fd) a simple, fast and user-friendly alternative to `find`;
+- [`fd`](https://github.com/sharkdp/fd) a simple, fast and user-friendly
+  alternative to `find`;
 - [`fzf`](https://github.com/junegunn/fzf) for a fuzzy-finder;
-- [`gum`](https://github.com/charmbracelet/gum) A tool for glamorous shell scripts;
-- [`gh`](https://github.com/cli/cli) for more GitHub integration with the terminal;
+- [`gum`](https://github.com/charmbracelet/gum) A tool for glamorous shell
+  scripts;
+- [`gh`](https://github.com/cli/cli) for more GitHub integration with the
+  terminal;
 - [`grc`](https://github.com/garabik/grc) to colorize command's outputs;
-- [`kitty`](https://github.com/kovidgoyal/kitty) a cross-platform, fast, feature-rich, GPU based terminal;
-- [`kubectx`](https://github.com/ahmetb/kubectx) for better Kubernetes context and namespace switch;
-- [`neovim`](https://neovim.io) hyperextensible Vim-based text editor;
-- [`starship.rs`](https://starship.rs) the shell we are using;
+- [`kitty`](https://github.com/kovidgoyal/kitty) a cross-platform, fast,
+  feature-rich, GPU based terminal;
+- [`kubectx`](https://github.com/ahmetb/kubectx) for better Kubernetes context
+  and namespaces switch;
+- [`neovim`](https://neovim.io) extensible Vim-based text editor;
+- [`starship.rs`](https://starship.rs) the shell prompt we are using;
 
 To install them all with `brew`:
 

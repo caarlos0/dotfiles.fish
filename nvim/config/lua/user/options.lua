@@ -39,7 +39,7 @@ local options = {
 	list = false,
 	listchars = "eol:↲,tab:» ,trail:·,extends:<,precedes:>,conceal:┊,nbsp:␣",
 	grepprg = "rg --vimgrep --smart-case --follow",
-	cmdheight = 0,
+	-- cmdheight = 0, https://github.com/hrsh7th/nvim-cmp/pull/1196
 }
 
 vim.opt.shortmess:append("c")
