@@ -4,11 +4,11 @@ local function restart()
 	local configs = require("lspconfig.configs")
 	for _, client in ipairs(vim.lsp.get_active_clients()) do
 		if client.name == "gopls" then
-			vim.notify("client to stop: " .. client.name)
+			vim.notify("stopping client: " .. client.name)
 			client.stop()
 			vim.defer_fn(function()
 				configs[client.name].launch()
-				vim.notify("client to launch: " .. client.name)
+				vim.notify("launching client: " .. client.name)
 			end, 500)
 		end
 	end
