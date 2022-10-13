@@ -171,7 +171,6 @@ packer.startup(function(use)
 			"onsails/lspkind-nvim",
 			"neovim/nvim-lspconfig",
 			"jose-elias-alvarez/null-ls.nvim",
-			"nvim-lua/lsp-status.nvim",
 			"onsails/lspkind-nvim",
 			"simrat39/symbols-outline.nvim",
 

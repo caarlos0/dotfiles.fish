@@ -1,18 +1,7 @@
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local lspstatus = require("lsp-status")
-lspstatus.config({
-	status_symbol = "⬤ ",
-	current_function = true,
-	diagnostics = false,
-	kind_labels = require("lspkind").presets["default"],
-})
-lspstatus.register_progress()
 
-local capabilities = vim.tbl_extend(
-	"keep",
-	cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()) or {},
-	lspstatus.capabilities
-)
+local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()) or {}
+
 capabilities.textDocument.completion.completionItem = {
 	documentationFormat = { "markdown", "plaintext" },
 	snippetSupport = true,
@@ -37,8 +26,6 @@ local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
-
-	lspstatus.on_attach(client, bufnr)
 
 	-- Mappings.
 	local opts = { noremap = true, silent = true }
@@ -169,23 +156,6 @@ lspconfig.dockerls.setup({
 lspconfig.sumneko_lua.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-	select_symbol = function(cursor_pos, symbol)
-		-- fixes for lsp-status so it shows the function in its status bar
-		if symbol.valueRange then
-			local value_range = {
-				["start"] = {
-					character = 0,
-					line = vim.fn.byte2line(symbol.valueRange[1]),
-				},
-				["end"] = {
-					character = 0,
-					line = vim.fn.byte2line(symbol.valueRange[2]),
-				},
-			}
-
-			return require("lsp-status.util").in_range(cursor_pos, value_range)
-		end
-	end,
 	settings = {
 		Lua = {
 			diagnostics = {
