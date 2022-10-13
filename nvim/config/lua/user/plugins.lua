@@ -275,9 +275,9 @@ packer.startup(function(use)
 		config = function()
 			vim.api.nvim_create_autocmd("TextYankPost", {
 				callback = function()
-					vim.cmd([[
-						if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif
-					]])
+					if vim.v.event.operator == "y" and vim.v.event.regname == "+" then
+						vim.cmd([[OSCYankReg +]])
+					end
 				end,
 				pattern = "*",
 				group = vim.api.nvim_create_augroup("OSCYank", { clear = true }),
