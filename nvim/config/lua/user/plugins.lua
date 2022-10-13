@@ -86,9 +86,7 @@ packer.startup(function(use)
 
 	use({
 		"nvim-lualine/lualine.nvim",
-		requires = {
-			"nvim-lua/lsp-status.nvim",
-		},
+		after = "catppuccin",
 		config = function()
 			require("user.lualine")
 		end,
@@ -103,16 +101,16 @@ packer.startup(function(use)
 
 	use({
 		"akinsho/bufferline.nvim",
+		after = "nvim-web-devicons",
 		requires = {
 			"mhinz/vim-sayonara",
-			"kyazdani42/nvim-web-devicons",
 		},
 		config = function()
 			require("bufferline").setup({
 				options = {
 					diagnostics = "nvim_lsp",
-					close_command = "Sayonara!", -- can be a string | function, see "Mouse actions"
-					right_mouse_command = "Sayonara!", -- can be a string | function, see "Mouse actions"
+					close_command = "Sayonara!",
+					right_mouse_command = "Sayonara!",
 					highlights = require("catppuccin.groups.integrations.bufferline").get(),
 				},
 			})
@@ -137,6 +135,13 @@ packer.startup(function(use)
 		"folke/which-key.nvim",
 		config = function()
 			require("which-key").setup()
+		end,
+	})
+
+	use({
+		"folke/trouble.nvim",
+		config = function()
+			require("user.trouble")
 		end,
 	})
 
@@ -202,13 +207,6 @@ packer.startup(function(use)
 			require("user.lsp")
 			require("user.symbols-outline")
 			require("user.cmp")
-		end,
-	})
-
-	use({
-		"folke/trouble.nvim",
-		config = function()
-			require("user.trouble")
 		end,
 	})
 
