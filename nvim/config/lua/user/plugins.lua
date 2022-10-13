@@ -306,8 +306,8 @@ if is_bootstrap then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
--- vim.api.nvim_create_autocmd("BufWritePost", {
--- 	command = "source <afile> | PackerSync",
--- 	group = vim.api.nvim_create_augroup("Packer", { clear = true }),
--- 	pattern = "plugins.lua",
--- })
+vim.api.nvim_create_autocmd("BufWritePost", {
+	command = "source <afile> | PackerCompile",
+	group = vim.api.nvim_create_augroup("Packer", { clear = true }),
+	pattern = "plugins.lua",
+})
