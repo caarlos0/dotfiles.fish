@@ -198,11 +198,11 @@ packer.startup(function(use)
 			require("lspkind").init()
 			require("luasnip").setup({
 				-- see: https://github.com/L3MON4D3/LuaSnip/issues/525
-				region_check_events = "CursorHold,InsertLeave,InsertEnter",
-				delete_check_events = "TextChanged,InsertEnter",
+				region_check_events = "InsertEnter",
+				delete_check_events = "InsertLeave",
 			})
+			require("luasnip.loaders.from_vscode").lazy_load()
 			require("nvim-autopairs").setup()
-			require("luasnip.loaders.from_vscode").load()
 			require("user.lsp")
 			require("user.symbols-outline")
 			require("user.cmp")
