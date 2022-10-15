@@ -84,8 +84,7 @@ cmp.setup({
 		{ name = "calc" },
 	}),
 	confirm_opts = {
-		behavior = cmp.ConfirmBehavior.Replace,
-		select = false,
+		behavior = cmp.ConfirmBehavior.Select,
 	},
 	experimental = {
 		native_menu = false,
