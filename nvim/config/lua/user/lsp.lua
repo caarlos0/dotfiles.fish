@@ -206,7 +206,18 @@ null_ls.setup({
 })
 
 -- setup diagnostics
-vim.diagnostic.config({ virtual_text = false })
+vim.diagnostic.config({
+	virtual_text = false,
+	severity_sort = true,
+	float = {
+		focusable = false,
+		style = "minimal",
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
+	},
+})
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
 	callback = function()
 		if vim.lsp.buf.server_ready() then
@@ -216,7 +227,7 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 	group = vim.api.nvim_create_augroup("LSPDiagnosticsHold", { clear = true }),
 })
 
--- set up LSP signs
+-- set up diagnostic signs
 for type, icon in pairs({
 	Error = "",
 	Warn = "",
