@@ -221,3 +221,11 @@ for type, icon in pairs({
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
+-- change documentation to be rouded and non-focusable...
+-- any time I focus into one of these, is by accident, and it always take me
+-- a couple of seconds to figure out what I did.
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = "rounded",
+	focusable = false,
+})
