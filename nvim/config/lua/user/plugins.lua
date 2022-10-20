@@ -65,7 +65,6 @@ packer.startup(function(use)
 					spinner = "dots",
 				},
 				window = {
-					relative = "win",
 					blend = 0,
 				},
 			})
