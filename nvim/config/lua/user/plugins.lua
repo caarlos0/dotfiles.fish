@@ -279,6 +279,13 @@ packer.startup(function(use)
 	})
 
 	use({
+		"rcarriga/nvim-notify",
+		config = function()
+			vim.notify = require("notify")
+		end,
+	})
+
+	use({
 		"ojroques/vim-oscyank",
 		config = function()
 			vim.api.nvim_create_autocmd("TextYankPost", {
