@@ -76,11 +76,6 @@ local on_attach = function(client, bufnr)
 	end
 end
 
-require("mason").setup()
-require("mason-lspconfig").setup({
-	automatic_installation = true,
-})
-
 local lspconfig = require("lspconfig")
 lspconfig.gopls.setup({
 	capabilities = capabilities,
@@ -110,6 +105,16 @@ lspconfig.yamlls.setup({
 			schemas = schemas,
 		},
 	},
+})
+
+lspconfig.html.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig.jsonls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
 })
 
 lspconfig.bashls.setup({
@@ -159,6 +164,16 @@ lspconfig.prosemd_lsp.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.grammarly.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig.taplo.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 -- organize imports
 -- https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-902680058
 function OrganizeImports(timeoutms)
@@ -187,6 +202,11 @@ null_ls.setup({
 	},
 	capabilities = capabilities,
 	on_attach = on_attach,
+})
+
+require("mason").setup()
+require("mason-lspconfig").setup({
+	automatic_installation = true,
 })
 
 -- setup diagnostics
