@@ -249,12 +249,19 @@ packer.startup(function(use)
 
 	use({
 		"TimUntersberger/neogit",
+		requires = {
+			"sindrets/diffview.nvim",
+			"nvim-lua/plenary.nvim",
+		},
 		config = function()
 			require("neogit").setup({
 				disable_commit_confirmation = true,
 				disable_context_highlighting = true,
 				disable_signs = true,
 				disable_hint = true,
+				integrations = {
+					diffview = true,
+				},
 			})
 			require("user.remap").nnoremap("<leader>gs", ":Neogit<CR>")
 		end,
@@ -307,7 +314,7 @@ end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.api.nvim_create_autocmd("BufWritePost", {
-	command = "source <afile> | PackerCompile",
+	command = "source <afile> | PackerSync",
 	group = vim.api.nvim_create_augroup("Packer", { clear = true }),
 	pattern = "plugins.lua",
 })
