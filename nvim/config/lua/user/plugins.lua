@@ -101,12 +101,16 @@ packer.startup(function(use)
 
 	use({
 		"akinsho/bufferline.nvim",
-		after = "nvim-web-devicons",
+		after = {
+			"nvim-web-devicons",
+			"catppuccin",
+		},
 		requires = {
 			"mhinz/vim-sayonara",
 		},
 		config = function()
 			require("bufferline").setup({
+				highlights = require("catppuccin.groups.integrations.bufferline").get(),
 				options = {
 					diagnostics = "nvim_lsp",
 					close_command = "Sayonara!",
