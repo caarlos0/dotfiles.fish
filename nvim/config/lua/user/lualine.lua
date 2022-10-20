@@ -7,10 +7,6 @@ require("lualine").setup({
 	sections = {
 		lualine_c = {
 			{
-				"filetype",
-				icon_only = true,
-			},
-			{
 				"filename",
 				file_status = false,
 				path = 1,
@@ -18,6 +14,7 @@ require("lualine").setup({
 		},
 		lualine_x = {
 			"encoding",
+			"filetype",
 		},
 	},
 })
