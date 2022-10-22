@@ -21,6 +21,9 @@ require("catppuccin").setup({
 		lsp_trouble = true,
 		markdown = true,
 		mason = true,
+		native_lsp = {
+			enabled = true,
+		},
 		neogit = true,
 		neotree = true,
 		notify = true,

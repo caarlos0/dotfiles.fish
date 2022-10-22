@@ -114,7 +114,6 @@ packer.startup(function(use)
 					diagnostics = "nvim_lsp",
 					close_command = "Sayonara!",
 					right_mouse_command = "Sayonara!",
-					highlights = require("catppuccin.groups.integrations.bufferline").get(),
 				},
 			})
 		end,
