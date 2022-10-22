@@ -1,22 +1,15 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 # I organize my projects in ~/Developer/org/name, and I'd like to create sessions for each of them.
 # This script uses a combination of find, zoxide (so they are sort by frecency) and fzf to list and filter project folders.
 # Then, it either switch to an existing tmux session for that project, or create a new one and switch to it.
 #
 # Stole and modified from: https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/bin/tmux-sessionizer
 
-# Set the fzf catppuccin theme, as it won't grab it from fish's set -Ux for
-# some reaason.
-export FZF_DEFAULT_OPTS=" \
-	--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-	--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-	--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-
-search() {
+function search
 	find "$PROJECTS" -maxdepth 2 -type d |
-		while read -r p; do
+		while read p
 			zoxide query -l -s "$p"
-		done |
+		end |
 		sed "s;$PROJECTS/;;" |	# removes the ~/Developer/ prefix
 		grep -v "$PROJECTS" |	# removes the ~/Developer folder itself
 		grep "/" |				# removes entries without subfolders
@@ -24,28 +17,28 @@ search() {
 		uniq |
 		awk '{print $2}' |		# do not actually print the score
 		fzf --no-sort --prompt "﬿ "
-}
+end
 
-if [[ $# -eq 1 ]]; then
-    selected=$1
+if test (count $argv) -eq 1
+	set selected "$argv[1]"
 else
-	selected=$(search)
-fi
+	set selected $(search)
+end
 
-if [[ -z $selected ]]; then
+if test -z $selected
     exit 0
-fi
+end
 
-selected_name="$(basename "$selected" | tr . _)"
-tmux_running="$(pgrep tmux)"
+set selected_name (basename "$selected" | tr . _)
+set tmux_running (pgrep tmux)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+if test -z "$TMUX" && test -z "$tmux_running"
     tmux new-session -s "$selected_name" -c "$PROJECTS/$selected"
     exit 0
-fi
+end
 
-if ! tmux has-session -t="$selected_name" 2> /dev/null; then
+if ! tmux has-session -t="$selected_name" 2> /dev/null
     tmux new-session -ds "$selected_name" -c "$PROJECTS/$selected"
-fi
+end
 
 tmux switch-client -t "$selected_name"
