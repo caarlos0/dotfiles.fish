@@ -5,7 +5,7 @@ set -Ux VISUAL $EDITOR
 set -Ux DOTFILES ~/.dotfiles
 set -Ux PROJECTS ~/Developer
 
-fish_add_path -a $DOTFILES/bin $HOME/.bin
+fish_add_path -a $DOTFILES/bin $HOME/.bin $HOME/.local/bin
 
 for f in $DOTFILES/*/functions
 	if not contains $f $fish_function_path
