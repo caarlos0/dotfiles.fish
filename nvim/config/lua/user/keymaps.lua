@@ -75,6 +75,14 @@ keymap("v", "p", '"_dP', opts)
 -- system clipboard integration
 keymap("v", "<leader>y", '"+y', opts)
 keymap("v", "<leader>Y", '"+Y', opts)
+keymap("n", "<leader>y", '"+y', opts)
+keymap("n", "<leader>Y", '"+Y', opts)
+
+-- delete to blackhole
+keymap("v", "<leader>d", '"_d', opts)
+keymap("v", "<leader>D", '"_D', opts)
+keymap("n", "<leader>d", '"_d', opts)
+keymap("n", "<leader>D", '"_D', opts)
 
 -- Visual Block --
 -- Move text up and down
