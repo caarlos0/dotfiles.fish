@@ -30,14 +30,8 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 		pattern = "<buffer>",
 		callback = function()
-			if client.server_capabilities.documentFormattingProvider and vim.lsp.buf.server_ready() then
-				vim.lsp.buf.format({
-					filter = function(c)
-						return c.name ~= "sumneko_lua"
-					end,
-				})
-				OrganizeImports(150)
-			end
+			Format(client)
+			OrganizeImports(client, bufnr, 1500)
 		end,
 		group = vim.api.nvim_create_augroup("LSPFormat", { clear = true }),
 	})
@@ -158,28 +152,39 @@ lspconfig.taplo.setup({
 	on_attach = on_attach,
 })
 
+-- format code
+function Format(client)
+	if not client.server_capabilities.documentFormattingProvider or not vim.lsp.buf.server_ready() then
+		return
+	end
+
+	vim.lsp.buf.format({
+		filter = function(c)
+			return c.name ~= "sumneko_lua"
+		end,
+	})
+end
+
 -- organize imports
 -- https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-902680058
-function OrganizeImports(timeoutms)
+function OrganizeImports(client, bufnr, timeoutms)
 	-- If the organizeImports codeAction runs for lua files, depending on
 	-- where the cursor is, it'll reorder the args and break stuff.
 	-- This took me way too long to figure out.
-	if vim.bo.filetype == "lua" then
+	if not vim.lsp.buf.server_ready() or vim.bo.filetype == "lua" then
 		return
 	end
-	local clients = vim.lsp.buf_get_clients()
-	for _, client in pairs(clients) do
-		local params = vim.lsp.util.make_range_params(nil, client.offset_encoding)
-		params.context = { only = { "source.organizeImports" } }
 
-		local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeoutms)
-		for _, res in pairs(result or {}) do
-			for _, r in pairs(res.result or {}) do
-				if r.edit then
-					vim.lsp.util.apply_workspace_edit(r.edit, client.offset_encoding)
-				else
-					vim.lsp.buf.execute_command(r.command)
-				end
+	local params = vim.lsp.util.make_range_params(nil, client.offset_encoding)
+	params.context = { only = { "source.organizeImports" } }
+
+	local result = vim.lsp.buf_request_sync(bufnr, "textDocument/codeAction", params, timeoutms)
+	for _, res in pairs(result or {}) do
+		for _, r in pairs(res.result or {}) do
+			if r.edit then
+				vim.lsp.util.apply_workspace_edit(r.edit, client.offset_encoding)
+			else
+				vim.lsp.buf.execute_command(r.command)
 			end
 		end
 	end
