@@ -2,13 +2,16 @@ vim.opt_local.formatoptions:append("jno")
 
 local function restart()
 	local configs = require("lspconfig.configs")
-	for _, client in ipairs(vim.lsp.get_active_clients()) do
+	for _, client in
+		ipairs(vim.lsp.get_active_clients({
+			bufnr = vim.api.nvim_get_current_buf(),
+		}))
+	do
 		if client.name == "gopls" then
-			vim.notify("stopping client: " .. client.name)
 			client.stop()
 			vim.defer_fn(function()
 				configs[client.name].launch()
-				vim.notify("launching client: " .. client.name)
+				vim.notify("restarting client: " .. client.name)
 			end, 500)
 		end
 	end
