@@ -14,7 +14,6 @@ local on_attach = function(client, bufnr)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
 
-	-- Mappings.
 	local opts = { noremap = true, silent = true }
 	buf_set_keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
 	buf_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
@@ -32,43 +31,41 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_next({ float = false })<CR>", opts)
 	buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_prev({ float = false })<CR>", opts)
 
+	local augroupKey = client.name .. "_" .. bufnr
 	vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-		pattern = "<buffer>",
+		buffer = bufnr,
 		callback = function()
 			Format(client)
 			OrganizeImports(client, bufnr, 1500)
 		end,
-		group = vim.api.nvim_create_augroup("LSPFormat", { clear = true }),
+		group = vim.api.nvim_create_augroup("LSPFormat_" .. augroupKey, { clear = true }),
 	})
 
 	if client.server_capabilities.codeLensProvider then
+		vim.lsp.codelens.refresh()
 		vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
-			pattern = "<buffer>",
+			buffer = bufnr,
 			callback = function()
 				vim.lsp.codelens.refresh()
 			end,
-			group = vim.api.nvim_create_augroup("LSPCodeLens", { clear = true }),
+			group = vim.api.nvim_create_augroup("LSPCodeLens_" .. augroupKey, { clear = true }),
 		})
 		buf_set_keymap("n", "<leader>cl", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
 	end
 
 	if client.server_capabilities.documentHighlightProvider then
-		local group = vim.api.nvim_create_augroup("LSPHighlight", { clear = true })
+		local group = vim.api.nvim_create_augroup("LSPHighlight_" .. augroupKey, { clear = true })
 		vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-			pattern = "<buffer>",
+			buffer = bufnr,
 			callback = function()
-				if vim.lsp.buf.server_ready() then
-					vim.lsp.buf.document_highlight()
-				end
+				vim.lsp.buf.document_highlight()
 			end,
 			group = group,
 		})
 		vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-			pattern = "<buffer>",
+			buffer = bufnr,
 			callback = function()
-				if vim.lsp.buf.server_ready() then
-					vim.lsp.buf.clear_references()
-				end
+				vim.lsp.buf.clear_references()
 			end,
 			group = group,
 		})
@@ -170,7 +167,7 @@ lspconfig.taplo.setup({
 
 -- format code
 function Format(client)
-	if not client.server_capabilities.documentFormattingProvider or not vim.lsp.buf.server_ready() then
+	if not client.server_capabilities.documentFormattingProvider then
 		return
 	end
 
@@ -187,7 +184,7 @@ function OrganizeImports(client, bufnr, timeoutms)
 	-- If the organizeImports codeAction runs for lua files, depending on
 	-- where the cursor is, it'll reorder the args and break stuff.
 	-- This took me way too long to figure out.
-	if not vim.lsp.buf.server_ready() or vim.bo.filetype == "lua" then
+	if vim.bo.filetype == "lua" then
 		return
 	end
 
