@@ -1,5 +1,10 @@
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+require("mason").setup()
+require("mason-lspconfig").setup({
+	automatic_installation = true,
+})
+
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Use an on_attach function to only map the following keys
@@ -208,11 +213,6 @@ null_ls.setup({
 	},
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
-
-require("mason").setup()
-require("mason-lspconfig").setup({
-	automatic_installation = true,
 })
 
 local float_config = {
