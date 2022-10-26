@@ -27,6 +27,13 @@ packer.startup(function(use)
 	})
 
 	use({
+		"rcarriga/nvim-notify",
+		config = function()
+			vim.notify = require("notify")
+		end,
+	})
+
+	use({
 		"kyazdani42/nvim-web-devicons",
 		config = function()
 			require("nvim-web-devicons").setup({
@@ -266,13 +273,6 @@ packer.startup(function(use)
 		"vim-test/vim-test",
 		config = function()
 			require("user.test")
-		end,
-	})
-
-	use({
-		"rcarriga/nvim-notify",
-		config = function()
-			vim.notify = require("notify")
 		end,
 	})
 
