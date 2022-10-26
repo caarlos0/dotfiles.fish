@@ -265,7 +265,7 @@ packer.startup(function(use)
 					diffview = true,
 				},
 			})
-			require("user.remap").nnoremap("<leader>gs", ":Neogit<CR>")
+			require("user.remap").nnoremap("<leader>gs", ":lua require('neogit').open()<CR>")
 		end,
 	})
 
