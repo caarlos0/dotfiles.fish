@@ -36,6 +36,17 @@ local on_attach = function(client, bufnr)
 		group = vim.api.nvim_create_augroup("LSPFormat", { clear = true }),
 	})
 
+	if client.server_capabilities.codeLensProvider then
+		vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
+			pattern = "<buffer>",
+			callback = function()
+				vim.lsp.codelens.refresh()
+			end,
+			group = vim.api.nvim_create_augroup("LSPCodeLens", { clear = true }),
+		})
+		buf_set_keymap("n", "<leader>cl", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
+	end
+
 	if client.server_capabilities.documentHighlightProvider then
 		local group = vim.api.nvim_create_augroup("LSPHighlight", { clear = true })
 		vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
