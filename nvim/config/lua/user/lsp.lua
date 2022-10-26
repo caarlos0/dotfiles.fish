@@ -22,36 +22,25 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>D", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-	-- buf_set_keymap( "n", "<leader>e", "<cmd>lua vim.diagnostic.open_float(nil, { focusable = false })<CR>", opts)
+	buf_set_keymap("n", "<leader>gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	buf_set_keymap("n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
 	buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_next({ float = false })<CR>", opts)
 	buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_prev({ float = false })<CR>", opts)
 
-	if client.server_capabilities.documentFormattingProvider and client.name ~= "sumneko_lua" then
-		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-			callback = function()
-				if vim.lsp.buf.server_ready() then
-					vim.lsp.buf.format()
-				end
-			end,
-			group = vim.api.nvim_create_augroup("LSPFormat", { clear = true }),
-		})
-	end
-
-	-- If the organizeImports codeAction runs for lua files, depending on
-	-- where the cursor is, it'll reorder the args and break stuff.
-	-- This took me way too long to figure out.
-	if client.name ~= "null-ls" and client.name ~= "sumneko_lua" then
-		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-			pattern = "<buffer>",
-			callback = function()
-				if vim.lsp.buf.server_ready() then
-					OrganizeImports(150)
-				end
-			end,
-			group = vim.api.nvim_create_augroup("LSPOrganizeImports", { clear = true }),
-		})
-	end
+	vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+		pattern = "<buffer>",
+		callback = function()
+			if client.server_capabilities.documentFormattingProvider and vim.lsp.buf.server_ready() then
+				vim.lsp.buf.format({
+					filter = function(c)
+						return c.name ~= "sumneko_lua"
+					end,
+				})
+				OrganizeImports(150)
+			end
+		end,
+		group = vim.api.nvim_create_augroup("LSPFormat", { clear = true }),
+	})
 
 	if client.server_capabilities.documentHighlightProvider then
 		local group = vim.api.nvim_create_augroup("LSPHighlight", { clear = true })
@@ -177,6 +166,12 @@ lspconfig.taplo.setup({
 -- organize imports
 -- https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-902680058
 function OrganizeImports(timeoutms)
+	-- If the organizeImports codeAction runs for lua files, depending on
+	-- where the cursor is, it'll reorder the args and break stuff.
+	-- This took me way too long to figure out.
+	if vim.bo.filetype == "lua" then
+		return
+	end
 	local clients = vim.lsp.buf_get_clients()
 	for _, client in pairs(clients) do
 		local params = vim.lsp.util.make_range_params(nil, client.offset_encoding)
@@ -209,27 +204,33 @@ require("mason-lspconfig").setup({
 	automatic_installation = true,
 })
 
+local float_config = {
+	focusable = false,
+	style = "minimal",
+	border = "rounded",
+	source = "always",
+	header = "",
+	prefix = "",
+}
+
 -- setup diagnostics
 vim.diagnostic.config({
-	virtual_text = false,
+	virtual_text = true,
 	severity_sort = true,
-	float = {
-		focusable = false,
-		style = "minimal",
-		border = "rounded",
-		source = "always",
-		header = "",
-		prefix = "",
-	},
+	float = float_config,
 })
-vim.api.nvim_create_autocmd({ "CursorHold" }, {
-	callback = function()
-		if vim.lsp.buf.server_ready() then
-			vim.diagnostic.open_float()
-		end
-	end,
-	group = vim.api.nvim_create_augroup("LSPDiagnosticsHold", { clear = true }),
-})
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, float_config)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, float_config)
+
+-- vim.api.nvim_create_autocmd({ "CursorHold" }, {
+-- 	callback = function()
+-- 		if vim.lsp.buf.server_ready() then
+-- 			vim.diagnostic.open_float()
+-- 		end
+-- 	end,
+-- 	group = vim.api.nvim_create_augroup("LSPDiagnosticsHold", { clear = true }),
+-- })
 
 -- set up diagnostic signs
 for type, icon in pairs({
