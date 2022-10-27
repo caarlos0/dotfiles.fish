@@ -31,15 +31,36 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_next({ float = false })<CR>", opts)
 	buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_prev({ float = false })<CR>", opts)
 
-	local augroupKey = client.name .. "_" .. bufnr
-	vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-		buffer = bufnr,
-		callback = function()
-			Format(client)
-			OrganizeImports(client, bufnr, 1500)
-		end,
-		group = vim.api.nvim_create_augroup("LSPFormat_" .. augroupKey, { clear = true }),
-	})
+	local group = vim.api.nvim_create_augroup("LSP_" .. client.name .. "_" .. bufnr, { clear = true })
+
+	if client.server_capabilities.documentFormattingProvider then
+		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+			buffer = bufnr,
+			callback = function()
+				vim.lsp.buf.format({
+					filter = function(cli)
+						return cli.name ~= "sumneko_lua"
+					end,
+				})
+			end,
+			group = group,
+		})
+	end
+
+	-- If the organizeImports codeAction runs for lua files, depending on
+	-- where the cursor is, it'll reorder the args and break stuff.
+	-- This took me way too long to figure out.
+	if vim.bo.filetype ~= "lua" then
+		if client.server_capabilities.documentFormattingProvider then
+			vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+				buffer = bufnr,
+				callback = function()
+					OrganizeImports(client, bufnr, 1500)
+				end,
+				group = group,
+			})
+		end
+	end
 
 	if client.server_capabilities.codeLensProvider then
 		vim.lsp.codelens.refresh()
@@ -48,13 +69,12 @@ local on_attach = function(client, bufnr)
 			callback = function()
 				vim.lsp.codelens.refresh()
 			end,
-			group = vim.api.nvim_create_augroup("LSPCodeLens_" .. augroupKey, { clear = true }),
+			group = group,
 		})
 		buf_set_keymap("n", "<leader>cl", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
 	end
 
 	if client.server_capabilities.documentHighlightProvider then
-		local group = vim.api.nvim_create_augroup("LSPHighlight_" .. augroupKey, { clear = true })
 		vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 			buffer = bufnr,
 			callback = function()
@@ -165,29 +185,9 @@ lspconfig.taplo.setup({
 	on_attach = on_attach,
 })
 
--- format code
-function Format(client)
-	if not client.server_capabilities.documentFormattingProvider then
-		return
-	end
-
-	vim.lsp.buf.format({
-		filter = function(c)
-			return c.name ~= "sumneko_lua"
-		end,
-	})
-end
-
 -- organize imports
 -- https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-902680058
 function OrganizeImports(client, bufnr, timeoutms)
-	-- If the organizeImports codeAction runs for lua files, depending on
-	-- where the cursor is, it'll reorder the args and break stuff.
-	-- This took me way too long to figure out.
-	if vim.bo.filetype == "lua" then
-		return
-	end
-
 	local params = vim.lsp.util.make_range_params(nil, client.offset_encoding)
 	params.context = { only = { "source.organizeImports" } }
 
