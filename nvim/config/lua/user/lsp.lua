@@ -1,11 +1,11 @@
+local group = vim.api.nvim_create_augroup("LSP", { clear = true })
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
 require("mason").setup()
 require("mason-lspconfig").setup({
 	automatic_installation = true,
 })
-
-local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -31,15 +31,13 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_next({ float = false })<CR>", opts)
 	buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_prev({ float = false })<CR>", opts)
 
-	local group = vim.api.nvim_create_augroup("LSP_" .. client.name .. "_" .. bufnr, { clear = true })
-
-	if client.server_capabilities.documentFormattingProvider then
+	if client.server_capabilities.documentFormattingProvider and client.name ~= "sumneko_lua" then
 		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 			buffer = bufnr,
 			callback = function()
 				vim.lsp.buf.format({
 					filter = function(cli)
-						return cli.name ~= "sumneko_lua"
+						return cli.name == client.name
 					end,
 				})
 			end,
@@ -50,16 +48,14 @@ local on_attach = function(client, bufnr)
 	-- If the organizeImports codeAction runs for lua files, depending on
 	-- where the cursor is, it'll reorder the args and break stuff.
 	-- This took me way too long to figure out.
-	if vim.bo.filetype ~= "lua" then
-		if client.server_capabilities.documentFormattingProvider then
-			vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-				buffer = bufnr,
-				callback = function()
-					OrganizeImports(client, bufnr, 1500)
-				end,
-				group = group,
-			})
-		end
+	if client.server_capabilities.codeActionProvider and vim.bo.filetype ~= "lua" then
+		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+			buffer = bufnr,
+			callback = function()
+				OrganizeImports(client, bufnr, 1500)
+			end,
+			group = group,
+		})
 	end
 
 	if client.server_capabilities.codeLensProvider then
