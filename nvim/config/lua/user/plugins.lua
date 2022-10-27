@@ -27,7 +27,16 @@ packer.startup(function(use)
 	})
 
 	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+		config = function()
+			require("user.colorscheme")
+		end,
+	})
+
+	use({
 		"rcarriga/nvim-notify",
+		after = "catppuccin",
 		config = function()
 			vim.notify = require("notify")
 			vim.notify.setup({
@@ -43,14 +52,6 @@ packer.startup(function(use)
 			require("nvim-web-devicons").setup({
 				default = true,
 			})
-		end,
-	})
-
-	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
-		config = function()
-			require("user.colorscheme")
 		end,
 	})
 
