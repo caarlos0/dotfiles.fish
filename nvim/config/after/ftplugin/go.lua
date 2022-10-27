@@ -5,15 +5,14 @@ local function restart()
 	for _, client in
 		ipairs(vim.lsp.get_active_clients({
 			bufnr = vim.api.nvim_get_current_buf(),
+			name = "gopls",
 		}))
 	do
-		if client.name == "gopls" then
-			client.stop()
-			vim.defer_fn(function()
-				configs[client.name].launch()
-				vim.notify("restarting client: " .. client.name)
-			end, 500)
-		end
+		vim.notify("restarting gopls...")
+		client.stop()
+		vim.defer_fn(function()
+			configs[client.name].launch()
+		end, 500)
 	end
 end
 
