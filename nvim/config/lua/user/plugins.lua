@@ -297,9 +297,15 @@ packer.startup(function(use)
 		end,
 	})
 
+	use({
+		"kylechui/nvim-surround",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	})
+
 	use("editorconfig/editorconfig-vim")
 	use("tpope/vim-repeat")
-	use("tpope/vim-surround")
 	use("tpope/vim-abolish")
 	use("tpope/vim-eunuch")
 	-- use("dstein64/vim-startuptime")
