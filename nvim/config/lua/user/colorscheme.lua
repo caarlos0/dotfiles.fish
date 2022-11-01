@@ -1,7 +1,11 @@
-vim.g.catppuccin_flavour = "mocha"
-
 local colors = require("catppuccin.palettes").get_palette()
 require("catppuccin").setup({
+	flavour = "mocha",
+	color_overrides = {
+		mocha = {
+			base = "#000000",
+		},
+	},
 	custom_highlights = {
 		Comment = { fg = colors.overlay1 },
 		LineNr = { fg = colors.overlay1 },
