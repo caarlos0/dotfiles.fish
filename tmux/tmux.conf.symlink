@@ -63,7 +63,7 @@ bind r source-file ~/.tmux.conf
 bind-key -r f display-popup -E "tmux-sessionizer"
 bind-key -r g run-shell "tmux neww tmux-sessionizer default"
 
-thm_bg="#11111b"
+thm_bg="#000000"
 thm_fg="#cdd6f4"
 thm_cyan="#89dceb"
 thm_black="#181825"
