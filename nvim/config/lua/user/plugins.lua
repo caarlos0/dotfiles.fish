@@ -42,6 +42,9 @@ packer.startup(function(use)
 			vim.notify.setup({
 				render = "minimal",
 				stages = "fade",
+				on_open = function(win)
+					vim.api.nvim_win_set_config(win, { focusable = false })
+				end,
 			})
 		end,
 	})
