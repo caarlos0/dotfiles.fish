@@ -80,18 +80,6 @@ packer.startup(function(use)
 	})
 
 	use({
-		"Pocco81/auto-save.nvim",
-		config = function()
-			require("auto-save").setup({
-				trigger_events = {
-					"FocusLost",
-				},
-				write_all_buffers = true,
-			})
-		end,
-	})
-
-	use({
 		"nvim-lualine/lualine.nvim",
 		after = "catppuccin",
 		config = function()
