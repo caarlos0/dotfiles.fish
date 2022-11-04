@@ -2,14 +2,17 @@ vim.opt_local.formatoptions:append("jno")
 
 local function restart()
 	local configs = require("lspconfig.configs")
+	local bufnr = vim.api.nvim_get_current_buf()
 	for _, client in
 		ipairs(vim.lsp.get_active_clients({
-			bufnr = vim.api.nvim_get_current_buf(),
+			bufnr = bufnr,
 			name = "gopls",
 		}))
 	do
 		vim.notify("restarting gopls...")
 		client.stop()
+		-- clear the codelens et al
+		vim.api.nvim_buf_clear_namespace(bufnr, -1, 0, -1)
 		vim.defer_fn(function()
 			configs[client.name].launch()
 		end, 500)
@@ -17,6 +20,7 @@ local function restart()
 end
 
 local function tidy()
+	vim.notify("running go mod tidy...")
 	local uv = vim.loop
 	local stdout = uv.new_pipe(false)
 	local stderr = uv.new_pipe(false)
