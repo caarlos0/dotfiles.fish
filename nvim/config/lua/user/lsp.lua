@@ -1,6 +1,11 @@
 local group = vim.api.nvim_create_augroup("LSP", { clear = true })
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local capabilities = cmp_nvim_lsp.default_capabilities()
+local inlay_hints = require("inlay-hints")
+
+inlay_hints.setup({
+	renderer = "inlay-hints/render/eol",
+})
 
 require("mason").setup()
 require("mason-lspconfig").setup({
@@ -10,6 +15,8 @@ require("mason-lspconfig").setup({
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+	inlay_hints.on_attach(client, bufnr)
+
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
@@ -95,6 +102,15 @@ lspconfig.gopls.setup({
 	settings = {
 		gopls = {
 			gofumpt = true,
+			hints = {
+				assignVariableTypes = true,
+				compositeLiteralFields = true,
+				compositeLiteralTypes = true,
+				constantValues = true,
+				functionTypeParameters = true,
+				parameterNames = true,
+				rangeVariableTypes = true,
+			},
 		},
 	},
 	flags = {
@@ -161,6 +177,9 @@ lspconfig.sumneko_lua.setup({
 		Lua = {
 			diagnostics = {
 				globals = { "vim", "require", "pcall", "pairs" },
+			},
+			hint = {
+				enable = true,
 			},
 		},
 	},

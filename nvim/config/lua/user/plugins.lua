@@ -191,6 +191,9 @@ packer.startup(function(use)
 
 			-- autopairs (x cmp)
 			"windwp/nvim-autopairs",
+
+			-- hints
+			"simrat39/inlay-hints.nvim",
 		},
 		config = function()
 			require("lspkind").init()
