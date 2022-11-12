@@ -4,4 +4,4 @@ require("nvim-tree").setup({
 	},
 })
 
-require("user.remap").nnoremap("<leader>tv", "<cmd>NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>tv", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })

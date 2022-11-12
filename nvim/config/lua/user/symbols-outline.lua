@@ -2,4 +2,4 @@ require("symbols-outline").setup({
 	width = 25,
 })
 
-require("user.remap").nnoremap("<leader>smb", "<cmd>SymbolsOutline<CR>")
+vim.keymap.set("n", "<leader>smb", "<cmd>SymbolsOutline<CR>", { noremap = true, silent = true })

@@ -6,18 +6,19 @@ telescope.setup({
 	},
 })
 
+local opts = { noremap = true, silent = true }
 local builtin = require("telescope.builtin")
-local r = require("user.remap").nnoremap
-r("<C-p>", function()
+vim.keymap.set("n", "<C-p>", function()
 	builtin.find_files({
 		find_command = { "rg", "--files", "--smart-case", "--glob=!.git" },
 	})
-end)
-r("<leader>of", builtin.oldfiles)
-r("<leader>lg", builtin.live_grep)
-r("<leader>fb", builtin.buffers)
-r("<leader>fh", builtin.help_tags)
-r("<leader>fc", builtin.commands)
-r("<leader>fr", builtin.resume)
-r("<leader>fq", builtin.quickfix)
-r("<leader>/", builtin.current_buffer_fuzzy_find)
+end, opts)
+vim.keymap.set("n", "<leader>of", builtin.oldfiles, opts)
+vim.keymap.set("n", "<leader>lg", builtin.live_grep, opts)
+vim.keymap.set("n", "<leader>fb", builtin.buffers, opts)
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, opts)
+vim.keymap.set("n", "<leader>fc", builtin.commands, opts)
+vim.keymap.set("n", "<leader>fr", builtin.resume, opts)
+vim.keymap.set("n", "<leader>fq", builtin.quickfix, opts)
+vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, opts)
+vim.keymap.set("n", "<leader>xx", builtin.diagnostics, opts)

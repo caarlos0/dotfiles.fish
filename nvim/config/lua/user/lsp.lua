@@ -17,26 +17,27 @@ require("mason-lspconfig").setup({
 local on_attach = function(client, bufnr)
 	inlay_hints.on_attach(client, bufnr)
 
-	local function buf_set_keymap(...)
-		vim.api.nvim_buf_set_keymap(bufnr, ...)
-	end
-
-	local opts = { noremap = true, silent = true }
-	buf_set_keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-	buf_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-	buf_set_keymap("n", "<C-j>", "<cmd>Telescope lsp_document_symbols<CR>", opts)
-	buf_set_keymap("n", "<C-h>", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", opts)
-	buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-	buf_set_keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-	buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	buf_set_keymap("n", "<leader>D", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-	buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-	buf_set_keymap("n", "<leader>gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	buf_set_keymap("n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
-	buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_next({ float = false })<CR>", opts)
-	buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_prev({ float = false })<CR>", opts)
+	local builtin = require("telescope.builtin")
+	local opts = { noremap = true, silent = true, buffer = bufnr }
+	vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
+	vim.keymap.set("n", "gr", builtin.lsp_references, opts)
+	vim.keymap.set("n", "<C-j>", builtin.lsp_document_symbols, opts)
+	vim.keymap.set("n", "<C-h>", builtin.lsp_dynamic_workspace_symbols, opts)
+	vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+	vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
+	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+	vim.keymap.set("n", "<leader>D", builtin.lsp_type_definitions, opts)
+	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+	vim.keymap.set("n", "<leader>gl", vim.diagnostic.open_float, opts)
+	vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
+	vim.keymap.set("n", "[d", function()
+		vim.diagnostic.goto_next({ float = false })
+	end, opts)
+	vim.keymap.set("n", "]d", function()
+		vim.diagnostic.goto_prev({ float = false })
+	end, opts)
 
 	if client.server_capabilities.documentFormattingProvider and client.name ~= "sumneko_lua" then
 		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -74,7 +75,7 @@ local on_attach = function(client, bufnr)
 			end,
 			group = group,
 		})
-		buf_set_keymap("n", "<leader>cl", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
+		vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run, opts)
 	end
 
 	if client.server_capabilities.documentHighlightProvider then
