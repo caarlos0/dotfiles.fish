@@ -63,5 +63,4 @@ end
 vim.api.nvim_create_user_command("GoModTidy", tidy, vim.tbl_extend("force", { desc = "go mod tidy" }, {}))
 
 local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
-keymap("n", "<leader>gmt", ":GoModTidy<CR>", opts)
+vim.keymap.set("n", "<leader>gmt", ":GoModTidy<CR>", opts)
