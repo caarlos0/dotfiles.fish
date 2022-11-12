@@ -10,7 +10,7 @@ colors:
   cursor:
     cursor: '#ffffff'
   primary:
-    background: '0x1d2021'
+    background: '#000000'
 
 window:
   padding:
@@ -49,7 +49,6 @@ font:
   bold_italic:
     family: MonoLisa Nerd Font
   size: 14.0
-  use_thin_strokes: true
 
 cursor:
   style:
