@@ -116,13 +116,6 @@ packer.startup(function(use)
 	})
 
 	use({
-		"akinsho/toggleterm.nvim",
-		config = function()
-			require("user.toggleterm")
-		end,
-	})
-
-	use({
 		"numToStr/Comment.nvim",
 		config = function()
 			require("Comment").setup()
@@ -133,13 +126,6 @@ packer.startup(function(use)
 		"folke/which-key.nvim",
 		config = function()
 			require("which-key").setup()
-		end,
-	})
-
-	use({
-		"folke/trouble.nvim",
-		config = function()
-			require("user.trouble")
 		end,
 	})
 
@@ -231,18 +217,6 @@ packer.startup(function(use)
 	})
 
 	use({
-		"mfussenegger/nvim-dap",
-		config = function()
-			require("user.debug")
-		end,
-		requires = {
-			"leoluz/nvim-dap-go",
-			"rcarriga/nvim-dap-ui",
-			"theHamsta/nvim-dap-virtual-text",
-		},
-	})
-
-	use({
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
@@ -265,7 +239,7 @@ packer.startup(function(use)
 					diffview = true,
 				},
 			})
-			require("user.remap").nnoremap("<leader>gs", require("neogit").open)
+			vim.keymap.set("n", "<leader>gs", require("neogit").open, { noremap = true, silent = true })
 		end,
 	})
 
