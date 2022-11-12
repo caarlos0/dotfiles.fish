@@ -10,7 +10,7 @@ local builtin = require("telescope.builtin")
 local r = require("user.remap").nnoremap
 r("<C-p>", function()
 	builtin.find_files({
-		hidden = true,
+		find_command = { "rg", "--files", "--smart-case", "--glob=!.git" },
 	})
 end)
 r("<leader>of", builtin.oldfiles)
