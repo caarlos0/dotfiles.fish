@@ -204,8 +204,7 @@ packer.startup(function(use)
 	})
 
 	use({
-		"caarlos0/nvim-treesitter",
-		branch = "vhs",
+		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		config = function()
 			require("user.treesitter")
