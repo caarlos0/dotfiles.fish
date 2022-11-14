@@ -10,7 +10,7 @@ local opts = { noremap = true, silent = true }
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<C-p>", function()
 	builtin.find_files({
-		find_command = { "rg", "--files", "--smart-case", "--glob=!.git" },
+		find_command = { "rg", "--hidden", "--files", "--smart-case", "--glob=!.git" },
 	})
 end, opts)
 vim.keymap.set("n", "<leader>of", builtin.oldfiles, opts)
