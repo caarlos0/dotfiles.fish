@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 
 -- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -18,6 +18,8 @@ keymap("n", "<leader>n", ":enew<CR>", opts)
 -- quicklists
 keymap("n", "<leader>co", ":copen<CR>", opts)
 keymap("n", "<leader>cc", ":cclose<CR>", opts)
+keymap("n", "[q", ":cprevious<CR>", opts)
+keymap("n", "]q", ":cnext<CR>", opts)
 
 -- Better window navigation
 -- keymap("n", "<C-h>", "<C-w>h", opts)
@@ -44,6 +46,10 @@ keymap("n", "<leader>p", '"_dP', opts)
 -- keep more or less in the same place when going next
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
+
+-- keep more or less in the same place when going up/down
+keymap("n", "<C-u>", "<C-u>zz", opts)
+keymap("n", "<C-d>", "<C-d>zz", opts)
 
 -- keymap("n", "Q", "q", opts)
 -- disable macros, I never use them
