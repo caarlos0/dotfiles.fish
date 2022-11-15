@@ -14,11 +14,11 @@ goodies.
 
 ### Dependencies
 
-First, make sure you have all those things installed:
+First, make sure you have all the following installed:
 
-- `git`: to clone the repo
-- `curl`: to download some stuff
-- `tar`: to extract downloaded stuff
+- `git`: to clone the repository
+- `curl`: to download files
+- `tar`: to extract downloaded files
 - `fish`: the shell
 - `sudo`: some configurations may need that
 
@@ -27,21 +27,21 @@ First, make sure you have all those things installed:
 Then, run these steps:
 
 ```console
-$ git clone https://github.com/caarlos0/dotfiles.fish.git ~/.dotfiles
-$ cd ~/.dotfiles
-$ ./script/bootstrap.fish
+git clone https://github.com/caarlos0/dotfiles.fish.git ~/.dotfiles
+cd ~/.dotfiles
+./script/bootstrap.fish
 ```
 
-> All changed files will be backed up with a `.backup` suffix.
+> All changed files were backed up with a `.backup` suffix.
 
 #### Update
 
-To update, you just need to `git pull` and run the bootstrap script again:
+To update, you need to `git pull` and run the bootstrap script again:
 
 ```console
-$ cd ~/.dotfiles
-$ git pull origin master
-$ ./script/bootstrap.fish
+cd ~/.dotfiles
+git pull origin master
+./script/bootstrap.fish
 ```
 
 ## Revert
@@ -51,13 +51,13 @@ fish configuration and the `.dotfiles` folder, as well as moving back some other
 configuration files:
 
 ```console
-$ rm -rf ~/.dotfiles $__fish_config_dir
+rm -rf ~/.dotfiles $__fish_config_dir
 ```
 
-The bootstrap script would have created a bunch of symbolic links that will now
-be broken. You will have to investigate those manually. In cases a file already
-existed, the `script/bootstrap.fish` script should have created a `.backup` file
-with the same name.
+The bootstrap script created a bunch of symbolic links that are now invalid.
+You will have to investigate those manually. In cases a file already existed,
+the `script/bootstrap.fish` script should have created a `.backup` file with
+the same name.
 
 ## Recommended Software
 
@@ -83,7 +83,21 @@ with the same name.
 To install them all with `brew`:
 
 ```console
-$ brew install fish git-delta fzf gh grc kubectx starship zoxide fd exa bat alacritty kitty neovim
+brew install \
+  alacritty \
+  bat \
+  exa \
+  fd \
+  fish \
+  fzf \
+  gh \
+  git-delta \
+  grc \
+  kitty \
+  kubectx \
+  neovim \
+  starship \
+  zoxide
 ```
 
 On Ubuntu:
@@ -104,17 +118,20 @@ You use it by running:
 
 And logging out and in again or restart.
 
-## Themes and fonts being used
+## Themes and fonts
 
 *Catppuccin Mocha* and *MonoLisa* Font.
 
 ## Screenshots
 
-###### neovim with LSP, git signs, etc
+### neovim with LSP, git signs, etc
+
 ![CleanShot 2022-10-01 at 20 12 19@2x](https://user-images.githubusercontent.com/245435/193431550-5f279c3d-a0f6-4e67-81bc-1c1538fc71be.png)
 
-###### neovim telescope
+### neovim telescope
+
 ![CleanShot 2022-10-01 at 20 12 34@2x](https://user-images.githubusercontent.com/245435/193431554-9ab32711-3eab-4d0e-8cec-f7b09713abf5.png)
 
-###### tmux-sessionizer and tmux tabs with icons
+### tmux-sessionizer and tmux tabs with icons
+
 ![CleanShot 2022-10-01 at 20 13 06@2x](https://user-images.githubusercontent.com/245435/193431556-8ee21015-8cde-44d0-93c2-ac3040a44057.png)
