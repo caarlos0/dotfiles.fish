@@ -16,7 +16,7 @@ function search
 		sort -rnk1 |			# sort by score
 		uniq |					# dedup
 		awk '{print $2}' |		# do not actually print the score
-		fzf --no-sort --prompt "﬿ "
+		fzf --no-sort --prompt "﬿ " --preview "cat $PROJECTS/{}/README.md"
 end
 
 if test (count $argv) -eq 1
