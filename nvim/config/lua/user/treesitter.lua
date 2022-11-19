@@ -26,9 +26,9 @@ require("nvim-treesitter.configs").setup({
 		"scss",
 		"sql",
 		"toml",
+		"vhs",
 		"vim",
 		"yaml",
-		"vhs",
 	},
 	auto_install = true,
 	autopairs = {
