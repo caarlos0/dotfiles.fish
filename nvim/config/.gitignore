@@ -1,2 +1,3 @@
 autoload
 plugin/
+!after/plugin
