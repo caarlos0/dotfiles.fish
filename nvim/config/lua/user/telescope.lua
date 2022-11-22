@@ -17,6 +17,8 @@ telescope.setup({
 	},
 })
 
+telescope.load_extension("gh")
+
 local opts = { noremap = true, silent = true }
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<C-p>", function()
@@ -33,3 +35,4 @@ vim.keymap.set("n", "<leader>fr", builtin.resume, opts)
 vim.keymap.set("n", "<leader>fq", builtin.quickfix, opts)
 vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, opts)
 vim.keymap.set("n", "<leader>xx", builtin.diagnostics, opts)
+vim.keymap.set("n", "<leader>ghi", telescope.extensions.gh.issues, opts)

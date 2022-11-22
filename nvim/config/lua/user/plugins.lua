@@ -108,8 +108,6 @@ packer.startup(function(use)
 				highlights = require("catppuccin.groups.integrations.bufferline").get(),
 				options = {
 					diagnostics = "nvim_lsp",
-					close_command = "Sayonara!",
-					right_mouse_command = "Sayonara!",
 				},
 			})
 		end,
@@ -143,6 +141,7 @@ packer.startup(function(use)
 		end,
 		requires = {
 			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-github.nvim",
 		},
 	})
 
