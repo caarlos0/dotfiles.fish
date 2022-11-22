@@ -5,18 +5,29 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "*.txt", "*.md", "*.tex", "gitcommit", "gitrebase", "NeogitCommitMessage" },
+	pattern = {
+		"*.txt",
+		"*.md",
+		"*.tex",
+		"gitcommit",
+		"gitrebase",
+		"NeogitCommitMessage",
+	},
 	command = "setlocal spell",
 	group = vim.api.nvim_create_augroup("Spell", { clear = true }),
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "gitcommit", "NeogitCommitMessage" },
+	pattern = {
+		"gitcommit",
+		"NeogitCommitMessage",
+	},
 	command = "startinsert",
 	group = vim.api.nvim_create_augroup("AutoInsert", { clear = true }),
 })
 
--- ensure the parent folder exists, so it gets properly added to the lsp context and everything just works.
+-- ensure the parent folder exists, so it gets properly added to the lsp
+-- context and everything just works.
 vim.api.nvim_create_autocmd("BufNewFile", {
 	pattern = "*",
 	callback = function()
@@ -30,6 +41,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
 	callback = function()
 		vim.cmd([[
 			let save = winsaveview()
@@ -37,16 +49,15 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 			call winrestview(save)
 		]])
 	end,
-	pattern = "*",
 	group = vim.api.nvim_create_augroup("TrimWhitespace", { clear = true }),
 })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
+	pattern = "*",
 	callback = function()
 		vim.highlight.on_yank()
 	end,
-	pattern = "*",
 	group = vim.api.nvim_create_augroup("Highlight", { clear = true }),
 })
