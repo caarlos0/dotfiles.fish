@@ -11,8 +11,6 @@ local function restart(name)
 	do
 		vim.notify("Restarting " .. client.name .. "...")
 		client.stop()
-		-- clear the codelens et al
-		vim.api.nvim_buf_clear_namespace(bufnr, -1, 0, -1)
 		vim.defer_fn(function()
 			configs[client.name].launch()
 		end, 500)
