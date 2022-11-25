@@ -136,13 +136,26 @@ packer.startup(function(use)
 
 	use({
 		"nvim-telescope/telescope.nvim",
-		config = function()
-			require("user.telescope")
-		end,
+		after = { "harpoon" },
 		requires = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-github.nvim",
 		},
+		config = function()
+			require("user.telescope")
+		end,
+	})
+
+	use({
+		"ThePrimeagen/harpoon",
+		config = function()
+			local opts = { noremap = true, silent = true }
+			local harpoon = require("harpoon.ui")
+			vim.keymap.set("n", "[j", harpoon.nav_prev, opts)
+			vim.keymap.set("n", "[k", harpoon.nav_next, opts)
+			vim.keymap.set("n", "<leader>m", require("harpoon.mark").add_file, opts)
+			vim.keymap.set("n", "<leader>fk", require("harpoon.ui").toggle_quick_menu, opts)
+		end,
 	})
 
 	-- the whole lsp, luasnip and cmp gang
