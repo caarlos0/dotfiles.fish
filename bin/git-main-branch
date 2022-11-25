@@ -1,9 +1,13 @@
 #!/usr/bin/env fish
-set toplevel (git rev-parse --show-toplevel)
-and if test -f $toplevel/.git/refs/remotes/origin/main
-	echo main
-else if test -f $toplevel/.git/refs/heads/main
-	echo main
-else
-	echo master
+
+function __find
+	set toplevel (git rev-parse --show-toplevel)
+	basename (find $toplevel/.git/refs -type f -name "main" -o -name "master" ) 2>/dev/null
+end
+
+and if not __find
+	# this fixes cases in which, somehow, the remotes/origin/main file disappeared.
+	# fetch will create it again, and the ls will then work
+	git fetch --prune origin >/dev/null 2>&1
+	__find
 end
