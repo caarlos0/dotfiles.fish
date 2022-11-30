@@ -237,7 +237,6 @@ packer.startup(function(use)
 	use({
 		"TimUntersberger/neogit",
 		requires = {
-			"sindrets/diffview.nvim",
 			"nvim-lua/plenary.nvim",
 		},
 		config = function()
@@ -246,11 +245,12 @@ packer.startup(function(use)
 				disable_context_highlighting = true,
 				disable_signs = true,
 				disable_hint = true,
-				integrations = {
-					diffview = true,
-				},
 			})
-			vim.keymap.set("n", "<leader>gs", require("neogit").open, { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>gs", function()
+				require("neogit").open({
+					kind = "replace",
+				})
+			end, { noremap = true, silent = true })
 		end,
 	})
 
