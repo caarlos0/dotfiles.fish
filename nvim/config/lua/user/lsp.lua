@@ -125,9 +125,6 @@ lspconfig.gopls.setup({
 	},
 })
 
-local schemas = {}
-schemas["https://goreleaser.com/static/schema-pro.json"] = ".goreleaser.yaml"
-
 lspconfig.yamlls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -137,7 +134,6 @@ lspconfig.yamlls.setup({
 				url = "https://www.schemastore.org/api/json/catalog.json",
 				enable = true,
 			},
-			schemas = schemas,
 		},
 	},
 })
