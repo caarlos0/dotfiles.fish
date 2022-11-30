@@ -1,13 +1,20 @@
 #!/usr/bin/env fish
 
-function __find
+function __find_first
 	set toplevel (git rev-parse --show-toplevel)
-	basename (find $toplevel/.git/refs -type f -name "main" -o -name "master" ) 2>/dev/null
+	find $toplevel/.git/refs -type f -name "main" -o -name "master" |
+		grep -E "heads|origin" |
+		sort |
+		head -n1 2>/dev/null
+end
+
+function __find
+	basename (__find_first) 2>/dev/null
 end
 
 and if not __find
 	# this fixes cases in which, somehow, the remotes/origin/main file disappeared.
-	# fetch will create it again, and the ls will then work
+	# fetch will create it again, and the find will then work again
 	git fetch --prune origin >/dev/null 2>&1
 	__find
 end
