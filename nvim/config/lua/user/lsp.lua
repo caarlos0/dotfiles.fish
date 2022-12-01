@@ -34,10 +34,10 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>gl", vim.diagnostic.open_float, opts)
 	vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
 	vim.keymap.set("n", "[d", function()
-		vim.diagnostic.goto_next({ float = false })
+		vim.diagnostic.goto_prev({ float = false })
 	end, opts)
 	vim.keymap.set("n", "]d", function()
-		vim.diagnostic.goto_prev({ float = false })
+		vim.diagnostic.goto_next({ float = false })
 	end, opts)
 
 	if client.server_capabilities.documentFormattingProvider and client.name ~= "sumneko_lua" then
