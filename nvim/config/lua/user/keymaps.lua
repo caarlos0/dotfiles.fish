@@ -51,8 +51,8 @@ keymap("n", "N", "Nzzzv", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 
--- keymap("n", "Q", "q", opts)
 -- disable macros, I never use them
+-- keymap("n", "Q", "q", opts)
 -- keymap("n", "q", "<Nop>", opts) - sfs
 
 -- Insert empty blank line above/bellow
