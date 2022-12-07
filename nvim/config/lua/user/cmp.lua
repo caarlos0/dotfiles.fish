@@ -65,7 +65,9 @@ cmp.setup({
 				trimempty = true,
 			})
 			kind.kind = " " .. strings[1] .. " "
-			kind.menu = "    (" .. strings[2] .. ")"
+			if #strings > 1 then
+				kind.menu = "    (" .. strings[2] .. ")"
+			end
 			return kind
 		end,
 	},
