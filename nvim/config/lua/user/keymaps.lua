@@ -51,13 +51,13 @@ keymap("n", "N", "Nzzzv", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 
--- disable macros, I never use them
--- keymap("n", "Q", "q", opts)
--- keymap("n", "q", "<Nop>", opts) - sfs
+-- move record macro to Q instead of q
+keymap("n", "Q", "q", opts)
+keymap("n", "q", "<Nop>", opts)
 
 -- Insert empty blank line above/bellow
-keymap("n", "[<Space>", "m`o<Esc>``", opts)
-keymap("n", "]<Space>", "m`O<Esc>``", opts)
+keymap("n", "]<Space>", "m`o<Esc>``", opts)
+keymap("n", "[<Space>", "m`O<Esc>``", opts)
 
 -- Insert --
 -- in insert mode, adds new undo points after , . ! and ?.
