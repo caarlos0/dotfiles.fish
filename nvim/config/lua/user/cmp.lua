@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local kind = require("lspkind")
 
 local has_words_before = function()
 	---@diagnostic disable-next-line: deprecated
@@ -21,11 +22,17 @@ cmp.setup({
 			side_padding = 0,
 		},
 	},
+	view = {
+		entries = {
+			name = "custom",
+			selection_order = "near_cursor",
+		},
+	},
 	completion = {
 		keyword_length = 3,
 	},
 	mapping = cmp.mapping.preset.insert({
-		["<C-d>"] = cmp.mapping.scroll_docs(-4),
+		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
@@ -57,18 +64,18 @@ cmp.setup({
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, item)
-			local kind = require("lspkind").cmp_format({
+			local s = kind.cmp_format({
 				mode = "symbol_text",
 				maxwidth = 50,
 			})(entry, item)
-			local strings = vim.split(kind.kind, "%s", {
+			local strings = vim.split(s.kind, "%s", {
 				trimempty = true,
 			})
-			kind.kind = " " .. strings[1] .. " "
+			s.kind = " " .. strings[1] .. " "
 			if #strings > 1 then
-				kind.menu = "    (" .. strings[2] .. ")"
+				s.menu = "    (" .. strings[2] .. ")"
 			end
-			return kind
+			return s
 		end,
 	},
 	sources = cmp.config.sources({
