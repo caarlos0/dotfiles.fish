@@ -7,7 +7,7 @@ function ports -d "manage processes by the ports they are using"
 		case pid
 			ports show "$argv[2]" | awk '{ print $2; }'
 		case kill
-			ports pid "$argv[2]" | kill -9
+			kill -9 (ports pid "$argv[2]")
 		case '*'
 			echo "NAME:
   ports - a tool to easily see what's happening on your computer's ports
