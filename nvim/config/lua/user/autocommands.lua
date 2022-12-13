@@ -44,6 +44,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
 	pattern = "*",
-	callback = vim.highlight.on_yank,
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 	group = vim.api.nvim_create_augroup("Highlight", { clear = true }),
 })
