@@ -1,26 +1,14 @@
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 	pattern = "*.dockerfile",
-	command = "set ft=dockerfile",
+	callback = function()
+		vim.opt_local.ft = "dockerfile"
+	end,
 	group = vim.api.nvim_create_augroup("Dockerfile", { clear = true }),
 })
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
-		"*.txt",
-		"*.md",
-		"*.tex",
 		"gitcommit",
-		"gitrebase",
-		"NeogitCommitMessage",
-	},
-	command = "setlocal spell",
-	group = vim.api.nvim_create_augroup("Spell", { clear = true }),
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = {
-		"gitcommit",
-		"NeogitCommitMessage",
 	},
 	command = "startinsert",
 	group = vim.api.nvim_create_augroup("AutoInsert", { clear = true }),
@@ -56,8 +44,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
 	pattern = "*",
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+	callback = vim.highlight.on_yank,
 	group = vim.api.nvim_create_augroup("Highlight", { clear = true }),
 })

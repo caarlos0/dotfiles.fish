@@ -39,7 +39,6 @@ local options = {
 	list = false,
 	listchars = "eol:↲,tab:» ,trail:·,extends:<,precedes:>,conceal:┊,nbsp:␣",
 	grepprg = "rg --vimgrep --smart-case --follow",
-	-- cmdheight = 0, -- i dont like not being able to see when a macro is being recorded
 }
 
 vim.opt.shortmess:append("c")
