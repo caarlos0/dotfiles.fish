@@ -235,26 +235,6 @@ packer.startup(function(use)
 	})
 
 	use({
-		"TimUntersberger/neogit",
-		requires = {
-			"nvim-lua/plenary.nvim",
-		},
-		config = function()
-			require("neogit").setup({
-				disable_commit_confirmation = true,
-				disable_context_highlighting = true,
-				disable_signs = true,
-				disable_hint = true,
-			})
-			vim.keymap.set("n", "<leader>gs", function()
-				require("neogit").open({
-					kind = "replace",
-				})
-			end, { noremap = true, silent = true })
-		end,
-	})
-
-	use({
 		"vim-test/vim-test",
 		config = function()
 			require("user.test")
@@ -284,9 +264,12 @@ packer.startup(function(use)
 	})
 
 	use("editorconfig/editorconfig-vim")
+	use("tpope/vim-fugitive")
 	use("tpope/vim-repeat")
 	use("tpope/vim-abolish")
 	use("tpope/vim-eunuch")
+	use("tpope/vim-sleuth")
+	use("mbbill/undotree")
 	-- use("dstein64/vim-startuptime")
 
 	-- Automatically set up your configuration after cloning packer.nvim
