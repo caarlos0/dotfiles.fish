@@ -1,7 +1,2 @@
-require("nvim-tree").setup({
-	view = {
-		side = "right",
-	},
-})
-
+require("nvim-tree").setup()
 vim.keymap.set("n", "<leader>tv", vim.cmd.NvimTreeToggle, { noremap = true, silent = true })
