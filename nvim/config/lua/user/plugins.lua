@@ -251,16 +251,15 @@ packer.startup(function(use)
 		end,
 	})
 
-	use({ "shortcuts/no-neck-pain.nvim", tag = "*" })
 	use("ThePrimeagen/harpoon")
 	use("editorconfig/editorconfig-vim")
+	use("folke/zen-mode.nvim")
 	use("tpope/vim-fugitive")
 	use("tpope/vim-repeat")
 	use("tpope/vim-abolish")
 	use("tpope/vim-eunuch")
 	use("tpope/vim-sleuth")
 	use("mbbill/undotree")
-	-- use("dstein64/vim-startuptime")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
