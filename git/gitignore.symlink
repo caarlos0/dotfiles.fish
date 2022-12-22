@@ -14,3 +14,4 @@
 dump.rdb
 main.tfvars
 coverage.out
+coverage.txt
