@@ -99,11 +99,9 @@ packer.startup(function(use)
 			"nvim-web-devicons",
 			"catppuccin",
 		},
-		requires = {
-			"mhinz/vim-sayonara",
-		},
 		config = function()
 			require("bufferline").setup({
+				---@diagnostic disable-next-line: assign-type-mismatch
 				highlights = require("catppuccin.groups.integrations.bufferline").get(),
 				options = {
 					diagnostics = "nvim_lsp",
@@ -250,6 +248,7 @@ packer.startup(function(use)
 		end,
 	})
 
+	use("mhinz/vim-sayonara")
 	use("ThePrimeagen/harpoon")
 	use("editorconfig/editorconfig-vim")
 	use("folke/zen-mode.nvim")
