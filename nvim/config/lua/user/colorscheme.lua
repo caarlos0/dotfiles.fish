@@ -40,8 +40,8 @@ require("catppuccin").setup({
 	},
 })
 
+vim.opt.background = "dark"
+vim.opt.termguicolors = true
 vim.cmd([[
-set background=dark
-set termguicolors
 colorscheme catppuccin
 ]])

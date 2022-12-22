@@ -1,16 +1,12 @@
-local zz = require("zen-mode")
-zz.setup({
+require("zen-mode").setup({
 	window = {
 		width = 220,
 		options = {
 			number = true,
 			relativenumber = true,
 		},
+		plugin = {
+			gitsigns = true,
+		},
 	},
-})
-
-vim.keymap.set("n", "<leader>zz", zz.toggle, {
-	silent = true,
-	noremap = true,
-	desc = "Toggle Zen mode",
 })

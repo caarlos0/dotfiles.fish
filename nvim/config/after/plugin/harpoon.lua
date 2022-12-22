@@ -1,6 +1,5 @@
 local harpoon = require("harpoon.ui")
 local mark = require("harpoon.mark")
-local opts = { noremap = true, silent = true }
 
 local function nav(i)
 	return function()
