@@ -2,7 +2,6 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		lazy = false,
 		config = function()
 			require("user.colorscheme")
 		end,
@@ -16,15 +15,15 @@ return {
 	{
 		"rcarriga/nvim-notify",
 		config = function()
-			vim.opt.termguicolors = true
-			vim.notify = require("notify")
-			vim.notify.setup({
+			local notify = require("notify")
+			notify.setup({
 				render = "minimal",
 				stages = "fade",
 				on_open = function(win)
 					vim.api.nvim_win_set_config(win, { focusable = false })
 				end,
 			})
+			vim.notify = notify
 		end,
 	},
 	{
@@ -82,6 +81,7 @@ return {
 		"akinsho/bufferline.nvim",
 		config = function()
 			require("bufferline").setup({
+				---@diagnostic disable-next-line: assign-type-mismatch
 				highlights = require("catppuccin.groups.integrations.bufferline").get(),
 				options = {
 					diagnostics = "nvim_lsp",
@@ -104,7 +104,6 @@ return {
 
 	{
 		"folke/todo-comments.nvim",
-		event = "VeryLazy",
 		config = function()
 			require("todo-comments").setup({
 				highlight = {
@@ -115,7 +114,6 @@ return {
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		event = "VeryLazy",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-github.nvim",
@@ -126,6 +124,7 @@ return {
 	},
 	{
 		"williamboman/mason.nvim",
+		event = "BufReadPost",
 		dependencies = {
 			-- lsp
 			"williamboman/mason-lspconfig.nvim",
@@ -181,7 +180,6 @@ return {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = "VeryLazy",
 		config = function()
 			require("indent_blankline").setup({})
 		end,
@@ -222,15 +220,23 @@ return {
 	{
 		"kylechui/nvim-surround",
 		config = function()
-			require("nvim-surround").setup({})
+			require("nvim-surround").setup()
 		end,
 	},
 	{
 		"folke/zen-mode.nvim",
 		cmd = "ZenMode",
 	},
-	"vim-test/vim-test",
-	"mbbill/undotree",
+	{
+		"mbbill/undotree",
+		cmd = "UndotreeToggle",
+		init = function()
+			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, {
+				desc = "Toggle undotree",
+			})
+		end,
+	},
+	{ "vim-test/vim-test", event = "BufReadPost" },
 	"ThePrimeagen/harpoon",
 	"editorconfig/editorconfig-vim",
 	"tpope/vim-fugitive",
