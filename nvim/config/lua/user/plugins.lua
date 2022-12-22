@@ -36,7 +36,6 @@ packer.startup(function(use)
 
 	use({
 		"rcarriga/nvim-notify",
-		after = "catppuccin",
 		config = function()
 			vim.notify = require("notify")
 			vim.notify.setup({
