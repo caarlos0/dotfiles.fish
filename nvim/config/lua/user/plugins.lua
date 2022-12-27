@@ -205,10 +205,18 @@ packer.startup(function(use)
 		run = ":TSUpdate",
 		config = function()
 			require("user.treesitter")
+			local neogen = require("neogen")
+			neogen.setup({})
+			vim.keymap.set("n", "<Leader>nf", neogen.generate, {
+				noremap = true,
+				silent = true,
+				desc = "Neogen generate",
+			})
 		end,
 		requires = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"nvim-treesitter/nvim-treesitter-context",
+			"danymat/neogen",
 		},
 	})
 
