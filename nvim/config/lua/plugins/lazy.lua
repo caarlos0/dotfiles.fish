@@ -2,51 +2,44 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "InsertEnter",
-		config = function()
-			require("indent_blankline").setup()
-		end,
+		config = true,
 	},
 	{
 		"kylechui/nvim-surround",
 		event = "InsertEnter",
-		config = function()
-			require("nvim-surround").setup()
-		end,
+		config = true,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
 		event = "BufEnter",
-		config = function()
-			require("gitsigns").setup()
-		end,
+		config = true,
 	},
 	{
 		"folke/todo-comments.nvim",
 		event = "BufEnter",
-		config = function()
-			require("user.todo")
-		end,
+		config = {
+			highlight = {
+				keyword = "bg",
+			},
+		},
 	},
 	{
 		"numToStr/Comment.nvim",
-		event = "InsertEnter",
-		config = function()
-			require("Comment").setup()
-		end,
+		event = "BufEnter",
+		config = true,
 	},
 	{
 		"stevearc/dressing.nvim",
 		event = "VeryLazy",
-		config = function()
-			require("dressing").setup()
-		end,
+		config = true,
 	},
 	{
 		"j-hui/fidget.nvim",
 		event = "VeryLazy",
-		config = function()
-			require("user.fidget")
-		end,
+		config = {
+			text = { spinner = "dots" },
+			window = { blend = 0 },
+		},
 	},
 	{
 		"danymat/neogen",
@@ -96,43 +89,39 @@ return {
 		config = function()
 			require("user.fugitive")
 		end,
-		init = function()
-			vim.keymap.set("n", "<leader>gs", vim.cmd.Git, {
-				noremap = true,
-				silent = true,
-				desc = "Open Git",
-			})
-		end,
+		keys = {
+			{ "<leader>gs", vim.cmd.Git, desc = "Open Git" },
+		},
 	},
 	{
 		"mbbill/undotree",
 		cmd = "UndotreeToggle",
-		init = function()
-			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, {
-				desc = "Toggle undotree",
-			})
-		end,
+		keys = {
+			{ "<leader>u", vim.cmd.UndotreeToggle, desc = "Toggle undotree" },
+		},
 	},
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
-		config = function()
-			require("which-key").setup()
-		end,
+		config = true,
 	},
 	{
-		"kyazdani42/nvim-tree.lua",
-		event = "VeryLazy",
-		init = function()
-			vim.keymap.set("n", "<leader>tv", vim.cmd.NvimTreeToggle, {
-				noremap = true,
-				silent = true,
-				desc = "Toggle Tree",
-			})
-		end,
-		config = function()
-			require("nvim-tree").setup()
-		end,
+		"nvim-neo-tree/neo-tree.nvim",
+		cmd = "Neotree",
+		keys = {
+			{ "<leader>tv", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
+		},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+		config = {
+			filesystem = {
+				follow_current_file = true,
+				hijack_netrw_behavior = "open_current",
+			},
+		},
 	},
 	{
 		"mhinz/vim-sayonara",
@@ -142,14 +131,15 @@ return {
 		"tpope/vim-abolish",
 		event = "InsertEnter",
 		config = function()
-			for a, b in pairs({
+			local abolishes = {
 				Goreleaser = "GoReleaser",
 				gorelesaer = "goreleaser",
 				carlos0 = "caarlos0",
 				descriptoin = "description",
 				fucn = "func",
 				sicne = "since",
-			}) do
+			}
+			for a, b in pairs(abolishes) do
 				vim.cmd("Abolish " .. a .. " " .. b)
 			end
 		end,

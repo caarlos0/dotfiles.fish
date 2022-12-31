@@ -2,18 +2,10 @@ return {
 	{
 		"simrat39/symbols-outline.nvim",
 		cmd = "SymbolsOutline",
-		init = function()
-			vim.keymap.set("n", "<leader>smb", vim.cmd.SymbolsOutline, {
-				noremap = true,
-				silent = true,
-				desc = "Symbols Outline",
-			})
-		end,
-		config = function()
-			require("symbols-outline").setup({
-				width = 25,
-			})
-		end,
+		keys = {
+			{ "<leader>smb", vim.cmd.SymbolsOutline, desc = "Symbols Outline" },
+		},
+		config = { width = 25 },
 	},
 	{
 		"williamboman/mason.nvim",
@@ -48,6 +40,9 @@ return {
 
 			-- hints
 			"simrat39/inlay-hints.nvim",
+
+			-- working with neovim config/plugins
+			"folke/neodev.nvim",
 		},
 		config = function()
 			require("lspkind").init()
@@ -58,6 +53,7 @@ return {
 			})
 			require("luasnip.loaders.from_vscode").lazy_load()
 			require("nvim-autopairs").setup()
+			require("neodev").setup()
 			require("user.lsp")
 			require("user.cmp")
 		end,

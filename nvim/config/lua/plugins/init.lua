@@ -8,27 +8,50 @@ return {
 		end,
 	},
 	{
-		"kyazdani42/nvim-web-devicons",
+		"nvim-tree/nvim-web-devicons",
 		priority = 999,
-		config = function()
-			require("nvim-web-devicons").setup({
-				default = true,
-			})
-		end,
+		config = {
+			default = true,
+		},
 	},
 	{
 		"akinsho/bufferline.nvim",
-		dependencies = { "nvim-web-devicons", "catppuccin/nvim" },
-		config = function()
-			require("user.bufferline")
-		end,
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			"catppuccin/nvim",
+		},
+		config = {
+			options = {
+				diagnostics = "nvim_lsp",
+			},
+		},
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-web-devicons", "catppuccin/nvim" },
-		config = function()
-			require("user.lualine")
-		end,
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			"catppuccin/nvim",
+		},
+		config = {
+			options = {
+				theme = "catppuccin",
+				component_separators = "",
+				section_separators = "",
+			},
+			sections = {
+				lualine_c = {
+					{
+						"filename",
+						file_status = false,
+						path = 1,
+					},
+				},
+				lualine_x = {
+					"encoding",
+					"filetype",
+				},
+			},
+		},
 	},
 	{
 		"rmagatti/auto-session",

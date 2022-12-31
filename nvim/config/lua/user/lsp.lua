@@ -204,8 +204,10 @@ lspconfig.sumneko_lua.setup({
 				path = runtime_path,
 			},
 			diagnostics = {
-				globals = { "vim", "table", "require", "unpack", "pairs", "ipairs" },
-				fields = { "gsub" },
+				globals = { "vim" },
+			},
+			completion = {
+				callSnippet = "Replace",
 			},
 			workspace = { library = vim.api.nvim_get_runtime_file("", true) },
 			-- Do not send telemetry data containing a randomized but unique identifier
