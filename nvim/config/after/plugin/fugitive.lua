@@ -4,6 +4,12 @@ vim.keymap.set("n", "<leader>gs", vim.cmd.Git, {
 	desc = "Open Git",
 })
 
+vim.keymap.set("n", "<leader>gy", "<cmd>!git sync<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Git sync",
+})
+
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	group = vim.api.nvim_create_augroup("user-fugitive", { clear = true }),
 	pattern = "*",
