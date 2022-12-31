@@ -5,6 +5,21 @@ local inlay_hints = require("inlay-hints")
 
 inlay_hints.setup({
 	renderer = "inlay-hints/render/eol",
+	-- https://github.com/simrat39/inlay-hints.nvim/issues/3
+	eol = {
+		parameter = {
+			separator = ", ",
+			format = function(hints)
+				return string.format(" <- (%s)", hints):gsub(":", "")
+			end,
+		},
+		type = {
+			separator = ", ",
+			format = function(hints)
+				return string.format(" » (%s)", hints):gsub(":", "")
+			end,
+		},
+	},
 })
 
 require("mason").setup()
