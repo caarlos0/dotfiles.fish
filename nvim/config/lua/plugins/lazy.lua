@@ -44,9 +44,10 @@ return {
 	{
 		"danymat/neogen",
 		event = "BufEnter",
-		config = function()
-			require("user.neogen")
-		end,
+		keys = {
+			{ "<leader>nf", "<cmd>Neogen<cr>", desc = "Neogen generate docs" },
+		},
+		config = true,
 	},
 	{
 		"vim-test/vim-test",
