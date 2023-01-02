@@ -3,7 +3,7 @@ return {
     "simrat39/symbols-outline.nvim",
     cmd = "SymbolsOutline",
     keys = {
-      { "<leader>smb", vim.cmd.SymbolsOutline, desc = "Symbols Outline" },
+      { "<leader>smb", vim.cmd.SymbolsOutline, noremap = true, silent = true, desc = "Symbols Outline" },
     },
     config = { width = 25 },
   },

@@ -6,11 +6,12 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
       return
     end
 
-    local bufnr = vim.api.nvim_get_current_buf()
-    local opts = { buffer = bufnr, remap = false }
-
     vim.keymap.set("n", "<leader>Pp", function()
       vim.cmd.Git("push")
-    end, opts)
+    end, {
+      buffer = vim.api.nvim_get_current_buf(),
+      remap = false,
+      desc = "Git push",
+    })
   end,
 })

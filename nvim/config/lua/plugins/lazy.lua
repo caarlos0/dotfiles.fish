@@ -45,15 +45,23 @@ return {
     "danymat/neogen",
     event = "BufEnter",
     keys = {
-      { "<leader>nf", "<cmd>Neogen<cr>", desc = "Neogen generate docs" },
+      { "<leader>nf", "<cmd>Neogen<cr>", noremap = true, silent = true, desc = "Neogen generate docs" },
     },
     config = true,
   },
   {
     "vim-test/vim-test",
     event = "BufEnter",
+    keys = {
+      { "<leader>ttn", ":TestNearest -v<CR>g", noremap = true, silent = true, desc = "Test Nearest" },
+      { "<leader>ttf", ":TestFile -v<CR>g", noremap = true, silent = true, desc = "Test File" },
+      { "<leader>tts", ":TestSuite -v<CR>g", noremap = true, silent = true, desc = "Test Suite" },
+      { "<leader>ttl", ":TestLast -v<CR>g", noremap = true, silent = true, desc = "Test Last" },
+      { "<leader>ttv", ":TestVisit -v<CR>g", noremap = true, silent = true, desc = "Test Visit" },
+    },
     config = function()
-      require("user.test")
+      vim.api.nvim_set_var("test#strategy", "neovim")
+      vim.api.nvim_set_var("test#neovim#term_position", "vert")
     end,
   },
   {
@@ -102,18 +110,18 @@ return {
   {
     "tpope/vim-fugitive",
     command = "Git",
+    keys = {
+      { "<leader>gs", vim.cmd.Git, noremap = true, silent = true, desc = "Open Git" },
+    },
     config = function()
       require("user.fugitive")
     end,
-    keys = {
-      { "<leader>gs", vim.cmd.Git, desc = "Open Git" },
-    },
   },
   {
     "mbbill/undotree",
     cmd = "UndotreeToggle",
     keys = {
-      { "<leader>u", vim.cmd.UndotreeToggle, desc = "Toggle undotree" },
+      { "<leader>u", vim.cmd.UndotreeToggle, noremap = true, silent = true, desc = "Toggle undotree" },
     },
   },
   {
@@ -125,7 +133,7 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     cmd = "Neotree",
     keys = {
-      { "<leader>tv", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
+      { "<leader>tv", "<cmd>Neotree toggle<cr>", noremap = true, silent = true, desc = "NeoTree" },
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -141,7 +149,10 @@ return {
   },
   {
     "mhinz/vim-sayonara",
-    event = "VeryLazy",
+    cmd = "Sayonara",
+    keys = {
+      { "<leader>q", ":Sayonara!<CR>", noremap = true, silent = true, desc = "NeoTree" },
+    },
   },
   {
     "tpope/vim-abolish",
