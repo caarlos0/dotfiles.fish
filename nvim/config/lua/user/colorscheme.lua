@@ -20,9 +20,8 @@ require("catppuccin").setup({
 		gitsigns = true,
 		indent_blankline = {
 			enabled = true,
-			colored_indent_levels = false,
+			colored_indent_levels = true,
 		},
-		lsp_trouble = true,
 		markdown = true,
 		mason = true,
 		native_lsp = {

@@ -1,9 +1,3 @@
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git, {
-	noremap = true,
-	silent = true,
-	desc = "Open Git",
-})
-
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	group = vim.api.nvim_create_augroup("user-fugitive", { clear = true }),
 	pattern = "*",
