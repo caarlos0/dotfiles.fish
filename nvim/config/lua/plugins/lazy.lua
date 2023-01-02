@@ -58,9 +58,15 @@ return {
 	},
 	{
 		"ojroques/vim-oscyank",
-		event = "BufEnter",
+		event = "BufReadPost",
+		cond = function()
+			-- Check if connection is ssh
+			return os.getenv("SSH_CLIENT") ~= nil
+		end,
 		config = function()
-			require("user.oscyank")
+			vim.cmd(
+				[[autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif]]
+			)
 		end,
 	},
 	{
