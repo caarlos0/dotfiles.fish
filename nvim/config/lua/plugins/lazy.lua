@@ -85,10 +85,19 @@ return {
   },
   {
     "folke/zen-mode.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("user.zenmode")
-    end,
+    cmd = "ZenMode",
+    config = {
+      window = {
+        width = 220,
+        options = {
+          number = true,
+          relativenumber = true,
+        },
+        plugin = {
+          gitsigns = true,
+        },
+      },
+    },
   },
   {
     "tpope/vim-fugitive",
