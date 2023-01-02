@@ -272,7 +272,9 @@ local float_config = {
 
 -- setup diagnostics
 vim.diagnostic.config({
-  virtual_text = true,
+  underline = true,
+  update_in_insert = false,
+  virtual_text = { spacing = 4, prefix = "●" },
   severity_sort = true,
   float = float_config,
 })
@@ -280,24 +282,10 @@ vim.diagnostic.config({
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, float_config)
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, float_config)
 
--- vim.api.nvim_create_autocmd({ "CursorHold" }, {
--- 	callback = function()
--- 		if vim.lsp.buf.server_ready() then
--- 			vim.diagnostic.open_float()
--- 		end
--- 	end,
--- 	group = vim.api.nvim_create_augroup("LSPDiagnosticsHold", { clear = true }),
--- })
-
 -- set up diagnostic signs
-for type, icon in pairs({
-  Error = "",
-  Warn = "",
-  Hint = "",
-  Info = "",
-}) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+for name, icon in pairs(require("user.icons").diagnostics) do
+  name = "DiagnosticSign" .. name
+  vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
 end
 
 -- change documentation to be rouded and non-focusable...

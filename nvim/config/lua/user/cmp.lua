@@ -1,6 +1,5 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local kind = require("lspkind")
 
 local has_words_before = function()
   ---@diagnostic disable-next-line: deprecated
@@ -63,19 +62,19 @@ cmp.setup({
   }),
   formatting = {
     fields = { "kind", "abbr", "menu" },
-    format = function(entry, item)
-      local s = kind.cmp_format({
-        mode = "symbol_text",
-        maxwidth = 50,
-      })(entry, item)
-      local strings = vim.split(s.kind, "%s", {
+    format = function(_, item)
+      local icons = require("user.icons").kinds
+      if icons[item.kind] then
+        item.kind = icons[item.kind] .. item.kind
+      end
+      local strings = vim.split(item.kind, "%s", {
         trimempty = true,
       })
-      s.kind = " " .. strings[1] .. " "
+      item.kind = " " .. strings[1] .. " "
       if #strings > 1 then
-        s.menu = "    (" .. strings[2] .. ")"
+        item.menu = "    (" .. strings[2] .. ")"
       end
-      return s
+      return item
     end,
   },
   sources = cmp.config.sources({

@@ -13,10 +13,8 @@ return {
     dependencies = {
       -- lsp
       "williamboman/mason-lspconfig.nvim",
-      "onsails/lspkind-nvim",
       "neovim/nvim-lspconfig",
       "jose-elias-alvarez/null-ls.nvim",
-      "onsails/lspkind-nvim",
 
       -- cmp
       "hrsh7th/nvim-cmp",
@@ -46,7 +44,6 @@ return {
     },
     config = function()
       require("neodev").setup()
-      require("lspkind").init()
       require("luasnip").setup({
         -- see: https://github.com/L3MON4D3/LuaSnip/issues/525
         region_check_events = "InsertEnter",
