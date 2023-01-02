@@ -45,6 +45,7 @@ return {
 			"folke/neodev.nvim",
 		},
 		config = function()
+			require("neodev").setup()
 			require("lspkind").init()
 			require("luasnip").setup({
 				-- see: https://github.com/L3MON4D3/LuaSnip/issues/525
@@ -53,7 +54,6 @@ return {
 			})
 			require("luasnip.loaders.from_vscode").lazy_load()
 			require("nvim-autopairs").setup()
-			require("neodev").setup()
 			require("user.lsp")
 			require("user.cmp")
 		end,
