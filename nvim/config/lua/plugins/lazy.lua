@@ -64,9 +64,9 @@ return {
       return os.getenv("SSH_CLIENT") ~= nil
     end,
     config = function()
-      vim.cmd(
-        [[autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif]]
-      )
+      vim.cmd([[
+        autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
+      ]])
     end,
   },
   {
