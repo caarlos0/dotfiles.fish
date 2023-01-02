@@ -2,17 +2,17 @@ local harpoon = require("harpoon.ui")
 local mark = require("harpoon.mark")
 
 local function nav(i)
-	return function()
-		harpoon.nav_file(i)
-	end
+  return function()
+    harpoon.nav_file(i)
+  end
 end
 
 local function k(key, fn, desc)
-	vim.keymap.set("n", key, fn, {
-		noremap = true,
-		silent = true,
-		desc = desc,
-	})
+  vim.keymap.set("n", key, fn, {
+    noremap = true,
+    silent = true,
+    desc = desc,
+  })
 end
 
 k("[j", harpoon.nav_prev, "Harpoon previous")
