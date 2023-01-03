@@ -106,6 +106,8 @@ function install_dotfiles
 		or abort kitty
 	link_file $DOTFILES_ROOT/kitty/macos-launch-services-cmdline $HOME/.config/kitty/macos-launch-services-cmdline backup
 		or abort kitty
+	link_file $DOTFILES_ROOT/wezterm $HOME/.config/wezterm backup
+		or abort wezterm
 	link_file $DOTFILES_ROOT/nvim/config $HOME/.config/nvim backup
 		or abort nvim
 	link_file $DOTFILES_ROOT/yamllint/config $HOME/.config/yamllint/config backup
