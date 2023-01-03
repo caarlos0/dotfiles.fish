@@ -40,6 +40,12 @@ return {
       },
       sections = {
         lualine_c = {
+          "%=",
+          {
+            "filetype",
+            icon_only = true,
+            icon = { align = "right" },
+          },
           {
             "filename",
             file_status = false,
@@ -47,8 +53,11 @@ return {
           },
         },
         lualine_x = {
-          "encoding",
-          "filetype",
+          {
+            require("lazy.status").updates,
+            cond = require("lazy.status").has_updates,
+            color = { fg = "#ff9e64" },
+          },
         },
       },
     },
