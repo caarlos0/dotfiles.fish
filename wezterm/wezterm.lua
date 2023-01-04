@@ -6,6 +6,9 @@ wezterm.on("gui-startup", function()
   window:gui_window():maximize()
 end)
 
+local scheme = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+scheme.background = "#000000"
+
 return {
   font = wezterm.font("Monolisa"),
   font_size = 13.0,
@@ -25,12 +28,13 @@ return {
     "liga=1",
   },
   window_close_confirmation = "NeverPrompt",
-  hide_tab_bar_if_only_one_tab = true,
-  color_scheme = "Catppuccin Mocha",
-  colors = {
-    background = "black",
-    visual_bell = "white",
+  -- tab bar
+  tab_max_width = 32,
+  use_fancy_tab_bar = true,
+  color_schemes = {
+    ["OLEDppuccin"] = scheme,
   },
+  color_scheme = "OLEDppuccin",
   window_decorations = "RESIZE",
   adjust_window_size_when_changing_font_size = false,
   audible_bell = "Disabled",
