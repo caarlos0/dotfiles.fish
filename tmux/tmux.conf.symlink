@@ -1,3 +1,5 @@
+# vi: ft=tmux
+
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'
@@ -82,8 +84,8 @@ set -g status-bg "${thm_bg}"
 set -g status-justify "left"
 set -g status-left-length "100"
 set -g status-right-length "100"
-set -g message-style fg="${thm_fg}",bg="${thm_gray}",align="centre"
-set -g message-command-style fg="${thm_blue}",bg="${thm_gray}",align="centre"
+set -g message-style fg="${thm_fg}",bg="${thm_gray}",align="center"
+set -g message-command-style fg="${thm_blue}",bg="${thm_gray}",align="center"
 set -g pane-border-style fg="${thm_gray}"
 set -g pane-active-border-style fg="${thm_blue}"
 setw -g window-status-activity-style fg="${thm_fg}",bg="${thm_bg}",none
@@ -95,3 +97,9 @@ setw -g window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #(icons #{pane_curre
 setw -g window-status-current-format "#[fg=$thm_bg,bg=$thm_green] #I #(icons #{pane_current_command}) #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
 setw -g clock-mode-colour "${thm_blue}"
 setw -g mode-style "fg=${thm_pink} bg=${thm_black4} bold"
+
+# Show/hide the status bar, showing it only when there's a single window.
+set -g status off
+set-hook -g client-session-changed "if-shell \"test $(tmux list-windows | wc -l) -eq 1\" \"set -g status off\" \"set -g status on\""
+set-hook -g window-unlinked "if-shell \"test $(tmux list-windows | wc -l) -eq 1\" \"set -g status off\" \"set -g status on\""
+set-hook -g window-unlinked "if-shell \"test $(tmux list-windows | wc -l) -eq 1\" \"set -g status off\" \"set -g status on\""
