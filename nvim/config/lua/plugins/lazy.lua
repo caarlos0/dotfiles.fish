@@ -72,16 +72,9 @@ return {
       return os.getenv("SSH_CLIENT") ~= nil
     end,
     config = function()
-      vim.cmd([[
-        autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
-      ]])
-    end,
-  },
-  {
-    "rcarriga/nvim-notify",
-    event = "VeryLazy",
-    config = function()
-      require("user.notify")
+      vim.cmd(
+        [[ autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif ]]
+      )
     end,
   },
   {
@@ -154,23 +147,7 @@ return {
       { "<leader>q", ":Sayonara!<CR>", noremap = true, silent = true, desc = "NeoTree" },
     },
   },
-  {
-    "tpope/vim-abolish",
-    event = "InsertEnter",
-    config = function()
-      local abolishes = {
-        Goreleaser = "GoReleaser",
-        gorelesaer = "goreleaser",
-        carlos0 = "caarlos0",
-        descriptoin = "description",
-        fucn = "func",
-        sicne = "since",
-      }
-      for a, b in pairs(abolishes) do
-        vim.cmd("Abolish " .. a .. " " .. b)
-      end
-    end,
-  },
+  { "tpope/vim-abolish", event = "BufEnter" },
   { "editorconfig/editorconfig-vim", event = "BufEnter" },
   { "tpope/vim-repeat", event = "BufEnter" },
   { "tpope/vim-eunuch", event = "BufEnter" },

@@ -58,3 +58,12 @@ vim.filetype.add({
     tape = "vhs",
   },
 })
+
+vim.cmd([[
+iabbrev Goreleaser GoReleaser
+iabbrev gorelesaer goreleaser
+iabbrev carlos0 caarlos0
+iabbrev descriptoin description
+iabbrev fucn func
+iabbrev sicne since
+]])

@@ -15,6 +15,13 @@ return {
     },
   },
   {
+    "rcarriga/nvim-notify",
+    priority = 999,
+    config = function()
+      require("user.notify")
+    end,
+  },
+  {
     "akinsho/bufferline.nvim",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
