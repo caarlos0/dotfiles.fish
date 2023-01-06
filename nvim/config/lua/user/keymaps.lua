@@ -33,6 +33,7 @@ keymap("n", "]q", ":cnext<CR>", opts)
 -- keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 -- keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
+-- buffer nav
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
@@ -60,6 +61,14 @@ keymap("n", "q", "<Nop>", opts)
 keymap("n", "]<Space>", "m`o<Esc>``", opts)
 keymap("n", "[<Space>", "m`O<Esc>``", opts)
 
+-- system clipboard integration
+keymap("n", "<leader>y", '"+y', opts)
+keymap("n", "<leader>Y", '"+Y', opts)
+
+-- delete to blackhole
+keymap("n", "<leader>d", '"_d', opts)
+keymap("n", "<leader>D", '"_D', opts)
+
 -- Insert --
 -- in insert mode, adds new undo points after , . ! and ?.
 keymap("i", "-", "-<c-g>u", opts)
@@ -82,14 +91,10 @@ keymap("v", "p", '"_dP', opts)
 -- system clipboard integration
 keymap("v", "<leader>y", '"+y', opts)
 keymap("v", "<leader>Y", '"+Y', opts)
-keymap("n", "<leader>y", '"+y', opts)
-keymap("n", "<leader>Y", '"+Y', opts)
 
 -- delete to blackhole
 keymap("v", "<leader>d", '"_d', opts)
 keymap("v", "<leader>D", '"_D', opts)
-keymap("n", "<leader>d", '"_d', opts)
-keymap("n", "<leader>D", '"_D', opts)
 
 -- Visual Block --
 -- Move text up and down
