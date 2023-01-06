@@ -65,18 +65,19 @@ return {
     end,
   },
   {
-    "ojroques/vim-oscyank",
+    "ojroques/nvim-osc52",
     event = "BufReadPost",
     cond = function()
       -- Check if connection is ssh
       return os.getenv("SSH_CLIENT") ~= nil
     end,
     config = function()
+      local osc52 = require("osc52")
       vim.api.nvim_create_autocmd("TextYankPost", {
         pattern = "*",
         callback = function()
           if vim.v.event.operator == "y" and vim.v.event.regname == "+" then
-            vim.cmd([[OSCYankReg +]])
+            osc52.copy_register("+")
           end
         end,
         group = vim.api.nvim_create_augroup("OSCYank", { clear = true }),
