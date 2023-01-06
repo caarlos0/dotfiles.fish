@@ -8,13 +8,11 @@ inlay_hints.setup({
   -- https://github.com/simrat39/inlay-hints.nvim/issues/3
   eol = {
     parameter = {
-      separator = ", ",
       format = function(hints)
         return string.format(" <- (%s)", hints):gsub(":", "")
       end,
     },
     type = {
-      separator = ", ",
       format = function(hints)
         return string.format(" » (%s)", hints):gsub(":", "")
       end,
