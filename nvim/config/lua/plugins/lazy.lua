@@ -154,6 +154,7 @@ return {
       { "<leader>q", ":Sayonara!<CR>", noremap = true, silent = true, desc = "NeoTree" },
     },
   },
+  { "asiryk/auto-hlsearch.nvim", event = "VeryLazy", config = true },
   { "tpope/vim-abolish", event = "BufEnter" },
   { "editorconfig/editorconfig-vim", event = "BufEnter" },
   { "tpope/vim-repeat", event = "BufEnter" },
