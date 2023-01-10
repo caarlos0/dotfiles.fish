@@ -130,22 +130,15 @@ return {
     config = true,
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    cmd = "Neotree",
+    "nvim-tree/nvim-tree.lua",
+    cmd = "NvimTreeToggle",
     keys = {
-      { "<leader>tv", "<cmd>Neotree toggle<cr>", noremap = true, silent = true, desc = "NeoTree" },
+      { "<leader>tv", "<cmd>NvimTreeToggle<cr>", noremap = true, silent = true, desc = "nvim-tree" },
     },
     dependencies = {
-      "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
     },
-    config = {
-      filesystem = {
-        follow_current_file = true,
-        hijack_netrw_behavior = "open_current",
-      },
-    },
+    config = true,
   },
   {
     "mhinz/vim-sayonara",
