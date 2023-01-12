@@ -12,7 +12,6 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = "BufEnter",
-    commit = "414aa7bc08f688bc5b10c0a70d78c39008fda0ef",
     config = true,
   },
   {
