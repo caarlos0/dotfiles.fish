@@ -37,8 +37,7 @@ return {
     "j-hui/fidget.nvim",
     event = "VeryLazy",
     config = {
-      text = { spinner = "dots" },
-      window = { blend = 0 },
+      text = { spinner = "dots_pulse" },
     },
   },
   {
