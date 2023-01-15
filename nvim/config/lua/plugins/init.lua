@@ -1,7 +1,7 @@
 return {
   {
     "catppuccin/nvim",
-    as = "catppuccin",
+    name = "catppuccin",
     priority = 1000,
     config = function()
       require("user.colorscheme")
@@ -25,7 +25,6 @@ return {
     "akinsho/bufferline.nvim",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-      "catppuccin/nvim",
     },
     config = {
       options = {
@@ -37,7 +36,6 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-      "catppuccin/nvim",
     },
     config = {
       options = {
