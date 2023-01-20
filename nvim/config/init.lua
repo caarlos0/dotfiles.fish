@@ -18,6 +18,6 @@ require("lazy").setup("plugins", {
   checker = {
     enabled = true,
     notify = true,
-    frequency = 3600,
+    frequency = 86400,
   },
 })
