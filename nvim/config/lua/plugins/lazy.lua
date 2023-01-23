@@ -148,7 +148,6 @@ return {
   },
   { "asiryk/auto-hlsearch.nvim", event = "VeryLazy", config = true },
   { "tpope/vim-abolish", event = "BufEnter" },
-  { "editorconfig/editorconfig-vim", event = "BufEnter" },
   { "tpope/vim-repeat", event = "BufEnter" },
   { "tpope/vim-eunuch", event = "BufEnter" },
   { "tpope/vim-sleuth", event = "BufEnter" },
