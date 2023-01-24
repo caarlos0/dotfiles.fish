@@ -5,29 +5,25 @@ return {
     config = true,
   },
   {
-    "kylechui/nvim-surround",
-    event = "InsertEnter",
-    config = true,
-  },
-  {
     "lewis6991/gitsigns.nvim",
     event = "BufEnter",
     config = true,
   },
   {
     "folke/todo-comments.nvim",
-    event = "BufEnter",
+    cmd = { "TodoTelescope" },
+    event = "BufReadPost",
     config = {
       highlight = {
         keyword = "bg",
       },
     },
   },
-  {
-    "numToStr/Comment.nvim",
-    event = "BufEnter",
-    config = true,
-  },
+  -- {
+  --   "numToStr/Comment.nvim",
+  --   event = "BufEnter",
+  --   config = true,
+  -- },
   {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
@@ -140,10 +136,21 @@ return {
     config = true,
   },
   {
-    "mhinz/vim-sayonara",
-    cmd = "Sayonara",
+    "echasnovski/mini.bufremove",
+    version = "*",
+    config = function()
+      require("mini.bufremove").setup({})
+    end,
     keys = {
-      { "<leader>q", ":Sayonara!<CR>", noremap = true, silent = true, desc = "NeoTree" },
+      {
+        "<leader>q",
+        function()
+          require("mini.bufremove").delete(0, false)
+        end,
+        noremap = true,
+        silent = true,
+        desc = "Delete buffer",
+      },
     },
   },
   { "asiryk/auto-hlsearch.nvim", event = "VeryLazy", config = true },
