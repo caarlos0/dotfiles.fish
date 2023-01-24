@@ -102,22 +102,6 @@ return {
     end,
   },
   {
-    "folke/zen-mode.nvim",
-    cmd = "ZenMode",
-    config = {
-      window = {
-        width = 220,
-        options = {
-          number = true,
-          relativenumber = true,
-        },
-        plugin = {
-          gitsigns = true,
-        },
-      },
-    },
-  },
-  {
     "tpope/vim-fugitive",
     command = "Git",
     keys = {
