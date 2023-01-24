@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = vim.api.nvim_create_augroup("TrimWhitespace", { clear = true }),
 })
 
--- [[ Highlight on yank ]]
+-- Highlight on yank
 -- See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("Highlight", { clear = true }),
 })
 
--- [[ Jump to the " mark when reading a buffer ]]
+-- Jump to the " mark when reading a buffer
 -- It will search mark " which contains the cursor position when last
 -- exiting the buffer and set the cursor position to that location.
 vim.api.nvim_create_autocmd("BufReadPost", {
@@ -62,4 +62,11 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end
   end,
   group = vim.api.nvim_create_augroup("OpenInLastPosition", { clear = true }),
+})
+
+-- resize splits if window got resized
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+  callback = function()
+    vim.cmd("tabdo wincmd =")
+  end,
 })
