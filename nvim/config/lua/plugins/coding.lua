@@ -33,9 +33,6 @@ return {
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
 
-      -- autopairs (x cmp)
-      "windwp/nvim-autopairs",
-
       -- hints
       "simrat39/inlay-hints.nvim",
 
@@ -50,7 +47,6 @@ return {
         delete_check_events = "InsertLeave",
       })
       require("luasnip.loaders.from_vscode").lazy_load()
-      require("nvim-autopairs").setup()
       require("user.lsp")
       require("user.cmp")
     end,
@@ -81,6 +77,14 @@ return {
     version = "*",
     config = function()
       require("mini.comment").setup({})
+    end,
+  },
+  {
+    "echasnovski/mini.pairs",
+    event = "VeryLazy",
+    version = "*",
+    config = function()
+      require("mini.pairs").setup({})
     end,
   },
 }

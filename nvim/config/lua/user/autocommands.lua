@@ -70,3 +70,11 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
     vim.cmd("tabdo wincmd =")
   end,
 })
+
+-- disable mini.indentscope inside some things
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "help", "NvimTree", "lazy", "mason" },
+  callback = function()
+    vim.b.miniindentscope_disable = true
+  end,
+})
