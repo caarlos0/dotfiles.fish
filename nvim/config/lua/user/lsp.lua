@@ -83,9 +83,7 @@ local on_attach = function(client, bufnr)
   if client.server_capabilities.codeLensProvider then
     vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
       buffer = bufnr,
-      callback = function()
-        vim.lsp.codelens.refresh()
-      end,
+      callback = vim.lsp.codelens.refresh,
       group = group,
     })
     vim.api.nvim_create_autocmd("LspDetach", {
@@ -101,15 +99,18 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
       buffer = bufnr,
       callback = function()
+        -- prevents errors if the client died...
+        local cli = vim.lsp.get_client_by_id(client.id)
+        if cli == nil or cli.is_stopped() then
+          return
+        end
         vim.lsp.buf.document_highlight()
       end,
       group = group,
     })
     vim.api.nvim_create_autocmd({ "CursorMoved" }, {
       buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.clear_references()
-      end,
+      callback = vim.lsp.buf.clear_references,
       group = group,
     })
   end
