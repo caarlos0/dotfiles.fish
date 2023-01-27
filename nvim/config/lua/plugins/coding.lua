@@ -24,6 +24,10 @@ return {
       "hrsh7th/cmp-emoji",
       "hrsh7th/cmp-calc",
 
+      -- auto pairs/tags
+      "windwp/nvim-autopairs",
+      "windwp/nvim-ts-autotag",
+
       -- cmp x lsp
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lsp-signature-help",
@@ -47,6 +51,8 @@ return {
         delete_check_events = "InsertLeave",
       })
       require("luasnip.loaders.from_vscode").lazy_load()
+      require("nvim-autopairs").setup({ check_ts = true })
+      require("nvim-ts-autotag").setup({ enable = true })
       require("user.lsp")
       require("user.cmp")
     end,
@@ -64,14 +70,6 @@ return {
     version = "*",
     config = function()
       require("mini.comment").setup({})
-    end,
-  },
-  {
-    "echasnovski/mini.pairs",
-    event = "VeryLazy",
-    version = "*",
-    config = function()
-      require("mini.pairs").setup({})
     end,
   },
 }

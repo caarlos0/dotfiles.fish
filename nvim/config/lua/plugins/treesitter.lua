@@ -6,6 +6,8 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "nvim-treesitter/nvim-treesitter-context",
+      "RRethy/nvim-treesitter-endwise",
+      "windwp/nvim-autopairs",
     },
     config = function()
       require("nvim-treesitter.configs").setup({
@@ -15,6 +17,26 @@ return {
         indent = {
           enable = true,
         },
+        endwise = {
+          enable = true,
+        },
+        autopairs = {
+          enable = true,
+        },
+        context_commentstring = {
+          enable = true,
+          enable_autocmd = false,
+        },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "<C-space>", -- maps in normal mode to init the node/scope selection with Alt-w
+            node_incremental = "<C-space>", -- increment to the upper named parent
+            node_decremental = "<bs>", -- decrement to the previous node
+            scope_incremental = "<noop>", -- increment to the upper scope (as defined in locals.scm)
+          },
+        },
+        auto_install = false,
         ensure_installed = {
           "bash",
           "cpp",
@@ -51,23 +73,6 @@ return {
           "zig",
           -- "gitignore",
           -- "sql",
-        },
-        auto_install = false,
-        autopairs = {
-          enable = true,
-        },
-        context_commentstring = {
-          enable = true,
-          enable_autocmd = false,
-        },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "<C-space>", -- maps in normal mode to init the node/scope selection with Alt-w
-            node_incremental = "<C-space>", -- increment to the upper named parent
-            node_decremental = "<bs>", -- decrement to the previous node
-            scope_incremental = "<noop>", -- increment to the upper scope (as defined in locals.scm)
-          },
         },
         textobjects = {
           enable = true,

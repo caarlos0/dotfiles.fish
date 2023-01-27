@@ -144,7 +144,7 @@ return {
       {
         "<leader>q",
         function()
-          require("mini.bufremove").delete(0, false)
+          require("mini.bufremove").delete(0, true)
         end,
         noremap = true,
         silent = true,
