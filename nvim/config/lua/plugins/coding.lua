@@ -58,18 +58,13 @@ return {
     end,
   },
   {
-    "echasnovski/mini.surround",
-    version = "*",
-    config = function()
-      require("mini.surround").setup({})
-    end,
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = true,
   },
   {
-    "echasnovski/mini.comment",
+    "numToStr/Comment.nvim",
     event = "VeryLazy",
-    version = "*",
-    config = function()
-      require("mini.comment").setup({})
-    end,
+    config = true,
   },
 }
