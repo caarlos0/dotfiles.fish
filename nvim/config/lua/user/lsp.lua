@@ -1,7 +1,7 @@
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local capabilities = cmp_nvim_lsp.default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local inlay_hints = require("inlay-hints")
-local autocmds = require("lsp_autocmds")
+local autocmds = require("lsp_autocommands")
+local keymaps = require("lsp_keymaps")
 
 inlay_hints.setup({
   renderer = "inlay-hints/render/eol",
@@ -30,29 +30,7 @@ require("mason-lspconfig").setup({
 local on_attach = function(client, bufnr)
   inlay_hints.on_attach(client, bufnr)
   autocmds.on_attach(client, bufnr)
-
-  local builtin = require("telescope.builtin")
-  local opts = { noremap = true, silent = true, buffer = bufnr }
-  vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
-  vim.keymap.set("n", "gr", builtin.lsp_references, opts)
-  vim.keymap.set("n", "<C-j>", builtin.lsp_document_symbols, opts)
-  vim.keymap.set("n", "<C-h>", builtin.lsp_dynamic_workspace_symbols, opts)
-  vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-  vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
-  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-  vim.keymap.set("n", "<leader>D", builtin.lsp_type_definitions, opts)
-  vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run, opts)
-  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-  vim.keymap.set("n", "<leader>gl", vim.diagnostic.open_float, opts)
-  vim.keymap.set("n", "<leader>lr", vim.cmd.LspRestart, opts)
-  vim.keymap.set("n", "[d", function()
-    vim.diagnostic.goto_prev({ float = false })
-  end, opts)
-  vim.keymap.set("n", "]d", function()
-    vim.diagnostic.goto_next({ float = false })
-  end, opts)
+  keymaps.on_attach(bufnr)
 end
 
 local lspconfig = require("lspconfig")
@@ -140,20 +118,9 @@ lspconfig.sumneko_lua.setup({
   on_attach = on_attach,
   settings = {
     Lua = {
-      -- runtime = {
-      --   -- Tell the language server which version of Lua you're using (most likely LuaJIT)
-      --   version = "LuaJIT",
-      --   -- Setup your lua path
-      --   path = runtime_path,
-      -- },
-      -- diagnostics = {
-      --   globals = { "vim" },
-      -- },
       completion = {
         callSnippet = "Replace",
       },
-      -- workspace = { library = vim.api.nvim_get_runtime_file("", true) },
-      -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = { enable = false },
       hint = {
         enable = true,
