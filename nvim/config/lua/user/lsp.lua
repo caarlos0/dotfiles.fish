@@ -53,94 +53,33 @@ local on_attach = function(client, bufnr)
     vim.diagnostic.goto_next({ float = false })
   end, opts)
 
-  -- holds all the autocommands' ids that we create, so we can remove them if the lsp server dies.
-  local autocmd_ids = {}
-
   if client.server_capabilities.documentFormattingProvider and client.name ~= "sumneko_lua" then
-    table.insert(
-      autocmd_ids,
-      vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format({
-            filter = function(cli)
-              return cli.name == client.name
-            end,
-          })
-        end,
-        group = group,
-      })
-    )
+    vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format({
+          filter = function(cli)
+            return cli.name == client.name
+          end,
+        })
+      end,
+      group = group,
+    })
   end
 
   -- If the organizeImports codeAction runs for lua files, depending on
   -- where the cursor is, it'll reorder the args and break stuff.
   -- This took me way too long to figure out.
   if client.server_capabilities.codeActionProvider and vim.bo.filetype ~= "lua" and client.name ~= "null-ls" then
-    table.insert(
-      autocmd_ids,
-      vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-        buffer = bufnr,
-        callback = function()
-          OrganizeImports(client, bufnr, 1500)
-        end,
-        group = group,
-      })
-    )
+    vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+      buffer = bufnr,
+      callback = function()
+        OrganizeImports(client, bufnr, 1500)
+      end,
+      group = group,
+    })
   end
-
-  if client.server_capabilities.codeLensProvider then
-    table.insert(
-      autocmd_ids,
-      vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-        buffer = bufnr,
-        callback = vim.lsp.codelens.refresh,
-        group = group,
-      })
-    )
-  end
-
-  if client.server_capabilities.documentHighlightProvider then
-    table.insert(
-      autocmd_ids,
-      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-        buffer = bufnr,
-        callback = vim.lsp.buf.document_highlight,
-        group = group,
-      })
-    )
-    table.insert(
-      autocmd_ids,
-      vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-        buffer = bufnr,
-        callback = vim.lsp.buf.clear_references,
-        group = group,
-      })
-    )
-  end
-
-  vim.api.nvim_create_autocmd("LspDetach", {
-    buffer = bufnr,
-    callback = function()
-      -- only do it if this client is dead
-      if not client.is_stopped() then
-        return
-      end
-
-      -- delete all our autocmds for this client
-      for _, id in ipairs(autocmd_ids) do
-        vim.api.nvim_del_autocmd(id)
-      end
-
-      -- needed for codelens, doesn't hurt anyway
-      vim.api.nvim_buf_clear_namespace(bufnr, -1, 0, -1)
-    end,
-    group = group,
-  })
 end
-
--- vim.schedule(vim.lsp.buf.document_highlight)
--- vim.lsp.for_each_buffer_client(0, function(client, client_id, bufnr) print(vim.inspect(client)) end)
 
 local lspconfig = require("lspconfig")
 lspconfig.gopls.setup({
@@ -327,4 +266,85 @@ end
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = "rounded",
   focusable = false,
+})
+
+-- global autocmds
+
+--- Checks if any of the active clients in the given buffer pass the filter fn.
+---@param bufnr
+---@param fn
+---@return boolean
+local any_client_has = function(bufnr, fn)
+  for _, client in
+    pairs(vim.lsp.get_active_clients({
+      bufnr = bufnr,
+    }))
+  do
+    if fn(client) then
+      return true
+    end
+  end
+  return false
+end
+
+--- Returns true if the any active client has codelens capabilities.
+---@param bufnr
+---@param client
+---@return
+---@return
+local any_client_has_codelens = function(bufnr)
+  return any_client_has(bufnr, function(client)
+    return client.server_capabilities.codeLensProvider
+  end)
+end
+
+--- Returns true if any active client has document_highlight capabilities.
+---@param bufnr
+---@param client
+---@return
+---@return
+local any_client_has_highlight = function(bufnr)
+  return any_client_has(bufnr, function(client)
+    return client.server_capabilities.documentHighlightProvider
+  end)
+end
+
+vim.api.nvim_create_autocmd("LspDetach", {
+  buffer = bufnr,
+  callback = function()
+    if any_client_has_codelens(bufnr) then
+      vim.lsp.codelens.clear()
+    end
+  end,
+  group = group,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+  buffer = bufnr,
+  callback = function()
+    if any_client_has_codelens(bufnr) then
+      vim.lsp.codelens.refresh()
+    end
+  end,
+  group = group,
+})
+
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+  buffer = bufnr,
+  callback = function()
+    if any_client_has_highlight(bufnr) then
+      vim.lsp.buf.document_highlight()
+    end
+  end,
+  group = group,
+})
+
+vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+  buffer = bufnr,
+  callback = function()
+    if any_client_has_highlight(bufnr) then
+      vim.lsp.buf.clear_references()
+    end
+  end,
+  group = group,
 })
