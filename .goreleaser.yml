@@ -7,17 +7,62 @@ changelog:
     - title: 'editor'
       regexp: "^.*\\(nvim\\):+.*$"
       order: 200
+      groups:
+        - title: improvements
+          regexp: "^feat.*$"
+          order: 100
+        - title: fixes
+          regexp: "^fix.*$"
+          order: 200
+        - title: other
+          order: 9999
     - title: 'tmux'
       regexp: "^.*\\(tmux\\):+.*$"
       order: 250
+      groups:
+        - title: improvements
+          regexp: "^feat.*$"
+          order: 100
+        - title: fixes
+          regexp: "^fix.*$"
+          order: 200
+        - title: other
+          order: 9999
     - title: 'system'
       regexp: "^.*\\((system|fish|fzf|macos|ssh)\\):+.*$"
       order: 100
+      groups:
+        - title: improvements
+          regexp: "^feat.*$"
+          order: 100
+        - title: fixes
+          regexp: "^fix.*$"
+          order: 200
+        - title: other
+          order: 9999
     - title: 'git'
       regexp: "^.*\\((git|gh)\\):+.*$"
       order: 300
+      groups:
+        - title: improvements
+          regexp: "^feat.*$"
+          order: 100
+        - title: fixes
+          regexp: "^fix.*$"
+          order: 200
+        - title: other
+          order: 9999
     - title: 'terminals'
       regexp: "^.*\\((kitty|wezterm|alacritty)\\):+.*$"
       order: 400
-    - title: Other work
+      groups:
+        - title: improvements
+          regexp: "^feat.*$"
+          order: 100
+        - title: fixes
+          regexp: "^fix.*$"
+          order: 200
+        - title: other
+          order: 9999
+    - title: other
       order: 999
