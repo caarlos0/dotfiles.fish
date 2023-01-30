@@ -33,7 +33,7 @@ return {
     "folke/todo-comments.nvim",
     cmd = { "TodoTelescope" },
     event = "BufReadPost",
-    config = {
+    opts = {
       highlight = {
         keyword = "bg",
       },
@@ -47,7 +47,7 @@ return {
   {
     "j-hui/fidget.nvim",
     event = "VeryLazy",
-    config = {
+    opts = {
       text = { spinner = "dots_pulse" },
     },
   },
@@ -103,7 +103,7 @@ return {
   },
   {
     "tpope/vim-fugitive",
-    command = "Git",
+    cmd = "Git",
     keys = {
       { "<leader>gs", vim.cmd.Git, noremap = true, silent = true, desc = "Open Git" },
     },

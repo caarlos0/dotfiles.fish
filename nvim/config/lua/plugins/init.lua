@@ -10,7 +10,7 @@ return {
   {
     "nvim-tree/nvim-web-devicons",
     priority = 999,
-    config = {
+    opts = {
       default = true,
     },
   },
@@ -26,7 +26,7 @@ return {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    config = {
+    opts = {
       options = {
         diagnostics = "nvim_lsp",
         offsets = {
@@ -45,7 +45,7 @@ return {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    config = {
+    opts = {
       options = {
         theme = "catppuccin",
         component_separators = "",

@@ -5,7 +5,7 @@ return {
     keys = {
       { "<leader>smb", vim.cmd.SymbolsOutline, noremap = true, silent = true, desc = "Symbols Outline" },
     },
-    config = { width = 25 },
+    opts = { width = 25 },
   },
   {
     "williamboman/mason.nvim",
