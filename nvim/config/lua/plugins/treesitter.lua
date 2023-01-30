@@ -6,6 +6,7 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "nvim-treesitter/nvim-treesitter-context",
+      -- "nvim-treesitter/playground",
       "RRethy/nvim-treesitter-endwise",
       "windwp/nvim-autopairs",
     },
@@ -47,6 +48,7 @@ return {
           "git_rebase",
           "gitattributes",
           "gitcommit",
+          "gitignore", -- will require tree-sittter-cli
           "go",
           "gomod",
           "gowork",
@@ -62,17 +64,17 @@ return {
           "make",
           "markdown",
           "markdown_inline",
+          "query",
           "regex",
           "rust",
           "scss",
+          "sql", -- will require tree-sittter-cli
           "terraform",
           "toml",
           "vhs",
           "vim",
           "yaml",
           "zig",
-          -- "gitignore",
-          -- "sql",
         },
         textobjects = {
           enable = true,
