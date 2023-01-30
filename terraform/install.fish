@@ -1,2 +1,2 @@
 #!/usr/bin/env fish
-abbr -a tf terraform
+alias --save tf=terraform

@@ -1,21 +1,21 @@
 #!/usr/bin/env fish
-abbr -a kx kubectx
-abbr -a kn kubens
+alias --save kx=kubectx
+alias --save kn=kubens
 
-abbr -a k kubectl
-abbr -a sk 'kubectl -n kube-system'
-abbr -a kg 'kubectl get'
-abbr -a kgp 'kubectl get po'
-abbr -a kga 'kubectl get --all-namespaces'
-abbr -a kd 'kubectl describe'
-abbr -a kdp 'kubectl describe po'
-abbr -a krm 'kubectl delete'
-abbr -a ke 'kubectl edit'
-abbr -a kex 'kubectl exec -it'
-abbr -a kdebug 'kubectl run -i -t debug --rm --image=caarlos0/debug --restart=Never'
-abbr -a knrunning 'kubectl get pods --field-selector=status.phase!=Running'
-abbr -a kfails 'kubectl get po -owide --all-namespaces | grep "0/" | tee /dev/tty | wc -l'
-abbr -a kimg "kubectl get deployment --output=jsonpath='{.spec.template.spec.containers[*].image}'"
-abbr -a kvs "kubectl view-secret"
-abbr -a kgno 'kubectl get no --sort-by=.metadata.creationTimestamp'
-abbr -a kdrain 'kubectl drain --ignore-daemonsets --delete-local-data'
+alias --save k=kubectl
+alias --save sk='kubectl -n kube-system'
+alias --save kg='kubectl get'
+alias --save kgp='kubectl get po'
+alias --save kga='kubectl get --all-namespaces'
+alias --save kd='kubectl describe'
+alias --save kdp='kubectl describe po'
+alias --save krm='kubectl delete'
+alias --save ke='kubectl edit'
+alias --save kex='kubectl exec -it'
+alias --save kdebug='kubectl run -i -t debug --rm --image=caarlos0/debug --restart=Never'
+alias --save knrunning='kubectl get pods --field-selector=status.phase!=Running'
+alias --save kfails='kubectl get po -owide --all-namespaces | grep "0/" | tee /dev/tty | wc -l'
+alias --save kimg="kubectl get deployment --output=jsonpath='{.spec.template.spec.containers[*].image}'"
+alias --save kvs="kubectl view-secret"
+alias --save kgno='kubectl get no --sort-by=.metadata.creationTimestamp'
+alias --save kdrain='kubectl drain --ignore-daemonsets --delete-local-data'

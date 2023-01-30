@@ -1,11 +1,11 @@
 #!/usr/bin/env fish
 if not command -qs nvim
-	exit
+    exit
 end
 
-abbr -a e 'nvim'
-abbr -a v 'nvim'
-abbr -a vim 'nvim'
+alias --save e='nvim'
+alias --save v='nvim'
+alias --save vim='nvim'
 
 # update plugins
 nvim --headless "+Lazy! sync" +qa &>/dev/null
