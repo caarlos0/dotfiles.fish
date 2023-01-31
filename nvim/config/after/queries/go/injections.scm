@@ -3,7 +3,7 @@
 ; e.g. const query = `SELECT * FROM users WHERE name = 'John'`;
 
 (const_spec
-  name: (identifier) @_name (#match? @_name "[Q|q]uery")
+  name: (identifier) @_name (#match? @_name "[Qq]uery")
   value: (expression_list
     (raw_string_literal) @sql)
     (#offset! @sql 0 1 0 -1))
