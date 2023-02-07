@@ -5,7 +5,7 @@ changelog:
   use: github
   groups:
     - title: 'editor'
-      regexp: "^.*\\(nvim\\):+.*$"
+      regexp: "^.*\\(n?vim\\):+.*$"
       order: 200
       groups:
         - title: improvements
