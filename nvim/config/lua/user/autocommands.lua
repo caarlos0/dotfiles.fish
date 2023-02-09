@@ -53,8 +53,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Jump to the " mark when reading a buffer
 -- It will search mark " which contains the cursor position when last
 -- exiting the buffer and set the cursor position to that location.
-vim.api.nvim_create_autocmd("BufReadPost", {
-  pattern = "*",
+vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
     if vim.bo.filetype == "gitcommit" then
       return
