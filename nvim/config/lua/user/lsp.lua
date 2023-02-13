@@ -49,6 +49,9 @@ lspconfig.gopls.setup({
         parameterNames = true,
         rangeVariableTypes = true,
       },
+      analyses = {
+        fieldalignment = true,
+      },
     },
   },
   flags = {
