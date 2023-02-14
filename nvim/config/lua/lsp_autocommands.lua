@@ -46,7 +46,7 @@ local M = {}
 ---@param client table Client object
 ---@param bufnr number
 M.on_attach = function(client, bufnr)
-  if client.server_capabilities.documentFormattingProvider and client.name ~= "sumneko_lua" then
+  if client.server_capabilities.documentFormattingProvider and client.name ~= "lua_ls" then
     vim.api.nvim_create_autocmd({ "BufWritePre" }, {
       buffer = bufnr,
       callback = function()
