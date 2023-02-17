@@ -11,7 +11,7 @@
 ; inject sql in single line strings
 (call_expression
   (selector_expression
-    field: (field_identifier) @_field (#any-of? @_field "GetContext" "ExecContext" "SelectContext"))
+    field: (field_identifier) @_field (#any-of? @_field "GetContext" "ExecContext" "SelectContext" "In"))
   (argument_list
     (interpreted_string_literal) @sql)
     (#offset! @sql 0 1 0 -1)) ; wtf does this do?
@@ -19,7 +19,7 @@
 ; inject sql in multi line strings
 (call_expression
   (selector_expression
-    field: (field_identifier) @_field (#any-of? @_field "GetContext" "ExecContext" "SelectContext"))
+    field: (field_identifier) @_field (#any-of? @_field "GetContext" "ExecContext" "SelectContext" "In"))
   (argument_list
     (raw_string_literal) @sql)
     (#offset! @sql 0 1 0 -1)) ; wtf does this do?
