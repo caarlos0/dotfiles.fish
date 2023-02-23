@@ -1,1 +1,2 @@
 nvim/config/lazy-lock.json linguist-generated
+tmux/tmux.conf.symlink     linguist-language=bash
