@@ -53,19 +53,21 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Jump to the " mark when reading a buffer
 -- It will search mark " which contains the cursor position when last
 -- exiting the buffer and set the cursor position to that location.
-vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function()
-    if vim.bo.filetype == "gitcommit" then
-      return
-    end
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
-    if mark[1] > 0 and mark[1] <= lcount then
-      pcall(vim.api.nvim_win_set_cursor, 0, mark)
-    end
-  end,
-  group = vim.api.nvim_create_augroup("OpenInLastPosition", { clear = true }),
-})
+-- TODO: this stopped working on neovim nightly
+--
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   callback = function()
+--     if vim.bo.filetype == "gitcommit" then
+--       return
+--     end
+--     local mark = vim.api.nvim_buf_get_mark(0, '"')
+--     local lcount = vim.api.nvim_buf_line_count(0)
+--     if mark[1] > 0 and mark[1] <= lcount then
+--       pcall(vim.api.nvim_win_set_cursor, 0, mark)
+--     end
+--   end,
+--   group = vim.api.nvim_create_augroup("OpenInLastPosition", { clear = true }),
+-- })
 
 -- resize splits if window got resized
 vim.api.nvim_create_autocmd({ "VimResized" }, {
