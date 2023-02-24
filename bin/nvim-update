@@ -1,0 +1,8 @@
+#!/bin/fish
+cd (zoxide query forks/neovim)
+git checkout master
+git tag -d nightly
+git pull origin
+git checkout nightly
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
