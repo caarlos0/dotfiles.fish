@@ -3,6 +3,7 @@ builds:
 changelog:
   sort: asc
   use: github
+  divider: '---'
   groups:
     - title: 'editor'
       regexp: "^.*\\(n?vim\\):+.*$"
