@@ -32,9 +32,11 @@ M.on_attach = function(bufnr)
   keymap("<leader>lr", vim.cmd.LspRestart, bufnr)
   keymap("[d", function()
     vim.diagnostic.goto_prev({ float = false })
+    vim.cmd("norm zz")
   end, bufnr)
   keymap("]d", function()
     vim.diagnostic.goto_next({ float = false })
+    vim.cmd("norm zz")
   end, bufnr)
 end
 
