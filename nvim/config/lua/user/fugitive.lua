@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
       return
     end
 
-    vim.keymap.set("n", "<leader>Pp", function()
+    vim.keymap.set("n", "gPp", function()
       vim.cmd.Git("push")
     end, {
       buffer = vim.api.nvim_get_current_buf(),
