@@ -3,7 +3,10 @@ local mux = wezterm.mux
 
 ---@diagnostic disable-next-line: unused-local
 local monolisa = wezterm.font("Monolisa")
+---@diagnostic disable-next-line: unused-local
 local jetbrains = wezterm.font("JetBrains Mono")
+---@diagnostic disable-next-line: unused-local
+local sfmono = wezterm.font("SF Mono")
 
 wezterm.on("gui-startup", function()
   local _, _, window = mux.spawn_window({})
@@ -25,7 +28,7 @@ return {
   enable_scroll_bar = false,
 
   -- fonts
-  font = jetbrains,
+  font = monolisa,
   font_size = 14.0,
   harfbuzz_features = {
     "zero=1",
