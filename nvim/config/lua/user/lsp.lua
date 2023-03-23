@@ -63,6 +63,16 @@ lspconfig.gopls.setup({
   },
 })
 
+lspconfig.ltex.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    ltex = {
+      language = "en-US",
+    },
+  },
+})
+
 lspconfig.yamlls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
