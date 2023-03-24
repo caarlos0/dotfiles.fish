@@ -63,4 +63,5 @@ iabbrev carlos0 caarlos0
 iabbrev descriptoin description
 iabbrev fucn func
 iabbrev sicne since
+iabbrev emtpy empty
 ]])
