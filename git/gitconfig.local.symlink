@@ -31,8 +31,6 @@
 	whitespace = nowarn
 [help]
 	autocorrect = 1
-[diff]
-	tool = diffmerge
 [grep]
 	extendRegexp = true
 	lineNumber = true
