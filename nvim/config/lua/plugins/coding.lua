@@ -67,4 +67,13 @@ return {
     event = "VeryLazy",
     config = true,
   },
+  {
+    "JellyApple102/easyread.nvim",
+    ft = { "text", "markdown" },
+    config = function()
+      require("easyread").setup({
+        fileTypes = { "text", "markdown" },
+      })
+    end,
+  },
 }
