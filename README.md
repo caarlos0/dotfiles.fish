@@ -1,3 +1,10 @@
+# Deprecated
+
+There's a lot of things you can copy for your dotfiles, but the latest and greatest versions 
+of everything are being kept **only** [here](https://github.com/caarlos0/dotfiles.nix).
+
+----
+
 <p align="center">
   <img alt="header image" src="https://raw.githubusercontent.com/caarlos0/dotfiles.fish/master/docs/header.svg" height="350" />
   <h2 align="center">carlos' dotfiles</h2>
